@@ -1,0 +1,148 @@
+%! TEX root = thesis
+
+\chapter{Style Testing}
+
+\section{Section Heading}
+
+\subsection{Subsection Heading}
+
+\subsubsection{Subsubsection Heading}
+
+\setcounter{footnote}{43}
+
+Applying the rank-nullity theorem to the compatibility matrix, we arrive at the Maxwell--Calladine theorem.\footnote{Originally devised by Maxwell in the context of tensegrity structures.}
+%
+\begin{theorem}[Maxwell--Calladine index theorem]
+  Given a mechanism with $n$ degrees of freedom and $m$ constraints in a state of self stress, the number of zero modes $z$ and the number of self stresses $s$ satisfy the relation
+  \begin{equation*}
+    n - m = z - s.
+  \end{equation*}
+\end{theorem}
+
+\setcounter{footnote}{8}
+
+Foobar\footnote{%
+Quisquam at nam eos sit totam et. Cumque dignissimos sunt ea consequatur voluptatem nihil minima consequuntur. Explicabo aliquam molestiae eum mollitia enim iusto vel. Maxime velit dolorem quibusdam perferendis quia porro tenetur. Dolorem alias et laborum eos praesentium officiis sed.}
+
+\subsection{Sans Serif Font Scaling}
+
+\textsf{a}a
+\textsf{b}b
+\textsf{c}c
+\textsf{d}d
+\textsf{e}e
+\textsf{f}f
+\textsf{g}g
+\textsf{h}h
+\textsf{i}i
+\textsf{j}j
+\textsf{k}k
+\textsf{l}l
+\textsf{m}m
+\textsf{n}n
+\textsf{o}o
+\textsf{p}p
+\textsf{q}q
+\textsf{r}r
+\textsf{s}s
+\textsf{t}t
+\textsf{u}u
+\textsf{v}v
+\textsf{w}w
+\textsf{x}x
+\textsf{y}y
+\textsf{z}z\\
+\textsf{A}A
+\textsf{B}B
+\textsf{C}C
+\textsf{D}D
+\textsf{E}E
+\textsf{F}F
+\textsf{G}G
+\textsf{H}H
+\textsf{I}I
+\textsf{J}J
+\textsf{K}K
+\textsf{L}L
+\textsf{M}M
+\textsf{N}N
+\textsf{O}O
+\textsf{P}P
+\textsf{Q}Q
+\textsf{R}R
+\textsf{S}S
+\textsf{T}T
+\textsf{U}U
+\textsf{V}V
+\textsf{W}W
+\textsf{X}X
+\textsf{Y}Y
+\textsf{Z}Z
+
+\begin{gather*}
+\mathsf{a}a
+\mathsf{b}b
+\mathsf{c}c
+\mathsf{d}d
+\mathsf{e}e
+\mathsf{f}f
+\mathsf{g}g
+\mathsf{h}h
+\mathsf{i}i
+\mathsf{j}j
+\mathsf{k}k
+\mathsf{l}l
+\mathsf{m}m
+\mathsf{n}n
+\mathsf{o}o
+\mathsf{p}p
+\mathsf{q}q
+\mathsf{r}r
+\mathsf{s}s
+\mathsf{t}t
+\mathsf{u}u
+\mathsf{v}v
+\mathsf{w}w
+\mathsf{x}x
+\mathsf{y}y
+\mathsf{z}z\\
+\mathsf{A}A
+\mathsf{B}B
+\mathsf{C}C
+\mathsf{D}D
+\mathsf{E}E
+\mathsf{F}F
+\mathsf{G}G
+\mathsf{H}H
+\mathsf{I}I
+\mathsf{J}J
+\mathsf{K}K
+\mathsf{L}L
+\mathsf{M}M
+\mathsf{N}N
+\mathsf{O}O
+\mathsf{P}P
+\mathsf{Q}Q
+\mathsf{R}R
+\mathsf{S}S
+\mathsf{T}T
+\mathsf{U}U
+\mathsf{V}V
+\mathsf{W}W
+\mathsf{X}X
+\mathsf{Y}Y
+\mathsf{Z}Z
+\end{gather*}
+
+To evaluate the above integral, we symmetrize the expression in the exponential by changing variables $q_3 \to q_3 - (\lambda-1)^{-1}a\theta_1$, which yields
+\begin{equation}
+  \begin{aligned}
+    \mathcal{P}_{\hat{\theta}_1}(\theta_1) &\sim \frac{a^2\lambda}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}\!\int_{-\infty}^{\infty} \dd q_3\, \exp\left\{-\frac{\beta\kappa(\lambda-1)^2}{32\lambda^2 a^2}\left[q_3^2 - \frac{\lambda^2 a^2\theta_1^2}{(\lambda-1)^2}\right]^2\right\}\\
+                                           &= a^2\lambda\frac{(2\pi)^{3/2}}{(\beta\kappa)^{7/4}}\sqrt{\frac{\lambda{a}}{|\lambda-1|}}\exp\left[-\frac{\beta\kappa\lambda^2a^2\theta_1^4}{32(\lambda-1)^2}\right]\\
+                                           &{} \qquad\times\int_{0}^{\infty} \dd x\, x^{-1/2}\exp\left(-\frac{1}{2}x^2 + \frac{\sqrt{\beta\kappa}\lambda a\theta_1^2}{4|\lambda-1|}x\right)\\
+                                           &= a^2\lambda\frac{(2\pi)^{3/2}}{(\beta\kappa)^{7/4}}\sqrt{\frac{\pi\lambda{a}}{|\lambda-1|}}\exp\left[-\frac{\beta\kappa\lambda^2a^2\theta_1^4}{64(\lambda-1)^2}\right]D_{-1/2}\left(-\frac{\sqrt{\beta\kappa}\lambda a\theta_1^2}{4|\lambda-1|}\right),
+  \end{aligned}
+\end{equation}
+where $D_{-1/2}(\cdot)$ is the parabolic cylinder function~\cite{olver2010}.
+
+

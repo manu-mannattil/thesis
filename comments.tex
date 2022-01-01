@@ -1,0 +1,36 @@
+%! TEX root = thesis
+
+\chapter{Comments and TODO}
+
+\section{Comments on Paper 1}
+
+\begin{enumerate}
+  \item In the derivation for regular points, it's not readily clear that the matrix in the exponential would be positive definite.  But this is so since it's the Hessian of a function ($=U(q) + |\hat{\vartheta}(q) - \vartheta|^{2}$) which has a minimum at $q_{i}$.
+\end{enumerate}
+
+\section{Comments on Paper 2}
+
+\begin{enumerate}
+
+  \item What's the connection between the Faddeev--Popov method and the coarea formula?  See Zee's book on QFT.
+  \item Language: point \emph{in} manifold or point \emph{on} manifold? N.B. a manifold is a set.
+  \item I didn't use the constant-rank theorem since that'd require more explanation, e.g., there could be rows of the Jacobian that are \emph{not} independent if the requirement is only constant rank.  Perhaps we can add that preimage theorem, constant-rank theorem, etc., are variations of the implicit function theorem.
+  \item I'm being purposefully sloppy in the definition of the tangent space.
+    The vectors $\bm{v}$ should be picked from $T_{\bm{q}} \mathcal{Q}$ (in which case I'll need to define that first) and not $\mathbb{R}^n$.
+    Here it's okay since $\mathcal{Q}$ is always considered as a submanifold of $\mathbb{R}^n$, which makes $T_{\bm{q}}\mathcal{Q} = \mathbb{R}^n$.
+  \item What's the guarantee that a rank deficiency leads to a bifurcation?  Also, rank-deficiency singularities could be parameterization singularities.  I think CS singularities require rank deficiency, but rank deficiency doesn't always guarantee CS singularity.
+  \item A zero mode is technically a motion on the tangent bundle $TM$ since you want $q \in \Omega$ and $v \in T_{q}\Omega$.
+  \item Even though $q$ and $v$ belong to different spaces we are taking $q \to q + v$.  Although I'm confident that there's nothing wrong with this, I want to understand this better.  Goes back to CM where we take $q \approx q_0 + v t$.
+  \item What's the connection between energy near a singularity and the ``affine energy'' in Lubensky et al.'s RPP review (Eq.~3.10)?
+  \item Even though zero modes corresponding to flexes don't cost energy, we still have $x\tr\hess f_ix \neq 0$.  This is because flex is ``nonlinear''.  However, the partition function calculation is still fine because the projection operator will kill these nonzero terms.
+  \item In our discussion, we have focused on self stress states of points that belong to the constraint manifold.
+  However, we should note all points $q \notin \Omega$ for which $C(q)$ drops rank, also admit self stress states.
+  Discuss issues, e.g., drop in rank doesn't guarantee singularity, etc.
+  \item Can you call an ordinary function positive definite or positive semidefinite?
+  \item If $A + B = C$, where $A, B, C$ are vector spaces, does one say that $A$ and $B$ spans $C$ or $A$ and $B$ generates $C$?  Or are both wrong?
+  \item Plot $\beta F(\xi)$ instead of saying that you're plotting free-energy in units of $\beta^{-1}$.
+  \item Histogram method for free energy is also called ``visited states method''.
+  \item What's the guarantee that states of stress (and singularities) are gauge invariant w.r.t. the local body frame of the mechanism?  
+    Gauge invariance in the sense of Littlejohn's papers on few-body systems.
+
+\end{enumerate}

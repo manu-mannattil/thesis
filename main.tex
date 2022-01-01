@@ -1,0 +1,59 @@
+%! TEX root = thesis
+
+\begin{document}
+
+\frontmatter
+\input{front}
+
+\mainmatter
+\include{chap01}
+\include{chap02}
+\include{chap03}
+\include{chapss}
+\include{chapcv}
+\include{comments}
+
+% BibTeX version.
+% Bibliography in \small font.
+\bibliographystyle{apsrev4-1}
+\setlength{\bibsep}{0pt plus 0.3ex}
+\setcounter{footnote}{0}
+\def\thefootnote{\fnsymbol{footnote}}
+\def\bibpreamble{{\normalsize \emph{Note---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.%
+  \footnote{\url{https://web.archive.org}}\vspace\baselineskip}}
+\small
+\bibliography{library}
+
+% BibLaTeX version.
+% \defbibnote{myprenote}{\emph{Note---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https://web.archive.org}}\vspace\baselineskip}
+% \def\bibfont{\small}
+% \setlength\bibitemsep{0pt}
+% \printbibliography[prenote=myprenote]
+
+% Colophon.
+\ifnotsu{%
+  \blankpage
+  \centering
+  \vfill
+  {\normalsize\sffamily\bfseries Colophon}\\[1.5em]
+  \begin{minipage}{0.75\textwidth}
+    \small This thesis was produced using \LaTeX---a set of macros for the {\TeX} typesetting system---and the \emph{memoir} class.
+    Figures and plots were created using a combination of Inkscape, Matplotlib, POV-Ray, and Mathematica.
+    The body text is set in 10~pt \emph{Utopia} and the text in the figures is set in 8/7~pt \emph{{\TeX} Gyre Heros}, a free clone of \emph{Helvetica}.
+    Chapter and section headings are set in \emph{Roboto} and Mathematics is set in Fourier-GUT\emph{enberg}.\\\\ 
+    Much time was saved during the writing of this thesis thanks to several free and open source software including
+    BibTool,
+    Debian GNU/Linux,
+    GNU Core Utils and Bash,
+    Git,
+    Inkscape,
+    \LaTeXe (from \TeX~Live),
+    Matplotlib,
+    Python,
+    Vim,
+    and Vim\TeX.
+  \end{minipage}
+  \vfill
+}
+
+\end{document}

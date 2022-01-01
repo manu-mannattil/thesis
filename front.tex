@@ -1,0 +1,67 @@
+%! TEX root = thesis
+
+\frontmatter
+
+\chapter*{Abstract}\thispagestyle{empty}
+
+TODO...
+
+\makeatletter
+  \if@twoside\blankpage\fi
+\makeatother
+
+% Title page -----------------------------------------------------------
+
+\newpage\thispagestyle{empty}
+
+\begin{center*}
+  \begin{Spacing}{2.0}
+  {\LARGE{\widetext{THIS IS A REALLY LONG TITLE\\ FOR MY THESIS}}}\\
+  \end{Spacing}
+  \vspace{3em}
+  \emph{by}\\[3em]
+  \widetext{MANU MANNATTIL}\\
+  \vspace{1em}
+  \begin{Spacing}{1.25}
+  M.Sc.~(Integrated), Indian Institute of Technology Kanpur, 2015\\[5em]
+  Dissertation\\
+  Submitted in Partial Fulfillment of the Requirements\\
+  for the degree of\\
+  Doctor of Philosophy in Physics\\[5em]
+  \end{Spacing}
+  \includegraphics[scale=1.25]{sulogo.pdf}\\[1em]
+  \widetext{SYRACUSE UNIVERSITY}\\[1em]
+  August 2023
+\end{center*}
+
+% Copyright page -------------------------------------------------------
+
+\newpage\thispagestyle{empty}
+
+\begin{center*}
+  \begin{Spacing}{1.25}
+  Copyright {\copyright} 2023 Manu Mannattil\\
+  All rights reserved
+  \ifnotsu{\\[2em]\color{gray}Git commit \href{https://github.com/manu-mannattil/thesis/tree/\gitHash}{\texttt{\gitShortHash}}; \gitCommitterDate}
+  \end{Spacing}
+\end{center*}
+
+% Acknowledgments ------------------------------------------------------
+
+\newpage\thispagestyle{empty}
+
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+
+TODO...
+
+% TOC ------------------------------------------------------------------
+
+\newpage\thispagestyle{empty}
+
+\tableofcontents
+
+% Notation -------------------------------------------------------------
+
+\addcontentsline{toc}{chapter}{Notation}
+\input{notation}

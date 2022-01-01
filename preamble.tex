@@ -1,0 +1,126 @@
+% vim: ft=tex nospell et sts=2 sw=2
+%! TEX root = thesis
+% Common packages and preamble.
+
+\usepackage[T1]{fontenc}
+\usepackage{emem}
+
+% BibTeX
+\usepackage[numbers,sort&compress]{natbib}
+
+% BibLaTeX
+% \usepackage[english]{babel}
+% \usepackage[backend=biber,style=phys,eprint=true,biblabel=brackets,pageranges=false,backref]{biblatex}
+% \DefineBibliographyStrings{english}{
+%   % Formatting of back references.
+%   backrefpage = {p.~},
+%   backrefpages = {pp.~},
+% }
+% \DeclareFieldFormat{titlecase}{#1} % titlecase book titles
+% \addbibresource{library.bib}
+
+\usepackage[smaller]{acronym}
+
+%%% End notes ----------------------------------------------------------
+
+% % memoir allows customization of the endnotes heading, but it doesn't
+% % seem to add the heading to the TOC.  But I want to add customized
+% % headings to the TOC, so we use a blank heading and define a \section*
+% % the usual way.
+% % Patch \printpagenotes to use a \section*.
+% \let\oldprintpagenotes\printpagenotes
+% \def\printpagenotes{%
+%   \section*{Notes for Chapter \thechapter}
+%   \addcontentsline{toc}{section}{Notes for Chapter \thechapter}
+%   \oldprintpagenotes
+% }
+%
+% \makepagenote                                           % enable endnotes
+% \renewcommand*{\notesname}{Chapter Notes}               % endnotes heading
+% \renewcommand*{\notedivision}{}                         % suppress endnote title
+% \renewcommand*{\pagenotesubhead}[3]{}
+%
+% % Backlinks.  This messes up hanging indentation.
+% % \notepageref
+%
+% % Hanging indent for endnotes.
+% % https://tex.stackexchange.com/a/57515
+% \renewcommand*\prenotetext{%
+%   \list{}{%
+%     \setlength\leftmargin{2em}%
+%     \setlength\topsep{-\baselineskip}}
+%   \item}
+% \renewcommand*\postnotetext{\endlist\bigskip\medskip}
+% \renewcommand*\idtextinnotes[1]{#1.\vspace*{-\baselineskip}}
+% \renewcommand*\notenuminnotes[1]{#1.\vspace*{-\baselineskip}}
+
+%%% Fonts --------------------------------------------------------------
+
+% Fonts: Times (serif) + Optima (sans).
+% Inspired by textbooks published by Pearson (e.g., 3rd edition of
+% Goldstein's Classical Mechanics) and the Notre Dame Journal of Formal Logic.
+% \usepackage{mathtime}
+% \usepackage[scale=0.96]{classico}
+
+% Inspired by Statistical Mechanics of Lattice Systems by Sacha Friedli and Yvan Velenik.
+% https://www.unige.ch/math/folks/velenik/smbook/index.html
+\usepackage[widespace]{fourier}
+\usepackage{bm}
+\usepackage[scale=0.92]{tgheros}
+\DeclareMathAlphabet{\mathsf}{\encodingdefault}{\sfdefault}{\mddefault}{n}
+\SetMathAlphabet{\mathsf}{bold}{\encodingdefault}{\sfdefault}{\bfdefault}{n}
+\usepackage[scale=0.90]{roboto}
+
+% https://narkive.com/eANktZj3.5
+\makeatletter
+\def\big{\bBigg@{1}}
+\def\Big{\bBigg@{1.5}}
+\def\bigg{\bBigg@{2.4}}
+\def\Bigg{\bBigg@{3.2}}
+\makeatother
+
+%\renewcommand*{\backrefalt}[4]{\ifcase#1\else{Cited on pp.~#2}\fi}
+%\renewcommand*{\backref}[1]{}
+%\renewcommand*{\backrefalt}[4]{%
+%  \ifcase#1%
+%  \or{{\color{gray}Cited on p.~#2.}}%
+%  \else{Cited on pp.~#2.}%
+%  \fi}
+
+\graphicspath{{figures/}}
+
+\usepackage[allcolors=steel,colorlinks]{hyperref}
+\urlstyle{same}
+\RequirePackage[capitalize]{cleveref}
+
+% \hypersetup{
+%   pdfauthor={Manu Mannattil},
+%   pdftitle={This Is a Really Long Title for My PhD Thesis},
+%   pdfsubject={cond-mat.soft, cond-mat.stat-mech, cond-mat.other, physics.chem-ph, math.DG},
+%   pdfkeywords={linkages, free energy},
+% }
+
+% Chapter-wise equation numbers.
+\numberwithin{equation}{chapter}
+
+%%% Commands -----------------------------------------------------------
+
+% SU style toggle.
+\newif\ifsustyle
+\def\ifsu#1{\ifsustyle#1\fi}
+\def\ifnotsu#1{\ifsustyle\else#1\fi}
+
+% Command to typeset with more separation between characters and words.
+% For reasons I don't understand, using \MakeUppercase doesn't work inside
+% widetext, so you have to manual type in all caps (if you want that).
+% Requires microtype for \textls: https://tex.stackexchange.com/q/23921
+% Note also that this is not the same command as REVTeX's \widetext.
+\def\widetext#1{\textls[120]{%
+  \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
+  {#1}%
+}}
+
+%%% Math commands ------------------------------------------------------
+
+\def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
+\def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}

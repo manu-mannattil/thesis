@@ -1,0 +1,125 @@
+%! TEX root = thesis
+
+\chapter{Introduction}
+
+\section{Manifolds}
+
+A manifold, roughly speaking, a set that looks Euclidean\footnote{It is often said that manifolds are smooth sets that look locally ``flat'' and hence can be mapped to an open set in Euclidean space.
+This is a bit misleading as the case of the sphere $S^2$ illustrates.
+The entire northern hemisphere (except the north pole) of $S^2$ can be mapped to the real plane $\mathbb{R}^{2}$ using stereographic projection.
+This means that the two hemispheres of $S^2$ can be covered entirely using two charts.
+But neither hemispheres are flat structures.
+Flatness also reminds me of curvature, which isn't required for the definition of a smooth manifold, which is much more primitive structure.}
+
+A \emph{regular point} is a point in the domain $X$ where the Jacobian of the map is full rank.
+A \emph{regular value} is a point $y \in Y$ such that the Jacobian of all the points in the preimage $f^{-1}(y) \subset X$ is full rank.
+Sard's theorem ensures that almost all points in $Y$ are regular values.
+%
+\begin{theorem}[Sard's theorem]
+  The set of critical values of any smooth map $f: X \to Y$, has measure zero in the codomain $Y$.
+\end{theorem}
+
+In other words, almost all points in $Y$ are regular values.
+As an example, consider $f: \mathbb{R} \to \mathbb{R}$ defined by $x \mapsto x^3 - x$.
+The Jacobian in this case is simply the derivative $f'(x) = 3x^2 - 1$, which vanishes only for $x = 3^{-1/2}$.
+Hence, every point other than $x = 3^{-1/2}$ is a regular point.%
+\footnote{A word of warning is appropriate here: Sard's theorem does not imply that the set of critical points in the domain $X$ is a measure zero subset.
+For example, if we consider a constant map, say $f(x) = c \in Y$, then all points in $X$ are critical points.}
+
+One might be tempted to apply the regular value theorem to the energy function itself.
+But this wouldn't work since for $E=\|\bm{f}\|^2$ to vanish, $\bm{f}$ must itself vanish, which in turn would make $\nabla E = 2 \bm{f}\nabla\bm{f} = \bm{0}$, making it impossible to apply the regular value theorem on the energy function.
+
+The dimension of tangent space is commonly called a \ac{dof}.
+
+\begin{theorem}[Preimage theorem]
+\end{theorem}
+
+\section{Rigidity theory}
+
+See the notes by \citet{connelly2015} for an introduction to tensegrity structures and the primer by \citet{williams2016} for a slightly advanced treatment.
+
+Forces involved in SS obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque \cite[Section 1.2]{goldstein2002}.
+Thus, a tensegrity under SS is in a state of mechanical equilibrium.
+The equilibrium may or may not be stable: again, think of the example with a particle tethered to two walls using springs that are under compression (unstable) or under elongation (stable).
+
+Note that SS exists outside of tensegrity structures.
+The only requirement is that all particles interact via central forces.
+E.g., one can think of electrostatic analogies, or sticky colloidal clusters.
+
+SS is caused due to linear dependence of constraints.
+They might be independent nonlinearly, but on a linear level they are dependent.
+Linear constraints are, simply put, hyperplanes.
+
+Maxwell--Calladine theorem is a finite-dimensional toy ``index'' theorem~\cite[Section 2.2]{nakahara2003}.
+
+\subsection{Non-Euclidean origami}
+
+It's easy to understand the configuration manifold of non-Euclidean origami studied by \cite{berry2020}.
+A non-Euclidean origami in its ``unfolded'' (or rather, its unactuated) state is not flat.
+This means that the linkages forming the origami ``skeleton'' cannot possibly support a self stress since there would be a net unbalanced force in the vertical direction.
+Since there can't be a self stress, the Jacobian of the constraint map is full rank everywhere, and thus, the configuration manifold is a smooth 2-dimensional submanifold of $\mathbb{R}^9$ ($M = 7$ and $N = 9$, giving $M - N = 2$).
+However, in general, this manifold could be a single connected 2-dimensional manifold or multiple disjoint 2-dimensional manifolds.
+If there is positive Gaussian curvature (i.e., an angle deficit) at the center vertex, then the entire structure becomes metastable due to popping up/down of the central vertex.
+This popping up and down process is discontinuous and breaks the constraints since the origami has to go through the flat state.
+This must be equivalent to having (at least) two 2-dimensional disconnected submanifolds as the configuration space.
+When the central vertex has negative Gaussian curvature (i.e., an angle excess), then the origami lacks is metastability.
+This must be equivalent to having a single 2-dimensional submanifold as the configuration space.
+Note that the manifold can still be disconnected in general, but for the case presenented in \cite{berry2020} it isn't.
+What I'm saying is, here there is no reason for the manifold to be connected, but in the previous case (positive Gaussian curvature), it is always disconnected because of physical reasons.
+It isn't topology that tells us if the manifolds are disconnected, it's physics.
+When there is no Gaussian curvature at the center vertex, the ``unfolded'' state is flat and the origami supports a self stress and the Jacobian drops rank.
+This leads to a singularity in the configuration manifold.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{zerodof.pdf}
+  \end{center}
+\caption{A zero \ac{dof} linkage without self stress.  Note how the two constraint manifolds $\mathcal{M}_1$ and $\mathcal{M}_2$ are transverse to each other.}
+  \label{fig:hello}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{zerodof_spring.pdf}
+  \end{center}
+\caption{A zero \ac{dof} linkage without self stress.  Note how the two constraint manifolds $\mathcal{M}_1$ and $\mathcal{M}_2$ are transverse to each other.}
+  \label{fig:hello2}
+\end{figure}
+\pagebreak
+
+\section{Laplace's Method}
+
+To evaluate
+%
+\begin{equation}
+  \int_{a}^{b} \dd{x}\, e^{-\beta U(x)},
+\end{equation}
+when $\beta$ is large, we first expand $U(x)$ to $\mathcal{O}(x^{2})$ around a critical point $x_{0}$ with $U'(x_{0}) = 0$.
+This turns the above integral into a standard Gaussian integral
+%
+\begin{equation}
+  \int_{a}^{b} \dd{x}\, \exp\left\{-\beta\left[U(x_{0}) +  U''(x_{0})(x-x_{0})^{2}\right]\right\},
+\end{equation}
+
+
+\subsection{The zero-mode problem in elementary statistical mechanics}
+
+\section{Coarea Formula}
+
+The coarea formula,\footnote{Sometimes the coarea formula is misleadingly written~\cite{hartmann2007,hartmann2007a} with the determinant of $(\nabla\hat{\vartheta})\trans\nabla\hat{\vartheta}$ in the denominator.  But the Jacobian $\nabla\hat{\vartheta}$ does not have full column rank when $m < n$ and the determinant $\det(\nabla\hat{\vartheta})\trans\nabla\hat{\vartheta}$ vanishes.}
+\begin{theorem}[Coarea formula]
+  Given a smooth function $\phi: \mathbb{R}^n \to \mathbb{R}$ and a map $\hat{\vartheta}: \mathbb{R}^n \to \mathbb{R}^m$, with $m \leq n$, we have
+  \begin{equation}
+    \begin{aligned}
+      \int_{\mathbb{R}^n} \dd{q}\, \phi(q) &= \int_{\mathbb{R}^m} \dd{\vartheta}\,\int_{\mathbb{R}^n} \dd{q}\, \delta(\hat{\vartheta}(q) - \vartheta) \phi(q)\\
+                                           &= \int_{\mathbb{R}^m} \dd{\vartheta}\,\int_{q \in \hat{\vartheta}^{-1}(\vartheta)} \dd{\sigma}\,|\det \nabla\hat{\vartheta}(q)\nabla^\intercal\hat{\vartheta}(q)|^{-1/2} \phi(q)\,,
+    \end{aligned}
+  \end{equation}
+  where $\dd\sigma$ is the area element on the level set $\hat{\vartheta}^{-1}(\vartheta)$.
+\end{theorem}
+
+Shape coordinate on a curve can be arclength.  But it's a useless one since it can't be measured experimentally.
+
+Shape space of a triangle is a cone in $\mathbb{R}^{3}$? Joseph Avron's talk at KITP.
+
+\printpagenotes

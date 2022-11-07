@@ -22,7 +22,7 @@
   \item A zero mode is technically a motion on the tangent bundle $TM$ since you want $q \in \Omega$ and $v \in T_{q}\Omega$.
   \item Even though $q$ and $v$ belong to different spaces we are taking $q \to q + v$.  Although I'm confident that there's nothing wrong with this, I want to understand this better.  Goes back to CM where we take $q \approx q_0 + v t$.
   \item What's the connection between energy near a singularity and the ``affine energy'' in Lubensky et al.'s RPP review (Eq.~3.10)?
-  \item Even though zero modes corresponding to flexes don't cost energy, we still have $x\tr\hess f_ix \neq 0$.  This is because flex is ``nonlinear''.  However, the partition function calculation is still fine because the projection operator will kill these nonzero terms.
+  \item Even though zero modes corresponding to flexes don't cost energy, we still have $x\trans\hess f_ix \neq 0$.  This is because flex is ``nonlinear''.  However, the partition function calculation is still fine because the projection operator will kill these nonzero terms.
   \item In our discussion, we have focused on self stress states of points that belong to the constraint manifold.
   However, we should note all points $q \notin \Omega$ for which $C(q)$ drops rank, also admit self stress states.
   Discuss issues, e.g., drop in rank doesn't guarantee singularity, etc.
@@ -30,7 +30,30 @@
   \item If $A + B = C$, where $A, B, C$ are vector spaces, does one say that $A$ and $B$ spans $C$ or $A$ and $B$ generates $C$?  Or are both wrong?
   \item Plot $\beta F(\xi)$ instead of saying that you're plotting free-energy in units of $\beta^{-1}$.
   \item Histogram method for free energy is also called ``visited states method''.
-  \item What's the guarantee that states of stress (and singularities) are gauge invariant w.r.t. the local body frame of the mechanism?  
+  \item What's the guarantee that states of stress (and singularities) are gauge invariant w.r.t. the local body frame of the mechanism?
     Gauge invariance in the sense of Littlejohn's papers on few-body systems.
+  \item Adjacency matrix = sign(compatibility matrix)?
+  \item To write the partition function as the Laplace's transform of the density of states, shouldn't the energy function $U(\bm{q})$ foliate $\mathbb{R}^{n}$? Coarea formula.
 
+  \item Out of plain buckling of thin plates, Foppel-von Karman limit, stresses.
+
+    Strain tensor (Audoly's book Eq.~6.60) for a displacement field $(u_{1}, u_{2}, f)$ is
+    \begin{equation}
+      \epsilon_{ij} = \frac{1}{2}\left(\partial_{i} u_{j} + \partial_{j} u_{i} + \partial_{i}f \partial_{j}f\right)
+    \end{equation}
+    The first two terms is equivalent to $\mathsf{C}\bm{v}$ and the last quadratic term is $\bm{w}(\bm{u})$.
+    Mechanical equilibrium requires (Eq.~6.64 of Audoly's book):
+    \begin{equation}
+      \partial_{i}\partial_{j} f \sigma_{ij} = 0.
+    \end{equation}
+    Is this equivalent to the Fredholm alternative $\bm{\sigma}\cdot\bm{w}(\bm{u}) = 0$?
+    Also see Abigail Plummer's notes on tethered membranes: \url{http://web.mit.edu/8.334/www/grades/projects/projects17/AbigailPlummer.pdf} and the discussion after Eq.~9.  $\partial_{i}f \partial_{j} f$ has 3 independent components, whereas there are only two independent displacement fields, namely, $u_{1}$ and $u_{2}$.  Thus, for a given set of $u$, an arbitrary $f$ will not solve $\epsilon_{ij} = 0$.  Only those satisfying $K = 0$ will work (i.e., isometries).
+    How is this related to the Fredholm alternative, and the solvability of the constraint map equation?
+
+\end{enumerate}
+
+\section{Waves}
+
+\begin{enumerate}
+  \item Dirac points should be called Hamilton points? Michael Berry's talk at ICTS. https://www.youtube.com/watch?v=YZJeURUxdq0
 \end{enumerate}

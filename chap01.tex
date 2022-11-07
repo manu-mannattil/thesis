@@ -2,6 +2,18 @@
 
 \chapter{Introduction}
 
+This thesis is a potpourri of some results that span everything from classical mechanics, to statistical mechanics, to quantum mechanics, to engineering.
+A common thread that connects these fields is that of asymptotics and geometry.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=1.0]{dna.pdf}
+  \end{center}
+  \caption{DNA origami has been widely used to self assemble a variety of objects at the nanoscale.
+    Depicted in the figure are (a) tensegrity structures \cite{liedl2010}; (b), (c) linkage-based mechanisms \cite{marras2015,zhou2015}; (d) a rhombus-shaped nanoactuator~\cite{ke2016}; and (e) self-assembled polyhedra~\cite{iinuma2014}.  All images used with permission.}
+  \label{fig:}
+\end{figure}
+
 \section{Manifolds}
 
 A manifold, roughly speaking, a set that looks Euclidean\footnote{It is often said that manifolds are smooth sets that look locally ``flat'' and hence can be mapped to an open set in Euclidean space.
@@ -16,7 +28,7 @@ A \emph{regular value} is a point $y \in Y$ such that the Jacobian of all the po
 Sard's theorem ensures that almost all points in $Y$ are regular values.
 %
 \begin{theorem}[Sard's theorem]
-  The set of critical values of any smooth map $f: X \to Y$, has measure zero in the codomain $Y$.
+  The set of critical values of any smooth map $f: X \to Y$, has zero measure in the codomain $Y$.
 \end{theorem}
 
 In other words, almost all points in $Y$ are regular values.
@@ -36,10 +48,18 @@ The dimension of tangent space is commonly called a \ac{dof}.
 
 \section{Rigidity theory}
 
-See the notes by \citet{connelly2015} for an introduction to tensegrity structures and the primer by \citet{williams2016} for a slightly advanced treatment.
+\begin{example}[A rank-deficient Jacobian does not always result in a singularity]
+  Consider the map $f: \mathbb{R}^{2} \to \mathbb{R}$ defined by $f: (x, y) \mapsto (x^{2} + y^{2})(x^{2} - y)$.
+  Since the factor $(x^{2} + y^{2})$ only vanishes at $(x, y) = (0, 0)$, the zero level set $f^{-1}(0)$ is identical to the parabola $y = x^{2}$, which is a smooth manifold.
+  However, on this parabola, $\nabla f = [-2x(x^{2} + x^{4}), x^{2} + x^{4}]$, which vanishes at $x = 0$ and is nonzero for all other values of $x$.
+Hence, even though $\nabla f$ vanishes at an isolated point, $f^{-1}(0)$ continues to be a smooth manifold.\footnote{Another example where this happens is when $f: (x, y) \mapsto x^{4} - 2x^{2}y - y^{3}$. Again, the gradient $\nabla f$ vanishes at the origin, but the zero level set $f^{-1}(0)$ happens to be a smooth manifold~\cite[Examples 1.1, (vi)]{diesse2020}.}
+\altqed
+\end{example}
 
-Forces involved in SS obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque \cite[Section 1.2]{goldstein2002}.
-Thus, a tensegrity under SS is in a state of mechanical equilibrium.
+See the notes by \citet{connelly2015} for an introduction to tensegrity structures and the primer by \citet{williams2003} for a slightly advanced treatment.
+
+Forces involved in a state of self stress obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque \cite[\S 1.2]{goldstein2002}.
+Thus, a tensegrity under self stress is in a state of mechanical equilibrium.
 The equilibrium may or may not be stable: again, think of the example with a particle tethered to two walls using springs that are under compression (unstable) or under elongation (stable).
 
 Note that SS exists outside of tensegrity structures.
@@ -50,7 +70,7 @@ SS is caused due to linear dependence of constraints.
 They might be independent nonlinearly, but on a linear level they are dependent.
 Linear constraints are, simply put, hyperplanes.
 
-Maxwell--Calladine theorem is a finite-dimensional toy ``index'' theorem~\cite[Section 2.2]{nakahara2003}.
+Maxwell--Calladine theorem is a finite-dimensional toy ``index'' theorem~\cite[\S 2.2]{nakahara2003}.
 
 \subsection{Non-Euclidean origami}
 
@@ -78,48 +98,98 @@ This leads to a singularity in the configuration manifold.
   \label{fig:hello}
 \end{figure}
 
+See the thesis \cite{lengyel2002}.
+
 \begin{figure}
   \begin{center}
     \includegraphics{zerodof_spring.pdf}
   \end{center}
-\caption{A zero \ac{dof} linkage without self stress.  Note how the two constraint manifolds $\mathcal{M}_1$ and $\mathcal{M}_2$ are transverse to each other.}
+\caption[foo]{A zero \ac{dof} linkage without self stress.  Note how the two constraint manifolds $\mathcal{M}_1$ and $\mathcal{M}_2$ are transverse to each other.}
   \label{fig:hello2}
 \end{figure}
 \pagebreak
 
-\section{Laplace's Method}
+\section{Laplace's method}
 
 To evaluate
 %
 \begin{equation}
-  \int_{a}^{b} \dd{x}\, e^{-\beta U(x)},
+  \int_{a}^{b} \dd{x}\, g(x) e^{-\beta U(x)},
 \end{equation}
 when $\beta$ is large, we first expand $U(x)$ to $\mathcal{O}(x^{2})$ around a critical point $x_{0}$ with $U'(x_{0}) = 0$.
 This turns the above integral into a standard Gaussian integral
 %
 \begin{equation}
-  \int_{a}^{b} \dd{x}\, \exp\left\{-\beta\left[U(x_{0}) +  U''(x_{0})(x-x_{0})^{2}\right]\right\},
+  \int_{a}^{b} \dd{x}\, g(x_{0}) \exp\left\{-\beta\left[U(x_{0}) +  U''(x_{0})(x-x_{0})^{2}\right]\right\},
 \end{equation}
 
+\begin{figure}
+  % \begin{center}
+  %   \includegraphics[scale=1.0]{file}
+  % \end{center}
+  \caption{Plot of the function $U(x) = 9x^{2} + \sin^{2}{3x} + (1-x)\sin^{2}{6x}$ and $e^{-\beta U(x)}$ in the interval $[-1,1]$ for $\beta = 0.1, 0.2, \ldots, 6.4$.  For larger values of $\beta$ the plot is clearly indistinguishable from that of a Gaussian with a width of $U''(0)$.}
+  \label{fig:}
+\end{figure}
 
-\subsection{The zero-mode problem in elementary statistical mechanics}
+\subsection{Degenerate case}
 
-\section{Coarea Formula}
+\section{Coarea formula}
 
-The coarea formula,\footnote{Sometimes the coarea formula is misleadingly written~\cite{hartmann2007,hartmann2007a} with the determinant of $(\nabla\hat{\vartheta})\trans\nabla\hat{\vartheta}$ in the denominator.  But the Jacobian $\nabla\hat{\vartheta}$ does not have full column rank when $m < n$ and the determinant $\det(\nabla\hat{\vartheta})\trans\nabla\hat{\vartheta}$ vanishes.}
+Jacobian determinants are the corrective factors relating the elements of areas of the domains and images of functions (Morgan's book).
+
+The coarea formula,\footnote{Sometimes the coarea formula is misleadingly written~\cite{hartmann2007,hartmann2007a} with the determinant of $(\nabla\hat{\xi})\trans\nabla\hat{\xi}$ in the denominator.  But the Jacobian $\nabla\hat{\xi}$ does not have full column rank when $m < n$ and the determinant $\det\,(\nabla\hat{\xi})\trans\nabla\hat{\xi}$ vanishes.}
+%
 \begin{theorem}[Coarea formula]
-  Given a smooth function $\phi: \mathbb{R}^n \to \mathbb{R}$ and a map $\hat{\vartheta}: \mathbb{R}^n \to \mathbb{R}^m$, with $m \leq n$, we have
+  Given an integrable function $\phi: \mathbb{R}^n \to \mathbb{R}$ and
+  Consider a map $\hat{\xi}: \mathbb{R}^n \to \mathbb{R}^m$ (with $m \leq n$) whose level sets foliate $N \subseteq \mathbb{R}^{n}$ we have
   \begin{equation}
     \begin{aligned}
-      \int_{\mathbb{R}^n} \dd{q}\, \phi(q) &= \int_{\mathbb{R}^m} \dd{\vartheta}\,\int_{\mathbb{R}^n} \dd{q}\, \delta(\hat{\vartheta}(q) - \vartheta) \phi(q)\\
-                                           &= \int_{\mathbb{R}^m} \dd{\vartheta}\,\int_{q \in \hat{\vartheta}^{-1}(\vartheta)} \dd{\sigma}\,|\det \nabla\hat{\vartheta}(q)\nabla^\intercal\hat{\vartheta}(q)|^{-1/2} \phi(q)\,,
+      \int_{\mathbb{R}^n} \dd{\bm{q}}\, \phi(\bm{q}) &= \int_{\mathbb{R}^m} \dd{\xi}\,\int_{\mathbb{R}^n} \dd{\bm{q}}\, \delta\left[\hat{\xi}(\bm{q}) - \xi\right] \phi(\bm{q})\\
+                                                     &= \int_{\mathbb{R}^m} \dd{\xi}\,\int_{\bm{q} \in \hat{\xi}^{-1}(\xi)} \frac{\dd{\Omega(\bm{q})}}{|\det \nabla\hat{\xi}(\nabla\hat{\xi})^\mathsf{T}|^{1/2}} \phi(\bm{q})\,,
     \end{aligned}
   \end{equation}
-  where $\dd\sigma$ is the area element on the level set $\hat{\vartheta}^{-1}(\vartheta)$.
+  where $\dd\Omega(\bm{q})$ is the area element on the level set $\hat{\xi}^{-1}(\xi)$.
 \end{theorem}
+\begin{proof}
+  %
+  \begin{equation}
+    \begin{aligned}
+      \int_{\mathbb{R}^{n}} \dd\bm{q}\,\delta\left[\hat{\xi}(\bm{q}) - \xi\right] \phi(\bm{q}) &=
+      \lim_{\alpha \to \infty} \left(\frac{\alpha}{2\pi}\right)^{m} \int_{\mathbb{R}^{n}} \dd\bm{q}\, \exp\left(-\tfrac{1}{2}\alpha\Abs{\hat{\xi}(\bm{q}) - \xi}^{2}\right) \phi(\bm{q})
+    \end{aligned}
+  \end{equation}
+  %
+  \qed
+\end{proof}
 
 Shape coordinate on a curve can be arclength.  But it's a useless one since it can't be measured experimentally.
 
 Shape space of a triangle is a cone in $\mathbb{R}^{3}$? Joseph Avron's talk at KITP.
+
+Foliation intuitively means that there is a unique hypersurface that passes through each point.
+
+\begin{example}[Integration in polar coordinates]
+  As a simple illustration of the coarea formula, consider evaluating the double integral $\int_{\mathbb{R}^{2}} \dd{x}\dd{y}\, \phi(x,y)$, where $\phi(x, y)$ is some integrable function of $(x, y)$.
+  The standard polar angle $\theta$ can be computed using the map $\hat{\theta}(x, y) = \tan^{-1}(x, y)$.\footnote{Here $\tan^{-1}(x, y): \mathbb{R}^{2} \setminus \{(0,0)\} \to (-\pi, \pi]$ is the two-argument variant of the inverse tangent, sometimes denoted as $\mathrm{atan2}(y, x)$ in numerical software.  We cannot use $\tan^{-1}(y/x)$ to compute $\theta$ since the range of principal values of $\tan^{-1}(\cdot)$ is conventionally restricted to $(-\pi/2, \pi/2)$.}
+  The level set $\hat{\theta}^{-1}(\theta)$ is a straight line starting at the origin (but excluding it) and making an angle of $\theta$ with the positive $x$ axis.
+  It is clear that for values of $\theta \in (-\pi, \pi]$, these level sets foliate the entire $\mathbb{R}^{2}$ plane (excluding the origin).
+  Choose $\xi = \theta$ and $\hat{\xi}(x, y) = \hat{\theta}(x, y)$ so that
+  %
+  \begin{equation}
+    \int_{\mathbb{R}^{2}} \dd{x}\dd{y}\, \phi(x, y) = \int_{-\pi}^{\pi} \dd\theta\, \int_{\mathbb{R}^{2}} \dd{x}\dd{y}\, \delta[\tan^{-1}(x, y) - \theta] \phi(x, y).
+  \end{equation}
+  %
+  Now, $\nabla\hat{\theta} = \nabla\tan^{-1}(x, y) = (x^{2} + y^{2})^{-1}\begin{pmatrix}-y & x\end{pmatrix}$.
+  We can parameterize the points on $\hat{\theta}^{-1}(\theta)$ in terms of $r > 0$ as $(r\cos{\theta}, r\sin{\theta})$.
+  Then, $\nabla\hat{\theta} = r^{-1}\begin{pmatrix}-\sin\theta & \cos\theta\end{pmatrix}$ and $\det\,\nabla\hat{\theta}(\nabla\hat{\theta})\trans = r^{-2}$.
+  Putting this in the coarea formula and noting that the surface measure on $\hat{\theta}^{-1}(\theta)$ is just $\dd{r}$, we arrive at
+  \begin{equation}
+    \int_{\mathbb{R}^{2}} \dd{x}\dd{y}\, \phi(x, y) = \int_{-\pi}^{\pi} \dd\theta\, \int_0^{\infty} \dd{r}\, r \phi(r, \theta),
+  \end{equation}
+  which is the standard double integral of a function expressed in polar coordinates.\footnote{A similar example is discussed in many books on field theory in the context of the Fadeev--Popov method, e.g., the ones by \citet[Section 7.2]{ryder1996} and \citet[Part III.4]{zee2010}.}
+  \altqed
+\end{example}
+
+Other examples: density of states.  See paper~\cite{gillespie1983}.
 
 \printpagenotes

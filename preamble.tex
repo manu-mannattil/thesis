@@ -2,11 +2,14 @@
 %! TEX root = thesis
 % Common packages and preamble.
 
+\makeatletter
+
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{emem}
+\usepackage[natbib]{emem}
 
 % BibTeX
-\usepackage[numbers,sort&compress]{natbib}
+%\usepackage[numbers,sort&compress]{natbib}
 
 % BibLaTeX
 % \usepackage[english]{babel}
@@ -19,7 +22,7 @@
 % \DeclareFieldFormat{titlecase}{#1} % titlecase book titles
 % \addbibresource{library.bib}
 
-\usepackage[smaller]{acronym}
+\usepackage{acronym}
 
 %%% End notes ----------------------------------------------------------
 
@@ -59,25 +62,12 @@
 % Fonts: Times (serif) + Optima (sans).
 % Inspired by textbooks published by Pearson (e.g., 3rd edition of
 % Goldstein's Classical Mechanics) and the Notre Dame Journal of Formal Logic.
+% See https://tug.org/fonts/getnonfreefonts for Classico.
 % \usepackage{mathtime}
 % \usepackage[scale=0.96]{classico}
 
-% Inspired by Statistical Mechanics of Lattice Systems by Sacha Friedli and Yvan Velenik.
-% https://www.unige.ch/math/folks/velenik/smbook/index.html
-\usepackage[widespace]{fourier}
-\usepackage{bm}
-\usepackage[scale=0.92]{tgheros}
-\DeclareMathAlphabet{\mathsf}{\encodingdefault}{\sfdefault}{\mddefault}{n}
-\SetMathAlphabet{\mathsf}{bold}{\encodingdefault}{\sfdefault}{\bfdefault}{n}
-\usepackage[scale=0.90]{roboto}
-
-% https://narkive.com/eANktZj3.5
-\makeatletter
-\def\big{\bBigg@{1}}
-\def\Big{\bBigg@{1.5}}
-\def\bigg{\bBigg@{2.4}}
-\def\Bigg{\bBigg@{3.2}}
-\makeatother
+\usepackage{fourierx}
+%\usepackage{lmodern,bm,amssymb,mathrsfs}
 
 %\renewcommand*{\backrefalt}[4]{\ifcase#1\else{Cited on pp.~#2}\fi}
 %\renewcommand*{\backref}[1]{}
@@ -88,10 +78,6 @@
 %  \fi}
 
 \graphicspath{{figures/}}
-
-\usepackage[allcolors=steel,colorlinks]{hyperref}
-\urlstyle{same}
-\RequirePackage[capitalize]{cleveref}
 
 % \hypersetup{
 %   pdfauthor={Manu Mannattil},
@@ -120,7 +106,19 @@
   {#1}%
 }}
 
+\def\crossref#1#2{\href{https://doi.org/#1}{#2}}
+\def\arxiv#1#2{\href{https://arxiv.org/abs/#1}{arXiv:#1 [#2]}}
+
+%%% Memoir tweaks ------------------------------------------------------
+
+% Chapter precis (i.e., abstract for a chapter) tweaks.
+% TODO: How to control spacing after the precis without a \\?
+\setlength{\prechapterprecisshift}{-\baselineskip}
+\def\precisfont{\normalfont\small}
+
 %%% Math commands ------------------------------------------------------
 
 \def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
 \def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}
+
+\makeatother

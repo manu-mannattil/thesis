@@ -1,6 +1,9 @@
-.PHONY: clean distclean gitinfo
+.PHONY: clean distclean figures gitinfo
 
-all: gitinfo thesis.pdf
+all: figures gitinfo thesis.pdf
+
+figures:
+	cd figures; make
 
 %.pdf: %.tex
 	latexmk $<

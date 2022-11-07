@@ -4,6 +4,40 @@
 
 \section{Introduction}
 
+Consider a system of $N$ classical particles in $d$ dimensions.  If the position of the $i$th particle is given by the position vector $\bm{r}_{i} \in \mathbb{R}^{d}$, then the entire configuration of the system can be fully described at any moment using a configuration vector $\bm{r} \in \mathscr{R} \subseteq \mathbb{R}^{Nd}$ defined by $\bm{r} = (\bm{r}_{1}, \bm{r}_{2}, \ldots, \bm{r}_{N})$.
+  Here $\mathscr{R}$ is the ambient space.%
+  \footnote{Many authors~\cite{littlejohn1997,lelievre2010} call $\mathscr{R}$ as the configuration space.  However, when constraints are imposed on the system, the actual configuration space is usually a lower-dimensional subset of $\mathscr{R}$.  To make this distinction, we will call $\mathscr{R}$ as the ambient space.}
+Corresponding to $\bm{r}$ we define a momentum vector $\bm{p} = (\bm{p}_{1}, \bm{p}_{2}, \ldots, \bm{p}_{N})$, where $\bm{p}_{i}$ is the momentum of the $i$th particle.
+Since there is no apriori reason for the momenta to be bounded, $\bm{p} \in \mathbb{R}^{n}$.
+The microscopic state of the system at a given moment is described by the position-momentum pair $(\bm{r}, \bm{p}) \in T^{*}\mathscr{R}$, where $T^{*}\mathscr{R}$ is the cotangent bundle.
+The expectation value of a macroscopic observable $\hat{\xi}$ is
+%
+\begin{equation}
+  \braket{\hat{\xi}} = \int_{T^{*}\mathscr{R}} \dd\mu(\bm{r}, \bm{p})\, \hat{\xi}(\bm{r}, \bm{p}).
+\end{equation}
+
+\subsection{Marginal probability densities}
+
+The marginal probability density $\mathscr{P}(\xi)$ in terms of $\xi \in \mathbb{R}^{m}$ with $m \geq 1$ defined as%
+\footnote{This equation has been called the ``random variable transformation theorem''~\cite{gillespie1983} and can be used to prove a number of useful results in elementary probability theory; also see Ref.~\cite[Section~I.5]{kampen2007}.}
+%
+\begin{equation}
+  \mathscr{P}(\xi) = \int \dd{\bm{r}}\, \delta[\hat{\xi}(\bm{r}) - \xi] \mathscr{P}(\bm{r}).
+  \label{c03:eq:probtrans}
+\end{equation}
+%
+To show that the above equation gives the correct marginal density, we first note that the average $\braket{\phi}$ of an observable $\phi \equiv \phi(\xi) = \phi[\hat{\xi}(\bm{r})]$ that only depends on the transformed variable $\xi$ can be computed using either the transformed density $\mathscr{P}(\xi)$ or the original density $\mathscr{P}(\bm{r})$, i.e.,
+%
+\begin{equation}
+  \braket{\phi} = \int \dd{\tilde{\xi}}\, \phi(\tilde{\xi}) \mathscr{P}(\tilde{\xi}) = \int \dd{\bm{r}}\, \phi[\hat{\xi}(\bm{r})] \mathscr{P}(\bm{r}).
+\end{equation}
+%
+Taking $\phi(\tilde{\xi}) = \delta(\tilde{\xi} - \xi)$ yields
+%
+\begin{equation}
+  \int \dd{\tilde{\xi}}\, \delta(\tilde{\xi} - \xi) \mathscr{P}(\tilde{\xi}) = \mathscr{P}(\xi) = \int \dd{\bm{r}}\, \delta[\hat{\xi}(\bm{r}) - \xi] \mathscr{P}(\bm{r}).
+\end{equation}
+
 \subsubsection{Free energy of a stiff rotor}
 
 Consider a rotor of unit natural length in two dimensions centered around the origin with a rotationally symmetric potential energy\footnote{We could have also chosen the more conventional energy function $U(x, y) = \kappa(\sqrt{x^2 + y^2} - 1)^2$, but that makes the integrals that follow difficult to evaluate exactly.  One can still asymptotically evaluate it by Taylor expanding $U(x, y)$ around the saddle point $y = \sqrt{1 - x^2}$ to $\mathcal{O}(y^4)$.} $U(x, y) = \kappa(x^2 + y^2 - 1)^2$, with $\kappa$ being a ``spring constant'' to set the units.
@@ -69,7 +103,7 @@ which leads to
 
 \section{Hard vs. soft constraints}
 
-Trimer discussed in Refs.~\cite{kampen1981,kampen1984} (and also in Refs.~\cite[Section 15.1]{frenkel2001} and \cite{walter2011}) 
+Trimer discussed in Refs.~\cite{kampen1981,kampen1984} (and also in Refs.~\cite[Section 15.1]{frenkel2001} and \cite{walter2011})
 
 \section{CV under a transformation that is not smooth}
 

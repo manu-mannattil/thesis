@@ -1,26 +1,88 @@
 % vim: ft=tex nospell et sts=2 sw=2
-%! TEX root = thesis
+%! TEX root = thesis.tex
+
 % Common packages and preamble.
 
 \makeatletter
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[natbib]{emem}
 
-% BibTeX
-%\usepackage[numbers,sort&compress]{natbib}
+\ifdraftdoc
+  \usepackage[draft]{emem}
+\else
+  \usepackage{emem}
+  \usepackage{pdfpages}
+  \hypersetup{
+    pdfauthor={Manu Mannattil},
+    pdftitle={Asymptotics, Geometry, and Soft Matter},
+    pdfsubject={cond-mat.soft, cond-mat.stat-mech, cond-mat.other, physics.chem-ph, math.DG},
+    pdfkeywords={free energy, frameworks, waves, WKB},
+  }
+\fi
 
-% BibLaTeX
-% \usepackage[english]{babel}
-% \usepackage[backend=biber,style=phys,eprint=true,biblabel=brackets,pageranges=false,backref]{biblatex}
-% \DefineBibliographyStrings{english}{
-%   % Formatting of back references.
-%   backrefpage = {p.~},
-%   backrefpages = {pp.~},
-% }
-% \DeclareFieldFormat{titlecase}{#1} % titlecase book titles
-% \addbibresource{library.bib}
+% Natbib or BibLaTeX? --------------------------------------------------
+
+\ifdraftdoc
+  % Use natbib in draft mode since it's much faster than BibLaTeX.
+  \usepackage[square,merge,numbers,sort&compress]{natbib}
+\else
+  % We're all living in Amerika
+  % Amerika ist wunderbar
+  % ---
+  % No, seriously, we need this if we want punctuation inside quotation
+  % marks, i.e., "as the period that ends this sentence."
+  \usepackage[american]{babel}
+  \usepackage{csquotes}
+
+  % Use BibLaTeX in non-draft mode since it supports back references.
+  \usepackage[
+    backend=biber,
+    style=phys,        % use biblatex-phys, i.e., APS/Phys. Rev. style
+    eprint=true,       % phys: include arXiv info
+    chaptertitle=true, % phys: include chapter titles for @incollection
+    biblabel=brackets, % phys: square brackets [12] and not superscripts
+    pageranges=false,  % phys: just page number
+    backref,           % back references in bibliography
+    natbib,            % allows usage of \citet{...} and other natbib commands
+    sorting=nyt        % sort according to name/year/title
+  ]{biblatex}
+
+  % Formatting of back references.
+  \DefineBibliographyStrings{american}{
+    backrefpage = {cited on p.~},
+    backrefpages = {cited on pp.~},
+  }
+
+  % Problem: for @book, @techreport, etc., biblatex-phys doesn't convert
+  % titles to clickable hyperlinks if there is a URL.
+  % Adapted from: https://tex.stackexchange.com/a/48409
+  %               https://tex.stackexchange.com/a/471442
+  \newbibmacro{string+doiurl}[1]{%
+    \iffieldundef{doi}{%
+      \iffieldundef{url}{%
+        #1%
+      }{%
+        \href{\thefield{url}}{#1}%
+      }%
+    }{%
+      \href{https://doi.org/\thefield{doi}}{#1}%
+    }%
+  }
+  \DeclareFieldFormat{title}{\usebibmacro{string+doiurl}{\mkbibemph{#1}}}
+  \DeclareFieldFormat[phdthesis,thesis]{title}%
+    {\usebibmacro{string+doiurl}{\mkbibquote{#1}}}
+
+  % Titlecase book titles.
+  \DeclareFieldFormat{titlecase}{#1}
+
+  % Author names should be formatted as
+  %   First, A., B. Second, C. Third, ...
+  \DeclareNameAlias{author}{family-given/given-family}
+  \DeclareNameAlias{default}{family-given}
+
+  \addbibresource{library.bib}
+\fi
 
 \usepackage{acronym}
 
@@ -59,32 +121,9 @@
 
 %%% Fonts --------------------------------------------------------------
 
-% Fonts: Times (serif) + Optima (sans).
-% Inspired by textbooks published by Pearson (e.g., 3rd edition of
-% Goldstein's Classical Mechanics) and the Notre Dame Journal of Formal Logic.
-% See https://tug.org/fonts/getnonfreefonts for Classico.
-% \usepackage{mathtime}
-% \usepackage[scale=0.96]{classico}
-
 \usepackage{fourierx}
-%\usepackage{lmodern,bm,amssymb,mathrsfs}
-
-%\renewcommand*{\backrefalt}[4]{\ifcase#1\else{Cited on pp.~#2}\fi}
-%\renewcommand*{\backref}[1]{}
-%\renewcommand*{\backrefalt}[4]{%
-%  \ifcase#1%
-%  \or{{\color{gray}Cited on p.~#2.}}%
-%  \else{Cited on pp.~#2.}%
-%  \fi}
 
 \graphicspath{{figures/}}
-
-% \hypersetup{
-%   pdfauthor={Manu Mannattil},
-%   pdftitle={This Is a Really Long Title for My PhD Thesis},
-%   pdfsubject={cond-mat.soft, cond-mat.stat-mech, cond-mat.other, physics.chem-ph, math.DG},
-%   pdfkeywords={linkages, free energy},
-% }
 
 % Chapter-wise equation numbers.
 \numberwithin{equation}{chapter}
@@ -106,8 +145,12 @@
   {#1}%
 }}
 
+% Link DOIs and arXiv preprints.
 \def\crossref#1#2{\href{https://doi.org/#1}{#2}}
 \def\arxiv#1#2{\href{https://arxiv.org/abs/#1}{arXiv:#1 [#2]}}
+
+% Command to make a blank page if we're using a two-side layout.
+\def\twosideblankpage{\if@twoside\blankpage\fi}
 
 %%% Memoir tweaks ------------------------------------------------------
 
@@ -116,9 +159,15 @@
 \setlength{\prechapterprecisshift}{-\baselineskip}
 \def\precisfont{\normalfont\small}
 
+%\def\headerfont{\fontseries{regular}\fontfamily{Inter-LF}\selectfont}
+\def\headerfont{\textls[90]}
+\makeevenhead{headings}{\headerfont\thepage\qquad\leftmark}{}{}
+\makeoddhead{headings}{}{}{\headerfont\rightmark\qquad\thepage}
+
 %%% Math commands ------------------------------------------------------
 
 \def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
 \def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}
+\def\inmat#1{\ensuremath\begin{pmatrix}#1\end{pmatrix}}
 
 \makeatother

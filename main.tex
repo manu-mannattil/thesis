@@ -1,8 +1,19 @@
-%! TEX root = thesis
+%! TEX root = thesis.tex
 
 \begin{document}
 
 \frontmatter
+
+% Cover ----------------------------------------------------------------
+
+% Don't include cover in draft mode.
+\ifdraftdoc
+  \relax
+\else
+  \includepdf{cover.pdf}
+\fi
+
+% Abstract -------------------------------------------------------------
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -10,9 +21,7 @@
 
 TODO...
 
-\makeatletter
-  \if@twoside\blankpage\fi
-\makeatother
+\twosideblankpage
 
 % Title page -----------------------------------------------------------
 
@@ -20,7 +29,7 @@ TODO...
 
 \begin{center*}
   \begin{Spacing}{2.0}
-  {\LARGE{\widetext{THIS IS A REALLY LONG TITLE\\ FOR MY THESIS}}}\\
+  {\LARGE{\widetext{ASYMPTOTICS, GEOMETRY,\\ AND SOFT MATTER}}}\\
   \end{Spacing}
   \vspace{3em}
   \emph{by}\\[3em]
@@ -57,11 +66,11 @@ TODO...
 \addcontentsline{toc}{chapter}{Acknowledgments}
 
 \sloppy
-TODO...
+TODO
 
 % TOC ------------------------------------------------------------------
 
-\newpage\thispagestyle{empty}
+\newpage\pagestyle{headings}
 
 % More compact TOC if we're not using SU style.
 % https://tex.stackexchange.com/a/60322
@@ -77,39 +86,51 @@ TODO...
 \input{notation}
 
 \mainmatter
+
+\pagestyle{headings}
+
 \include{chap01}
 \include{chap02}
 \include{chap03}
+\include{chap04}
+\include{chap05}
 \include{chapss}
 \include{chapcv}
 \include{comments}
 
-% BibTeX version.
-% Bibliography in \small font.
-% \bibliographystyle{apsrev4-1}
-% \setlength{\bibsep}{0pt plus 0.3ex}
-\setcounter{footnote}{0}
-\def\thefootnote{\fnsymbol{footnote}}
-\def\bibpreamble{{\normalsize \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.%
-  \footnote{\url{https://web.archive.org}}}}
-\small
-\bibliography{library,misc}
+% Bibliography ---------------------------------------------------------
 
-% BibLaTeX version.
-% \defbibnote{myprenote}{\emph{Note---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https://web.archive.org}}\vspace\baselineskip}
-% \def\bibfont{\small}
-% \setlength\bibitemsep{0pt}
-% \printbibliography[prenote=myprenote]
+% BibTeX version in draft mode.
+\ifdraftdoc
+  % Bibliography in \small font.
+  \bibliographystyle{apsrev4-2}
+  \setlength{\bibsep}{0pt plus 0.3ex}
+  \setcounter{footnote}{0}
+  \def\thefootnote{\fnsymbol{footnote}}
+  \def\bibpreamble{{\normalsize \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.%
+    \footnote{\url{https://web.archive.org}}}}
+  \small
+  \bibliography{library,misc}
+% BibLaTeX version only if not in draft mode.
+\else
+  \defbibnote{myprenote}{\emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https://web.archive.org}}\vspace\baselineskip}
+  \hypersetup{linkcolor=nord11}
+  \def\bibfont{\small}
+  \setlength\bibitemsep{0pt}
+  \printbibliography[prenote=myprenote]
+\fi
 
-% Colophon.
+% Colophon -------------------------------------------------------------
+
 \ifnotsu{%
-  \blankpage
+  \chapter*{}
+  \thispagestyle{empty}
   \centering
   \vfill
   {\normalsize\sffamily\bfseries Colophon}\\[1.5em]
   \begin{minipage}{0.75\textwidth}
     \fussy
-    \small This thesis was produced using \LaTeX---a set of macros for the {\TeX} typesetting system---and the \emph{memoir} class.
+    \small This dissertation was produced using \LaTeX---a set of macros for the {\TeX} typesetting system---and the \emph{memoir} class.
     Figures and plots were created using a combination of Inkscape, Mathematica, and Matplotlib.
     The body text is set in 10~pt \emph{Utopia} and the text in the figures is set in 8~pt (and sometimes 7~pt) \emph{{\TeX} Gyre Heros}, a free clone of \emph{Helvetica}.
     Chapter and section headings are set in \emph{Inter} and mathematics is set in Fourier-GUT\emph{enberg}.\\\\

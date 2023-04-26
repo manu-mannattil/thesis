@@ -1,17 +1,35 @@
 % vim: ft=tex nospell et sts=2 sw=2
 
-\documentclass[10pt,letterpaper,oneside]{memoir}
+\documentclass[
+  10pt,
+  twoside,
+  openany,
+  draft,
+]{memoir}
 
-%\setlength{\trimtop}{0pt} \setlength{\trimedge}{\stockwidth} \addtolength{\trimedge}{-\paperwidth} \settypeblocksize{7.75in}{33pc}{*} \setulmargins{4cm}{*}{*} \setlrmargins{1.25in}{*}{*}
+% Page size ------------------------------------------------------------
 
-% \setulmargins{4cm}{*}{*}
-% \setlrmargins{1.25in}{*}{*}
+\makeatletter
 
-% \textwidth=400pt
-% \textheight=600pt
-% \oddsidemargin=35pt
-% \evensidemargin=25pt
-% \topmargin=-20pt
+% % Left-right margins.
+% \if@twoside
+%   \setstocksize{10.125in}{7.125in}
+%   \settrimmedsize{10in}{7in}{*}
+%   \setlrmarginsandblock{0.825in}{0.825in}{*}
+% \else
+%   \setstocksize{10in}{7in}
+%   \settrimmedsize{\stockheight}{\stockwidth}{*}
+%   \setlrmarginsandblock{0.825in}{0.825in}{*}
+% \fi
+
+\setstocksize{10in}{7in}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\setlrmarginsandblock{0.825in}{0.825in}{*}
+
+\setulmarginsandblock{1in}{1in}{*} % up-lower margins
+\checkandfixthelayout
+
+\makeatother
 
 \input{preamble.tex}
 \input{main.tex}

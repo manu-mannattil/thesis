@@ -8,16 +8,32 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\newif\ifdeadtree
+\deadtreefalse
+
 \ifdraftdoc
   \usepackage[draft]{emem}
 \else
   \usepackage{emem}
   \usepackage{pdfpages}
+  \usepackage{xcolor}
+
+  % No colors for links in printed version.
+  \ifdeadtree
+    \colorlet{general}{black}
+    \colorlet{backref}{black}
+  \else
+    \colorlet{general}{bs1}
+    \colorlet{backref}{nord11}
+  \fi
+
   \hypersetup{
     pdfauthor={Manu Mannattil},
     pdftitle={Asymptotics, Geometry, and Soft Matter},
     pdfsubject={cond-mat.soft, cond-mat.stat-mech, cond-mat.other, physics.chem-ph, math.DG},
     pdfkeywords={free energy, frameworks, waves, WKB},
+    linktocpage=true,
+    allcolors=general
   }
 \fi
 
@@ -159,15 +175,18 @@
 \setlength{\prechapterprecisshift}{-\baselineskip}
 \def\precisfont{\normalfont\small}
 
-%\def\headerfont{\fontseries{regular}\fontfamily{Inter-LF}\selectfont}
-\def\headerfont{\textls[90]}
-\makeevenhead{headings}{\headerfont\thepage\qquad\leftmark}{}{}
-\makeoddhead{headings}{}{}{\headerfont\rightmark\qquad\thepage}
+\def\headerstyle#1{\textls[90]{#1}}
+\makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
+\makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
 
 %%% Math commands ------------------------------------------------------
 
 \def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
 \def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}
 \def\inmat#1{\ensuremath\begin{pmatrix}#1\end{pmatrix}}
+
+% Math definitions.
+\def\ogets#1{\ensuremath\overset{\gets}{#1}}
+\def\oto#1{\ensuremath\overset{\to}{#1}}
 
 \makeatother

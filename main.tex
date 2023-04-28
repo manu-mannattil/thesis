@@ -6,22 +6,32 @@
 
 % Cover ----------------------------------------------------------------
 
-% Don't include cover in draft mode.
+% Don't include cover in draft or deadtree mode.
 \ifdraftdoc
   \relax
 \else
-  \includepdf{cover.pdf}
+  \ifdeadtree
+    \relax
+  \else
+    % Cover is p. "cover"
+    \def\thepage{cover}
+    \includepdf{cover.pdf}
+    % Switch to roman numerals after cover page.
+    \pagenumbering{roman}
+  \fi
 \fi
 
 % Abstract -------------------------------------------------------------
 
 \chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
+% \addcontentsline{toc}{chapter}{Abstract}
 \thispagestyle{empty}
 
 TODO...
 
-\twosideblankpage
+\ifdeadtree
+  \blankpage
+\fi
 
 % Title page -----------------------------------------------------------
 
@@ -63,10 +73,14 @@ TODO...
 
 \newpage\thispagestyle{empty}
 \chapter*{Acknowledgments}
-\addcontentsline{toc}{chapter}{Acknowledgments}
+% \addcontentsline{toc}{chapter}{Acknowledgments}
 
 \sloppy
 TODO
+
+\ifdeadtree
+  \blankpage
+\fi
 
 % TOC ------------------------------------------------------------------
 
@@ -81,9 +95,11 @@ TODO
 % Notation -------------------------------------------------------------
 
 \chapter*{Notation}
-\addcontentsline{toc}{chapter}{Notation}
+% \addcontentsline{toc}{chapter}{Notation}
 
 \input{notation}
+
+% Chapters -------------------------------------------------------------
 
 \mainmatter
 
@@ -97,6 +113,10 @@ TODO
 \include{chapss}
 \include{chapcv}
 \include{comments}
+
+\appendix
+
+\include{app01}
 
 % Bibliography ---------------------------------------------------------
 
@@ -113,8 +133,11 @@ TODO
   \bibliography{library,misc}
 % BibLaTeX version only if not in draft mode.
 \else
-  \defbibnote{myprenote}{\emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https://web.archive.org}}\vspace\baselineskip}
-  \hypersetup{linkcolor=nord11}
+  \defbibnote{myprenote}{\hypersetup{allcolors=general}% without this, footnote link will be in nord11.
+    \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https://web.archive.org}}%
+    \vspace\baselineskip
+  }
+  \hypersetup{linkcolor=backref} % color of back references
   \def\bibfont{\small}
   \setlength\bibitemsep{0pt}
   \printbibliography[prenote=myprenote]
@@ -123,7 +146,8 @@ TODO
 % Colophon -------------------------------------------------------------
 
 \ifnotsu{%
-  \chapter*{}
+  \newpage
+  \cleardoublepage
   \thispagestyle{empty}
   \centering
   \vfill

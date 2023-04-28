@@ -2,15 +2,16 @@
 
 Following the usual convention in physics literature, vectors in $\mathbb{R}^{n}$ are set in bold Roman letters, e.g., $\bm{v}$.
 Conventions for vectors in curvilinear coordinates vary.
-Matrices (including matrix operators) are set in \textsf{sans serif}.  
-Operators are distinguished with a hat, e.g., a matrix $\mathsf{M}$ and an operator $\hat{\mathsf{O}}$.
-But matrix and operator components are set in Roman, e.g., $M_{\alpha\beta}$ and $\hat{O}_{\alpha\beta}$.
+Matrices (including matrix operators) are set in sans serif, e.g., $\mathsf{M}$.
+Operators are distinguished with a hat, e.g., $\hat{D}$.
 Integrals without explicit limits are to be integrated over the entire range (usually $-\infty$ to $\infty$) of the integration variable(s).
 Indices are usually $i, j, k, l, m, n, \ldots$, unless there is a chance of confusion with imaginary number $i$, in which case we start from $j$.
+And as usual, repeated indices are to be summed over.
+Other notation conventions are listed below.
 \vskip\baselineskip
 
 \begin{tabular}{ll}
-  $\Abs{\bm{a}}$ & norm $\sqrt{\bm{a}\trans\bm{a}}$ of vector $\bm{a}$\\
+  $\Abs{\bm{a}}$ & norm $\sqrt{\bm{a}\trans\bm{a}}$ of vector $\bm{a} \in \mathbb{R}^{n}$\\
   $\mathsf{I}_n$ & $n\times n$ identity matrix\\
   $\nabla \phi$ & gradient of $\phi: \mathbb{R}^n \to \mathbb{R}$ considered as a row vector, or\\
                 & the $m\times n$ Jacobian matrix of a map $\phi: \mathbb{R}^n \to \mathbb{R}^m$\\
@@ -18,6 +19,10 @@ Indices are usually $i, j, k, l, m, n, \ldots$, unless there is a chance of conf
                 & the $n\times m$ transpose of the Jacobian matrix of a map $\phi: \mathbb{R}^n \to \mathbb{R}^m$\\
   $\hess \phi$ & $n\times n$ Hessian matrix of $\phi: \mathbb{R}^n \to \mathbb{R}$\\
   $\det\mathsf{A}$ & determinant of the matrix $\mathsf{A}$\\
+  $\mathscr{P}(\xi)$ & Marginal density of collective variable $\xi$\\
+  $\mathscr{A}(\xi)$ & Free energy of collective variable $\xi$\\
+  $k$, $l$ & Wave number\\
+  $\eta$ & Poisson's ratio
 \end{tabular}
 
 \section*{Abbreviations}
@@ -25,7 +30,7 @@ Indices are usually $i, j, k, l, m, n, \ldots$, unless there is a chance of conf
 \def\aclabelfont#1{\textsc{\MakeLowercase{#1}}}
 
 % TODO: Replace XXXXX~~~ with the longest acronym.
-\begin{acronym}[XXXXX~~~]\itemsep0pt
+\begin{acronym}[XXXXX~~~]\itemsep-0.25\baselineskip
   \acro{cas}[CAS]{computer algebra system(s)}
   \acro{cv}[CV]{collective variable(s)}
   \acro{dof}[DOF]{degree(s) of freedom}

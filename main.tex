@@ -4,22 +4,17 @@
 
 \frontmatter
 
-% % Cover ----------------------------------------------------------------
+% Cover ----------------------------------------------------------------
 
-% % Don't include cover in draft or deadtree mode.
-% \ifdraftdoc
-%   \relax
-% \else
-%   \ifdeadtree
-%     \relax
-%   \else
-%     % Cover is p. "cover"
-%     \def\thepage{cover}
-%     \includepdf{cover.pdf}
-%     % Switch to roman numerals after cover page.
-%     \pagenumbering{roman}
-%   \fi
-% \fi
+% Don't include cover in draft or deadtree or SU version.
+\ifcoverpdf
+    % Cover is p. "cover"
+    \def\thepage{cover}
+    \includepdf{cover/cover.pdf}
+    % Switch to roman numerals after cover page.
+    \pagenumbering{roman}
+  \fi
+\fi
 
 % Abstract -------------------------------------------------------------
 

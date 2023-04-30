@@ -7,7 +7,6 @@ figures:
 
 %.pdf: %.tex
 	latexmk $<
-	#command -v pdfsizeopt && pdfsizeopt $@ $@; true
 
 gitinfo:
 	git --no-pager log -1 --date=short --decorate=short --pretty=format:"\

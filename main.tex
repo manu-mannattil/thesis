@@ -4,22 +4,22 @@
 
 \frontmatter
 
-% Cover ----------------------------------------------------------------
+% % Cover ----------------------------------------------------------------
 
-% Don't include cover in draft or deadtree mode.
-\ifdraftdoc
-  \relax
-\else
-  \ifdeadtree
-    \relax
-  \else
-    % Cover is p. "cover"
-    \def\thepage{cover}
-    \includepdf{cover.pdf}
-    % Switch to roman numerals after cover page.
-    \pagenumbering{roman}
-  \fi
-\fi
+% % Don't include cover in draft or deadtree mode.
+% \ifdraftdoc
+%   \relax
+% \else
+%   \ifdeadtree
+%     \relax
+%   \else
+%     % Cover is p. "cover"
+%     \def\thepage{cover}
+%     \includepdf{cover.pdf}
+%     % Switch to roman numerals after cover page.
+%     \pagenumbering{roman}
+%   \fi
+% \fi
 
 % Abstract -------------------------------------------------------------
 
@@ -52,7 +52,12 @@ TODO...
   for the degree of\\
   Doctor of Philosophy in Physics\\[5em]
   \end{Spacing}
-  \includegraphics[scale=1.25]{sulogo.pdf}\\[1em]
+
+  \ifsustyle
+    \relax
+  \else
+    \includegraphics[scale=1.25]{sulogo.pdf}\\[1em]
+  \fi
   \widetext{SYRACUSE UNIVERSITY}\\[1em]
   August 2023
 \end{center*}
@@ -65,7 +70,11 @@ TODO...
   \begin{Spacing}{1.25}
   Copyright {\copyright} 2023 Manu Mannattil\\
   All rights reserved
-  \ifnotsu{\\[2em]\color{gray}Git commit \href{https://github.com/manu-mannattil/thesis/tree/\gitHash}{\texttt{\gitShortHash}}; \gitCommitterDate}
+  \ifsustyle
+    \relax
+  \else
+    \phantom{}\\[2em]\color{gray}Git commit \href{https://github.com/manu-mannattil/thesis/tree/\gitHash}{\texttt{\gitShortHash}}; \gitCommitterDate
+  \fi
   \end{Spacing}
 \end{center*}
 
@@ -88,7 +97,11 @@ TODO
 
 % More compact TOC if we're not using SU style.
 % https://tex.stackexchange.com/a/60322
-\ifnotsu{\setlength{\cftbeforechapterskip}{0.5em}}
+\ifsustyle
+  \relax
+\else
+  \setlength{\cftbeforechapterskip}{0.5em}
+\fi
 
 \tableofcontents
 
@@ -145,11 +158,18 @@ TODO
 
 % Colophon -------------------------------------------------------------
 
-\ifnotsu{%
-  \newpage
-  \cleardoublepage
+\ifsustyle
+  \relax
+\else
+  \ifdeadtree
+    \cleardoublepage
+    \cleartooddpage
+  \else
+    \newpage
+  \fi
   \thispagestyle{empty}
   \centering
+  \phantom{}
   \vfill
   {\normalsize\sffamily\bfseries Colophon}\\[1.5em]
   \begin{minipage}{0.75\textwidth}
@@ -167,16 +187,17 @@ TODO
     Inkscape,
     Matplotlib,
     Python,
+    \TeX~Live,
     latexmk,
     optipng,
     pdfsizeopt,
+    pdftk,
     qpdfview,
-    \TeX~Live,
     Vim,
     and Vim\TeX.
     Much time was lost yak shaving some of these tools to perfection.
   \end{minipage}
   \vfill
-}
+\fi
 
 \end{document}

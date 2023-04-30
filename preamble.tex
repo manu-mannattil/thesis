@@ -8,8 +8,33 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\newif\ifdeadtree
-\deadtreefalse
+% Whitespace and margins -----------------------------------------------
+
+\ifsustyle
+  \setlrmarginsandblock{1in}{1in}{*} % left-right margins
+  \setulmarginsandblock{1in}{1in}{*} % up-lower margins
+  \DoubleSpacing
+  % \OnehalfSpacing
+\else
+  % % Left-right margins.
+  % \if@twoside
+  %   \setstocksize{10.125in}{7.125in}
+  %   \settrimmedsize{10in}{7in}{*}
+  %   \setlrmarginsandblock{0.825in}{0.825in}{*}
+  % \else
+  %   \setstocksize{10in}{7in}
+  %   \settrimmedsize{\stockheight}{\stockwidth}{*}
+  %   \setlrmarginsandblock{0.825in}{0.825in}{*}
+  % \fi
+
+  \setstocksize{10in}{7in}
+  \settrimmedsize{\stockheight}{\stockwidth}{*}
+  \setlrmarginsandblock{0.825in}{0.825in}{*}
+
+  \setulmarginsandblock{1in}{1in}{*} % up-lower margins
+\fi
+
+\checkandfixthelayout
 
 \ifdraftdoc
   \usepackage[draft]{emem}
@@ -35,6 +60,14 @@
     linktocpage=true,
     allcolors=general
   }
+\fi
+
+\ifsustyle
+  % Scale all figures by 1.2.
+  % Note that global scaling doesn't work for \includegraphics.
+  % https://tex.stackexchange.com/a/83074
+  \let\includefigure\includegraphics
+  \renewcommand{\includegraphics}[2][]{\includefigure[scale=1.2,#1]{#2}}
 \fi
 
 % Natbib or BibLaTeX? --------------------------------------------------
@@ -146,20 +179,19 @@
 
 %%% Commands -----------------------------------------------------------
 
-% SU style toggle.
-\newif\ifsustyle
-\def\ifsu#1{\ifsustyle#1\fi}
-\def\ifnotsu#1{\ifsustyle\else#1\fi}
-
 % Command to typeset with more separation between characters and words.
 % For reasons I don't understand, using \MakeUppercase doesn't work inside
 % widetext, so you have to manual type in all caps (if you want that).
 % Requires microtype for \textls: https://tex.stackexchange.com/q/23921
 % Note also that this is not the same command as REVTeX's \widetext.
-\def\widetext#1{\textls[120]{%
-  \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
-  {#1}%
-}}
+\ifsustyle
+  \def\widetext#1{#1}
+\else
+  \def\widetext#1{\textls[120]{%
+    \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
+    {#1}%
+  }}
+\fi
 
 % Link DOIs and arXiv preprints.
 \def\crossref#1#2{\href{https://doi.org/#1}{#2}}

@@ -1,6 +1,6 @@
 .PHONY: clean distclean figures gitinfo
 
-all: figures gitinfo thesis.pdf
+all: figures gitinfo thesis.pdf thesis-print.pdf thesis-su.pdf
 
 figures:
 	cd figures; make

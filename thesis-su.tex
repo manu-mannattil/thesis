@@ -87,18 +87,11 @@
 %   11. Vita (biographical data) (required)
 %
 
-\documentclass[12pt,letterpaper,oneside]{memoir}
+\documentclass[12pt,letterpaper,twoside,openany]{memoir}
 
-\input{preamble}
-\sustyletrue % enable SU style
+\input{ifdefs.tex}
+\deadtreefalse
+\sustyletrue
 
-% Scale all figures by 1.2.
-% Note that global scaling doesn't work for \includegraphics.
-% https://tex.stackexchange.com/a/83074
-\let\includefigure\includegraphics
-\renewcommand{\includegraphics}[2][]{\includefigure[scale=1.2,#1]{#2}}
-
-\usepackage[margin=1in]{geometry}
-%\DoubleSpacing
-\OnehalfSpacing
-\input{main}
+\input{preamble.tex}
+\input{main.tex}

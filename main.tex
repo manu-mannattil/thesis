@@ -1,5 +1,5 @@
 %! TEX root = thesis.tex
-% vim: ft=tex et sts=2 sw=2
+% vim: ft=tex fdm=manual et sts=2 sw=2
 
 \begin{document}
 
@@ -7,15 +7,14 @@
 
 % Cover ----------------------------------------------------------------
 
-% Don't include cover in draft or deadtree or SU version.
-\ifcoverpdf
-    % Cover is p. "cover"
-    \def\thepage{cover}
-    \includepdf{cover/cover.pdf}
-    % Switch to roman numerals after cover page.
-    \pagenumbering{roman}
-  \fi
-\fi
+% % Don't include cover in draft or deadtree or SU version.
+% \ifcoverpdf
+%   % Cover is p. "cover"
+%   \def\thepage{cover}
+%   \includepdf{cover/cover.pdf}
+%   % Switch to roman numerals after cover page.
+%   \pagenumbering{roman}
+% \fi
 
 % Abstract -------------------------------------------------------------
 
@@ -45,7 +44,7 @@ TODO...
   M.Sc.~(Integrated), Indian Institute of Technology Kanpur, 2015\\[5em]
   Dissertation\\
   Submitted in Partial Fulfillment of the Requirements\\
-  for the degree of\\
+  for the Degree of\\
   Doctor of Philosophy in Physics\\[5em]
   \end{Spacing}
 
@@ -81,7 +80,7 @@ TODO...
 % \addcontentsline{toc}{chapter}{Acknowledgments}
 
 \sloppy
-TODO
+TODO...
 
 \ifdeadtree
   \blankpage
@@ -129,12 +128,14 @@ TODO
 
 % Bibliography ---------------------------------------------------------
 
+% Use * as the footnote symbol.
+\setcounter{footnote}{0}
+\def\thefootnote{\fnsymbol{footnote}}
+
 % BibTeX version in draft mode.
 \ifdraftdoc
-  % Bibliography in \small font.
-  \bibliographystyle{apsrev4-2}
-  \setlength{\bibsep}{0pt plus 0.3ex}
-  \setcounter{footnote}{0}
+  \bibliographystyle{apsrev4-1}
+  \setlength{\bibsep}{0pt plus 0.3ex} % compress bibliography
   \def\thefootnote{\fnsymbol{footnote}}
   \def\bibpreamble{{\normalsize \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.%
     \footnote{\url{https://web.archive.org}}}}

@@ -1,5 +1,5 @@
 %! TEX root = thesis.tex
-% vim: ft=tex nospell et sts=2 sw=2
+% vim: ft=tex fdm=manual nospell et sts=2 sw=2
 
 % Common packages and preamble.
 
@@ -34,7 +34,10 @@
   \setulmarginsandblock{1in}{1in}{*} % up-lower margins
 \fi
 
+% Important.  Potato layout otherwise.
 \checkandfixthelayout
+
+% Packages (draft vs. final) -------------------------------------------
 
 \ifdraftdoc
   \usepackage[draft]{emem}
@@ -55,15 +58,38 @@
   \hypersetup{
     pdfauthor={Manu Mannattil},
     pdftitle={Asymptotics, Geometry, and Soft Matter},
-    pdfsubject={cond-mat.soft, cond-mat.stat-mech, cond-mat.other, physics.chem-ph, math.DG},
+    pdfsubject={soft condensed matter, statistical mechanics, asymptotics, geometry},
     pdfkeywords={free energy, frameworks, waves, WKB},
     linktocpage=true,
     allcolors=general
   }
+
+  % Line numbers only in non-draft versions.
+  % NOTE: this screws up hyperlinks to footnotes.
+  \iflinenumbers
+    \usepackage{lineno}
+    \usepackage{fnlineno}
+    \def\linenumbersep{10pt}
+    \linenumbers
+    \def\linenumberfont{\color{gray}\normalfont\footnotesize\ttfamily}
+  \fi
 \fi
 
+% Other packages -------------------------------------------------------
+
+\usepackage[capitalize]{cleveref}
+\usepackage{acronym}
+
+% Graphics and fonts ---------------------------------------------------
+
+\graphicspath{{figures/}}
+\usepackage{fourierx}
+
+% More Syracuse BS -----------------------------------------------------
+
 \ifsustyle
-  % Scale all figures by 1.2.
+  % The fonts in the figures are at 10pt.  SU "demands" a font size of 12
+  % pt.  Thus, scale all figures by 1.2.
   % Note that global scaling doesn't work for \includegraphics.
   % https://tex.stackexchange.com/a/83074
   \let\includefigure\includegraphics
@@ -90,7 +116,7 @@
     style=phys,        % use biblatex-phys, i.e., APS/Phys. Rev. style
     eprint=true,       % phys: include arXiv info
     chaptertitle=true, % phys: include chapter titles for @incollection
-    biblabel=brackets, % phys: square brackets [12] and not superscripts
+    biblabel=brackets, % phys: square brackets, e.g., [12], and not superscripts
     pageranges=false,  % phys: just page number
     backref,           % back references in bibliography
     natbib,            % allows usage of \citet{...} and other natbib commands
@@ -133,7 +159,53 @@
   \addbibresource{library.bib}
 \fi
 
-\usepackage{acronym}
+% Commands -------------------------------------------------------------
+
+% Command to typeset with more separation between characters and words.
+% For reasons I don't understand, using \MakeUppercase doesn't work inside
+% widetext, so you have to manually type in all caps (if you want that).
+% Requires microtype for \textls: https://tex.stackexchange.com/q/23921
+% Note also that this is not the same command as REVTeX's \widetext.
+\ifsustyle
+  \def\widetext#1{#1}
+\else
+  \def\widetext#1{\textls[120]{%
+    \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
+    {#1}%
+  }}
+\fi
+
+% Link DOIs and arXiv preprints.
+\def\crossref#1#2{\href{https://doi.org/#1}{#2}}
+\def\arxiv#1#2{\href{https://arxiv.org/abs/#1}{arXiv:#1 [#2]}}
+
+% Command to make a blank page if we're using a two-side layout.
+\def\twosideblankpage{\if@twoside\blankpage\fi}
+
+% Math -----------------------------------------------------------------
+
+% Chapter-wise equation numbers.
+\numberwithin{equation}{chapter}
+
+\def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
+\def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}
+\def\inmat#1{\ensuremath\begin{pmatrix}#1\end{pmatrix}}
+
+% Math definitions.
+\def\ogets#1{\ensuremath\overset{\gets}{#1}}
+\def\oto#1{\ensuremath\overset{\to}{#1}}
+
+% Memoir tweaks --------------------------------------------------------
+
+% Chapter precis (i.e., abstract for a chapter) tweaks.
+% TODO: How to control spacing after the precis without a \\?
+\setlength{\prechapterprecisshift}{-\baselineskip}
+\def\precisfont{\normalfont\small}
+
+% Wider character spacing in headers.
+\def\headerstyle#1{\textls[90]{#1}}
+\makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
+\makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
 
 %%% End notes ----------------------------------------------------------
 
@@ -167,58 +239,5 @@
 % \renewcommand*\postnotetext{\endlist\bigskip\medskip}
 % \renewcommand*\idtextinnotes[1]{#1.\vspace*{-\baselineskip}}
 % \renewcommand*\notenuminnotes[1]{#1.\vspace*{-\baselineskip}}
-
-%%% Fonts --------------------------------------------------------------
-
-\usepackage{fourierx}
-
-\graphicspath{{figures/}}
-
-% Chapter-wise equation numbers.
-\numberwithin{equation}{chapter}
-
-%%% Commands -----------------------------------------------------------
-
-% Command to typeset with more separation between characters and words.
-% For reasons I don't understand, using \MakeUppercase doesn't work inside
-% widetext, so you have to manual type in all caps (if you want that).
-% Requires microtype for \textls: https://tex.stackexchange.com/q/23921
-% Note also that this is not the same command as REVTeX's \widetext.
-\ifsustyle
-  \def\widetext#1{#1}
-\else
-  \def\widetext#1{\textls[120]{%
-    \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
-    {#1}%
-  }}
-\fi
-
-% Link DOIs and arXiv preprints.
-\def\crossref#1#2{\href{https://doi.org/#1}{#2}}
-\def\arxiv#1#2{\href{https://arxiv.org/abs/#1}{arXiv:#1 [#2]}}
-
-% Command to make a blank page if we're using a two-side layout.
-\def\twosideblankpage{\if@twoside\blankpage\fi}
-
-%%% Memoir tweaks ------------------------------------------------------
-
-% Chapter precis (i.e., abstract for a chapter) tweaks.
-% TODO: How to control spacing after the precis without a \\?
-\setlength{\prechapterprecisshift}{-\baselineskip}
-\def\precisfont{\normalfont\small}
-
-\def\headerstyle#1{\textls[90]{#1}}
-\makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
-\makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
-
-%%% Math commands ------------------------------------------------------
-
-\def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
-\def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}
-\def\inmat#1{\ensuremath\begin{pmatrix}#1\end{pmatrix}}
-
-% Math definitions.
-\def\ogets#1{\ensuremath\overset{\gets}{#1}}
-\def\oto#1{\ensuremath\overset{\to}{#1}}
 
 \makeatother

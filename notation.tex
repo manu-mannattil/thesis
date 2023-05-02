@@ -1,15 +1,13 @@
 %! TEX root = thesis.tex
 % vim: ft=tex nospell et sts=2 sw=2
 
-Following the usual convention in physics literature, vectors in $\mathbb{R}^{n}$ are set in bold Roman letters, e.g., $\bm{v}$.
-Conventions for vectors in curvilinear coordinates vary.
-Matrices (including matrix operators) are set in sans serif, e.g., $\mathsf{M}$.
-Operators are distinguished with a hat, e.g., $\hat{D}$.
+Following the usual convention in physics literature, vectors in $\mathbb{R}^{n}$ are usually set in bold Latin letters, e.g., $\bm{v}$.
+Matrices are set in \textsf{sans serif} type, e.g., $\mathsf{M}$.
+Operators are distinguished with a hat, e.g., $\hat{a}$.
 Integrals without explicit limits are to be integrated over the entire range (usually $-\infty$ to $\infty$) of the integration variable(s).
 Indices are usually $i, j, k, l, m, n, \ldots$, unless there is a chance of confusion with imaginary number $i$, in which case we start from $j$.
-And as usual, repeated indices are to be summed over.
-Other notation conventions are listed below.
-\vskip\baselineskip
+Unless explicitly indicated, repeated indices are to be summed over as usual.
+Other notational conventions are listed below.\\
 
 \begin{tabular}{ll}
   $\Abs{\bm{a}}$ & norm $\sqrt{\bm{a}\trans\bm{a}}$ of vector $\bm{a} \in \mathbb{R}^{n}$\\
@@ -18,12 +16,16 @@ Other notation conventions are listed below.
                 & the $m\times n$ Jacobian matrix of a map $\phi: \mathbb{R}^n \to \mathbb{R}^m$\\
   $(\nabla\phi)\trans$ & transpose gradient of $\phi: \mathbb{R}^n \to \mathbb{R}$ considered as a column vector, or\\
                 & the $n\times m$ transpose of the Jacobian matrix of a map $\phi: \mathbb{R}^n \to \mathbb{R}^m$\\
-  $\hess \phi$ & $n\times n$ Hessian matrix of $\phi: \mathbb{R}^n \to \mathbb{R}$\\
-  $\det\mathsf{A}$ & determinant of the matrix $\mathsf{A}$\\
-  $\mathscr{P}(\xi)$ & Marginal density of collective variable $\xi$\\
-  $\mathscr{A}(\xi)$ & Free energy of collective variable $\xi$\\
-  $k$, $l$ & Wave number\\
-  $\eta$ & Poisson's ratio
+  $\hess \phi$ & $n\times n$ Hessian matrix of a scalar function $\phi: \mathbb{R}^n \to \mathbb{R}$\\
+  $\det\mathsf{A}$ & determinant of matrix $\mathsf{A}$\\
+  $\mathsf{C}$ & compatibility matrix\\
+  $\bm{\sigma}$ & self stress $\in \ker\mathsf{C}\trans$\\
+  $\beta$ & inverse temperature (usually)\\
+  $\xi$ & collective variable\\
+  $\mathscr{P}(\xi)$ & marginal density of collective variable $\xi$\\
+  $\mathscr{A}(\xi)$ & free energy of collective variable $\xi$\\
+  $k$, $l$ & wave number\\
+  $\eta$ & Poisson's ratio (usually)
 \end{tabular}
 
 \section*{Abbreviations}

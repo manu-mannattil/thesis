@@ -48,13 +48,20 @@
       \partial_{i}\partial_{j} f \sigma_{ij} = 0.
     \end{equation}
     Is this equivalent to the Fredholm alternative $\bm{\sigma}\cdot\bm{w}(\bm{u}) = 0$?
-    Also see Abigail Plummer's notes on tethered membranes: \url{http://web.mit.edu/8.334/www/grades/projects/projects17/AbigailPlummer.pdf} and the discussion after Eq.~9.  $\partial_{i}f \partial_{j} f$ has 3 independent components, whereas there are only two independent displacement fields, namely, $u_{1}$ and $u_{2}$.  Thus, for a given set of $u$, an arbitrary $f$ will not solve $\epsilon_{ij} = 0$.  Only those satisfying $K = 0$ will work (i.e., isometries).
+    Also in the strain $\partial_{i}f \partial_{j} f$ has 3 independent components, whereas there are only two independent displacement fields, namely, $u_{1}$ and $u_{2}$.  Thus, for a given set of $u$, an arbitrary $f$ will not solve $\epsilon_{ij} = 0$.  Only those satisfying $K = 0$ will work (i.e., isometries).
     How is this related to the Fredholm alternative, and the solvability of the constraint map equation?
-
 \end{enumerate}
 
 \section{Waves}
 
 \begin{enumerate}
-  \item Dirac points should be called Hamilton points? Michael Berry's talk at ICTS. https://www.youtube.com/watch?v=YZJeURUxdq0
+  \item Parity of the filament operator.%
+    \footnote{%
+    More quantum mechanically, this can be shown by considering the commutation of $\hat{\mathsf{D}}$ with the operators $\mathsf{P}_{\pm} = \diag\left(\hat{\pi}, \pm\hat{\pi}\right)$, where $\hat{\pi}$ is the usual parity operator~\cite{cohen-tannoudji2019}.
+      Clearly, $\hat{\mathsf{P}}_{\pm}\Psi(x) = \left[\zeta(-x), \pm u(-x)\right]$ so that
+      the eigenstates of $\mathsf{P}_{+}$ always have $\zeta(x)$ and $u(x)$ of the same parity, whereas the eigenstates of $\mathsf{P}_{-}$ always have $\zeta(x)$ and $u(x)$ of different parity.
+      Furthermore, for odd and even $m(x)$, we can show that $\hat{\mathsf{D}}$ commutes with $\hat{\mathsf{P}}_{+}$ and $\hat{\mathsf{P}}_{-}$, respectively.
+      As commuting operators share the same eigenstates (assuming nondegeneracy), this proves the claim made above.%
+    }
 \end{enumerate}
+

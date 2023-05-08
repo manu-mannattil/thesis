@@ -16,22 +16,18 @@
   \DoubleSpacing
   % \OnehalfSpacing
 \else
-  % % Left-right margins.
-  % \if@twoside
-  %   \setstocksize{10.125in}{7.125in}
-  %   \settrimmedsize{10in}{7in}{*}
-  %   \setlrmarginsandblock{0.825in}{0.825in}{*}
-  % \else
-  %   \setstocksize{10in}{7in}
-  %   \settrimmedsize{\stockheight}{\stockwidth}{*}
-  %   \setlrmarginsandblock{0.825in}{0.825in}{*}
-  % \fi
-
+  % height = 10in, width = 7in.
   \setstocksize{10in}{7in}
   \settrimmedsize{\stockheight}{\stockwidth}{*}
-  \setlrmarginsandblock{0.825in}{0.825in}{*}
-
   \setulmarginsandblock{1in}{1in}{*} % up-lower margins
+
+  % left + right = 1.65in to get a total textwidth of
+  % 7in - 1.65in = 386pt.
+  \ifdeadtree
+    \setlrmarginsandblock{0.75in}{0.9in}{*}
+  \else
+    \setlrmarginsandblock{0.825in}{0.825in}{*}
+  \fi
 \fi
 
 % Important.  Potato layout otherwise.
@@ -77,13 +73,11 @@
 
 % Other packages -------------------------------------------------------
 
-\usepackage[capitalize]{cleveref}
 \usepackage{acronym}
+\usepackage{fourierx} % fonts
 
-% Graphics and fonts ---------------------------------------------------
-
+% Set up path for graphicsx.
 \graphicspath{{figures/}}
-\usepackage{fourierx}
 
 % More Syracuse BS -----------------------------------------------------
 

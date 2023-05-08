@@ -17,14 +17,14 @@
 A \emph{mechanism} can be broadly defined as a mechanical system comprised of rigid parts that move under constraints.%
 \footnote{There is some inconsistency in the definition of a mechanism.
   For instance, in most engineering contexts~\cite{hartenberg1964,hunt1978,myszka2012}, a mechanism is considered to be a subelement of a larger machine, or is synonymous with it.
-  On the other hand, some authors~\cite{connelly2015} often define a mechanism to be a specific deformation of a mechanical system allowed by its constraints, e.g., a rotor with two degrees of freedom and one constraint is said to possess one mechanism.
+  On the other hand, some authors~\cite{connelly2022} often define a mechanism to be a specific deformation of a mechanical system allowed by its constraints, e.g., a rotor with two degrees of freedom and one constraint is said to possess one mechanism.
   In this thesis, we prefer the engineering definition and a mechanism always refers to a mechanical system or its subelements, and not its individual motions.}
 A mechanism could something simple like a linear rotor to something complex like an internal-combustion engine.
 A large class of mechanisms are modeled as frameworks comprising of joints connected by rigid bars.
 
 \section{Rigidity theory}
 
-See the notes by \citet{connelly2015} for an introduction to tensegrity structures and the primer by \citet{williams2003} for a slightly advanced treatment.
+See the notes by \citet{connelly2022} for an introduction to tensegrity structures and the primer by \citet{williams2003} for a slightly advanced treatment.
 
 Forces involved in a state of self stress obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque \cite[\S 1.2]{goldstein2002}.
 Thus, a tensegrity under self stress is in a state of mechanical equilibrium.
@@ -132,23 +132,3 @@ This can be physical explained on the basis of force balance.
   }
   \label{fig:quad_pinned}
 \end{figure}
-
-
-\subsection{Geometrical interpretation of self stress}
-
-Suppose one can deform the mechanism while remaining in a state of self stress, then the lengths of the bars would map out a measure zero subset of the codomain.
-Assume that this set can be parameterized as an $l$-dimensional surface $\Gamma$ satisfying $g(\ell) = 0$, with $l < m$.
-Then during the deformation, $g(f(q)) = 0$.
-%
-Taking derivatives,
-\begin{equation}
-  \nabla g (\ell) \nabla f (q) = 0\,,
-\end{equation}
-%
-which shows that the rows of $\nabla g(\ell)$ belong to the left kernel of $\nabla f$.
-Since the rows of $\nabla g (\ell)$ span $N_{q}\Gamma$, we get the geometrical interpretation\footnote{This interpretation is due to C.~Santangelo.} that normals to the hyper surface $\Gamma$ are self stresses.
-Note that this does not mean that \emph{all} self stresses belong to $N_{q}\Gamma$.
-Also, this interpretation is only valid when the mechanism can be deformed while remaining in a singular state.
-But in general, there could be isolated states of self stress, just like there are isolated critical points in the case of maps.
-For example, consider $f: \mathbb{R}^{2} \to \mathbb{R}^{2}$ defined by $(x, y) \mapsto (1 + x^{2}, 2 + y^{2})$.
-The only critical point of this map is $(0, 0)$, corresponding to a critical value $(1, 2)$.

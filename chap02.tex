@@ -106,6 +106,16 @@ Now when you look at the fold, if it's a mountain fold, assign it a positive sig
 
 \section{Self stress}
 
+Note that sometimes it is customary to define self stresses as belonging to the cokernel of the rigidity matrix, i.e., $\sigma_{\mathsf{R}}$ satisfying $\mathsf{R}\trans\sigma_{\mathsf{R}} = 0$.
+As $\mathsf{C}\trans = \mathsf{R}\trans\mathsf{L}^{-1}$, for every $\sigma \in \coker\mathsf{C}$, we have
+%
+\begin{equation}
+  %\mathsf{\sigma}_{\mathsf{C}}\mathsf{C} = (\sigma_{\mathsf{C}} \mathsf{L}^{-1})\mathsf{R} = 0,
+  \mathsf{C}\trans\sigma = \mathsf{R}\trans\left(\mathsf{L}^{-1}\mathsf{\sigma}\right) = 0
+\end{equation}
+%
+so that $\sigma_{\mathsf{R}} = \mathsf{L}^{-1}\sigma$.
+
 \subsection{Effect of pinning the vertices}
 
 The number of self stresses depend strongly on the number of pinned vertices -- a square with an internal vertex, but pinned corners has two states of self stress.  The same square has only one state of self stress if the corners are not pinned.

@@ -52,7 +52,72 @@ iii) match inner and outer approximations.
 
 Singular perturbation is matched asymptotic expansion.
 
-\section{Diagonalizing multicomponent operators}
+\section{Multicomponent wave problems}
+
+Consider the wave equation
+%
+\begin{equation}
+  \hat{\mathsf{D}}\ket{\psi} = 0
+  \qquad
+  (\text{i.e., }\hat{\mathsf{D}}_{jk}\ket{\psi_{k}} = 0.)
+\end{equation}
+%
+An equation of this sort can be derived from an action of the form
+%
+\begin{equation}
+  \mathscr{U}\left[\psi^{*}, \psi\right] = \frac{1}{2}\bra{\psi}\hat{\mathsf{D}}\ket{\psi}
+  = \int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\hat{\mathsf{D}}\ket{x'}\braket{x'|\psi}
+  = \frac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{j}(x)\,\hat{\mathsf{D}}_{jk}(x, x')\,\psi_{k}(x') = 0.
+\end{equation}
+%
+Above we have inserted the resolution of identity $\int \dd{x}\,\ket{x}\bra{x} = 1$ in appropriate places to express $\mathscr{U}$ in terms of $\psi$ and its conjugate $\psi^{*}$.
+Also, we have made the product between the matrix operator $\hat{\mathsf{D}}$ and the wave vector $\psi$ explicit, with $\braket{x|\hat{\mathsf{D}}_{jk}|x'} = \hat{\mathsf{D}}_{jk}(x, x')$ being the matrix element of $\hat{\mathsf{D}}_{jk}$ in the position basis.
+Varying $\mathscr{U}[\psi^{*}, \psi]$ with respect to $\psi^{*}$ gives the original wave equation, Eq.~XXX.
+
+The Wigner tensor $\mathsf{W}_{kj}$ is defined as the symbol of the density operator $\hat{\mathsf{W}} = \ket{\psi}\bra{\psi}$ with kernel $\hat{\mathsf{W}}_{kj}(x',x) = \psi_{k}(x')\psi_{j}^{*}(x)$.
+%
+\begin{equation}
+  \mathsf{W}_{kj}(x, k) = \int \dd{s}\, e^{-iks/\epsilon}\, \psi_{k}\left(x + \tfrac{1}{2}s\right)\psi^{*}_{j}\left(x - \tfrac{1}{2}s\right).
+\end{equation}
+%
+Inverting this expression we obtain
+%
+\begin{equation}
+  \psi_{k}\left(x + \tfrac{1}{2}s\right) \psi^{*}_{j}\left(x - \tfrac{1}{2}s\right) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{iks/\epsilon}\,\mathsf{W}_{kj}(x, k)
+\end{equation}
+%
+so that
+%
+\begin{equation}
+  \psi_{k}(x') \psi^{*}_{j}(x) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{ik(x' -x)/\epsilon}\,\mathsf{W}_{kj}\left[\tfrac{1}{2}(x' + x), k\right]
+\end{equation}
+%
+In a similar fashion, we find
+%
+\begin{equation}
+  \hat{\mathsf{D}}_{jk}(x, x') = \frac{1}{2\pi\epsilon} \int \dd{l}\, e^{il(x -x')/\epsilon}\,\mathsf{D}_{jk}\left[\tfrac{1}{2}(x + x'), l\right].
+\end{equation}
+%
+Putting Eq.~XXX and XXX in Eq.~XXX, we arrive at
+%
+\begin{equation}
+  \mathscr{U} = \frac{1}{(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)(x -x')/\epsilon}\,\mathsf{W}_{kj}\left[\tfrac{1}{2}(x' + x), k\right]\, \mathsf{D}_{jk}\left[\tfrac{1}{2}(x + x'), l\right].
+\end{equation}
+%
+Performing the change of variables $x \to \frac{1}{2}(x + x')$ and $x' \to x - x'$, which carries a Jacobian factor of unity, we arrive at
+%
+\begin{equation}
+  \begin{aligned}
+    \mathscr{U} &= \frac{1}{(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)x'/\epsilon}\,\mathsf{W}_{kj}(x, k)\, \mathsf{D}_{jk}(x, l)\\
+                &= \frac{1}{2\pi\epsilon}\int \dd{x}\,\dd{k}\,\mathsf{W}_{kj}(x,k)\,\mathsf{D}_{jk}(x, k)
+  \end{aligned}
+\end{equation}
+%
+
+
+To employ the semiclassical approximation to solve Eq.~XXX, we will proceed as follows: (i) write the matrix elements of $\hat{\mathsf{D}}$ and $W_{jk}$ in terms of their Weyl symbols; (ii) insert the eikonal ansatz; (iii) expand the action to the lowest order in the eikonal parameter and form the \emph{reduced action} $\mathscr{U}_{\text{R}}$; (iv) extract the semiclassical equations of motions by varying the reduced action.
+
+\section{Intermission: diagonalizing multicomponent operators}
 
 Consider a Hermitian linear differential operator $\hat{\mathsf{D}}$ satisfying the wave equation
 %
@@ -62,7 +127,7 @@ Consider a Hermitian linear differential operator $\hat{\mathsf{D}}$ satisfying 
 %
 where $\Psi$ is a multicomponent wave field.
 %
-We want to find a unitary opeator ${\mathsf{U}}$ such that%
+We want to find a unitary operator ${\mathsf{U}}$ such that%
 \footnote{It should be emphasized that diagonalizability and unitarity are independent. For instance, let $\mathsf{U}$ be the usual unitary matrix that diagonalizes a matrix $\mathsf{D}$.
   If $\Sigma$ is some nonzero diagonal matrix, not necessarily unitary, then $(\Sigma^{\dagger}\mathsf{U}^{\dagger})\mathsf{D}(\mathsf{U}\Sigma)$ is a diagonal matrix, which follows from the fact that the product of diagonal matrices is diagonal.
   In this sense $\mathsf{U}\Sigma$ can diagonalize $\mathsf{D}$ without being unitary.}
@@ -73,8 +138,8 @@ We want to find a unitary opeator ${\mathsf{U}}$ such that%
 %
 is a diagonal operator.
 Clearly, this equivalent to demanding that $\hat{\mathsf{D}}\hat{\mathsf{U}} = \hat{\mathsf{U}}\hat{\Lambda}$.
-Let us assume that we can find such an operator and solve the decoupled set of equations given by $\hat{\Lambda}\Phi = 0$.
-The solutions to the original equation can then be recovered from $\Phi$ using $\Psi = \hat{\mathsf{U}}\Phi$.
+If we can find such an operator and solve the decoupled set of equations given by $\hat{\Lambda}\Phi = 0$ somehow,
+the solutions to the original equation can then be recovered from $\Phi$ using $\Psi = \hat{\mathsf{U}}\Phi$.
 However, Eq.~\eqref{eq:diagonalization} is an equation involving operators and standard linear algebra methods do not (directly) help in finding the unitary operator $\hat{\mathsf{U}}$.
 
 We start by finding the symbol form of the following two equations.
@@ -137,7 +202,7 @@ At $\mathcal{O}(\epsilon^{1})$, demanding $\mathsf{D}\mathsf{U} = \mathsf{U}\Lam
 %
 Multiplying from the left by $\mathsf{U}_{0}^{\dagger}$ and making use of $\mathsf{U}_{0}^{\dagger}\mathsf{D} = \Lambda_{0}\mathsf{U}_{0}^{\dagger}$, we get the $\mathcal{O}(\epsilon)$ correction%
 \footnote{For further higher-order corrections to $\Lambda$, see Eq.~(19) of Ref.~\cite{weigert1993}.
-Equation~\eqref{eq:omega1} is almost identical to Eqs.~(22)--(24) of Ref.~\cite{venaille2022}, except for the commutator term.
+Equation~\eqref{eq:omega1} is almost identical to Eqs.~(22)--(24) of Ref.~\cite{venaille2023}, except for the commutator term.
 In Ref.~\cite{venaille2022} the commutator term vanishes trivially since $\Lambda_{0}$ is considered to be a scalar.}
 %
 \begin{equation}
@@ -343,138 +408,4 @@ The solution to the original system can be recovered by $\Psi = \hat{\mathsf{U}}
 where we have set $A_{\pm} = B_{\pm}/\sqrt{2}$, and have found the expected solution.
 \end{example}
 
-\section{Wave dynamics and supersymmetry}
-
-Consider a Hermitian linear differential operator $\hat{\mathsf{D}}$ satisfying the wave equation
-%
-\begin{equation}
-  -\partial_{t}^{2}\Psi = \hat{\mathsf{D}}\Psi.
-\end{equation}
-%
-Although this equation is second-order in time, we can cast it as two sets of coupled differential equations that are first order in time by defining $\dot{\Psi} = \partial_{t}\Psi$, so that
-%
-\begin{equation}
-  \partial_{t}
-  \begin{pmatrix}
-    \Psi \\
-    \dot{\Psi}
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    0 & 1\\
-    -\hat{\mathsf{D}} & 0
-  \end{pmatrix}
-  \begin{pmatrix}
-    \Psi \\
-    \dot{\Psi}
-  \end{pmatrix}.
-\end{equation}
-%
-There's nothing special about recasting the equations this way, and indeed every wave equation (even nonlinear ones) can be rewritten this way.
-There are also problems -- the wave operator that we are left with is no longer Hermitian (or even anti-Hermitian).
-However, if we can write $\hat{\mathsf{D}} = \hat{\mathsf{Q}}\trans\hat{\mathsf{Q}}$, instead of considering the above equation, we could instead consider the equation for a transformed field
-\begin{equation}
-  \Phi = \hat{\mathsf{T}}
-  \begin{pmatrix}
-    \Psi\\
-    \dot{\Psi}
-  \end{pmatrix}
-\end{equation}
-%
-where
-%
-\begin{equation}
-  \hat{\mathsf{T}} =
-  \begin{pmatrix}
-    \hat{\mathsf{Q}} & 0\\
-    0 & i
-  \end{pmatrix}.
-\end{equation}
-%
-Differentiating Eq.~XXX with respect to time and making use of Eq.~XXX, we find the Schr\"{o}dinger-like equation\footnote{Note that only spatial derivatives appear in $\hat{\mathsf{T}}$, so that $\partial_{t}\hat{\mathsf{T}} = \hat{\mathsf{T}}\partial_{t}$.}
-%
-\begin{equation}
-  i\partial_{t}\Phi =
-  \begin{pmatrix}
-    0 & \hat{\mathsf{Q}}\\
-    \hat{\mathsf{Q}}\trans & 0
-  \end{pmatrix}
-  \Phi.
-\end{equation}
-
-\section{Multicomponent wave equations}
-
-\subsection{A multicomponent eigenvalue problem}
-
-In this section we will apply the results that we derived previously to a multicomponent problem whose solution is known exactly.
-Consider the following multicomponent eigenvalue problem%
-\footnote{These equations are slightly modified versions of the channel equations considered by~\citet{yabana1986}.}
-%
-\begin{equation}
-  \begin{bmatrix}
-    \left(\hat{a}^{\dagger}\hat{a} + \frac{1}{2}\right)\epsilon + \Delta & \mu\hat{a}^{\dagger}\\
-    \mu\hat{a} & \left(a^{\dagger}\hat{a} + \frac{1}{2}\right)\epsilon - \Delta
-  \end{bmatrix}
-  \begin{bmatrix}
-    \psi_{+}\\
-    \psi_{-}
-  \end{bmatrix}
-  =
-  E
-  \begin{bmatrix}
-    \psi_{+}\\
-    \psi_{-}
-  \end{bmatrix}.
-\end{equation}
-%
-Above, $\Delta$ is a positive constant and the operators
-%
-\begin{equation}
-\hat{a}^{\dagger} = \frac{x - i\hat{k}}{\sqrt{2\epsilon}}
-  \quad\text{and}\quad
-\hat{a} = \frac{x + i\hat{k}}{\sqrt{2\epsilon}},
-\end{equation}
-%
-are the usual raising and lowering operators from quantum mechanics.%
-\footnote{Here the parameter $\epsilon$ plays the role of the Planck's constant and we have set the mass and oscillator frequency to unity.}
-Without the off diagonal terms, these equations reduce to two uncoupled simple harmonic oscillators, in which case the energies would be given by $E_{n}^{\pm} = (n + \frac{1}{2})\epsilon \pm \Delta$ for $n \in \mathbb{N}_{0}$.
-To solve the eigenvalue problem in the presence of off-diagonal term, we expand the solution in terms of the eigenstates $\phi_{n}$ of the simple harmonic oscillator
-%
-\begin{equation}
-  \psi_{+} = \sum_{n= 0}^{\infty} a_{n}\phi_{n}
-  \quad\text{and}\quad
-  \psi_{-} = \sum_{n = 0}^{\infty} b_{n}\phi_{n}.
-\end{equation}
-%
-Putting the above equation in Eq.~XXX, we arrive at
-%
-\begin{equation}
-   \begin{aligned}
-     \sum_{n = 0}^{\infty} \left\{\left[\left(n +  \tfrac{3}{2}\right)\epsilon + \Delta - E\right]a_{n + 1} + \sqrt{n + 1}b_{n}\right\}\phi_{n+1}  + a_{0}\left(\tfrac{1}{2}\epsilon + \Delta - E\right)\phi_{0}&= 0\\
-     \sum_{n = 0}^{\infty} \left\{\sqrt{n + 1}a_{n+1} + \left[\left(n +  \tfrac{1}{2}\right)\epsilon - \Delta - E\right]b_{n}\right\}\phi_{n} &= 0.
-   \end{aligned}
-\end{equation}
-%
-Since the $\phi_{n}$ are independent functions, their coefficients in the above equations should independently vanish, which leads us to the quantization condition.
-Clearly, the lowest energy is $E = \tfrac{1}{2}\epsilon + \Delta$ and the associated eigenstate is $\psi = (0, \phi_{0})$.
-%
-\begin{equation}
-  \begin{bmatrix}
-    \left(n + \tfrac{1}{2}\right)\epsilon - \Delta - E & \sqrt{n + 1}\\
-    \sqrt{n + 1} & \left(n + \tfrac{3}{2}\right) + \Delta - E
-  \end{bmatrix}
-  \begin{bmatrix}
-    a_{n}\\
-    b_{n + 1}
-  \end{bmatrix}
-  = 0.
-\end{equation}
-%
-
-\section{Filament equations}
-
-%
-\begin{equation}
-  \mathscr{E}[\zeta, u] = \mathscr{K} - \mathscr{U} = \int \dd{t}\,\dd{x}\,\frac{1}{2}\left\{\rho\left(\dot{u}^{2} + \dot{\zeta}^{2}\right) - A\left[u' - m(x)\zeta\right]^{2} - B\left(\zeta''\right)^{2}\right\}
-\end{equation}
 

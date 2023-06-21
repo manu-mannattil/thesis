@@ -16,17 +16,20 @@
   \DoubleSpacing
   % \OnehalfSpacing
 \else
-  % height = 10in, width = 7in.
-  \setstocksize{10in}{7in}
-  \settrimmedsize{\stockheight}{\stockwidth}{*}
-  \setulmarginsandblock{1in}{1in}{*} % up-lower margins
-
-  % left + right = 1.65in to get a total textwidth of
-  % 7in - 1.65in = 386pt.
+  % In both the below cases, we need the block size 
+  % to be 8in x 5.35in.
   \ifdeadtree
-    \setlrmarginsandblock{0.75in}{0.9in}{*}
+    % letter-size paper
+    \setstocksize{11in}{8.5in}
+    \settrimmedsize{\stockheight}{\stockwidth}{*}
+    \setulmarginsandblock{1.575in}{1.575in}{*}
+    \setlrmarginsandblock{1.5in}{1.5in}{*}
   \else
-    \setlrmarginsandblock{0.825in}{0.825in}{*}
+    % height = 10in, width = 7in
+    \setstocksize{10in}{7in}
+    \settrimmedsize{\stockheight}{\stockwidth}{*}
+    \setulmarginsandblock{1in}{1in}{*} % up-lower margins
+    \setlrmarginsandblock{0.825in}{0.825in}{*} % left-right margins
   \fi
 \fi
 

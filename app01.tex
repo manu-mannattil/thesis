@@ -75,7 +75,7 @@ The coarea formula,\footnote{Sometimes the coarea formula is misleadingly writte
   \begin{equation}
     \begin{aligned}
       \int_{\mathbb{R}^n} \dd{\bm{q}}\, \phi(\bm{q}) &= \int_{\mathbb{R}^m} \dd{\xi}\,\int_{\mathbb{R}^n} \dd{\bm{q}}\, \delta\left[\hat{\xi}(\bm{q}) - \xi\right] \phi(\bm{q})\\
-                                                     &= \int_{\mathbb{R}^m} \dd{\xi}\,\int_{\bm{q} \in \hat{\xi}^{-1}(\xi)} \frac{\dd{\Omega(\bm{q})}}{|\det \nabla\hat{\xi}(\nabla\hat{\xi})^\mathsf{T}|^{1/2}} \phi(\bm{q})\,,
+                                                     &= \int_{\mathbb{R}^m} \dd{\xi}\,\int_{\bm{q} \in \hat{\xi}^{-1}(\xi)} \frac{\dd{\Omega(\bm{q})}}{|\det \nabla\hat{\xi}(\nabla\hat{\xi})^T|^{1/2}} \phi(\bm{q})\,,
     \end{aligned}
   \end{equation}
   where $\dd\Omega(\bm{q})$ is the area element on the level set $\hat{\xi}^{-1}(\xi)$.
@@ -122,43 +122,59 @@ Other examples: density of states.  See paper~\cite{gillespie1983}.
 
 An operator-symbol correspondence is an association between operators defined on some Hilbert space and ordinary $c$-numbered functions on the phase space, called symbols~\cite[\S 2.3.1]{chaichian2001}.
 
-The symmetrized product $\big\llbracket \hat{\mathsf{A}}_{1}^{k_{1}} \hat{\mathsf{A}}_{2}^{k_{2}} \cdots \hat{\mathsf{A}}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\hat{\mathsf{A}}_{i}$ is defined as the coefficient of
+The symmetrized product $\big\llbracket \hat{A}_{1}^{k_{1}} \hat{A}_{2}^{k_{2}} \cdots \hat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\hat{A}_{i}$ is defined as the coefficient of
 %
 \begin{equation}
   \frac{k!}{k_{1}!k_{2}!\cdots k_{n}!} a_{1}^{k_{1}} a_{2}^{k_{2}} \cdots a_{n}^{k_{n}}
 \end{equation}
 %
-in the multinomial expansion of $\left(a_{1}\hat{\mathsf{A}}_{1} + a_{2}\hat{\mathsf{A}}_{2} + \cdots + a_{n}\hat{\mathsf{A}}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
+in the multinomial expansion of $\left(a_{1}\hat{A}_{1} + a_{2}\hat{A}_{2} + \cdots + a_{n}\hat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
 
 \subsection{Weyl symbols}
 
+The Weyl symbol of an operator $\hat{A}$ is defined by
+%
+\begin{equation}
+  A(x, k) = \int \dd{s}\, e^{-iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\hat{A}\Ket{x - \tfrac{1}{2}s}.
+  \label{app:eq:weyl_def}
+\end{equation}
+%
+A consequence of the above definition is that if operator $\hat{A}$ is Hermitian with $\hat{A}^{\dagger} = \hat{A}$, then, taking the complex conjugate of Eq.~\eqref{app:eq:weyl_def}, we find
+%
+\begin{equation}
+  A^{*}(x, k) = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\hat{A}\Ket{x - \tfrac{1}{2}s}^{*}
+  = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x - \tfrac{1}{2}s}\hat{A}\Ket{x + \tfrac{1}{2}s} = A(x, k),
+\end{equation}
+%
+showing that the symbol $A(x, k)$ is a real function of $x$ and $k$.
+
 \begin{example}
-  For a one-dimensional operator $\hat{\mathsf{A}} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~XXX, we find $\mathsf{A} = a x^{n}$.
-  This also means that the operator $\hat{\mathsf{A}} = \sum_{n} a_{n}\hat{x}^{n}$, which is a polynomial in $\hat{x}$, with $a_{n}$ being the coefficients, has the symbol
-  $\mathsf{A} = \sum_{n} a_{n}{x}^{n}$, an ordinary polynomial in $x$.
-  More generally, in $d$ dimensions, if $\hat{\mathsf{A}}$ is a multivariate polynomial in the components of $\hat{\bm{x}}$, i.e., $\hat{\mathsf{A}} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} \hat{x}_{1}^{n_{1}}\hat{x}_{2}^{n_{2}}\cdots \hat{x}_{d}^{n_{d}}$, then the corresponding Weyl symbol is $\mathsf{A} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} {x}_{1}^{n_{1}}{x}_{2}^{n_{2}}\cdots {x}_{d}^{n_{d}}$.%
+  For a one-dimensional operator $\hat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~XXX, we find $A = a x^{n}$.
+  This also means that the operator $\hat{A} = \sum_{n} a_{n}\hat{x}^{n}$, which is a polynomial in $\hat{x}$, with $a_{n}$ being the coefficients, has the symbol
+  $A = \sum_{n} a_{n}{x}^{n}$, an ordinary polynomial in $x$.
+  More generally, in $d$ dimensions, if $\hat{A}$ is a multivariate polynomial in the components of $\hat{\bm{x}}$, i.e., $\hat{A} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} \hat{x}_{1}^{n_{1}}\hat{x}_{2}^{n_{2}}\cdots \hat{x}_{d}^{n_{d}}$, then the corresponding Weyl symbol is $A = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} {x}_{1}^{n_{1}}{x}_{2}^{n_{2}}\cdots {x}_{d}^{n_{d}}$.%
   \footnote{Here, we could have alternatively considered the operator $\sum_{n} a_{n} \hat{\bm{x}}^{n}$, but raising a vector operator to a power is not readily obvious.
-    In any case, the generalization we have considered does cover common cases such as $\hat{\mathsf{A}} = \hat{\bm{x}}\cdot\hat{\bm{x}}$.
+    In any case, the generalization we have considered does cover common cases such as $\hat{A} = \hat{\bm{x}}\cdot\hat{\bm{x}}$.
   In this case, in two dimensions, for instance, the polynomial coefficients will all be zero except for $a_{20} = 1$ and $a_{02} = 1$, and the Weyl symbol would trivially be $x_{1}^{2} + x_{2}^{2}$.}
 \end{example}
 
 \section{Star product of symbols}
 
 How can we express the symbol of the product of two operators in terms of their individual symbols?
-For example, if $\hat{\mathsf{C}} = \hat{\mathsf{A}}\hat{\mathsf{B}}$, then how is $\mathsf{C}$ related to $\mathsf{A}$ and $\mathsf{B}$?
-There is no apriori reason to assume that $\mathsf{C} = \mathsf{A}\mathsf{B}$, and indeed $\mathsf{C} \neq \mathsf{A}\mathsf{B}$, in general.
+For example, if $\hat{C} = \hat{A}\hat{B}$, then how is the symbol $C$ related to the symbols $A$ and $B$?
+As $\hat{A}$ and $\hat{B}$ are general noncommuting operators, there is no apriori reason to assume that $C = AB$, and indeed $C \neq AB$, in general.
 %
 \begin{equation}
-  \mathsf{C}(x, k) = 2\int \dd{x'}\, \dd{x''} \,e^{-2ikx} \bra{x + x'}\hat{\mathsf{A}}\ket{x''}\bra{x''}\hat{\mathsf{B}}\ket{x - x'}.
+  C(x, k) = 2\int \dd{x'}\, \dd{x''} \,e^{-2ikx} \bra{x + x'}\hat{A}\ket{x''}\bra{x''}\hat{B}\ket{x - x'}.
 \end{equation}
 %
 Above we have set $x' \to 2x'$ in the usual Wigner transform expression.
-Using the Weyl transform to express the matrix elements $\bra{x + \frac{1}{2}x'}\hat{\mathsf{A}}\ket{x''}$ and $\bra{x''}\hat{\mathsf{B}}\ket{x - \frac{1}{2}x'}$ in terms of the symbols $\mathsf{A}$ and $\mathsf{B}$, we find
+Using the Weyl transform to express the matrix elements $\bra{x + \frac{1}{2}x'}\hat{A}\ket{x''}$ and $\bra{x''}\hat{B}\ket{x - \frac{1}{2}x'}$ in terms of the symbols $A$ and $B$, we find
 %
 \begin{equation}
   \begin{aligned}
-    \mathsf{C}(x, k) = \frac{2}{(2\pi)^{2}}& \bigg\{\int \dd{x'}\, \dd{x''}\, \dd{k_{1}}\, \dd{k_{2}}\,e^{-2i[kx - k_{1}(x + x' - x'') - k_{2}(-x + x' + x'')]}\\
-                                           &\qquad\times \mathsf{A}\left[\tfrac{1}{2}(x + x' + x''), k_{1}\right]\, \mathsf{B}\left[\tfrac{1}{2}(x - x' + x''), k_{2}\right]\bigg\}.
+    C(x, k) = \frac{2}{(2\pi)^{2}}& \bigg\{\int \dd{x'}\, \dd{x''}\, \dd{k_{1}}\, \dd{k_{2}}\,e^{-2i[kx - k_{1}(x + x' - x'') - k_{2}(-x + x' + x'')]}\\
+                                           &\qquad\times A\left[\tfrac{1}{2}(x + x' + x''), k_{1}\right]\, B\left[\tfrac{1}{2}(x - x' + x''), k_{2}\right]\bigg\}.
   \end{aligned}
 \end{equation}
 %
@@ -166,21 +182,21 @@ Setting $x_{1} = \frac{1}{2}(x + x' + x'')$ and $x_{2} = \frac{1}{2}(x - x' + x'
 %
 \begin{equation}
   \begin{aligned}
-    \mathsf{C}(x, k) &= \frac{1}{\pi^{2}} \int \dd{x_{1}}\, \dd{x_{2}}\, \dd{k_{1}}\, \dd{k_{2}}\,e^{-2i[(k_{1} - k)(x_{2} - x) - (k_{2} - k)(x_{1} - x)]} \mathsf{A}(x_{1}, k_{1})\, \mathsf{B}(x_{2}, k_{2})\\
-                     &= \frac{1}{\pi^{2}} \int \dd{x_{1}}\, \dd{x_{2}}\, \dd{k_{1}}\, \dd{k_{2}}\,e^{2i(k_{2}x_{1} - k_{1}x_{2})}\,e^{2i(kx_{2} - k_{2}x)} \mathsf{A}(x_{1}, k_{1})\, \mathsf{B}(x + x_{2}, k + k_{2}).\label{eq:moyal1}
+    C(x, k) &= \frac{1}{\pi^{2}} \int \dd{x_{1}}\, \dd{x_{2}}\, \dd{k_{1}}\, \dd{k_{2}}\,e^{-2i[(k_{1} - k)(x_{2} - x) - (k_{2} - k)(x_{1} - x)]} A(x_{1}, k_{1})\, B(x_{2}, k_{2})\\
+                     &= \frac{1}{\pi^{2}} \int \dd{x_{1}}\, \dd{x_{2}}\, \dd{k_{1}}\, \dd{k_{2}}\,e^{2i(k_{2}x_{1} - k_{1}x_{2})}\,e^{2i(kx_{2} - k_{2}x)} A(x_{1}, k_{1})\, B(x + x_{2}, k + k_{2}).\label{eq:moyal1}
   \end{aligned}
 \end{equation}
 %
-In the last step, we have set $x_{2} \to x + x_{2}$ and $k_{2} \to k + k_{2}$, with the hope of Taylor expanding $\mathsf{B}$ around $(x, k)$.
+In the last step, we have set $x_{2} \to x + x_{2}$ and $k_{2} \to k + k_{2}$, with the hope of Taylor expanding $B$ around $(x, k)$.
 Note that
 %
 \begin{equation}
   \begin{aligned}
-    \mathsf{B}(x + x_{2}, k + k_{2}) &= \mathsf{B}(x, k) + [\partial_{x} \mathsf{B}(x, k)]x_{2} + [\partial_{k} \mathsf{B}(x, k)] k_{2} + \tfrac{1}{2} [\partial^{2}_{x} \mathsf{B}(x, k)] x_{2}^{2}\\
-    &\qquad + \tfrac{1}{2} [\partial^{2}_{k} \mathsf{B}(x, k)] k_{2}^{2} + [\partial_{x}\partial_{k} \mathsf{B}(x, k)] x_{2}k_{2} + \cdots \\
+    B(x + x_{2}, k + k_{2}) &= B(x, k) + [\partial_{x} B(x, k)]x_{2} + [\partial_{k} B(x, k)] k_{2} + \tfrac{1}{2} [\partial^{2}_{x} B(x, k)] x_{2}^{2}\\
+    &\qquad + \tfrac{1}{2} [\partial^{2}_{k} B(x, k)] k_{2}^{2} + [\partial_{x}\partial_{k} B(x, k)] x_{2}k_{2} + \cdots \\
     &= \left[1 + x_{2}\partial_{x} + \tfrac{1}{2}x_{2}^{2}\partial^{2}_{x} + \cdots \right]\,
-  \left[1 + k_{2}\partial_{k} + \tfrac{1}{2}k_{2}^{2}\partial^{2}_{k} + \cdots \right] \mathsf{B}(x, k)\\
-    &= e^{x_{2}\partial_{x}} e^{k_{2}\partial_{k}} \mathsf{B}(x, k).\label{eq:moyal2}
+  \left[1 + k_{2}\partial_{k} + \tfrac{1}{2}k_{2}^{2}\partial^{2}_{k} + \cdots \right] B(x, k)\\
+    &= e^{x_{2}\partial_{x}} e^{k_{2}\partial_{k}} B(x, k).\label{eq:moyal2}
   \end{aligned}
 \end{equation}
 %
@@ -206,19 +222,19 @@ Using Eqs.~\eqref{eq:moyal2}--\eqref{eq:moyal4}, and defining $\hat{\mathcal{L}}
 %
 \begin{equation}
   \begin{aligned}
-    \mathsf{C}(x, k) &= \frac{1}{\pi^{2}} \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \dd{x_{2}}\, \dd{k_{2}}\,e^{2i[k_{2}(x_{1} - x) - x_{2}(k_{1} - k)]} \mathsf{A}(x_{1}, k_{1})\, e^{\frac{i}{2}\hat{\mathcal{L}}}\right] \mathsf{B}(x, k)\\
-                     &= \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \delta(x_{1} - x)\,\delta(k_{1} - k) \mathsf{A}(x_{1}, k_{1})\, e^{\frac{i}{2}\hat{\mathcal{L}}}\right] \mathsf{B}(x, k)\\
-                     &= \mathsf{A}(x, k)e^{\frac{i}{2}\hat{\mathcal{L}}} \mathsf{B}(x, k).
+    C(x, k) &= \frac{1}{\pi^{2}} \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \dd{x_{2}}\, \dd{k_{2}}\,e^{2i[k_{2}(x_{1} - x) - x_{2}(k_{1} - k)]} A(x_{1}, k_{1})\, e^{\frac{i}{2}\hat{\mathcal{L}}}\right] B(x, k)\\
+                     &= \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \delta(x_{1} - x)\,\delta(k_{1} - k) A(x_{1}, k_{1})\, e^{\frac{i}{2}\hat{\mathcal{L}}}\right] B(x, k)\\
+                     &= A(x, k)e^{\frac{i}{2}\hat{\mathcal{L}}} B(x, k).
   \end{aligned}
 \end{equation}
 %
-In the first step above, we have put brackets around the integral (which is now an operator) to emphasize that $\mathsf{B}(x, k)$ can be taken outside it.
+In the first step above, we have put brackets around the integral (which is now an operator) to emphasize that $B(x, k)$ can be taken outside it.
 The final step defines the Moyal (or ``star'' $\star$) product, which can be used to compute the symbol of the product of two operators in terms of their respective symbols:
 %
 \begin{equation}
   \begin{aligned}
-    \mathsf{C}(x, k) = \mathsf{A}(x, k)\star\mathsf{B}(x, k) &= \mathsf{A}(x, k)e^{\frac{i\epsilon}{2}\hat{\mathcal{L}}} \mathsf{B}(x, k)\\
-                                                             &= \mathsf{A}(x, k)\left[1 + \frac{i\epsilon}{2}\left(\ogets{\partial_{x}}\oto{\partial_{k}} - \ogets{\partial_{k}}\oto{\partial_{x}}\right) + \mathcal{O}(\epsilon^{2}) \right] \mathsf{B}(x, k)\\
-                                                             &= \mathsf{A}(x, k)\mathsf{B}(x, k) + \frac{i\epsilon}{2}\left\{\mathsf{A}(x, k), \mathsf{B}(x, k)\right\} + \mathcal{O}(\epsilon^{2}).
+    C(x, k) = A(x, k)\star B(x, k) &= A(x, k)e^{\frac{i\epsilon}{2}\hat{\mathcal{L}}} B(x, k)\\
+                                                             &= A(x, k)\left[1 + \frac{i\epsilon}{2}\left(\ogets{\partial_{x}}\oto{\partial_{k}} - \ogets{\partial_{k}}\oto{\partial_{x}}\right) + \mathcal{O}(\epsilon^{2}) \right] B(x, k)\\
+                                                             &= A(x, k)B(x, k) + \frac{i\epsilon}{2}\left\{A(x, k), B(x, k)\right\} + \mathcal{O}(\epsilon^{2}).
   \end{aligned}
 \end{equation}

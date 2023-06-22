@@ -64,37 +64,37 @@ Zero-energy shape changes constitute the slowest dynamics in a mechanism, so it 
 
 \section{Thermal fluctuations}
 
-Let us assume that the value of the chosen CV for any configuration $\bm{q} \in \mathbb{R}^{n}$ of the mechanism can be measured using the CV map $\hat{\xi}(\bm{q})$.
-(In the case of the four-bar linkage, for example, if we choose $\theta_{1}$ as the CV, then $\hat{\xi}(\bm{q)}$ is the map that computes $\theta_{1}$ for any $\bm{q}$, whether or not it lies on the branches of the linkage's shape space.)
-The free energy associated with the CV $\xi$ is~\cite{lelievre2010}
+Let us assume that the value of the chosen \ac{cv} for any configuration $\bm{q} \in \mathbb{R}^{n}$ of the mechanism can be measured using the CV map $\hat{\xi}(\bm{q})$.
+(In the case of the four-bar linkage, for example, if we choose $\theta_{1}$ as the \ac{cv}, then $\hat{\xi}(\bm{q)}$ is the map that computes $\theta_{1}$ for any $\bm{q}$, whether or not it lies on the branches of the linkage's shape space.)
+The free energy associated with the \ac{cv} $\xi$ is~\cite{lelievre2010}
 %
 \begin{equation}
   \mathscr{A}(\xi) = -\beta^{-1}\ln{\mathscr{P}(\xi)},
   \label{eq:free_energy}
 \end{equation}
 %
-where $\beta$ is the inverse temperature and $\mathscr{P}(\xi)$ is the marginal probability density of the CV, which, aside from factors of normalization, is
+where $\beta$ is the inverse temperature and $\mathscr{P}(\xi)$ is the marginal probability density of the \ac{cv}, which, aside from factors of normalization, is
 %
 \begin{equation}
   \mathscr{P}(\xi) = \int_{\mathbb{R}^{n}} \dd\bm{q}\, I(\bm{q})\, \delta\left[\hat{\xi}(\bm{q}) - \xi\right] \exp\left[-\beta U(\bm{q})\right].
   \label{eq:mpd}
 \end{equation}
 %
-Here $\delta[\cdot]$ is the $(n-m)$-dimensional Dirac delta function, which restricts the domain of integration to the $m$-dimensional CV level set $\hat{\xi}^{-1}(\xi) = \left\{\bm{q} \in \mathbb{R}^{n}: \hat{\xi}(\bm{q}) = \xi\right\}$~\cite{hartmann2011}, and $I(\bm{q})$ is a Jacobian factor introduced by the change of coordinates from the lab frame to the body frame.
+Here $\delta[\cdot]$ is the $(n-m)$-dimensional Dirac delta function, which restricts the domain of integration to the $m$-dimensional \ac{cv} level set $\hat{\xi}^{-1}(\xi) = \left\{\bm{q} \in \mathbb{R}^{n}: \hat{\xi}(\bm{q}) = \xi\right\}$~\cite{hartmann2011}, and $I(\bm{q})$ is a Jacobian factor introduced by the change of coordinates from the lab frame to the body frame.
 When $\hat{\xi}$ has full rank in $\hat{\xi}^{-1}(\xi)$, the coarea formula~\cite{lelievre2010} lets us express $\mathscr{P}(\xi)$ as an exact high-dimensional surface integral over $\hat{\xi}^{-1}(\xi)$, but evaluating it is a difficult task in practice.
 Hence, we have to resort to asymptotic methods for its evaluation.
 
 At low temperatures (i.e., large $\beta$) we can asymptotically evaluate the integral in Eq.~\eqref{eq:mpd} by expanding the energy $U(\bm{q})$ around the ground-state configurations in $\hat{\xi}^{-1}(\xi)$.
 Since all ground states belong to the shape space $\Sigma$, they could be regular (i.e., nonsingular) points or singularities of $\Sigma$.
-We call $\xi$ a regular value of the CV if $\hat{\xi}^{-1}(\xi)$ does not contain singularities of $\Sigma$ and vice-versa.
-For now, let us assume that $\xi$ is a regular value of the CV and that $\hat{\xi}^{-1}(\xi)$ contains just one ground state $\bar{\bm{q}}$.
+We call $\xi$ a regular value of the \ac{cv} if $\hat{\xi}^{-1}(\xi)$ does not contain singularities of $\Sigma$ and vice-versa.
+For now, let us assume that $\xi$ is a regular value of the \ac{cv} and that $\hat{\xi}^{-1}(\xi)$ contains just one ground state $\bar{\bm{q}}$.
 If $\bm{q}$ is a point near $\bar{\bm{q}}$, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, we expand the energy to the lowest order around $\bar{\bm{q}}$ and find the harmonic energy $U \approx \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}$.
 Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix evaluated at $\bar{\bm{q}}$~\cite{lubensky2015} (assuming joints of unit mass) and $\mathsf{K}$ is the diagonal matrix of bar stiffnesses $\phi_{i}''(\bar{\ell}_{i})$, which we set equal to $\kappa$ for all bars for simplicity.
 See the Supplemental Material (SM) for details.
 Since $\bar{\bm{q}}$ is a regular point of $\Sigma$, $\mathsf{C}$ has full rank, and $\mathsf{D}$ has $n-m$ independent zero modes that belong to $\ker\mathsf{C} = \left\{\bm{u} \in \mathbb{R}^{n}: \mathsf{C}\bm{u} = \bm{0}\right\}$~\cite{lubensky2015}.
 These zero modes are all tangent to $\Sigma$ and represent a degree of freedom~\cite{leimkuhler2005}.
 Hence, to asymptotically evaluate Eq.~\eqref{eq:mpd} in the neighborhood of a regular point, we can safely use the harmonic approximation since any divergence~\cite{schwarz1979,ellis1981,rocklin2018} due to these zero modes is regularized by the delta function, which suppresses all contributions to the integral that are tangent to $\Sigma$~\cite{ramond1997}.
-Then, the asymptotic marginal density for a regular value $\xi$ of the CV is (SM)
+Then, the asymptotic marginal density for a regular value $\xi$ of the \ac{cv} is (SM)
 %
 \begin{equation}
   \mathscr{P}(\xi) \sim I(\xi)\left(\frac{2\pi}{\beta}\right)^{m/2}
@@ -102,7 +102,7 @@ Then, the asymptotic marginal density for a regular value $\xi$ of the CV is (SM
   \label{eq:mpd_regular}
 \end{equation}
 %
-Here $\psi: \mathbb{R}^{n-m} \to \mathbb{R}^{n}$ is a parameterization of $\Sigma$ near $\bar{\bm{q}} \in \Sigma$ in terms of the CV $\xi$, and compatible with the CV map, such that $\bar{\bm{q}} = \psi(\xi)$ and $\hat{\xi}(\bar{\bm{q}}) = \xi$.
+Here $\psi: \mathbb{R}^{n-m} \to \mathbb{R}^{n}$ is a parameterization of $\Sigma$ near $\bar{\bm{q}} \in \Sigma$ in terms of the \ac{cv} $\xi$, and compatible with the CV map, such that $\bar{\bm{q}} = \psi(\xi)$ and $\hat{\xi}(\bar{\bm{q}}) = \xi$.
 Also, $\det\,(\nabla\psi)\trans\nabla\psi$ is the determinant of the induced metric on $\Sigma$ and $\mathsf{D}^{\perp}$ is the diagonal matrix of the $m$ nonzero eigenvalues of $\mathsf{D}$ at $\bar{\bm{q}}$.
 
 Now, consider the situation at a shape-space singularity, where $\mathsf{C}$ has rank deficiency.
@@ -113,8 +113,8 @@ This causes Eq.~\eqref{eq:mpd_regular} to break down even for regular ground sta
 For instance, for the four-bar linkage, using Eq.~\eqref{eq:mpd_regular} we find $\mathscr{P}(\theta_1) \sim |\sin \theta_1|^{-1}$ (SM), which diverges as $\theta_{1} \to 0, \pm\pi$.
 
 To resolve the problem, we need to consider higher-order contributions to the energy due to the excess zero modes at the singularity.
-Consider a singularity $\bar{\bm{q}}^{*} \in \Sigma$, where the CV has the value $\xi^{*}$.
-For now, let us also assume that the only ground state in the CV level set $\hat{\xi}^{-1}(\xi^{*})$ is $\bar{\bm{q}}^{*}$.
+Consider a singularity $\bar{\bm{q}}^{*} \in \Sigma$, where the \ac{cv} has the value $\xi^{*}$.
+For now, let us also assume that the only ground state in the \ac{cv} level set $\hat{\xi}^{-1}(\xi^{*})$ is $\bar{\bm{q}}^{*}$.
 For a point $\bm{q}$ close to $\bar{\bm{q}}^{*} \in \Sigma$, we set $\bm{q} \to \bar{\bm{q}}^{*} + \bm{q}$ and  write $\bm{q} = \bm{u} + \bm{v}$.
 Here $\bm{u} \in \ker\mathsf{C}$ is a zero mode, $\bm{v} \in (\ker\mathsf{C})^{\perp}$ is a fast vibrational mode of the system, and $(\ker\mathsf{C})^{\perp}$ is the orthogonal complement of $\ker\mathsf{C}$ in $\mathbb{R}^{n}$.
 Systematically expanding the energy to the lowest order in $\bm{u}$ and $\bm{v}$ around $\bar{\bm{q}}^{*}$~\cite{zhang2016,kallus2017,woodhouse2018} we find (SM)
@@ -129,13 +129,13 @@ This makes the above energy expansion quartic in the zero modes $\bm{u}$.
 
 Equation~\eqref{eq:energy_singular} is only valid when the expansion is around the singularity $\bar{\bm{q}}^{*}$, and a similar expansion does not exist for ground states in $\hat{\xi}^{-1}(\xi)$ for $\xi$ close to $\xi^{*}$, where the harmonic approximation is not applicable either.
 Thus, for $\xi \to \xi^{*}$, we choose to find $\mathscr{P}(\xi)$ by directly evaluating the integral over $\hat{\xi}^{-1}(\xi)$ using the coarea formula.
-To simplify the evaluation, we make two assumptions: (i) for points close to $\bar{\bm{q}}^{*}$, the CV map $\hat{\xi}$ can be approximated by its Taylor expansion around $\bar{\bm{q}}^{*}$: $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^{2})$, with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$; (ii) fast modes that belong to $(\ker\mathsf{C})^{\perp}$ do not change the value of the CV to linear order at $\bar{\bm{q}}^{*}$, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
-Assumption (i) linearizes the CV map and turns its level sets near the singularity into hyperplanes, simplifying the evaluation of Eq.~\eqref{eq:mpd}.
-Although assumption (ii) is stringent on the shape coordinate we use as the CV, it is true for most reasonable choices and a good CV should mainly be sensitive to the slow modes~\cite{tiwary2016}.
+To simplify the evaluation, we make two assumptions: (i) for points close to $\bar{\bm{q}}^{*}$, the \ac{cv} map $\hat{\xi}$ can be approximated by its Taylor expansion around $\bar{\bm{q}}^{*}$: $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^{2})$, with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$; (ii) fast modes that belong to $(\ker\mathsf{C})^{\perp}$ do not change the value of the CV to linear order at $\bar{\bm{q}}^{*}$, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
+Assumption (i) linearizes the \ac{cv} map and turns its level sets near the singularity into hyperplanes, simplifying the evaluation of Eq.~\eqref{eq:mpd}.
+Although assumption (ii) is stringent on the shape coordinate we use as the \ac{cv}, it is true for most reasonable choices and a good CV should mainly be sensitive to the slow modes~\cite{tiwary2016}.
 This makes it possible to use the quartic energy expansion and integrate over the fast modes.
 Note that in the above steps, we do not make use of any parameterization of $\Sigma$, unlike in Eq.~\eqref{eq:mpd_regular}.
 
-Using the linearized CV map and the quartic expansion for the energy [Eq.~\eqref{eq:energy_singular}] in Eq.~\eqref{eq:mpd}, we integrate out the fast vibrational modes $\bm{v}$ to find (SM)
+Using the linearized \ac{cv} map and the quartic expansion for the energy [Eq.~\eqref{eq:energy_singular}] in Eq.~\eqref{eq:mpd}, we integrate out the fast vibrational modes $\bm{v}$ to find (SM)
 %
 \begin{equation}
   \begin{aligned}
@@ -146,11 +146,11 @@ Using the linearized CV map and the quartic expansion for the energy [Eq.~\eqref
 \end{equation}
 %
 where $\bm{\sigma} \in \ker\mathsf{C}\trans$ are the self stresses and $\mathsf{D}^{\perp}$ is the diagonal matrix of the $m-s$ nonzero eigenvalues of $\mathsf{D}$ at $\bar{\bm{q}}^{*}$.
-Also, $\dd\Omega(\bm{u})$ is the area element on the integration domain $\Xi_{\xi}$, which is geometrically an $s$-dimensional hyperplane formed by the intersection of $\ker\mathsf{C}$ and the level set of the linearized CV map $(\nabla\hat{\xi})^{-1}(\xi - {\xi}^{*}) = \{\bm{u} \in \mathbb{R}^{n} : \xi^{*} + (\nabla\hat{\xi})\bm{u} = \xi\}$.
+Also, $\dd\Omega(\bm{u})$ is the area element on the integration domain $\Xi_{\xi}$, which is geometrically an $s$-dimensional hyperplane formed by the intersection of $\ker\mathsf{C}$ and the level set of the linearized \ac{cv} map $(\nabla\hat{\xi})^{-1}(\xi - {\xi}^{*}) = \{\bm{u} \in \mathbb{R}^{n} : \xi^{*} + (\nabla\hat{\xi})\bm{u} = \xi\}$.
 On choosing a basis for $\ker\mathsf{C}$, the term in the exponential of the above integral becomes a quartic polynomial, making further simplification difficult.
 We discuss the convergence criteria for Eq.~\eqref{eq:mpd_singular} in the SM.
 
-On the basis of how $\mathscr{P}(\xi)$ in Eqs.~\eqref{eq:mpd_regular} and \eqref{eq:mpd_singular} scales with $\beta$, we can show that the free-energy barriers between regular and singular values of the CV have a temperature/stiffness dependence $\sim\ln\beta\kappa$, making the barriers energetic in nature.
+On the basis of how $\mathscr{P}(\xi)$ in Eqs.~\eqref{eq:mpd_regular} and \eqref{eq:mpd_singular} scales with $\beta$, we can show that the free-energy barriers between regular and singular values of the \ac{cv} have a temperature/stiffness dependence $\sim\ln\beta\kappa$, making the barriers energetic in nature.
 This is not surprising considering the overall softening of the mechanism near the singularities.
 Also, for both the quartic and harmonic approximations for $\mathscr{P}(\xi)$, we expect the range of validity (in $\xi$) to increase with increasing $\beta$, along with an increase in the range where both approximations produce similar results.
 %
@@ -163,7 +163,7 @@ Also, for both the quartic and harmonic approximations for $\mathscr{P}(\xi)$, w
   \label{fig:4bar_free}
 \end{figure}
 
-So far we have only considered cases where the CV level set $\hat{\xi}^{-1}(\xi)$ contains only one regular point or a singularity of $\Sigma$.
+So far we have only considered cases where the \ac{cv} level set $\hat{\xi}^{-1}(\xi)$ contains only one regular point or a singularity of $\Sigma$.
 However, as $\Sigma$ has a branched structure, $\xi$ need not identify a configuration in $\Sigma$ uniquely.
 Indeed, for the four-bar linkage, we see that there are as many as two configurations with a given value of $\theta_{1}$ (Fig.~\ref{fig:4bar_cs}).
 Nonetheless, it is easy to find the asymptotic marginal density for more general cases by using combinations of Eqs.~\eqref{eq:mpd_regular} and \eqref{eq:mpd_singular} to add the contribution of each ground state in $\hat{\xi}^{-1}(\xi)$ individually, noting that Eq.~\eqref{eq:mpd_singular} gives the collective contribution from all the branches meeting at a singularity.
@@ -188,7 +188,7 @@ Further details on the simulations are given in the SM.
 The four-bar linkage we consider (Fig.~\ref{fig:4bar_cs}) is made out of two sets of bars of lengths $a$ and $\lambda a$, where $\lambda > 0$ is a dimensionless aspect ratio.
 For $\lambda \ne 1$, the linkage has shape-space singularities at $\theta_{1} = 0$ and $\theta_{1} = \pm \pi$ where the bars become collinear and support a state of self stress.%
 \footnote{For simplicity, we do not discuss the square four-bar linkage with $\lambda=1$ in this Letter as it has additional singularities at $(\theta_{1}, \theta_{2}) = (0, \pm\pi)$~\cite{yang1994}.}
-The shape space can be fully parameterized using the angle $\theta_{1}$, which we use as our CV and choose $\theta_{1} = 0$ as the point of zero free energy.
+The shape space can be fully parameterized using the angle $\theta_{1}$, which we use as our \ac{cv} and choose $\theta_{1} = 0$ as the point of zero free energy.
 For $\theta_{1}$ far from the singular values we use Eq.~\eqref{eq:mpd_regular} to find the free-energy difference $\Delta\mathscr{A}(\theta_1) = \mathscr{A}(\theta_1) - \mathscr{A}(0)$ as~(SM)
 %
 \begin{equation}
@@ -212,19 +212,19 @@ For further testing our methods, we consider an origami made by triangulating a 
 To make the origami more realistic, in simulations, we avoid all configurations that result in face intersections.
 The one-dimensional shape space [Fig.~\ref{fig:origami}(b)] of this origami can be visualized as four intersecting branches in the space of the fold angles, i.e., the supplement of the dihedral angle at a fold.
 The intersection point is the singular flat state of the origami, where all the fold angles are zero.
-After numerically parameterizing the branches of the shape space in terms of the fold angle $\rho_{1}$, which we use as our CV, we utilize Eq.~\eqref{eq:mpd_regular} to find the free energy $\mathscr{A}(\rho_{1})$ for $\abs{\rho_{1}} \gg 0$.
+After numerically parameterizing the branches of the shape space in terms of the fold angle $\rho_{1}$, which we use as our \ac{cv}, we utilize Eq.~\eqref{eq:mpd_regular} to find the free energy $\mathscr{A}(\rho_{1})$ for $\abs{\rho_{1}} \gg 0$.
 We next find $\mathscr{A}(\rho_{1})$ as $\rho_{1} \to 0$ using Eq.~\eqref{eq:mpd_singular} and choose $\rho_{1}=0$ as the point of zero free energy.
 A comparison between the numerical and the asymptotic results for the free-energy difference  $\Delta\mathscr{A}(\rho_{1})$ shows good agreement in both regimes of $\rho_{1}$ [Fig.~\ref{fig:origami}(c)].
 Self-avoidance of the faces forces us to consider only a part of each branch of the shape space for our analysis.
 Since the extent of these parts (in $\rho_{1}$) vary for the four branches [Fig.~\ref{fig:origami}(b)], it results in discontinuous jumps in the free-energy curves.
 
-The free-energy landscapes of the four-bar linkage and the triangulated origami [Figs.~\ref{fig:4bar_free} and \ref{fig:origami}(c)] demonstrate that the measured values of the CV tend to be closer to their values near the singularities.
-Yet, as free-energy landscapes (and even their extrema) do not always have a CV-agnostic interpretation~\cite{e2004,hartmann2007,frenkel2013}, to draw conclusions we should also consider the physical meaning of the chosen CV.
-The CVs we picked for both the example mechanisms were internal angles whose values dictate the overall shape of the mechanism.
+The free-energy landscapes of the four-bar linkage and the triangulated origami [Figs.~\ref{fig:4bar_free} and \ref{fig:origami}(c)] demonstrate that the measured values of the \ac{cv} tend to be closer to their values near the singularities.
+Yet, as free-energy landscapes (and even their extrema) do not always have a \ac{cv}-agnostic interpretation~\cite{e2004,hartmann2007,frenkel2013}, to draw conclusions we should also consider the physical meaning of the chosen CV.
+The \ac{cv}s we picked for both the example mechanisms were internal angles whose values dictate the overall shape of the mechanism.
 Specifically, according to our results, we expect the bars of the four-bar linkage to tend to be collinear, as measured by the angle $\theta_1$ being close to $0$ or $\pi$.
 Similarly, the origami will tend towards being flat, as measured by the fold angle $\rho_1$.
 This tendency increases at lower temperatures as the free-energy barriers become larger.
-Finally, we remark on the apparent double-well nature of the landscapes near singular values of the CV.
+Finally, we remark on the apparent double-well nature of the landscapes near singular values of the \ac{cv}.
 Because of the branched nature of the shape spaces, when $\theta_{1} \to 0,\,\pm\pi$ or when $\rho_{1} \to 0$, there are multiple ground states where the mechanism is also relatively soft.
 This is illustrated by the widening of the sublevel sets of the energy as one moves away from the singularity (e.g., see Fig.~\ref{sm:fig:energy34} of the SM).
 The net result is an increase in the number of thermodynamically favorable states with $\theta_{1}$ close to $0$ or $\pm\pi$ (and $\rho_{1}$ close to $0$), causing an apparent lowering of the free energy.
@@ -237,7 +237,7 @@ This could help in programming the conformational dynamics of nanomechanisms~\ci
 Our findings also highlight the interplay between the geometry of a mechanism's shape space and its thermodynamic properties.
 Since changes in configuration space topology is known to drive equilibrium phase transitions in certain physical systems~\cite{kastner2008}, it would then be interesting to consider how shape-space singularities affect the physical properties of mechanisms in the thermodynamic limit.
 Indeed, the affinity for the origami to be in nearly-flat configurations is reminiscent of the well-known flat phase of a polymerized membrane~\cite{abraham1990,bowick1996}, which is the natural thermodynamic limit of the triangulated origami.
-Other open questions include the behavior of these mechanisms in the presence of active (nonthermal) noise~\cite{woodhouse2018}, which is known to preferentially actuate zero modes, and methods to bias their dynamics towards desired states~\cite{kang2019}, e.g., by introducing CV-dependent bias potentials~\cite{kastner2011}.
+Other open questions include the behavior of these mechanisms in the presence of active (nonthermal) noise~\cite{woodhouse2018}, which is known to preferentially actuate zero modes, and methods to bias their dynamics towards desired states~\cite{kang2019}, e.g., by introducing \ac{cv}-dependent bias potentials~\cite{kastner2011}.
 
 \section{Lowest-order Approximation of the Energy}
 \label{sm:sec:energy}
@@ -340,8 +340,8 @@ This equation is a generalization of the energy of harmonic spring networks~\cit
 
 \section{Asymptotic Expressions for the Marginal Probability Density}
 
-  As we remarked in the main text, the presence of the delta function restricts the domain of integration in the marginal density $\mathscr{P}(\xi)$ [Eq.~\eqref{eq:mpd}] to the CV level set $\hat{\xi}^{-1}(\xi) = \left\{\bm{q} \in \mathbb{R}^{n}: \hat{\xi}(\bm{q}) = \xi\right\}$~\cite{hartmann2011}.
-Now, since the CV map is $\hat{\xi}: \mathbb{R}^{n} \to \mathbb{R}^{n-m}$, the CV level set $\hat{\xi}^{-1}(\xi)$ will be an $m$-dimensional manifold if $\nabla\hat{\xi}$ has full rank in $\hat{\xi}^{-1}(\xi)$.
+  As we remarked in the main text, the presence of the delta function restricts the domain of integration in the marginal density $\mathscr{P}(\xi)$ [Eq.~\eqref{eq:mpd}] to the \ac{cv} level set $\hat{\xi}^{-1}(\xi) = \left\{\bm{q} \in \mathbb{R}^{n}: \hat{\xi}(\bm{q}) = \xi\right\}$~\cite{hartmann2011}.
+Now, since the \ac{cv} map is $\hat{\xi}: \mathbb{R}^{n} \to \mathbb{R}^{n-m}$, the CV level set $\hat{\xi}^{-1}(\xi)$ will be an $m$-dimensional manifold if $\nabla\hat{\xi}$ has full rank in $\hat{\xi}^{-1}(\xi)$.
 Then, the marginal density $\mathscr{P}(\xi)$ can be written as an exact $m$-dimensional surface integral over $\hat{\xi}^{-1}(\xi)$ using the coarea formula~\cite{hartmann2007,lelievre2010,hartmann2011,diaconis2013},
 %
 \begin{equation}
@@ -353,23 +353,23 @@ Here $\dd\Omega(\bm{q})$ is the surface measure on $\hat{\xi}^{-1}(\xi)$ and $\n
 Sometimes, Eq.~\eqref{sm:eq:coarea} is taken to be the definition of $\mathscr{P}(\xi)$ instead of Eq.~\eqref{eq:mpd}.
 This only makes sense when $\nabla\hat{\xi}$ has full rank in $\hat{\xi}^{-1}(\xi)$ so that the determinant $\det\,\nabla\hat{\xi}(\nabla\hat{\xi})\trans$ does not vanish~\cite{lelievre2010}.%
 \footnote{Equation~\eqref{sm:eq:coarea} is the arbitrary-dimensional analogue of the RHS in $\int_{\mathbb{R}} \dd{x}\, f(x)\, \delta[g(x)] = \sum_{i} f(x_{i})/\abs{g'(x_{i})}$, where $f$ and $g$ are scalar functions in $\mathbb{R}$, and $x_{i}$ are the roots of $g(x) = 0$. This is assuming $\abs{g'(x_{i})} \neq 0$, which is equivalent to the assumption that $\nabla\hat{\xi}$ has full rank in $\hat{\xi}^{-1}(\xi)$.}
-Furthermore, although we have in mind an $(n-m)$-dimensional CV $\xi$ that can be used to parameterize the branches of the shape space $\Sigma$, we do not require a parameterization at hand to use Eq.~\eqref{sm:eq:coarea}.
-For instance, in an origami the CV could be one of its fold angles, e.g., $\rho_{1}$ in Fig.~\ref{fig:origami}, whose value can be directly computed from the coordinates of the origami.
-(The map that turns the coordinates $\bm{q}$ into the fold angle is the CV map $\hat{\xi}(\bm{q})$ for the origami.)
-Hence, in theory, using this equation only requires knowledge of the energy $U(\bm{q})$, the Jacobian factor $I(\bm{q})$, and the CV map $\hat{\xi}$.
+Furthermore, although we have in mind an $(n-m)$-dimensional \ac{cv} $\xi$ that can be used to parameterize the branches of the shape space $\Sigma$, we do not require a parameterization at hand to use Eq.~\eqref{sm:eq:coarea}.
+For instance, in an origami the \ac{cv} could be one of its fold angles, e.g., $\rho_{1}$ in Fig.~\ref{fig:origami}, whose value can be directly computed from the coordinates of the origami.
+(The map that turns the coordinates $\bm{q}$ into the fold angle is the \ac{cv} map $\hat{\xi}(\bm{q})$ for the origami.)
+Hence, in theory, using this equation only requires knowledge of the energy $U(\bm{q})$, the Jacobian factor $I(\bm{q})$, and the \ac{cv} map $\hat{\xi}$.
 Most importantly, Eq.~\eqref{sm:eq:coarea} makes no reference to the shape space $\Sigma$, or its branches, or whether or not it has singularities.
-However, in general, the CV level set $\hat{\xi}^{-1}(\xi)$ is bound to be a curved high-dimensional manifold.
+However, in general, the \ac{cv} level set $\hat{\xi}^{-1}(\xi)$ is bound to be a curved high-dimensional manifold.
 Hence, directly evaluating the integral in Eq.~\eqref{sm:eq:coarea} becomes cumbersome, and we have to resort to asymptotic methods to evaluate it.
 
-It is clear from both Eqs.~\eqref{eq:mpd} and \eqref{sm:eq:coarea} that in the large-$\beta$ limit, contributions to the marginal density would mainly come from the neighborhoods of the ground states in the CV level set $\hat{\xi}^{-1}(\xi)$ since the energy $U(\bm{q})$ vanishes at those points (see Fig.~\ref{sm:fig:levelsets}).
+It is clear from both Eqs.~\eqref{eq:mpd} and \eqref{sm:eq:coarea} that in the large-$\beta$ limit, contributions to the marginal density would mainly come from the neighborhoods of the ground states in the \ac{cv} level set $\hat{\xi}^{-1}(\xi)$ since the energy $U(\bm{q})$ vanishes at those points (see Fig.~\ref{sm:fig:levelsets}).
 Therefore, after asymptotically evaluating the integral in Eq.~\eqref{eq:mpd} in the neighborhood of each ground state (e.g., using Laplace's method~\cite{breitung1994}), we can then sum the results to find the asymptotic expression of the marginal density.
-In the following, to simplify the presentation, we will only consider cases where the CV level set contains just one ground state, which is either a regular point or a singularity of $\Sigma$.
+In the following, to simplify the presentation, we will only consider cases where the \ac{cv} level set contains just one ground state, which is either a regular point or a singularity of $\Sigma$.
 As we mentioned in the main text, more general cases can then be handled by using appropriate combinations of the results we derive.
 
 \subsection{Regular values}
 \label{sm:sec:regular}
 
-We first consider the case where $\xi$ is a regular value of the CV, i.e., when the CV level set $\hat{\xi}^{-1}(\xi)$ contains only regular points of $\Sigma$.
+We first consider the case where $\xi$ is a regular value of the \ac{cv}, i.e., when the CV level set $\hat{\xi}^{-1}(\xi)$ contains only regular points of $\Sigma$.
 As we remarked previously, using Eq.~\eqref{sm:eq:coarea} to find the marginal density is difficult.
 Hence, we will use a Gaussian representation of the delta function to write the marginal density as~\cite{hartmann2007a,hartmann2011}
 %
@@ -397,14 +397,14 @@ We have also rescaled $\bm{q} \to \alpha^{-1/2}\bm{q}$ for convenience.
   \begin{center}
     \includegraphics{singmech/levelsets}
   \end{center}
-  \caption{Cartoon illustrating the shape space $\Sigma$ parameterized by the CV $\xi$ and the CV level set $\hat{\xi}^{-1}(\xi)$.
+  \caption{Cartoon illustrating the shape space $\Sigma$ parameterized by the \ac{cv} $\xi$ and the CV level set $\hat{\xi}^{-1}(\xi)$.
     In general, the sets $\Sigma$ and $\hat{\xi}^{-1}(\xi)$ could intersect at multiple points, each of which is an energy ground state.
     Tangent and normal spaces at such a point $\bar{\bm{q}} \in \Sigma \cap \hat{\xi}^{-1}(\xi)$ are $T_{\bar{\bm{q}}}\Sigma$ and $N_{\bar{\bm{q}}}\Sigma$.}
   \label{sm:fig:levelsets}
 \end{figure}
 
 Consider evaluating the Gaussian integral in the above equation.
-Let us assume that the local parameterization of $\Sigma$ near $\bar{\bm{q}}$ in terms of the CV is $\psi: \mathbb{R}^{n-m} \to \mathbb{R}^n$, which means that $\bar{\bm{q}} = \psi(\xi)$.
+Let us assume that the local parameterization of $\Sigma$ near $\bar{\bm{q}}$ in terms of the \ac{cv} is $\psi: \mathbb{R}^{n-m} \to \mathbb{R}^n$, which means that $\bar{\bm{q}} = \psi(\xi)$.
 Now, the zero modes at $\bar{\bm{q}}$ belong to the tangent space $T_{\bar{\bm{q}}}\Sigma = \ker \mathsf{C}$ by definition~\cite{leimkuhler2005}.
 This implies that the normal modes of the dynamical matrix, which are orthogonal to the zero modes, belong to the $m$-dimensional normal space $N_{\bar{\bm{q}}}\Sigma = (\ker\mathsf{C})^\perp$.
 Since $T_{\bar{\bm{q}}}\Sigma \oplus N_{\bar{\bm{q}}}\Sigma = \mathbb{R}^n$, we can always write $\bm{q} = \bm{u} + \bm{v}$ with
@@ -444,7 +444,7 @@ The quadratic form in the integral of Eq.~\eqref{sm:eq:prob_gaussian} after such
 \end{equation}
 %
 where $\mathsf{D}^\perp$ is the diagonal matrix of the $m$ nonzero eigenvalues of $\mathsf{D}$.
-Our assumption is that $\psi(\xi)$ is a valid parameterization of $\Sigma$ that is compatible with the CV map $\hat{\xi}$, i.e., $\bar{\bm{q}} = \psi(\xi)$ and $\hat{\xi}(\bar{\bm{q}}) = \xi$, which means that
+Our assumption is that $\psi(\xi)$ is a valid parameterization of $\Sigma$ that is compatible with the \ac{cv} map $\hat{\xi}$, i.e., $\bar{\bm{q}} = \psi(\xi)$ and $\hat{\xi}(\bar{\bm{q}}) = \xi$, which means that
 %
 \begin{equation}
   (\hat{\xi}\circ\psi)(\xi) = \xi.
@@ -508,8 +508,8 @@ The form of the above equation suggests that the nonzero eigenvalues of $\mathsf
   \begin{center}
     \includegraphics{singmech/intersect.pdf}
   \end{center}
-  \caption{Cartoon illustrating the geometry of the branches and the level set $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$ of the linearized CV map near the singularity, which is at $\bar{\bm{q}}^{*}$.
-    The two ground-state configurations in the CV level set are indicated by the intersection points of the branches with $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$.  As $\xi \to \xi^{*}$, these ground states get infinitesimally close to each other and the mechanism becomes soft.
+  \caption{Cartoon illustrating the geometry of the branches and the level set $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$ of the linearized \ac{cv} map near the singularity, which is at $\bar{\bm{q}}^{*}$.
+    The two ground-state configurations in the \ac{cv} level set are indicated by the intersection points of the branches with $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$.  As $\xi \to \xi^{*}$, these ground states get infinitesimally close to each other and the mechanism becomes soft.
     The vector $\bm{u} \in \ker\mathsf{C}$ and the vector $\bm{v} \in (\ker\mathsf{C})^{\perp}$.
     Also indicated is a tangent vector $\bm{t}$ to a branch at the singularity.
     Here there is only one state of self stress and the delta function restricts the integral in Eq.~\eqref{sm:eq:mpd_singular} to the line $\Xi_{\xi}$ formed by the intersection of $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$ and $\ker\mathsf{C}$.
@@ -522,13 +522,13 @@ The form of the above equation suggests that the nonzero eigenvalues of $\mathsf
 
 Equation~\eqref{eq:mpd_regular} breaks down as we approach a singularity along $\Sigma$ since the lowest $s$ nonzero eigenvalues of $\mathsf{D}$ become very small and tend to zero, and we need an alternative method to find the marginal densities.
 At a singular point of $\Sigma$ with $s$ self stresses, the number of zero modes increases by $s$, which means that now there are only $m-s$ normal modes.
-A cartoon of the situation is depicted in Fig.~\ref{sm:fig:intersect}, which shows two branches of a one-dimensional shape space $\Sigma$ intersecting at a singularity $\bar{\bm{q}}^{*}$, where the CV has the value $\xi^{*}$.
+A cartoon of the situation is depicted in Fig.~\ref{sm:fig:intersect}, which shows two branches of a one-dimensional shape space $\Sigma$ intersecting at a singularity $\bar{\bm{q}}^{*}$, where the \ac{cv} has the value $\xi^{*}$.
 Because of the additional self stress, the subspace of zero modes $\ker\mathsf{C}$ is now a plane, which is tangent to both the branches at the singularity.
 %Since $\Sigma$ is not a smooth manifold at $\bar{\bm{q}}^{*}$, one cannot also define a tangent space at $\bar{\bm{q}}^{*}$.
 
 How should one proceed in such a situation?
 At first glance, one might think that all that is required is to replace the harmonic energy in the previous derivation with the quartic energy expansion [Eq.~\eqref{eq:energy_singular}].
-This cannot be correct as Eq.~\eqref{eq:energy_singular} is only valid when the expansion is around the singularity, and our goal here is to find $\mathscr{P}(\xi)$ not just for the singular CV value $\xi^{*}$, but for all $\xi \to \xi^{*}$.
+This cannot be correct as Eq.~\eqref{eq:energy_singular} is only valid when the expansion is around the singularity, and our goal here is to find $\mathscr{P}(\xi)$ not just for the singular \ac{cv} value $\xi^{*}$, but for all $\xi \to \xi^{*}$.
 When $\xi$ is close to $\xi^{*}$, the ground-state configurations in $\hat{\xi}^{-1}(\xi)$ are all regular points of $\Sigma$ that do not have any singular zero modes.
 However, at these configurations, the mechanism also becomes very soft in certain directions due to the presence of the nearby singularity, causing the harmonic approximation to break down.
 A possible strategy could then be to expand the energy to both harmonic and quartic order along these special soft modes, i.e., those that will ultimately become a zero mode at the singularity as we move along $\Sigma$.
@@ -538,15 +538,15 @@ Hence, on doing Laplace asymptotics around each of these ground states and on ex
 In this sense, the contributions from the branches are not separable in the vicinity of the singularity.
 
 From the above discussion, it should be evident that the approach we used in deriving the harmonic marginal density [Eq.~\eqref{eq:mpd_regular}] will not work for finding an asymptotic expression for $\mathscr{P}(\xi)$ for $\xi \to \xi^{*}$.
-The only possibility then is to rely on Eq.~\eqref{sm:eq:coarea}, which expresses $\mathscr{P}(\xi)$ as an exact integral over the CV level set $\hat{\xi}^{-1}(\xi)$.
+The only possibility then is to rely on Eq.~\eqref{sm:eq:coarea}, which expresses $\mathscr{P}(\xi)$ as an exact integral over the \ac{cv} level set $\hat{\xi}^{-1}(\xi)$.
 Note again that Eq.~\eqref{sm:eq:coarea} makes no reference to the shape space $\Sigma$ as such, enabling us to side step the issues described above.
 This however, comes at the expense of having to do a higher-dimensional integral over $\hat{\xi}^{-1}(\xi)$.
 The next strategy is to make physically valid assumptions that can be used to dimensionally reduce this integral.
 
-The first such assumption made in the main text was that the CV map can be approximated by its Taylor expansion $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^2)$ around the singularity $\bar{\bm{q}}^{*}$ for points close to $\bar{\bm{q}}^{*}$.
-This linearizes the CV map and turns its level sets $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*}) = \{\bm{u} \in \mathbb{R}^{n}: \xi^{*} + (\nabla\hat{\xi})\bm{u} = \xi\}$ near the singularity into hyperplanes (see Fig.~\ref{sm:fig:intersect}).
-Since this hyperplane is considerably easier to parameterize in comparison to the actual CV level set $\hat{\xi}^{-1}(\xi)$, this makes the evaluation of $\mathscr{P}(\xi)$ as a surface integral using Eq.~\eqref{sm:eq:coarea} less difficult.
-The second assumption is that the fast modes $\bm{v} \in (\ker\mathsf{C})^{\perp}$ are such that they do not change the value of the CV to linear order at the singularity, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
+The first such assumption made in the main text was that the \ac{cv} map can be approximated by its Taylor expansion $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^2)$ around the singularity $\bar{\bm{q}}^{*}$ for points close to $\bar{\bm{q}}^{*}$.
+This linearizes the \ac{cv} map and turns its level sets $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*}) = \{\bm{u} \in \mathbb{R}^{n}: \xi^{*} + (\nabla\hat{\xi})\bm{u} = \xi\}$ near the singularity into hyperplanes (see Fig.~\ref{sm:fig:intersect}).
+Since this hyperplane is considerably easier to parameterize in comparison to the actual \ac{cv} level set $\hat{\xi}^{-1}(\xi)$, this makes the evaluation of $\mathscr{P}(\xi)$ as a surface integral using Eq.~\eqref{sm:eq:coarea} less difficult.
+The second assumption is that the fast modes $\bm{v} \in (\ker\mathsf{C})^{\perp}$ are such that they do not change the value of the \ac{cv} to linear order at the singularity, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
 This enables us to write $\bm{q} = \bm{u} + \bm{v}$, with $\bm{u} \in \ker\mathsf{C}$ and $\bm{v} \in (\ker\mathsf{C})^\perp$, and use the lowest-order approximation of the energy near the singularity [Eq.~\eqref{eq:energy_singular}] to get\footnote{The Jacobian factor introduced by the transformation $\bm{q} \to (\bm{u}, \bm{v})$ is unity if we pick orthonormal bases for $\ker\mathsf{C}$ and $(\ker\mathsf{C})^{\perp}$.}
 %
 \begin{equation}
@@ -639,7 +639,7 @@ To simplify things, from here on we assume that the tangents can be resolved at 
 For instance, in the cartoon in Fig.~\ref{sm:fig:intersect}, $\mathscr{T}$ would be the union of the two tangents at the singularity.
 
 Now, the integral that defines $\mathscr{P}(\xi)$ also includes a delta function $\delta[\hat{\xi}(\bm{q}) - \xi]$.
-After linearizing the CV map $\hat{\xi}$ around the singularity and integrating out the fast modes, the domain of integration in Eq.~\eqref{eq:mpd_singular} becomes the hyperplane $\Xi_{\xi} = \ker\mathsf{C} \cap (\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$.
+After linearizing the \ac{cv} map $\hat{\xi}$ around the singularity and integrating out the fast modes, the domain of integration in Eq.~\eqref{eq:mpd_singular} becomes the hyperplane $\Xi_{\xi} = \ker\mathsf{C} \cap (\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$.
 At a singularity with $s$ self stresses $\bm{\sigma}_{1}, \bm{\sigma}_{2}, \ldots, \bm{\sigma}_{s}$, consider the map $g: \ker\mathsf{C} \to \mathbb{R}^{n - m + s}$ defined by $g(\bm{u}) = [(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*}), \bm{\sigma}_{1}\cdot \bm{w}(\bm{u}), \bm{\sigma}_{2}\cdot \bm{w}(\bm{u}), \ldots, \bm{\sigma}_{s}\cdot \bm{w}(\bm{u})]$.
 In a basis of $\ker\mathsf{C}$, the equation $g(\bm{u}) = \bm{0}$ defines an exactly determined system of equations in $n-m+s$ unknowns, whose solutions (if they exist) are tangents that belong to $\Xi_{\xi}$.
 If this equation has isolated roots, then the term $\sum_{\bm{\sigma}} [\bm{\sigma}\cdot\bm{w}(\bm{u})]^{2}$ in the exponential of Eq.~\eqref{eq:mpd_singular} is zero only for a discrete set of tangent vectors in $\Xi_{\xi}$ and is positive everywhere else, making the integral convergent.
@@ -647,17 +647,17 @@ If this equation has isolated roots, then the term $\sum_{\bm{\sigma}} [\bm{\sig
 A necessary condition for the equation $g(\bm{u}) = \bm{0}$ to have isolated roots in $\Xi_{\xi}$ is that $(\nabla\hat{\xi})\bm{t} \neq \bm{0}$ for all $\bm{t} \in \mathscr{T}$.
 Given how $g(\bm{u})$ is a system of $n - m$ linear and $s$ quadratic equations, a stronger general condition that ensures this eludes us at present.
 On the other hand, if there is a tangent $\bm{t}$ such that $(\nabla\hat{\xi})\bm{t} = \bm{0}$, the integral diverges.
-Such cases are pathological and indicate a poor CV choice.
-After all, if $\bm{t}$ is a tangent to $\Sigma$, then it is a slow mode that corresponds to a shape change in the mechanism, and one would definitely want the value of the CV to change along it.
+Such cases are pathological and indicate a poor \ac{cv} choice.
+After all, if $\bm{t}$ is a tangent to $\Sigma$, then it is a slow mode that corresponds to a shape change in the mechanism, and one would definitely want the value of the \ac{cv} to change along it.
 
 To conclude, the convergence of Eq.~\eqref{eq:mpd_singular} relies on the term $\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{u})]^{2}$ in the exponential vanishing only for a finite number of isolated points in the integration domain $\Xi_{\xi}$.
-Two necessary conditions required for this are: (i) tangents to the branches of the shape space at the singularity can be resolved at second order and form the solution space $\mathscr{T}$ of Eq.~\eqref{sm:eq:2ndorder}, and (ii) the CV map is such that $(\nabla\hat{\xi})\bm{t} \neq 0$ for all $\bm{t} \in \mathscr{T}$.
+Two necessary conditions required for this are: (i) tangents to the branches of the shape space at the singularity can be resolved at second order and form the solution space $\mathscr{T}$ of Eq.~\eqref{sm:eq:2ndorder}, and (ii) the \ac{cv} map is such that $(\nabla\hat{\xi})\bm{t} \neq 0$ for all $\bm{t} \in \mathscr{T}$.
 
 \subsubsection{Scaling of the marginal density}
 \label{sm:sec:scaling}
 
 To see how the marginal density $\mathscr{P}(\xi^{*})$ at a singular value $\xi^{*}$ scales with $\beta$ and $\kappa$, we first choose a basis for $\ker\mathsf{C}$ so that $\bm{u} = \mathsf{A}\bm{x}$, where $\bm{x} \in \mathbb{R}^{n-m+s}$ represents the components of $\bm{u}$ in the chosen basis and $\mathsf{A}$ is the associated change-of-basis matrix.
-Now, the $s$-dimensional hyperplane $\Xi_{\xi}$ formed by the intersection of the linearized CV level set and $\ker\mathsf{C}$ is defined by $\nabla\hat{\xi}\mathsf{A}\bm{x} = \bm{0}$, which is a set of $n-m$ homogeneous linear equations in $n-m+s$ variables.
+Now, the $s$-dimensional hyperplane $\Xi_{\xi}$ formed by the intersection of the linearized \ac{cv} level set and $\ker\mathsf{C}$ is defined by $\nabla\hat{\xi}\mathsf{A}\bm{x} = \bm{0}$, which is a set of $n-m$ homogeneous linear equations in $n-m+s$ variables.
 Without loss of generality, let us assume that we can solve these equations to obtain the last $n - m$ components of $\bm{x}$ in terms of its first $s$ components $\tilde{\bm{x}} = (x_{1}, x_{2}, \ldots, x_{s})$.
 This enables us to parameterize the hyperplane $\Xi_{\xi}$ using $\tilde{\bm{x}}$.
 As each component of the vector $\bm{w}(\bm{u})$ is a quadratic form in $\bm{x}$, after the elimination step, the term $\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{u})]^{2}$ in the exponential of Eq.~\eqref{eq:mpd_singular} becomes a homogeneous quartic polynomial $\widetilde{U}(\tilde{\bm{x}})$.
@@ -673,9 +673,9 @@ Finally, noting that $\det\,\mathsf{D}^{\perp} \sim \kappa^{m - s}$ we see that 
 It should be emphasized that we can only do this analysis for $\xi = \xi^{*}$.
 For other values of $\xi$ close to $\xi^{*}$, the hyperplane $\Xi_{\xi}$ is defined by the inhomogeneous equation $\nabla\hat{\xi}\mathsf{A}\bm{x} = \xi - \xi^{*}$, which makes $\widetilde{U}(\tilde{\bm{x}})$ a similarly inhomogeneous quartic polynomial, making a rescaling argument impossible.
 
-The marginal density for regular values of the CV, which scales like $\mathscr{P}(\xi) \sim (\beta\kappa)^{-m/2}$ [Eq.~\eqref{eq:mpd_regular}], is always subdominant to the marginal density at a singular value $\xi^{*}$, which scales like $\mathscr{P}(\xi^{*}) \sim (\beta\kappa)^{-m/2 + s/4}$ for $s > 0$.
-Hence, we see that the softening of the mechanism at a singularity causes an energetic free-energy barrier to develop between regular and singular values of the CV, with a temperature/stiffness dependence $\sim \ln \beta\kappa$.
-In comparison, the free-energy barriers between singular values of the CV are independent of $\beta$ and $\kappa$, and depend only on geometric parameters if the corresponding configurations have the same number of self stresses $s$.
+The marginal density for regular values of the \ac{cv}, which scales like $\mathscr{P}(\xi) \sim (\beta\kappa)^{-m/2}$ [Eq.~\eqref{eq:mpd_regular}], is always subdominant to the marginal density at a singular value $\xi^{*}$, which scales like $\mathscr{P}(\xi^{*}) \sim (\beta\kappa)^{-m/2 + s/4}$ for $s > 0$.
+Hence, we see that the softening of the mechanism at a singularity causes an energetic free-energy barrier to develop between regular and singular values of the \ac{cv}, with a temperature/stiffness dependence $\sim \ln \beta\kappa$.
+In comparison, the free-energy barriers between singular values of the \ac{cv} are independent of $\beta$ and $\kappa$, and depend only on geometric parameters if the corresponding configurations have the same number of self stresses $s$.
 Although this might lead us to conclude that such barriers are entropic in origin, note that there would be energetic barriers along most realizable transition paths separating these configurations.
 
 The stark difference in the asymptotic scaling of $\mathscr{P}(\xi)$ at a singular value $\xi = \xi^{*}$ and for values farther from it shows that the true scaling and behavior of $\mathscr{P}(\xi)$ for intermediate values of $\xi$ is nontrivial.
@@ -785,7 +785,7 @@ A similar calculation, but parameterizing the branches using the angle $\theta_{
 %
 \begin{subequations}
   \begin{align}
-    (\nabla\psi_{+})\trans\nabla\psi_+ &= \Abs{\partial{\psi_{+}}/\partial{\theta_{1}}}^{2} = 2 a^2,\label{sm:eq:4bar_ind1}\\
+    (\nabla\psi_{+})\trans\nabla\psi_+ &= \Abs{\partial{\psi_{+}}/\partial{\theta_{1}}}^{2} = 2 a^2,\label{sm:eq:4bar_q2_ind1}\\
     (\nabla\psi_{-})\trans\nabla\psi_- &= \Abs{\partial{\psi_{-}}/\partial{\theta_{1}}}^{2} = \frac{2a^2[1-2\lambda(1-\lambda\cos{\theta_1}+\lambda^2)\cos{\theta_1} + \lambda^4]}{(1-2\lambda\cos{\theta_1}+ \lambda^2)^2}.\label{sm:eq:4bar_q2_ind2}
   \end{align}
 \end{subequations}
@@ -794,7 +794,7 @@ A similar calculation, but parameterizing the branches using the angle $\theta_{
 
 \subsubsection{Regular values}
 
-Now that we have explicit parameterizations of the two branches of the four-bar linkage in terms of the CV $\theta_{1}$, we can find the marginal density $\mathscr{P}(\theta_{1})$ at regular values of $\theta_{1}$, far from the singular values, i.e., for $0 \ll \abs{\theta_{1}} \ll \pi$.
+Now that we have explicit parameterizations of the two branches of the four-bar linkage in terms of the \ac{cv} $\theta_{1}$, we can find the marginal density $\mathscr{P}(\theta_{1})$ at regular values of $\theta_{1}$, far from the singular values, i.e., for $0 \ll \abs{\theta_{1}} \ll \pi$.
 Note that for each value of $\theta_{1}$, there are two ground states---one on the parallel branch and one on the twisted branch.
 This means that we need to separately find the contributions of these ground states using Eq.~\eqref{eq:mpd_regular} and then add them together to obtain $\mathscr{P}(\theta_{1})$.
 
@@ -903,14 +903,14 @@ Also, the Hessian matrices of the four constraint functions $f_i$ at the singula
 \end{equation}
 
 As we remarked in the main text and in Section~\ref{sm:sec:singular}, when using Eq.~\eqref{eq:mpd_singular} to find the marginal density $\mathscr{P}(\mathscr{\theta}_{1})$, we will not make use of the parameterizations we derived earlier [Eqs.~\eqref{sm:eq:4bar_param_parallel} and \eqref{sm:eq:4bar_param_twisted}].
-Instead, we need to first linearize the CV map at the singularity.
-Since the CV we have chosen for the four-bar linkage is the angle $\theta_{1}$, the CV map that computes $\theta_{1}$ from the configuration vector $\bm{q}$ is $\hat{\theta}_{1}(\bm{q}) = \tan^{-1}(q_{5}/q_{4})$.\footnote{To be more rigorous, we should be using the two-argument variant of the inverse tangent, sometimes denoted as $\mathrm{atan2}(q_{5},q_{4})$ in numerical software, so that $\theta_{1}$ is in $(-\pi, \pi]$ instead of $(-\pi/2,\pi/2)$.  This is not an issue for the linearization since $\theta_{1}$ is small.}
+Instead, we need to first linearize the \ac{cv} map at the singularity.
+Since the \ac{cv} we have chosen for the four-bar linkage is the angle $\theta_{1}$, the CV map that computes $\theta_{1}$ from the configuration vector $\bm{q}$ is $\hat{\theta}_{1}(\bm{q}) = \tan^{-1}(q_{5}/q_{4})$.\footnote{To be more rigorous, we should be using the two-argument variant of the inverse tangent, sometimes denoted as $\mathrm{atan2}(q_{5},q_{4})$ in numerical software, so that $\theta_{1}$ is in $(-\pi, \pi]$ instead of $(-\pi/2,\pi/2)$.  This is not an issue for the linearization since $\theta_{1}$ is small.}
 This map has the Jacobian $\nabla\hat{\theta}_1 = \inmat{0 & 0 & 0 & 0 & a^{-1}}$ at the singularity.
 Direct inspection reveals that $(\nabla\hat{\theta}_{1})\bm{v} = \bm{0}$ for all fast modes $\bm{v} \in (\ker\mathsf{C})^{\perp}$, justifying the usage of Eq.~\eqref{eq:mpd_singular} to find $\mathscr{P}(\mathscr{\theta}_{1})$ when $\theta_{1} \to 0$.
-This would not have been the case if, for instance, we had chosen the coordinate $q_{4}$ of joint~4 of the four-bar linkage (see Fig.~\ref{sm:fig:4bar}), as our CV.
+This would not have been the case if, for instance, we had chosen the coordinate $q_{4}$ of joint~4 of the four-bar linkage (see Fig.~\ref{sm:fig:4bar}), as our \ac{cv}.
 In such a case $\nabla{q_{4}} = \inmat{0 & 0 & 0 & 1 & 0}$ and the fast modes, all of which are along the collinear bars with a nonzero fourth component, do not satisfy $(\nabla q_{4})\bm{v} = \bm{0}$.
-Incidentally, in this case, the tangent vectors $\bm{t}$ at the singularity are such that $(\nabla q_{4})\bm{t} = \bm{0}$, which also makes $q_{4}$ a poor choice as the CV since it does not capture the slow modes along $\bm{t}$.
-Continuing with $\theta_{1}$ as our CV, to evaluate the integral in Eq.~\eqref{eq:mpd_singular}, we choose the vector $\bm{u} \in \ker \mathsf{C}$ to be $\bm{u} = (0, 0, q_3, 0, q_{5})$, so that the vector $\bm{w}(\bm{u})$ is
+Incidentally, in this case, the tangent vectors $\bm{t}$ at the singularity are such that $(\nabla q_{4})\bm{t} = \bm{0}$, which also makes $q_{4}$ a poor choice as the \ac{cv} since it does not capture the slow modes along $\bm{t}$.
+Continuing with $\theta_{1}$ as our \ac{cv}, to evaluate the integral in Eq.~\eqref{eq:mpd_singular}, we choose the vector $\bm{u} \in \ker \mathsf{C}$ to be $\bm{u} = (0, 0, q_3, 0, q_{5})$, so that the vector $\bm{w}(\bm{u})$ is
 %
 \begin{equation}
   \begin{aligned}
@@ -964,7 +964,7 @@ Using these results, we can evaluate the integral in Eq.~\eqref{eq:mpd_singular}
 \end{equation}
 
 Note that the marginal densities at the singular values of $\theta_{1}$, i.e., $\mathscr{P}(0)$ and $\mathscr{P}(\pm\pi)$, scale as $(\beta\kappa)^{-7/4}$.
-Since $m = 4$ and the number of self stresses $s = 1$ at the singularities, this is consistent with the general scaling $\mathscr{P}(\xi^{*}) \sim (\beta\kappa)^{-(m/2 - s/4)}$ for singular values $\xi^{*}$ of the CV [Eq.~\eqref{sm:eq:scaling}].
+Since $m = 4$ and the number of self stresses $s = 1$ at the singularities, this is consistent with the general scaling $\mathscr{P}(\xi^{*}) \sim (\beta\kappa)^{-(m/2 - s/4)}$ for singular values $\xi^{*}$ of the \ac{cv} [Eq.~\eqref{sm:eq:scaling}].
 
 \subsection{Free energy}
 
@@ -1009,8 +1009,8 @@ Writing $\ell$ in terms of the angles $\theta_{1}, \theta_{2}$ we get
 \end{equation}
 %
 Figure~\ref{sm:fig:energy34} shows the level sets of $\phi(\theta_{1}, \theta_{2})$ near $(\theta_{1}, \theta_{2}) = (0, 0)$.
-For $\abs{\theta_{1}} > 0$, there are two ground states in the CV level set $\hat{\theta}_{1}^{-1}(\theta_{1})$, which is a straight line parallel to the $\theta_{2}$ axis in the $\theta_{1}$--$\theta_{2}$ space.
-Because of the extra softness of the linkage near the singularity, this means that for small nonzero values of $\theta_{1}$, there are more thermodynamically favorable states in $\hat{\theta}_{1}^{-1}(\theta_{1})$ compared to $\hat{\theta}_{1}^{-1}(0)$, which is the CV level set at the singular value $\theta_{1}=0$.
+For $\abs{\theta_{1}} > 0$, there are two ground states in the \ac{cv} level set $\hat{\theta}_{1}^{-1}(\theta_{1})$, which is a straight line parallel to the $\theta_{2}$ axis in the $\theta_{1}$--$\theta_{2}$ space.
+Because of the extra softness of the linkage near the singularity, this means that for small nonzero values of $\theta_{1}$, there are more thermodynamically favorable states in $\hat{\theta}_{1}^{-1}(\theta_{1})$ compared to $\hat{\theta}_{1}^{-1}(0)$, which is the \ac{cv} level set at the singular value $\theta_{1}=0$.
 This is evidenced by the fact that for any given value $E > 0$, there are more points in the energy sublevel set $\left\{(\theta_{1}, \theta_{2}): \phi(\theta_{1}, \theta_{2}) \leq E\right\}$ along small nonzero values of $\theta_{1}$ than $\theta_{1} = 0$ (see Fig.~\ref{sm:fig:energy34}).
 The net increase in the number of thermodynamically favorable states near small nonzero values of $\theta_{1}$ lowers the free energy at those values, giving the landscape a double-well appearance.
 %
@@ -1053,7 +1053,7 @@ After integrating over the coordinates of joint~1 (i.e., the translational coord
   \begin{center}
     \includegraphics{singmech/origami.pdf}
   \end{center}
-  \caption{(a) A triangulated origami as a bar-joint mechanism illustrating the coordinates of the joints in the body frame. When the origami is flat, the external vertices lie on the corners of a unit square and the internal vertices 5 and 6 have coordinates $(1/4,1/2,0)$ and $(3/4,1/2,0)$. (b) Finding the CV (i.e., fold angle $\rho_{1}$) using simple geometry.}
+  \caption{(a) A triangulated origami as a bar-joint mechanism illustrating the coordinates of the joints in the body frame. When the origami is flat, the external vertices lie on the corners of a unit square and the internal vertices 5 and 6 have coordinates $(1/4,1/2,0)$ and $(3/4,1/2,0)$. (b) Finding the \ac{cv} (i.e., fold angle $\rho_{1}$) using simple geometry.}
   \label{sm:fig:origami}
 \end{figure}
 
@@ -1081,7 +1081,7 @@ The tangent vector $\bm{t}_k$ for $k \ne 0$ can be found by numerically computin
 Since the tangent vectors obtained this way does not preserve direction in general, we should also multiply each $\bm{t}_k$ that is found with the sign of its dot product with the previous tangent vector $\bm{t}_{k-1}$.
 
 On successive repetition of the above steps starting at the flat state $(\bm{q}_0, \bm{t}_0)$, we get $\bm{q}$ as a function of the arc length $h$.
-To reparameterize the branch using the CV, which is the fold angle $\rho_{1}$ of fold 5--6, we first (linearly) interpolate between the arc-length parameterized points to obtain a set of points that are uniformly spaced in $\rho_{1}$.
+To reparameterize the branch using the \ac{cv}, which is the fold angle $\rho_{1}$ of fold 5--6, we first (linearly) interpolate between the arc-length parameterized points to obtain a set of points that are uniformly spaced in $\rho_{1}$.
 We then refine the interpolated points by solving $f(\bm{q}) = \bm{0}$ with the interpolated points as the initial guess.
 The interpolation/refinement steps can be repeated as many times as required to achieve the desired accuracy goal.
 Once the parameterization is complete, the induced metric along a branch can be computed by approximating the derivatives using difference quotients.
@@ -1092,7 +1092,7 @@ Note that this parameterization is only used in conjunction with Eq.~\eqref{eq:m
 \subsubsection{Regular values}
 
 Similar to the calculation for the four-bar linkage, we first write down the constraint map $f: \mathbb{R}^{12} \to \mathbb{R}^{11}$ in the body frame and find the compatibility matrix $\mathsf{C} = \nabla f$.
-Once all four branches of the shape space have been numerically parameterized in terms of the CV $\rho_{1}$, the marginal probability density $\mathscr{P}(\rho_{1})$ can be computed using Eq.~\eqref{eq:mpd_regular}.
+Once all four branches of the shape space have been numerically parameterized in terms of the \ac{cv} $\rho_{1}$, the marginal probability density $\mathscr{P}(\rho_{1})$ can be computed using Eq.~\eqref{eq:mpd_regular}.
 Here we remark that instead of computing $\det\,\mathsf{D}^{\perp}$ by finding the nonzero eigenvalues of $\mathsf{D}$, it is more convenient to calculate it using the fact that $\det\,\mathsf{D}^{\perp} = \det\,\mathsf{K}\mathsf{C}\mathsf{C}\trans$ at regular points.
 This gives $\mathscr{P}(\rho_{1})$ for all $\rho_{1}$ far from the singular value (i.e., for $\abs{\rho_{1}} \gg 0$).
 
@@ -1101,11 +1101,11 @@ This gives $\mathscr{P}(\rho_{1})$ for all $\rho_{1}$ far from the singular valu
 Our goal here is to use Eq.~\eqref{eq:mpd_singular} to find the marginal density $\mathscr{P}(\rho_{1})$ as $\rho_{1} \to 0$.
 Since the calculation is similar in spirit to the case of the four-bar linkage, we only present the key steps here.
 As before, we numerically compute $\det\,\mathsf{D}^{\perp}$ from the nonzero eigenvalues of $\mathsf{D}$ at the singularity.
-The next step is to linearize the CV map so that the integral in Eq.~\eqref{eq:mpd_singular} can be evaluated.
+The next step is to linearize the \ac{cv} map so that the integral in Eq.~\eqref{eq:mpd_singular} can be evaluated.
 
 One can always numerically compute the fold angle $\rho_{1}$ as the angle between the normals to the faces that share fold 5--6.
-However, for linearizing the CV map, we need to find an expression that is more tractable analytically.
-A moment's thought [and Fig.~\ref{sm:fig:origami}(b)] shows that the CV map can be written\footnote{To assign a sign to the fold angle, we first choose a unique normal to face 1--5--6 such that it coincides with the positive $z$ axis when the origami is flat.  Signs are then chosen so that a mountain fold (as perceived by looking downwards along this normal) has a positive fold angle, e.g., the angle in Fig.~\ref{sm:fig:origami}(b) is negative since the fold is a valley fold.} as $\hat{\rho}_{1}(\bm{q}) = -\tan^{-1}[d_{1}(\bm{q})/d_{2}(\bm{q})]$.
+However, for linearizing the \ac{cv} map, we need to find an expression that is more tractable analytically.
+A moment's thought [and Fig.~\ref{sm:fig:origami}(b)] shows that the \ac{cv} map can be written\footnote{To assign a sign to the fold angle, we first choose a unique normal to face 1--5--6 such that it coincides with the positive $z$ axis when the origami is flat.  Signs are then chosen so that a mountain fold (as perceived by looking downwards along this normal) has a positive fold angle, e.g., the angle in Fig.~\ref{sm:fig:origami}(b) is negative since the fold is a valley fold.} as $\hat{\rho}_{1}(\bm{q}) = -\tan^{-1}[d_{1}(\bm{q})/d_{2}(\bm{q})]$.
 Here $d_{1}(\bm{q})$ is the perpendicular distance from joint~3 to the plane containing face 1--5--6, and $d_{2}(\bm{q})$ is the perpendicular distance from the projection of joint~3 on this plane to the line along fold 5--6.
 A straightforward calculation gives
 %
@@ -1113,7 +1113,7 @@ A straightforward calculation gives
   d_{1}(\bm{q}) = \frac{q_{10}(q_{2}q_{12} - q_{3}q_{11}) + q_4(q_{9}q_{11} - q_{8}q_{12})}{\left|q_{10}^2 q_{11}^2+q_{10}^2 q_{12}^2+(q_9 q_{11}-q_8 q_{12})^2\right|^{1/2}}.
 \end{equation}
 %
-At the singular flat state $\bar{\bm{q}}^{*}$, we have $d_{1}(\bar{\bm{q}}^{*}) = 0$ and $d_{2}(\bar{\bm{q}}^{*}) = 0.5$, using which we find the Jacobian of the CV map to be
+At the singular flat state $\bar{\bm{q}}^{*}$, we have $d_{1}(\bar{\bm{q}}^{*}) = 0$ and $d_{2}(\bar{\bm{q}}^{*}) = 0.5$, using which we find the Jacobian of the \ac{cv} map to be
 %
 \setcounter{MaxMatrixCols}{20}
 \begin{equation}
@@ -1123,7 +1123,7 @@ At the singular flat state $\bar{\bm{q}}^{*}$, we have $d_{1}(\bar{\bm{q}}^{*}) 
 \end{aligned}
 \end{equation}
 %
-Here we see that one can linearize the CV map without needing an explicit expression for $d_{2}(\bm{q})$.
+Here we see that one can linearize the \ac{cv} map without needing an explicit expression for $d_{2}(\bm{q})$.
 Also, it is easy to verify that $(\nabla\hat{\rho}_{1})\bm{v} = \bm{0}$ for all fast modes $\bm{v} \in (\ker\mathsf{C})^{\perp}$, enabling us to use Eq.~\eqref{eq:mpd_singular} to find the marginal density as $\rho_{1} \to 0$.
 
 As the basis for $\ker\mathsf{C}$ we choose the out-of-plane displacements of the joints in the body frame and write the vector $\bm{u} \in \ker \mathsf{C}$ in terms of the $z$ coordinates $q_{4}$, $q_{7}$, and $q_{10}$ of the joints.
@@ -1159,7 +1159,7 @@ Since force balance in self-stressed states of a planar polygonal linkage requir
 Similar isolated singularities are also seen in the shape spaces of origami that have self-stressed flat states~\cite{berry2020}.
 
 For the sake of brevity and to avoid cluttering this SM with qualitatively similar results, we only discuss the nature of the free-energy landscape around the singularity at $(\zeta_{1}, \zeta_{2}, \zeta_{3}) = (0, 0, 0)$.
-Since the shape space of the five-bar linkage is two dimensional, we choose a similarly two-dimensional CV, $\zeta = (\zeta_{1}, \zeta_{2})$.
+Since the shape space of the five-bar linkage is two dimensional, we choose a similarly two-dimensional \ac{cv}, $\zeta = (\zeta_{1}, \zeta_{2})$.
 Next, we employ Eq.~\eqref{eq:mpd_singular} to find the asymptotic free-energy difference $\Delta \mathscr{A}(\zeta)$, choosing the singular value $\zeta^{*} = (0,0)$ as the point of zero free energy.
 Note that for doing this, we do not require an explicit parameterization of the linkage's shape space in terms of $\zeta$.  Such a parameterization is only required if we want to use Eq.~\eqref{eq:mpd_regular} to find the free energy far from $\zeta^{*} = (0, 0)$ using the harmonic approximation.
 Since the other details are very similar to the previous calculations for the four-bar linkage and the triangulated origami, we just quote the final result:
@@ -1235,7 +1235,7 @@ Note that such a decomposition of $\ker\mathsf{C}$ into two vector subspaces is 
 Since the subspace $\mathscr{S}$ of singular zero modes can be identified for all points in $\Sigma$, we can expand the energy to quartic order along $\bm{u} \in \mathscr{S}$ using Eq.~\eqref{eq:energy_singular}.
 (This would not have been possible for isolated singularities since Eq.~\eqref{eq:energy_singular} is valid only when the expansion is around a singularity.)
 To derive the asymptotic marginal density $\mathscr{P}(\theta)$, we can then proceed similar to the derivation of Eq.~\eqref{eq:mpd_regular}.
-As before, we pick coordinates associated with the mechanism's internal degrees of freedom as our CV $\xi$ and assume that $\Sigma$ can be parameterized using $\xi$.
+As before, we pick coordinates associated with the mechanism's internal degrees of freedom as our \ac{cv} $\xi$ and assume that $\Sigma$ can be parameterized using $\xi$.
 We expand both the terms in the exponent of Eq.~\eqref{sm:eq:prob_delta} around each ground state $\bar{\bm{q}} \in \hat{\xi}^{-1}(\xi)$ after setting $\bm{q} \to \bar{\bm{q}} + \bm{t} + \bm{u} + \bm{v}$, where $\bm{t} \in T_{\bar{\bm{q}}}\Sigma$ is a zero mode that can be extended to a smooth deformation of the mechanism, $\bm{u} \in \mathscr{S}$ is a singular zero mode, and $\bm{v} \in (\ker\mathsf{C})^{\perp}$ is a fast mode.
 We also choose the columns of $\nabla\psi(\xi)$ as the basis for $T_{\bar{\bm{q}}}\Sigma$, with $\psi: \mathbb{R}^{n-m} \to \mathbb{R}^{n}$ being the parameterization of $\Sigma$ near $\bar{\bm{q}}$.
 Integrating over the components of $\bm{t}$ yields
@@ -1258,24 +1258,24 @@ We can identify four major differences.
 \paragraph{Integration domain.}
 The integration domain in Eq.~\eqref{sm:eq:mpd_perm} is $\mathscr{S}$, the subspace of singular zero modes, which exists for all configurations of a permanently singular mechanism.
 In comparison, when the mechanism has isolated singularities, singular zero modes arise only at these singularities.
-Furthermore, the domain of integration in Eq.~\eqref{eq:mpd_singular} is a CV-dependent hyperplane $\Xi_{\xi} = (\nabla\hat{\xi})^{-1}(\xi - \xi^{*}) \cap \ker\mathsf{C}$, which is not the subspace of singular zero modes, and such a vector subspace cannot be identified for a mechanism with isolated singularities.
+Furthermore, the domain of integration in Eq.~\eqref{eq:mpd_singular} is a \ac{cv}-dependent hyperplane $\Xi_{\xi} = (\nabla\hat{\xi})^{-1}(\xi - \xi^{*}) \cap \ker\mathsf{C}$, which is not the subspace of singular zero modes, and such a vector subspace cannot be identified for a mechanism with isolated singularities.
 
 \paragraph{Relation to the shape space.}
 Using Eq.~\eqref{sm:eq:mpd_perm} requires a parameterization $\psi(\xi)$ of the shape-space $\Sigma$ and the factor $\det\,(\nabla\psi)\trans\nabla\psi$ is the determinant of the induced metric on $\Sigma$.
 This is similar to Eq.~\eqref{eq:mpd_regular}, which is the harmonic marginal density.
 In contrast, Eq.~\eqref{eq:mpd_singular} does not make an explicit reference to $\Sigma$ and does not involve any parameterization of its branches.
 Equation~\eqref{eq:mpd_singular} acquires the factor $\abs{\det\,{\nabla\hat{\xi}}(\nabla\hat{\xi})\trans}^{-1}$ from Eq.~\eqref{sm:eq:coarea}, which a corollary of the coarea formula.
-Also, Eq.~\eqref{sm:eq:mpd_perm} is valid for all values of $\xi$, whereas Eq.~\eqref{eq:mpd_singular} is only valid when $\xi$ is close to a singular value $\xi^{*}$ of the CV.
+Also, Eq.~\eqref{sm:eq:mpd_perm} is valid for all values of $\xi$, whereas Eq.~\eqref{eq:mpd_singular} is only valid when $\xi$ is close to a singular value $\xi^{*}$ of the \ac{cv}.
 
 \paragraph{Convergence.}
 If a permanently singular mechanism becomes second-order rigid (see Section~\ref{sm:sec:convergence}) once the zero modes are restricted to the subspace $\mathscr{S}$, then $\bm{\sigma}\cdot\bm{w}(\bm{x}) > 0$ for all $\bm{\sigma}$ and the integral in Eq.~\eqref{sm:eq:mpd_perm} converges~\cite{kallus2017}.
 In particular, it will not converge for mechanisms that are rigid, but not second-order rigid in $\mathscr{S}$ (e.g., see the example in Appendix A.3 of Ref.~\cite{connelly1996}).
 This should be contrasted with the case of Eq.~\eqref{eq:mpd_singular} where there would always be vectors $\bm{t}$ in the integration domain $\Xi_{\xi}$ that satisfy $\bm{\sigma}\cdot\bm{w}(\bm{t}) = 0$ (each corresponding to a tangent to the branch at the singularity).
-Hence, convergence of Eq.~\eqref{eq:mpd_singular} relies on the requirement that the number of such vectors is finite. Two necessary conditions required for this are (i) the tangents $\bm{t}$ are resolvable at second order and (ii) the CV map is such that $(\nabla\hat{\xi})\bm{t} \neq \bm{0}$ for all $\bm{t}$ (see Section~\ref{sm:sec:convergence}).
+Hence, convergence of Eq.~\eqref{eq:mpd_singular} relies on the requirement that the number of such vectors is finite. Two necessary conditions required for this are (i) the tangents $\bm{t}$ are resolvable at second order and (ii) the \ac{cv} map is such that $(\nabla\hat{\xi})\bm{t} \neq \bm{0}$ for all $\bm{t}$ (see Section~\ref{sm:sec:convergence}).
 
 \paragraph{Scaling.}
 The scaling of Eq.~\eqref{sm:eq:mpd_perm} with respect to $\beta$ is consistent with Eq.~(9) of Ref.~\cite{kallus2017}.
-Furthermore, since the scaling is independent of the value of the CV $\xi$, one would generically expect the free-energy barriers in a permanently singular mechanism to be dominated by entropic effects and the landscape would have the same appearance for all values of $\beta$ (provided it is large).
+Furthermore, since the scaling is independent of the value of the \ac{cv} $\xi$, one would generically expect the free-energy barriers in a permanently singular mechanism to be dominated by entropic effects and the landscape would have the same appearance for all values of $\beta$ (provided it is large).
 Contrast this with Eq.~\eqref{eq:mpd_singular}, where the term in the exponent is an inhomogeneous quartic polynomial in the components of $\bm{u}$ for $\xi \neq \xi^{*}$ (see Section~\ref{sm:sec:scaling}).
 This makes the scaling nontrivial and gives rise to temperature-dependent barriers in the free-energy landscape.
 
@@ -1299,7 +1299,7 @@ This should be contrasted with the examples for mechanisms with isolated singula
 For all the mechanisms we consider in this work, we perform our numerical simulations in the lab frame at an inverse temperature $\beta = 10^{4}$ using a central-force potential $\phi_i[\ell_i(\bm{r})] = [\ell_i^{2}(\bm{r}) - \bar{\ell}_i^2]^2/(8\bar{\ell}_i^2)$, which has an absolute minimum at $\ell_i = \bar{\ell}_i$, for $\ell_i \geq 0$.
 With this potential, the stiffness $\kappa_{i} = \phi_i''(\bar{\ell}_i) = 1$ for all bars.
 Alternatively, any other potential $\phi_{i}(\ell_{i})$ that depends only on the bar lengths and having a minimum at $\ell_{i} = \bar{\ell}_{i}$ can be used.
-We find the marginal probability densities of the CV [Eq.~\eqref{eq:mpd}] using histograms obtained from sampling the Boltzmann--Gibbs distribution using the classical Metropolis Monte Carlo algorithm (with an acceptance rate of about 50\% and $\sim 10^{9}$ samples).
+We find the marginal probability densities of the \ac{cv} [Eq.~\eqref{eq:mpd}] using histograms obtained from sampling the Boltzmann--Gibbs distribution using the classical Metropolis Monte Carlo algorithm (with an acceptance rate of about 50\% and $\sim 10^{9}$ samples).
 The free-energy profile is then found using Eq.~\eqref{eq:free_energy}.
 For the triangulated origami, there is an additional need to reject all Monte Carlo moves that lead to face crossings:
 %

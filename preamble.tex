@@ -78,6 +78,7 @@
 
 \usepackage{acronym}
 \usepackage{fourierx} % fonts
+\linespread{1}
 
 % Set up path for graphicsx.
 \graphicspath{{figures/}}
@@ -200,9 +201,18 @@
 \def\precisfont{\normalfont\small}
 
 % Wider character spacing in headers.
-\def\headerstyle#1{\textls[90]{#1}}
+% \nouppercaseheads
+\def\headerstyle#1{\cap@altfamily#1}
 \makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
 \makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
+
+% Reduce whitespace.
+\setlength\abovecaptionskip{0pt}
+\setlength\belowcaptionskip{0pt}
+\setlength\textfloatsep{16pt}
+
+\changecaptionwidth
+\captionwidth{0.85\textwidth}
 
 %%% End notes ----------------------------------------------------------
 

@@ -200,51 +200,27 @@
 \setlength{\prechapterprecisshift}{-\baselineskip}
 \def\precisfont{\normalfont\small}
 
-% Wider character spacing in headers.
-% \nouppercaseheads
-\def\headerstyle#1{\cap@altfamily#1}
+% Header customization.
+\nouppercaseheads
+\def\headerstyle#1{\head@family#1}
 \makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
 \makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
 
-% Reduce whitespace.
-\setlength\abovecaptionskip{0pt}
-\setlength\belowcaptionskip{0pt}
-\setlength\textfloatsep{16pt}
+% Sensible whitespace.
+\setlength\abovecaptionskip{2pt plus 4pt}
+\setlength\belowcaptionskip{2pt plus 4pt}
+\setlength\textfloatsep{16pt plus 4pt minus 4pt}
+\setlength{\skip\footins}{16pt plus 4pt minus 4pt}
+\setlength{\parskip}{0pt plus 0.5pt}
+
+% Hack to almost completely remove orphans.
+% See Section 3.5 of the memoir docs.
+\setlength{\topskip}{1.8\topskip}
+\checkandfixthelayout
+\sloppybottom
 
 \changecaptionwidth
 \captionwidth{0.85\textwidth}
-
-%%% End notes ----------------------------------------------------------
-
-% % memoir allows customization of the endnotes heading, but it doesn't
-% % seem to add the heading to the TOC.  But I want to add customized
-% % headings to the TOC, so we use a blank heading and define a \section*
-% % the usual way.
-% % Patch \printpagenotes to use a \section*.
-% \let\oldprintpagenotes\printpagenotes
-% \def\printpagenotes{%
-%   \section*{Notes for Chapter \thechapter}
-%   \addcontentsline{toc}{section}{Notes for Chapter \thechapter}
-%   \oldprintpagenotes
-% }
-%
-% \makepagenote                                           % enable endnotes
-% \renewcommand*{\notesname}{Chapter Notes}               % endnotes heading
-% \renewcommand*{\notedivision}{}                         % suppress endnote title
-% \renewcommand*{\pagenotesubhead}[3]{}
-%
-% % Backlinks.  This messes up hanging indentation.
-% % \notepageref
-%
-% % Hanging indent for endnotes.
-% % https://tex.stackexchange.com/a/57515
-% \renewcommand*\prenotetext{%
-%   \list{}{%
-%     \setlength\leftmargin{2em}%
-%     \setlength\topsep{-\baselineskip}}
-%   \item}
-% \renewcommand*\postnotetext{\endlist\bigskip\medskip}
-% \renewcommand*\idtextinnotes[1]{#1.\vspace*{-\baselineskip}}
-% \renewcommand*\notenuminnotes[1]{#1.\vspace*{-\baselineskip}}
+\raggedbottom
 
 \makeatother

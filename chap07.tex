@@ -522,16 +522,17 @@ In Figs.~\ref{fig:rod_bound}(c) and~\ref{fig:rod_bound}(d) we show two example b
 Consistent with our analysis, the example bound state of the tanh-type curvature profile has even $\zeta(x)$ and $u(x)$.
 Likewise, for the example bound state of the sech-type curvature profile, $\zeta(x)$ is odd and $u(x)$ is even.
 
-Two example bound states obtained by solving the rod equations numerically (see Appendix \ref{app:numerical} for details) are shown in Figs.~\ref{fig:rod_bound}(c) and~\ref{fig:rod_bound}(d).
-  As we see from these figures, the components $\zeta(x)$ and $u(x)$ have the same parity for odd $m(x)$, but always have different parity when $m(x)$ is even.
-  The rays corresponding to these bound states have been marked with white arrows in the phase portraits in Figs.~\ref{fig:rod_bound}(a) and~\ref{fig:rod_bound}(b).
-  Clearly, the displacement fields of the bound states of both curvature profiles show a significant presence of both normal and tangential components.
-This can also be inferred from the phase portraits, which have been color coded using the amplitude ratio $\mathscr{R}$ defined in Eq.~\eqref{eq:rod_ratio}, and computed from the components of the polarization vector $\tau_{+}$.
-Starting at $x = 0$, if we move along a closed orbit towards one of its turning points, we see that $\mathscr{R}$ changes from $0$ to $1$, indicating that the wave acquires a strong normal component, which is what we see from the example bound states.
+Clearly, the displacement fields of the bound states of both curvature profiles show a significant presence of both normal and tangential components.
+To understand this better, consider again the phase portraits in Fig.~\ref{fig:rod_bound}(a) and \ref{fig:rod_bound}(b), which have been color coded using the amplitude ratio $\mathscr{R}$ defined in Eq.~\eqref{eq:rod_ratio}, and computed%
+\footnote{Note that we are using the exact expression for $\tau_{+}$ and not the approximate expression in Eq.~\eqref{eq:rod_tau} to find $\mathscr{R}$.  Using the approximate expression would also result in nearly similar results.}
+from the components of the polarization vector $\tau_{+}$.
+The closed orbits corresponding to the example bound states have been marked with white arrows in these phase portraits.
+Starting at the $k$ axis, if we move along a closed orbit towards one of its turning points, we see that $\mathscr{R}$ changes from $0$ to $1$, indicating that the wave acquires a strong normal component, which is what we see from the example bound states.
 
 The existence of the bound states can also be intuitively understood from the dispersion relations for extensional waves.
-From Eq.~\eqref{eq:rod_ham}, we see that at $k = 0$, the dispersion curve given by $\lambda_{+} = 0$ has a nonzero gap and a cut-on frequency of $\omega_{\text{cut-on}}^{2} = m^{2}$, which is also the ring frequency for extensional waves~\cite{walsh2000}.
-% Incidentally, this cut-on frequency is the ring frequency of extensional waves, i.e., when the wavelength is equal to the circumference of a ring of radius $m^{-1}$.
+From Eq.~\eqref{eq:rod_ham}, we see that at $k = 0$, the dispersion curve given by $\lambda_{+} = 0$ has a nonzero gap and a cut-on frequency%
+\footnote{Incidentally, this cut-on frequency is the ring frequency of extensional waves, i.e., when the wavelength is equal to the circumference of a ring of radius $m^{-1}$~\cite{walsh2000}.}
+of $\omega_{\text{cut-on}}^{2} = m^{2}$.
 For waves with $\omega < \omega_{\text{cut-on}}$, the wave number $k$ is always complex, preventing the wave from being able to propagate and the wave decays.
 Now, as an extensional wave enters a region of high curvature from a region of low curvature, the local cut-on frequency increases.
 This means that, at some point, the frequency of the wave would fall below the local cut-on frequency, and the wave gets reflected creating a bound state.
@@ -602,9 +603,7 @@ Furthermore, as the turning points of the higher-frequency bound states are far 
 Flexural waves are associated with the ray Hamiltonian $\lambda_{-}$ and from the corresponding Hamilton's equations in Eq.~\eqref{eq:rod_hamiltonian}, we see that the derivatives $\dot{x}$ and $\dot{k}$ vanish everywhere on the $x$ axis.
 Since there are no isolated fixed points anywhere on the $x$ axis for these rays, we do not expect flexural waves to form bound states.
 This is confirmed by the phase portraits in Figs.~\ref{fig:rod_extended}(a) and~\ref{fig:rod_extended}(b).
-%Again, the ray trajectories are invariant under reflection about the $x$ and $k$ axes because $\lambda_{-}$ possesses the same symmetry.
-%At large frequencies, the rays appear straight, and they start to resemble plain waves.
-%
+Like rays of extensional waves, the rays of flexural waves are also invariant under reflection about the $x$ and $k$ axes because $\lambda_{-}$ possesses the same symmetry.
 Two unbound flexural eigenmodes obtained numerically are displayed in Figs.~\ref{fig:rod_extended}(c) and~\ref{fig:rod_extended}(d).
 Rays corresponding to these modes have been marked by black arrows in Figs.~\ref{fig:rod_extended}(a) and~\ref{fig:rod_extended}(b).
 Although the normal component $\zeta$ dominates in these modes, they acquire a significant tangential component with increasing curvature, which we also see from the color coding of the phase portraits.
@@ -754,11 +753,51 @@ Because $l$ is nonzero, there is now a gap in the dispersion curves and a corres
   \label{fig:shell_disp}
 \end{figure}
 
+\subsubsection*{Exact dispersion relations}
+
 For nonzero but constant curvature, plain waves continue to propagate on the shell, which now becomes part of a thin cylinder.
 For simplicity, we shall continue to call these waves as being flexural, extensional, or shear in nature.
 However, as with the curved rod, we expect some amount of mixing of the tangential and normal displacements due to nonzero curvature.
 Also, to find the dispersion relations from Eq.~\eqref{eq:shell_det} we now need to use the general cubic formula~\cite{olver2010}, which results in unwieldy analytical expressions.
-As an example, we find the dispersion curves at a curvature value of $m = 0.05$, which are indicated by the solid lines in Fig.~\ref{fig:shell_disp}.
+More specifically, these relations can be obtained by solving the following cubic in $\omega^{2}$:
+%
+\begin{equation}
+  \omega^{6} - a\omega^{4} - b\omega^{2} - c = 0
+\end{equation}
+%
+where the coefficients
+%
+\begin{equation}
+  \begin{aligned}
+    a &= \frac{1}{2}q^{2}\left[(3 - \eta) + 2q^{2}\right],\\
+    b &= -\frac{1}{2}q^{4}\left[(3 - \eta)q^{2} + (1 - \eta)\right] - \frac{1}{2}m^{2}(1 - \eta)\left[q^{2} + 2(1 + \eta)l^{2}\right],\\
+    c &= \frac{1}{2}(1-\eta)\left[q^{8} + m^{2}l^{4}\left(1 - \eta^{2}\right)\right],
+  \end{aligned}
+\end{equation}
+%
+and $q^{2} = k^{2} + l^{2}$ is the magnitude of the wave vector.
+The above cubic has the solution
+%
+\begin{equation}
+  \omega^{2} =
+  \begin{dcases}
+    \frac{1}{3}a + \frac{2^{1/3}\left(a^{2} + 3b\right)}{3d} + \frac{d}{3\times2^{1/3}} & \text{(extensional)},\\
+    \frac{1}{3}a - \frac{\left(1 - i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 + i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(shear)},\\
+    \frac{1}{3}a - \frac{\left(1 + i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 - i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(flexural)}.\\
+  \end{dcases}
+  \label{app:shell_cubic_sol}
+\end{equation}
+%
+where
+%
+\begin{equation}
+  d = \left(2 a^3+9 a b+27 c+3 \sqrt{3}\sqrt{4 a^3 c-a^2 b^2+18 a b c-4 b^3+27 c^2}\right)^{1/3}.
+\end{equation}
+%
+It is not directly obvious how the roots the roots in Eq.~\eqref{app:shell_cubic_sol} can be associated with a specific wave polarization.
+To do so, we have to take the limit $m \to 0$ numerically and find which of the roots reduce to the flat-plate results in Eq.~\eqref{eq:shell_disp_zero}.
+
+As an example, using Eq.~\eqref{app:shell_cubic_sol}, we find the dispersion curves at a curvature value of $m = 0.05$, which are indicated by the solid lines in Fig.~\ref{fig:shell_disp}.
 We make two observations on comparing these curves with the dispersion curves for a flat plate:
 (i) the gap in the dispersion curves for flexural and extensional waves [Figs.~\ref{fig:shell_disp}(a) and~\ref{fig:shell_disp}(c)] have increased, and the flexural dispersion curve now has a double-well appearance;
 (ii) although the dispersion curve for shear waves has changed in appearance [Fig.~\ref{fig:shell_disp}(b)], the gap remains the same and the cut-on frequency remains unchanged.
@@ -776,6 +815,8 @@ Our intuition and a series expansion in $m$ suggests that the lowest of the firs
 The third root, which is independent of the curvature $m$, must then correspond to the cut-on frequency for shear waves.
 As we shall see, this association is only correct at very low curvatures.
 
+\subsubsection*{Approximate dispersion relations}
+
 Although the exact dispersion relations for nonzero curvature are unwieldy, we can find an approximate expression for the dispersion relations in the very weak curvature limit.
 To this end, we write the roots $\omega^{2}$ as a regular perturbation series~\cite{bender1978} in even powers of $m$, i.e.,
 %
@@ -784,7 +825,8 @@ To this end, we write the roots $\omega^{2}$ as a regular perturbation series~\c
   \label{eq:shell_perturb}
 \end{equation}
 %
-where $\omega_{0}$ is one of the three roots in Eq.~\eqref{eq:shell_disp_zero} and $Q_{n}(k, l)$ are coefficients to the correction terms that we have to determine.
+where $\omega_{0}$ is one of the three roots in Eq.~\eqref{eq:shell_disp_zero} and $Q_{n}(k, l)$ are coefficients to the correction terms that we have to determine.%
+\footnote{Note that it is a futile task to expand the roots in Eq.~\eqref{app:shell_cubic_sol} in powers of $m$ to find the approximate dispersion relationships.}
 Since the curvature is assumed to be very weak, the dispersion relations obtained this way can be associated with a wave type based on the choice we make for $\omega_{0}$.
 Putting Eq.~\eqref{eq:shell_perturb} in Eq.~\eqref{eq:shell_det}, and dropping powers of $k$ and $l$ in comparison to unity, we find
 %
@@ -803,7 +845,7 @@ Also, in their analytical characterization of bound waves in a musical saw, \cit
 In Fig.~\ref{fig:shell_disp}, the approximate dispersion relations for $m = 0.05$ are indicated by the red dashed curves, from which we can see that Eq.~\eqref{eq:shell_disp_approx} captures the true dispersion relations to a reasonably good accuracy.
 
 Equation~\eqref{eq:shell_disp_approx} must break down beyond a certain value of the curvature.
-Indeed, we only expect it to capture the true dispersion when the $\mathcal{O}(m^{2})$ correction term in Eq.~\eqref{eq:shell_perturb} is smaller than $\omega_{0}^{2}$, and more conservatively, only when $m \ll l^{2} + k^{2}$.
+Indeed, we only expect it to capture the true dispersion when the $\mathcal{O}(m^{2})$ correction term in Eq.~\eqref{eq:shell_perturb} is smaller than $\omega_{0}^{2}$, and more conservatively, only when $m \ll k^{2} + l^{2}$.
 We would expect the dispersion relation to deviate significantly from Eq.~\eqref{eq:shell_disp_approx} as $m$ increases.
 In fact, for small $k$ and $l$, Eq.~\eqref{eq:shell_disp_approx} completely breaks down at a curvature at which the cut-on frequency for flexural and extensional waves become equal.
 For nonzero $l$, from Eq.~\eqref{eq:shell_cuton}, we see that this happens at a curvature value
@@ -864,10 +906,10 @@ Intuitively, we therefore expect bound states to occur for all three wave polari
 For ray analysis, we usually directly work with the eigenvalues of the dispersion matrix $\mathsf{D}^{(0)}$.
 This proves to be difficult for the shell as the expressions for the eigenvalues are unwieldy.
 In the absence of mode conversion, however, only one eigenvalue, say $\lambda$, will vanish at a given phase-space point $(x, k)$, causing the determinant $\det\mathsf{D}^{(0)}$ to vanish as well.
-Hence, the rays determined by $\lambda(x, k; \omega) = 0$ and $\det\mathsf{D}^{(0)} = 0$ are identical, allowing us to use $\det\mathsf{D}^{(0)}$ as the ray Hamiltonian.
+Hence, the rays determined by $\lambda(x, k; \omega) = 0$ and $\det\mathsf{D}^{(0)} = 0$ are identical, allowing us to use $\det\mathsf{D}^{(0)}$ as the ray Hamiltonian.%
+\footnote{Let us remark that the ray trajectories can also be obtained by treating $\omega^{2}$ in Eq.~\eqref{app:shell_cubic_sol} as the ray Hamiltonian.  However, given the general awkwardness of the expressions, it is better to work with $\det\mathsf{D}^{(0)}$ instead.}
 Using $\det\mathsf{D}^{(0)}$ instead of $\lambda$ would amount to a trivial reparameterization of Hamilton's equations~\cite{tracy2014}.
-Judicious choices of the initial conditions, i.e., the coordinates $(x, k)$ and frequency $\omega$, obtained from the local dispersion curves at a given $(x, k)$, would determine the type of wave the ray represents.
-
+Judicious choices of the initial conditions, i.e., the coordinates $(x, k)$ and frequency $\omega$, obtained from the local dispersion curves at a given $(x, k)$, would determine the type of wave the ray represents.%
 When analyzing a given wave type, it is also useful to compute an amplitude ratio, analogous to the one we used for the curved rod, and defined by
 %
 \begin{equation}
@@ -1251,14 +1293,14 @@ Figure~\ref{fig:poschl} presents a comparison of the bound states described by E
 The agreement is remarkable given the fact that the numerical results were obtained by solving the full wave equations, Eq.~\eqref{eq:rod}, without employing any additional approximations.
 From Eq.~\eqref{eq::poschl_params} we also see that maximum number of bound states is $n_{\text{max}} \approx \nu = b/\epsilon + \mathcal{O}(b^{2}/\epsilon^{2})$, which agrees with the semiclassical prediction in Eq.~\eqref{eq:rod_maxb}.
 
-We are currently unaware of an exact solution of Eq.~\eqref{eq::schrodinger} for the potential $\smash{m^{2}_{2}(x) = \left[b - (b - a)\sech(\epsilon x)\right]^{2}}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
+\sloppy We are currently unaware of an exact solution of Eq.~\eqref{eq::schrodinger} for the potential $\smash{m^{2}_{2}(x) = \left[b - (b - a)\sech(\epsilon x)\right]^{2}}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
 However, we can crudely approximate $m^{2}_{2}(x)$ as a deformed P\"{o}schl--Teller potential of the form
 %
 \begin{equation}
-  m^{2}_{\chi}(x) = b^{2} - (b^{2} - a^{2})\sech^{2}(\epsilon\chi x),
+  m^{2}_{\chi}(x) = b^{2} - (b^{2} - a^{2})\sech^{2}(\epsilon\chi x).
 \end{equation}
 %
-and we fix the deformation parameter $\chi$ by demanding that the full widths at half minima of both $m^{2}_{\chi}(x)$ and $m_{2}^{2}(x)$ be equal, which gives
+We fix the deformation parameter $\chi$ by demanding that the full widths at half minima of both $m^{2}_{\chi}(x)$ and $m_{2}^{2}(x)$ be equal, which gives
 %
 \begin{equation}
   \chi = \sech^{-1}\sqrt{\frac{b^{2} + a^{2}}{2(b^{2} - a^{2})}}\Bigg/\sech^{-1}\left[\frac{b - \sqrt{(b^{2} - a^{2})/2}}{b - a}\right].
@@ -1320,46 +1362,49 @@ Quantized frequencies $\omega$ can be obtained by solving $n(\omega) = n$ using 
 Alternatively, we could minimize the absolute ``error'' $\abs{n - n(\omega)}$ using random values of $\omega$ spread around the initial guess, and take the quantized frequency to be $\argmin_{\omega}\,\abs{n - n(\omega)}$.
 For the results reported in the main text, this error is less than $10^{-10}$.
 
-% Exact dispersion for a curved shell
-% -----------------------------------
+\section{XXX}
+
+To illustrate the formation of flexural bound states around points of maximal curvature, we consider the curvature profile%
+\footnote{The authors of Refs.~\cite{sondergaard2002,mohammed2021} use a much more complicated curvature profile in their analysis.  However, for all practical purposes, $m_{3}(x)$ has the basic features of the profiles that these authors consider.}
+$m_{3}(x) = b\sech(\epsilon x)$.
+For the parameter values $b = 0.1$ and $\epsilon = 0.01$, Fig.~\ref{fig:shell_m3_profile} shows the function $m_{3}(x)$ and the actual shape of a curve with this curvature profile.
+Clearly, the curve intersects itself at multiple points, and hence $m_{3}(x)$ can only be the curvature profile of a physically unrealizable ``phantom'' shell that allows self intersections.
+Although self intersections can be avoided by choosing a smaller value for $b$ (or a larger value for $\epsilon$), doing so would lead to the formation of very few or barely discernible bound states.
+For this reason, we will continue to work with the choice $b=0.1$ so that the bound states appear more conspicuous.
 %
-% \subsection{Exact dispersion relations for a curved shell}
-%
-% \hl{Manu: remove this.}
-% The exact dispersion relations for plain waves propagating on a singly curved shell can be obtained by solving the following cubic in $\omega^{2}$:
-% %
-% \begin{equation}
-%   \omega^{6} - a\omega^{4} - b\omega^{2} - c = 0
-% \end{equation}
-% %
-% where the coefficients
-% %
-% \begin{equation}
-%   \begin{aligned}
-%     a &= \frac{1}{2}q^{2}\left[(3 - \eta) + 2q^{2}\right],\\
-%     b &= -\frac{1}{2}q^{4}\left[(3 - \eta)q^{2} + (1 - \eta)\right] - \frac{1}{2}m^{2}(1 - \eta)\left[q^{2} + 2(1 + \eta)l^{2}\right],\\
-%     c &= \frac{1}{2}\left[q^{8} + m^{2}l^{4}\left(1 - \eta^{2}\right)\right],
-%   \end{aligned}
-% \end{equation}
-% %
-% and $q^{2} = k^{2} + l^{2}$ is the magnitude of the wave vector.
-% The above cubic has the solution
-% %
-% \begin{equation}
-%   \omega^{2} =
-%   \begin{dcases}
-%     \frac{1}{3}a + \frac{2^{1/3}\left(a^{2} + 3b\right)}{3d} + \frac{d}{3\times2^{1/3}} & \text{(extensional)},\\
-%     \frac{1}{3}a - \frac{\left(1 - i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 + i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(shear)},\\
-%     \frac{1}{3}a - \frac{\left(1 + i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 - i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(flexural)}.\\
-%   \end{dcases}
-%   \label{app:shell_cubic_sol}
-% \end{equation}
-% %
-% where
-% %
-% \begin{equation}
-%   d = \left(2 a^3+9 a b+27 c+3 \sqrt{3}\sqrt{4 a^3 c-a^2 b^2+18 a b c-4 b^3+27 c^2}\right)^{1/3}.
-% \end{equation}
-% %
-% The ray trajectories depicted in Fig.~\ref{fig:shell_rays} can be obtained by treating $\omega^{2}$ in Eq.~\eqref{app:shell_cubic_sol} as the ray Hamiltonian.
-% However, as we described in the main text, in practice, it is more convenient to use the determinant $\Lambda$ of the dispersion matrix [Eq.~\eqref{eq:shell_det}] with appropriate initial conditions to obtain the ray trajectories and for finding the frequencies of the quantized bound modes.
+\begin{figure}
+  \begin{center}
+    \includegraphics{localization/m3_sech_profile.pdf}
+  \end{center}
+  \caption{%
+    (a) Curvature profile $m_{3}(x)$ and (b) a curve with this curvature profile in Cartesian space with coordinates $X$ and $Z$.
+    As the curve has multiple self intersections, only a physically unrealistic ``phantom'' shell can have this curvature profile.
+    The parameters $b = 0.1$ and $\epsilon = 0.01$.
+  }
+  \label{fig:shell_m3_profile}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{localization/shell_rays_altsech.pdf}
+  \end{center}
+  \caption{%
+    (a) Curvature profile $m_{3}(x)$ and (b) the corresponding shape of the curve in Cartesian space with coordinates $X$ and $Z$.
+    The parameters $b = 0.1$ and $\epsilon = 0.01$.
+  }
+  \label{fig:shell_m3_rays}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{localization/shell_altsech_results.pdf}
+  \end{center}
+  \caption{%
+    (a) Curvature profile $m_{3}(x)$ and (b) the corresponding shape of the curve in Cartesian space with coordinates $X$ and $Z$.
+    The parameters $b = 0.1$ and $\epsilon = 0.01$.
+  }
+  \label{fig:shell_m3_results}
+\end{figure}
+
+
+

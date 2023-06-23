@@ -23,13 +23,13 @@
 \thispagestyle{empty}
 
 This dissertation is concerned with two problems that lie at the interface of soft-matter physics, geometry, and asymptotics, but otherwise have no bearing on one another.
-In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks, such as those used to model a plethora of soft few-body systems at the submicron scale, e.g., colloidal clusters, proteins, DNA origami, etc.
-When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space.
-At these singularities, the framework becomes energetically softer.
-As a consequence, the framework's free-energy landscape is dominated by the neighborhoods of points that correspond to these singularities.
+In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks.
+These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems at the submicron scale such as proteins, colloidal clusters, DNA origami, etc.
+When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where the framework becomes energetically softer.
+As a consequence, the framework's free-energy landscape becomes dominated by the neighborhoods of points that correspond to these singularities.
 In the second problem, I study the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a uniaxially-curved shell as concrete examples.
 Waves propagating on such structures have multiple components owing to the curvature-mediated coupling of the tangential and normal components of the displacement field.
-Here, using the semiclassical approximation for vector waves, I show that flexural, extensional, and shear waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
+Here, using the semiclassical approximation, I show that these waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
 Both these problems exemplify the subtle interplay between the mechanical properties of soft materials and their geometry, which further sets the stage for many interesting consequences.
 
 \ifdeadtree
@@ -129,7 +129,9 @@ TODO...
 \include{chap06}
 \include{chap07}
 \include{chapss}
-\include{chapcv}
+\ifsustyle
+  \include{chapcv}
+\fi
 \include{comments}
 
 \appendix
@@ -206,5 +208,8 @@ TODO...
   \end{minipage}
   \vfill
 \fi
+
+\small
+\emph{The lyf so short, the craft so long to lerne.}
 
 \end{document}

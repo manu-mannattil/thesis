@@ -16,14 +16,17 @@ Such singularities, which arise when the constraints imposed on a system cease t
 
 To shed some more light on the above discussion, consider a mechanical system with $n$ \ac{dof}, whose configuration at any given moment is fully described by a single configuration vector $\bm{q} \in \mathbb{R}^{n}$.
 Constraints in such a system are most clearly introduced by defining a constraint map $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$
-that vanishes when the constraints are satisfied, where $m$ is the number of constraints introduced.
+that vanishes when the constraints are satisfied, with $m$ being the number of constraints introduced.
 The map $f$ is a general nonlinear map in $\bm{q}$ and its linear approximation is given by the $m\times n$ Jacobian matrix $\nabla f$.
+Constraints in the two-cylinder system in Fig.~XXX, for instance is defined by the map $f(x, y, z) = (x^{2} + z^{2} - 1,\, y^{2} + z^{2} - 1)$.
 With these definitions, the configuration space of the system is $\Sigma = \left\{\bm{q} \in \mathbb{R}^{n} : f(\bm{q}) = \bm{0}\right\}$, which is the set of points where the constraints are satisfied exactly.
-Furthermore, if the Jacobian $\nabla f$ has full rank for all points in $\Sigma$, standard theorems ensure that $\Sigma$ is a smooth $(n-m)$-dimensional manifold.%
-\footnote{This condition is almost never explicitly stated in classical mechanics.
-However, it is implicit in the oft-evoked argument that a mechanical system with $n$ degrees of freedom and $m$ constraints have $(n-m)$ degrees of freedom, with the configuration space $\Sigma$ parameterizable by $(n-m)$ generalized coordinates.}
-At singularities, such as the ones in Fig.~XXX, the Jacobian drops rank, and $\Sigma$ fails to be a manifold,
-which is another way of saying that the $m$ constraints cease to become linearly independent at these points.
+Standard theorems in manifold theory% 
+\footnote{These theorems are almost never explicitly invoked in classical mechanics.
+However, they are implicit in the frequently used argument that a mechanical system with $n$ degrees of freedom and $m$ constraints have $(n-m)$ degrees of freedom, with the configuration space $\Sigma$ parameterizable by $(n-m)$ generalized coordinates.}
+ensure that $\Sigma$ is a smooth $(n-m)$-dimensional manifold if the Jacobian $\nabla f$ has full rank for all points in $\Sigma$.
+At singularities, such as the ones in Fig.~XXX, the Jacobian $\nabla f$ drops rank%
+\footnote{Since the Jacobian is an $m\times n$ matrix, it drops rank whenever its rows---each representing a single linearized constraint---cease to become linearly independent.}
+and $\Sigma$ fails to be a manifold.
 
 In practice, there is no such thing as a system with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
 For realistic systems, the set $\Sigma$ would then form the ground-state manifold (assuming no other sources of energy).
@@ -42,8 +45,24 @@ Higher-order corrections to $U$ are usually weaker (after all $\Abs{\bm{q}}$ is 
 Although we restricted ourselves to the case with just one constraint here, the situation is analogous when there are more.
 
 
-
 \section{Thin structures, elastic waves, and bound states}
+
+Time-independent Schr\"{o}dinger equation for a particle in a potential $V(x)$
+%
+\begin{equation}
+  -\frac{\hbar^{2}}{2m}\partial_{x}^{2}\psi(x) + V(x)\psi(x) = E\psi(x),
+\end{equation}
+%
+The semiclassical approximation is often introduced as the limit where the (reduced) Planck's constant $\hbar \to 0$.
+Without additional clarifications, such a limit makes no sense as $\hbar$ is a fundamental constant, whose value is fixed by the units we choose to work in.
+If the problem has an energy scale $U$ and a length scale $L$, we can nondimensionalize the time-independent Schr\"{o}dinger equation by setting $x \to Lx$, $E \to UE$, and $V(x) \to UV(x)$, to obtain
+%
+\begin{equation}
+  -\epsilon^{2}\partial_{\tilde{x}}^{2}\psi(x) + V(x)\psi(x) = E\psi(x),
+\end{equation}
+where $\epsilon = \hbar/\sqrt{2mL^{2}U}$, is now a dimensionless parameter.
+The term in the denominator, $\sqrt{2mL^{2}U}$ has the dimension of the angular momentum.
+Therefore, in considering the limit $\hbar \to 0$, we are considering the limit where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.
 
 \begin{figure}
   \begin{center}

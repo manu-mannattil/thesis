@@ -16,7 +16,7 @@
   \DoubleSpacing
   % \OnehalfSpacing
 \else
-  % In both the below cases, we need the block size 
+  % In both the below cases, we need the block size
   % to be 8in x 5.35in.
   \ifdeadtree
     % letter-size paper
@@ -35,6 +35,28 @@
 
 % Important.  Potato layout otherwise.
 \checkandfixthelayout
+
+% Squeeze whitespace in (numbered) lists.
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=2pt, label=(\roman*)}
+\setlist[enumerate]{noitemsep, topsep=2pt, label=(\roman*)}
+
+% Sensible whitespace.
+\setlength\abovecaptionskip{2pt plus 4pt}
+\setlength\belowcaptionskip{2pt plus 4pt}
+\setlength\textfloatsep{16pt plus 4pt minus 4pt}
+\setlength{\skip\footins}{16pt plus 4pt minus 4pt}
+\setlength{\parskip}{0pt plus 1pt}
+
+% Hack to almost completely remove orphans.
+% See Section 3.5 of the memoir docs.
+\setlength{\topskip}{1.5\topskip}
+\checkandfixthelayout
+\sloppybottom
+
+% Caption of figures = 85% of textwidth.
+\changecaptionwidth
+\captionwidth{0.85\textwidth}
 
 % Packages (draft vs. final) -------------------------------------------
 
@@ -205,22 +227,5 @@
 \def\headerstyle#1{\head@family#1}
 \makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
 \makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
-
-% Sensible whitespace.
-\setlength\abovecaptionskip{2pt plus 4pt}
-\setlength\belowcaptionskip{2pt plus 4pt}
-\setlength\textfloatsep{16pt plus 4pt minus 4pt}
-\setlength{\skip\footins}{16pt plus 4pt minus 4pt}
-\setlength{\parskip}{0pt plus 0.5pt}
-
-% Hack to almost completely remove orphans.
-% See Section 3.5 of the memoir docs.
-\setlength{\topskip}{1.8\topskip}
-\checkandfixthelayout
-\sloppybottom
-
-\changecaptionwidth
-\captionwidth{0.85\textwidth}
-\raggedbottom
 
 \makeatother

@@ -12,6 +12,11 @@ Previous work on related problems have largely focused on the localization of fl
 Here, using the semiclassical/WKB approximation, we show that in addition to flexural waves, extensional and shear waves also form localized, bound states around points where the absolute curvature of the structure has a minimum.
 These findings open up novel ways to fine-tune the acoustic and vibrational properties of thin elastic structures, and raise the possibility of introducing new phenomena not easily captured by effective models of flexural waves alone.\\[-1em]
 
+This chapter is organized as follows.
+In Section~\ref{sec:wkb}, we review the semiclassical theory of wave propagation.
+We discuss wave propagation on curved rods and shells in Sections~\ref{sec:rods} and \ref{sec:shell}, respectively.
+We conclude in Section~\ref{sec:conclusion}.\\[-0.5em]
+
 \section{Introduction}
 \label{sec:introduction}
 
@@ -100,15 +105,6 @@ Our findings show that waves can be robustly trapped in thin elastic structures 
 This could help, for instance, in crafting better thin-plate acoustic cloaks~\cite{farhat2009}, and aid the control of noise and vibration in thin structures~\cite{mace1987,hansen2012}.
 Curvature-induced localization of waves could also be used to improve the acoustic black-hole effect in thin-walled structures~\cite{lee2017,pelat2020}, which at the moment relies primarily on wave localization caused by a power-law tapered thickness profile~\cite{krylov2020}.
 Finally, a singly-curved shell serves as a simple, yet effective single-mode waveguide that can steer flexural waves of specific frequencies in the uncurved direction.
-
-This paper is organized as follows.
-In Section~\ref{sec:wkb}, we review the semiclassical theory of wave propagation.
-We discuss wave propagation on curved rods and shells in Sections~\ref{sec:rods} and \ref{sec:shell}, respectively.
-We conclude in Section~\ref{sec:conclusion}.\\[-0.5em]
-
-\begin{small}
-\noindent\emph{Notation.\enspace} Matrices are set in sans-serif type, e.g., $\mathsf{D}$. Operators are distinguished with a hat, e.g., $\hat{k}$.  Hats are dropped on operator ``symbols'', e.g., $k$.  Unless explicitly indicated otherwise, repeated indices are to be summed over.\par
-\end{small}
 
 \section{Semiclassical theory of waves}
 \label{sec:wkb}
@@ -923,7 +919,8 @@ In a curved shell, because we expect both the normal and tangential components o
 For all three wave types, a significant amount of normal and tangential contribution to the displacement field is indicated by values of $\mathscr{R}_{s}$ in the range $1/3 < \mathscr{R}_{s} < 1/2$.
 We discuss flexural waves first.
 
-\subsubsection{Flexural waves}
+\subsubsection*{Flexural waves}
+\label{sec:shell_flexural}
 
 Our intuitive expectation of flexural bound states is confirmed by the actual ray trajectories for flexural waves showcased in Figs.~\ref{fig:shell_rays}(a) and~\ref{fig:shell_rays}(d).
 For frequencies slightly above the cut-on frequency at $x = 0$, the rays appear in the form of closed, vertically-elongated orbits that remain confined to a region where the curvature is very small.
@@ -959,7 +956,7 @@ They, however, remain confined to a region of similar extent as the four caustic
   \label{fig:shell_modes_tanh}
 \end{figure}
 
-\subsubsection{Shear waves}
+\subsubsection*{Shear waves}
 
 From the phase portraits in Fig.~\ref{fig:shell_rays}(b) and~\ref{fig:shell_rays}(e), we see that shear waves also form bound rays confined between two classical turning points.
 As the frequency of the orbits increase, the turning points move to $x = \pm \infty$, where the absolute curvature for both curvature types is $b$.
@@ -977,7 +974,7 @@ Furthermore, as expected from the transverse nature of shear waves, the dominant
 The second shear bound state shown in Fig.~\ref{fig:shell_modes_tanh}(f) has a higher frequency, causing it to spread to regions of higher curvature, where curvature effects become more prominent.
 This can also be inferred from the color coding of Figs.~\ref{fig:shell_rays}(b) and~\ref{fig:shell_rays}(e), which shows that shear bound states develop a significant normal component at higher frequencies.
 
-\subsubsection{Extensional waves}
+\subsubsection*{Extensional waves}
 
 Color-coded phase portraits of extensional waves indicating bound states are shown in Figs.~\ref{fig:shell_rays}(c) and~\ref{fig:shell_rays}(f).
 The caustics for these bound states are the usual classical turning points with $k=0$.
@@ -1071,12 +1068,12 @@ Consider a general $N$-component polarization vector $\tau$ of the dispersion ma
     \ldots,\;
     r_{N}(x, k) e^{i{\varphi}_{N}(x, k)}
   \right].
-  \label{eq::tau}
+  \label{eq:tau}
 \end{equation}
 %
 Above, we have expressed the $j$th component $\tau_{j}$ in terms of a real amplitude $r_{j}(x, k)$ and a phase $\varphi_{j}(x, k)$, both of which are functions of the phase-space coordinates $(x,k)$.
 Since $\tau$ is normalized, we have $\Abs{\tau}^{2} = \sum_{j=1}^{n} r_{j}^{2}(x, k) = 1$ for all $(x, k)$.
-Putting Eq.~\eqref{eq::tau} in Eq.~\eqref{eq:extra_phases}, we see that the rate of change of the first (geometric) phase $\gamma_{\text{G}}$ is
+Putting Eq.~\eqref{eq:tau} in Eq.~\eqref{eq:extra_phases}, we see that the rate of change of the first (geometric) phase $\gamma_{\text{G}}$ is
 %
 \begin{equation}
   \begin{aligned}
@@ -1101,13 +1098,13 @@ From Eq.~\eqref{eq:extra_phases} we see that the rate of change of $\gamma_{\tex
   \begin{aligned}
   \dot{\gamma}_{\text{NG}} &= \frac{i}{2} \mathsf{D}^{(0)}_{jk}\left\{\tau_{j}^{*}, \tau_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k}\\
                            &= \frac{i}{2}\sum_{j < k} \left(\mathsf{D}^{(0)}_{jk}e^{-i\varphi_{jk}} - \mathsf{D}_{jk}^{(0)^{*}}e^{i\varphi_{jk}}\right)\left\{r_{j},r_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k}.
-  \label{eq::gamma_NG}
+  \label{eq:gamma_NG}
   \end{aligned}
 \end{equation}
 %
-In the last step above, we have used Eq.~\eqref{eq::tau} to simplify the first term on the RHS and have defined $\varphi_{jk} = \varphi_{j} - \varphi_{k}$.
+In the last step above, we have used Eq.~\eqref{eq:tau} to simplify the first term on the RHS and have defined $\varphi_{jk} = \varphi_{j} - \varphi_{k}$.
 We have also made use of the Hermiticity of $\mathsf{D}^{(0)}$ to express the first term in terms of the off-diagonal entries of $\mathsf{D}^{(0)}$.
-From Eq.~\eqref{eq::gamma_NG} we see that even when the phases $\varphi_{j}$ are constants, $\gamma_{\text{NG}}$ could be nonzero.
+From Eq.~\eqref{eq:gamma_NG} we see that even when the phases $\varphi_{j}$ are constants, $\gamma_{\text{NG}}$ could be nonzero.
 However, in the following subsection we show that for wave equations of thin elastic structures with certain invariant properties, in addition to a vanishing $\gamma_{\text{G}}$, the phase $\gamma_{\text{NG}}$ vanishes as well.
 
 \subsection{Wave equations of thin elastic structures}
@@ -1131,14 +1128,14 @@ For these reasons, it is useful to consider a general linear elastodynamic equat
     \hat{A}^{\dagger} & \hat{U} & \hat{C}\\
     \hat{B}^{\dagger} & \hat{C}^{\dagger} & \hat{V}
   \end{pmatrix},
-  \label{eq::wave_eq}
+  \label{eq:wave_eq}
 \end{equation}
 %
 Above, the entries of $\widehat{\mathsf{H}}$ are linear differential operators comprised of powers of $\partial_{x}$ and $\partial_{y}$.
 Also, the diagonal entries $\hat{Z}$, $\hat{U}$, and $\hat{V}$ are Hermitian operators and $\hat{A}^{\dagger}$ is the Hermitian adjoint of $\hat{A}$.
-Additionally, since Eq.~\eqref{eq::wave_eq} represents an elastodynamic system, we assume that the coefficients of all the derivatives in $\widehat{\mathsf{H}}$ are real so that $\Psi$ can be taken to be real as well.
+Additionally, since Eq.~\eqref{eq:wave_eq} represents an elastodynamic system, we assume that the coefficients of all the derivatives in $\widehat{\mathsf{H}}$ are real so that $\Psi$ can be taken to be real as well.
 
-Any invariance possessed by Eq.~\eqref{eq::wave_eq} must be shared by the (potential) energy density $\mathscr{J} = \frac{1}{2}\Psi\trans\widehat{\mathsf{H}}\Psi$ used to derive it from Hamilton's principle.
+Any invariance possessed by Eq.~\eqref{eq:wave_eq} must be shared by the (potential) energy density $\mathscr{J} = \frac{1}{2}\Psi\trans\widehat{\mathsf{H}}\Psi$ used to derive it from Hamilton's principle.
 If $\mathscr{J}$ is to be invariant under $(\partial_{x}, \partial_{y}) \to (-\partial_{x}, -\partial_{y})$ and $(\zeta, u, v) \to (\zeta, -u, -v)$ for an arbitrary $\Psi$, the off-diagonal operators $\hat{A}$ and $\hat{B}$ must be odd under $(\partial_{x}, \partial_{y}) \to (-\partial_{x}, -\partial_{y})$.
 In other words, they can only have terms involving exactly one odd power of $\partial_{x}$ (or $\partial_{y}$).
 Odd powers of $\partial_{x},\, \partial_{y}$ acquire complex coefficients when expressed in terms of the momentum operator: $\partial_{x}^{2n+1} = (-1)^{n}i\hat{k}^{2n+1}$.
@@ -1182,13 +1179,13 @@ From the above discussion, we see that most general dispersion matrix $\mathsf{D
   A^{(1)} & 0 & iC^{(1)} \\
   B^{(1)} & -iC^{(1)} & 0
 \end{pmatrix}.
-\label{eq::gen_disp_matrix}
+\label{eq:gen_disp_matrix}
 \end{equation}
 
 A polarization vector $\tau$ is defined up to an overall phase and normalization by $\mathsf{D}^{(0)}\tau = 0$.
-Direct inspection reveals that for $\mathsf{D}^{(0)}$ defined in Eq.~\eqref{eq::gen_disp_matrix}, we can take $\tau$ to be of the form%
+Direct inspection reveals that for $\mathsf{D}^{(0)}$ defined in Eq.~\eqref{eq:gen_disp_matrix}, we can take $\tau$ to be of the form%
 \footnote{To see this more explicitly, take $\tau = (r_{1}e^{i\phi_{1}},\, \tau_{2},\, \tau_{3})$ and solve for the components $\tau_{2}$ and $\tau_{3}$ from $\mathsf{D}^{(0)}\tau = 0$.
-  Upon rephasing $\tau$ by $e^{-i\phi_{1}}$, we find that $\tau$ is of the general form in Eq.~\eqref{eq::tau3}.
+  Upon rephasing $\tau$ by $e^{-i\phi_{1}}$, we find that $\tau$ is of the general form in Eq.~\eqref{eq:tau3}.
 }
 %
 \begin{equation}
@@ -1198,18 +1195,18 @@ Direct inspection reveals that for $\mathsf{D}^{(0)}$ defined in Eq.~\eqref{eq::
     i\tau_{2}\\
     i\tau_{3}\\
   \end{pmatrix},
-  \label{eq::tau3}
+  \label{eq:tau3}
 \end{equation}
 %
 where $\tau_{1}$, $\tau_{2}$, and $\tau_{3}$ are \emph{real} functions defined on the phase space.
 Clearly, the relative phases $\varphi_{12}$ and $\varphi_{13}$ between the components of $\tau$ are either $\pm \pi/2$ or $0$ (when $\tau_{1}$ or $\tau_{2}$ vanishes).
 Likewise, the relative phase $\varphi_{23}$ is either $0$ or $\pi$.
 Because the relative phases are constants, from our discussion in the previous subsection, it then follows that the geometric phase $\gamma_{\text{G}} = 0$.
-When the matrix $\mathsf{D}^{(1)}$ is of the form in Eq.~\eqref{eq::gen_disp_matrix}, using the polarization vector $\tau$ in Eq.~\eqref{eq::tau3}, a straightforward computation shows that second term in the expression for $\dot{\gamma}_{\text{NG}}$, Eq.~\eqref{eq::gamma_NG}, vanishes.
+When the matrix $\mathsf{D}^{(1)}$ is of the form in Eq.~\eqref{eq:gen_disp_matrix}, using the polarization vector $\tau$ in Eq.~\eqref{eq:tau3}, a straightforward computation shows that second term in the expression for $\dot{\gamma}_{\text{NG}}$, Eq.~\eqref{eq:gamma_NG}, vanishes.
 Next, we note that $\mathsf{D}_{12}^{(0)}e^{-i\varphi_{12}} = \pm A^{(0)}$, $\mathsf{D}_{13}^{(0)}e^{-i\varphi_{13}} = \pm B^{(0)}$, and $\mathsf{D}_{23}^{(0)}e^{-i\varphi_{23}} = \pm C^{(0)}$, are all real.
-From Eq.~\eqref{eq::gamma_NG} it then follows that $\dot{\gamma}_{\text{NG}}$ vanishes, and we can take $\gamma_{\text{NG}}$ to be zero as well.
+From Eq.~\eqref{eq:gamma_NG} it then follows that $\dot{\gamma}_{\text{NG}}$ vanishes, and we can take $\gamma_{\text{NG}}$ to be zero as well.
 
-The dispersion matrices for the thin shell we considered in Eq.~\eqref{eq:shell_disp_matrices} of the main text is of the form in Eq.~\eqref{eq::gen_disp_matrix}, and hence the phase $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$ is zero for the shell.
+The dispersion matrices for the thin shell we considered in Eq.~\eqref{eq:shell_disp_matrices} of the main text is of the form in Eq.~\eqref{eq:gen_disp_matrix}, and hence the phase $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$ is zero for the shell.
 It can be verified that the dispersion matrices for many higher-order shell theories~\cite{doyle2021} would also be of this form.
 For the curved rod, the dispersion matrices in Eq.~\eqref{eq:rod_D} are identical to the shell dispersion matrices once we delete the third row and column, and set $l=0$.
 Proceeding by arguments similar to previous ones, we see that the extra phase $\gamma$ vanishes for the rod as well.
@@ -1223,10 +1220,10 @@ Neglecting this term and Fourier transforming in time, we find the extensional l
 %
 \begin{subequations}
   \begin{align}
-  \label{eq::rod_ext1}
+  \label{eq:rod_ext1}
   m(x)\left[m(x)\zeta(x) - \partial_{x}u(x)\right] &= \omega^{2}\zeta(x),\\
   \partial_{x}\left[m(x)\zeta(x) - \partial_{x}u(x)\right] &= \omega^{2}u(x).
-  \label{eq::rod_ext2}
+  \label{eq:rod_ext2}
   \end{align}
 \end{subequations}
 %
@@ -1238,34 +1235,34 @@ The above equations possess a soft-mode solution with $\omega = 0$ satisfying $m
   \end{center}
   \caption{%
     The first five extensional bound states of a rod with a tanh-type curvature profile showing (a) the normal component $\zeta(x)$ and (b) the tangential component $u(x)$, with lighter curves depicting higher-frequency states.
-    The dashed black curves in (a) and (b) represent the solutions in Eq.~\eqref{eq::poschl}.
+    The dashed black curves in (a) and (b) represent the solutions in Eq.~\eqref{eq:poschl}.
     (c) Comparison between the bound-state frequencies $\omega$ obtained through quantization, and those from numerics [cf.~Fig.~\ref{fig:rod_wkb}(a)].
   }
   \label{fig:poschl}
 \end{figure}
 
-We now look for bound-state solutions of Eqs.~\eqref{eq::rod_ext1} and \eqref{eq::rod_ext2} satisfying $\zeta(\pm\infty) = u(\pm\infty) = 0$ with vanishing derivatives at $x = \pm\infty$.
+We now look for bound-state solutions of Eqs.~\eqref{eq:rod_ext1} and \eqref{eq:rod_ext2} satisfying $\zeta(\pm\infty) = u(\pm\infty) = 0$ with vanishing derivatives at $x = \pm\infty$.
 Let us additionally assume that the longitudinal component $u(x) = \partial_{x}\phi(x)$, where $\phi(x)$ is an unknown differentiable function satisfying%
 \footnote{Assuming $\phi(\pm\infty) = 0$ does not result in any loss in generality.
-Without this assumption, on integrating Eq.~\eqref{eq::rod_ext2} we see that $\phi(\pm\infty) = C$ (constant).
-We then obtain Eq.~\eqref{eq::schrodinger} in terms of $\widetilde{\phi}(x) = \phi(x) - C$ with $\zeta = m\widetilde{\phi}$, so that we can work in terms of $\widetilde{\phi}$ alone, which is equivalent to setting $C = 0$.}
+Without this assumption, on integrating Eq.~\eqref{eq:rod_ext2} we see that $\phi(\pm\infty) = C$ (constant).
+We then obtain Eq.~\eqref{eq:schrodinger} in terms of $\widetilde{\phi}(x) = \phi(x) - C$ with $\zeta = m\widetilde{\phi}$, so that we can work in terms of $\widetilde{\phi}$ alone, which is equivalent to setting $C = 0$.}
 $\phi(\pm\infty) = 0$.
-Equation~\eqref{eq::rod_ext2} then becomes a total derivative, which on integration yields
+Equation~\eqref{eq:rod_ext2} then becomes a total derivative, which on integration yields
 %
 \begin{equation}
   m(x)\zeta(x) = \partial_{x}^{2}\phi(x) + \omega^{2}\phi(x).
 \end{equation}
 %
-Putting the above equation in Eq.~\eqref{eq::rod_ext1} and ignoring the soft-mode solution with $\omega = 0$, we see that $\zeta(x) = m(x)\phi(x)$, from which we deduce that $\phi(x)$ satisfies a Schr\"{o}dinger-like equation with the potential $m^{2}(x)$, and given by
+Putting the above equation in Eq.~\eqref{eq:rod_ext1} and ignoring the soft-mode solution with $\omega = 0$, we see that $\zeta(x) = m(x)\phi(x)$, from which we deduce that $\phi(x)$ satisfies a Schr\"{o}dinger-like equation with the potential $m^{2}(x)$, and given by
 %
 \begin{equation}
   -\partial_{x}^{2}\phi(x) + m^{2}(x)\phi(x) = \omega^{2}\phi(x).
-  \label{eq::schrodinger}
+  \label{eq:schrodinger}
 \end{equation}
 %
-As is well known from elementary quantum mechanics~\cite{buell1995}, Eq.~\eqref{eq::schrodinger} always admits a bound-state solution provided that potential $m^{2}(x)$ has a minimum.
+As is well known from elementary quantum mechanics~\cite{buell1995}, Eq.~\eqref{eq:schrodinger} always admits a bound-state solution provided that potential $m^{2}(x)$ has a minimum.
 
-For the tanh-type curvature profile with $m = m_{1}(x) = b\tanh(\epsilon x)$, Eq.~\eqref{eq::schrodinger} becomes the time-independent Schr\"{o}dinger equation for a particle in a P\"{o}schl--Teller potential~\cite{poschl1933,rosen1932}, whose solutions $\phi(x)$ can be written in terms of the associated Legendre polynomials $P^{\mu}_{\nu}(\,\cdot\,)$~\cite{olver2010}.
+For the tanh-type curvature profile with $m = m_{1}(x) = b\tanh(\epsilon x)$, Eq.~\eqref{eq:schrodinger} becomes the time-independent Schr\"{o}dinger equation for a particle in a P\"{o}schl--Teller potential~\cite{poschl1933,rosen1932}, whose solutions $\phi(x)$ can be written in terms of the associated Legendre polynomials $P^{\mu}_{\nu}(\,\cdot\,)$~\cite{olver2010}.
 On defining
 %
 \begin{equation}
@@ -1275,7 +1272,7 @@ On defining
   \quad\text{and}\quad
   \mu = n - \nu \leq 0
   \quad(n \in \mathbb{N}_{0}),
-  \label{eq::poschl_params}
+  \label{eq:poschl_params}
 \end{equation}
 %
 and solving for $\phi(x)$, we find the (unnormalized) components $\zeta(x) = m(x)\phi(x)$, $u(x) = \partial_{x}\phi(x)$, and the quantized frequencies to be
@@ -1286,14 +1283,14 @@ and solving for $\phi(x)$, we find the (unnormalized) components $\zeta(x) = m(x
   u(x) = \partial_{x}P^{\mu}_{\nu}\left[\kappa(x)\right],
   \quad\text{and}\quad
   \omega^{2} = b^{2} - \epsilon^{2}\mu^{2}.
-  \label{eq::poschl}
+  \label{eq:poschl}
 \end{equation}
 %
-Figure~\ref{fig:poschl} presents a comparison of the bound states described by Eq.~\eqref{eq::poschl} and the numerical results for extensional bound states.
+Figure~\ref{fig:poschl} presents a comparison of the bound states described by Eq.~\eqref{eq:poschl} and the numerical results for extensional bound states.
 The agreement is remarkable given the fact that the numerical results were obtained by solving the full wave equations, Eq.~\eqref{eq:rod}, without employing any additional approximations.
-From Eq.~\eqref{eq::poschl_params} we also see that maximum number of bound states is $n_{\text{max}} \approx \nu = b/\epsilon + \mathcal{O}(b^{2}/\epsilon^{2})$, which agrees with the semiclassical prediction in Eq.~\eqref{eq:rod_maxb}.
+From Eq.~\eqref{eq:poschl_params} we also see that maximum number of bound states is $n_{\text{max}} \approx \nu = b/\epsilon + \mathcal{O}(b^{2}/\epsilon^{2})$, which agrees with the semiclassical prediction in Eq.~\eqref{eq:rod_maxb}.
 
-\sloppy We are currently unaware of an exact solution of Eq.~\eqref{eq::schrodinger} for the potential $\smash{m^{2}_{2}(x) = \left[b - (b - a)\sech(\epsilon x)\right]^{2}}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
+\sloppy We are currently unaware of an exact solution of Eq.~\eqref{eq:schrodinger} for the potential $\smash{m^{2}_{2}(x) = \left[b - (b - a)\sech(\epsilon x)\right]^{2}}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
 However, we can crudely approximate $m^{2}_{2}(x)$ as a deformed P\"{o}schl--Teller potential of the form
 %
 \begin{equation}
@@ -1316,17 +1313,17 @@ Therefore, we only expect the higher-frequency bound states of $m_{\chi}(x)$ to 
   \end{center}
   \caption{%
     The first five extensional bound states of a rod with a sech-type curvature profile showing (a) the normal component $\zeta(x)$ and (b) the tangential component $u(x)$.
-    Lighter curves in (a) and (b) depict higher-frequency states and the dashed black curves represent the solutions obtained analogously to those in Eq.~\eqref{eq::poschl} after setting $b^{2} \to b^{2} - a^{2}$ and $\epsilon \to \chi\epsilon$.
+    Lighter curves in (a) and (b) depict higher-frequency states and the dashed black curves represent the solutions obtained analogously to those in Eq.~\eqref{eq:poschl} after setting $b^{2} \to b^{2} - a^{2}$ and $\epsilon \to \chi\epsilon$.
     (c) Comparison between the bound-state frequencies $\omega$ obtained through quantization, and those from numerics [cf.~Fig.~\ref{fig:rod_wkb}(b)].
   }
   \label{fig:poschl_sech}
 \end{figure}
 
-At this juncture, let us remark that Eq.~\eqref{eq::schrodinger} can also be derived by diagonalizing the full wave equation in Eq.~\eqref{eq:rod} using the asymptotic method outlined by Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a,weigert1993}, without appealing to any physical arguments.
+At this juncture, let us remark that Eq.~\eqref{eq:schrodinger} can also be derived by diagonalizing the full wave equation in Eq.~\eqref{eq:rod} using the asymptotic method outlined by Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a,weigert1993}, without appealing to any physical arguments.
 In this method, the operators of the diagonalized equations in symbol form are the two eigenvalues $\lambda_{\pm}$ of the dispersion matrix $\mathsf{D}^{(0)}$.
 To find the extensional bound states, we focus on $\lambda_{+}$, the ray Hamiltonian for extensional waves.
 Instead of using $\lambda_{+}$ from Eq.~\eqref{eq:rod_ham}, which involves a radical expression, we use the approximate version $\lambda_{+} \approx k^{2} - m^{2} - \omega^{2}$ [see Eqs.~\eqref{eq:rod_kgm} and \eqref{eq:rod_klm}].
-Next, we promote $k \to \hat{k} = -i\partial_{x}$, which ``quantizes'' the ray Hamiltonian $\lambda_{+}$ and we obtain Eq.~\eqref{eq::schrodinger} for an unknown wave function $\phi(x)$.
+Next, we promote $k \to \hat{k} = -i\partial_{x}$, which ``quantizes'' the ray Hamiltonian $\lambda_{+}$ and we obtain Eq.~\eqref{eq:schrodinger} for an unknown wave function $\phi(x)$.
 The full wave field can be recovered from $\phi(x)$ using $(\zeta, u) \sim \hat{\tau}_{+}\phi(x)$, where $\hat{\tau}_{+}$ is a two-component operator obtained by promoting $k \to \hat{k}$ in the symbol form of the polarization vector $\tau_{+}$.
 From Eq.~\eqref{eq:rod_tau}, we see that $\tau_{+} \approx [m(x),\, ik]$ so that $\hat{\tau}_{+} \approx [m(x),\, \partial_{x}]$.
 We then find $\zeta(x) \sim m(x)\phi(x)$ and $u(x) \sim \partial_{x}\phi(x)$, consistent with our analysis.
@@ -1384,13 +1381,31 @@ For this reason, we will continue to work with the choice $b=0.1$ so that the bo
   \label{fig:shell_m3_profile}
 \end{figure}
 
+Ray trajectories of all three wave types for the curvature profile $m_{3}(x)$ are shown in Fig.~\ref{fig:shell_m3_rays}.
+As we see from this figure, only flexural waves form bound states.
+From Fig.~\ref{fig:shell_m3_rays}(a), we see that in addition to the nonlinear center at the origin, there are two saddle points on the $k$ axis.
+The saddle points arise because of the double-well minimum in the flexural dispersion curves where $\dd{\omega}/\dd{k} = 0$.
+A careful analysis of the phase portraits of flexural waves reveals the following:
+%
+\begin{enumerate}
+  \item
+    Bound states around regions of high curvature cannot simply be explained by considering the gap and/or cut-on frequency in the dispersion curves---after all, as we move away from regions of high curvature to regions of low curvature, this gap decreases.
+    In reality, bound states arise due to the double-well nature of the flexural dispersion curves at nonzero curvature.
+    Indeed, if $b \lesssim l^{2}/\sqrt{1-\eta^{2}}$, the dispersion curves fails to have a double-well nature and bound states do not exist.%
+    \footnote{This should be contrasted with flexural bound states around points of minimal curvature, which continues to exist even for $b \lesssim l^{2}/\sqrt{1-\eta^{2}}$; see the discussion in p.~\pageref{sec:shell_flexural}.}
+  \item Smaller orbits represents bound states of \emph{higher} frequency.
+    Hence, higher-frequency bound states are represented by a smaller quantum number $n$.
+    The smallest bound orbit has a frequency slightly above the cut-on frequency of flexural waves at curvature $m = b$.
+    For $b > m_{\ddag}$, as the frequency of the orbit approaches the cut-on frequency, the whole orbit flattens to a small line segment on the $x$ axis; for $b < m_{\ddag}$, the orbit shrinks to the origin. [See Eq.~\eqref{eq:shell_mdag} for the definition of $m_{\ddag}$.]
+  \item As the orbit frequency gets smaller, they increase in size, but remain confined between the two heteroclinic orbits [shown as dashed curves in Fig.~\ref{fig:shell_m3_rays}(a)] connecting the saddle points on the $k$ axis.
+    The heteroclinic orbits have a frequency equal to the double-well minimum in the dispersion curves, which puts a limit on the \emph{lowest} frequency for which we expect a bound mode.
+\end{enumerate}
+
 \begin{figure}
   \begin{center}
     \includegraphics{localization/shell_rays_altsech.pdf}
   \end{center}
   \caption{%
-    (a) Curvature profile $m_{3}(x)$ and (b) the corresponding shape of the curve in Cartesian space with coordinates $X$ and $Z$.
-    The parameters $b = 0.1$ and $\epsilon = 0.01$.
   }
   \label{fig:shell_m3_rays}
 \end{figure}
@@ -1400,8 +1415,8 @@ For this reason, we will continue to work with the choice $b=0.1$ so that the bo
     \includegraphics{localization/shell_altsech_results.pdf}
   \end{center}
   \caption{%
-    (a) Curvature profile $m_{3}(x)$ and (b) the corresponding shape of the curve in Cartesian space with coordinates $X$ and $Z$.
-    The parameters $b = 0.1$ and $\epsilon = 0.01$.
+    (a), (b) Example flexural bound states for a shell with curvature profile $m_{3}(x)$; the grey vertical lines indicate the locations of the classical turning points.
+    (c) Comparison between quantization results and numerics; the grey guideline in the background represents $\omega~\text{(quantized)} = \omega~\text{(numerical)}$.
   }
   \label{fig:shell_m3_results}
 \end{figure}

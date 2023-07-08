@@ -54,6 +54,8 @@ Singular perturbation is matched asymptotic expansion.
 
 \section{Multicomponent wave problems}
 
+To keep the exposition simple, we will restrict ourselves to wave equations in one variable.
+
 Consider the wave equation
 %
 \begin{equation}
@@ -80,16 +82,16 @@ The Wigner tensor $\mathsf{W}_{kj}$ is defined as the symbol of the density oper
   \mathsf{W}_{kj}(x, k) = \int \dd{s}\, e^{-iks/\epsilon}\, \psi_{k}\left(x + \tfrac{1}{2}s\right)\psi^{*}_{j}\left(x - \tfrac{1}{2}s\right).
 \end{equation}
 %
-Inverting this expression we obtain
+By inverting the above expression, and setting $x + \frac{1}{2}s \to x'$ and $x- \frac{1}{2}s \to x$, we can write the kernel of the density operator in terms of its Weyl symbol as
+%
+%\begin{equation}
+%  \psi_{k}\left(x + \tfrac{1}{2}s\right) \psi^{*}_{j}\left(x - \tfrac{1}{2}s\right) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{iks/\epsilon}\,\mathsf{W}_{kj}(x, k).
+%\end{equation}
+%%
+%so that
 %
 \begin{equation}
-  \psi_{k}\left(x + \tfrac{1}{2}s\right) \psi^{*}_{j}\left(x - \tfrac{1}{2}s\right) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{iks/\epsilon}\,\mathsf{W}_{kj}(x, k)
-\end{equation}
-%
-so that
-%
-\begin{equation}
-  \psi_{k}(x') \psi^{*}_{j}(x) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{ik(x' -x)/\epsilon}\,\mathsf{W}_{kj}\left[\tfrac{1}{2}(x' + x), k\right]
+  \psi_{k}(x') \psi^{*}_{j}(x) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{ik(x' -x)/\epsilon}\,\mathsf{W}_{kj}\left[\tfrac{1}{2}(x' + x), k\right].
 \end{equation}
 %
 In a similar fashion, we find

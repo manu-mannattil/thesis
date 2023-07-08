@@ -42,21 +42,34 @@
 \setlist[enumerate]{noitemsep, topsep=2pt, label=(\roman*)}
 
 % Sensible whitespace.
-\setlength\abovecaptionskip{2pt plus 4pt}
-\setlength\belowcaptionskip{2pt plus 4pt}
-\setlength\textfloatsep{16pt plus 4pt minus 4pt}
+\setlength{\abovecaptionskip}{1pt plus 2pt}
+\setlength{\belowcaptionskip}{1pt plus 2pt}
+\setlength{\textfloatsep}{16pt plus 4pt minus 4pt}
 \setlength{\skip\footins}{16pt plus 4pt minus 4pt}
-\setlength{\parskip}{0pt plus 1pt}
+\setlength{\parskip}{0pt}
+
+% % Reduce space before/after equations.
+% % https://tex.stackexchange.com/a/47776
+\g@addto@macro \normalsize {%
+  \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
+  \setlength{\belowdisplayskip}{6pt plus 1pt minus 2pt}%
+  \setlength{\belowdisplayshortskip}{4pt plus 1pt minus 1pt}%
+}
 
 % Hack to almost completely remove orphans.
+% NOTE: this produces unbalanced pages.
 % See Section 3.5 of the memoir docs.
-\setlength{\topskip}{1.5\topskip}
-\checkandfixthelayout
-\sloppybottom
+% \setlength{\topskip}{1.5\topskip}
+% \checkandfixthelayout
+% \sloppybottom
 
 % Caption of figures = 85% of textwidth.
 \changecaptionwidth
 \captionwidth{0.85\textwidth}
+
+% Important.  Potato layout otherwise.
+\checkandfixthelayout
 
 % Packages (draft vs. final) -------------------------------------------
 
@@ -100,10 +113,9 @@
 
 \usepackage{acronym}
 \usepackage{fourierx} % fonts
-\linespread{1}
 
 % Set up path for graphicsx.
-\graphicspath{{figures/}}
+\graphicspath{{figures}}
 
 % More Syracuse BS -----------------------------------------------------
 
@@ -176,6 +188,12 @@
   \DeclareNameAlias{author}{family-given/given-family}
   \DeclareNameAlias{default}{family-given}
 
+  % Italic et al. when using \citet{...}.
+  % https://tex.stackexchange.com/a/352119
+  \DefineBibliographyStrings{english}{%
+    andothers = {\emph{et al}\adddot}
+  }
+
   \addbibresource{library.bib}
 \fi
 
@@ -202,6 +220,8 @@
 % Command to make a blank page if we're using a two-side layout.
 \def\twosideblankpage{\if@twoside\blankpage\fi}
 
+\def\footmark#1{\textsuperscript{\emph{#1}}}
+
 % Math -----------------------------------------------------------------
 
 % Chapter-wise equation numbers.
@@ -212,8 +232,14 @@
 \def\inmat#1{\ensuremath\begin{pmatrix}#1\end{pmatrix}}
 
 % Math definitions.
-\def\ogets#1{\ensuremath\overset{\gets}{#1}}
-\def\oto#1{\ensuremath\overset{\to}{#1}}
+% \overset with less vertical space.
+% https://tex.stackexchange.com/a/194805
+\newcommand{\altoverset}[3][0ex]{%
+  \mathrel{\mathop{#3}\limits^{
+    \vbox to#1{\kern-1\ex@
+    \hbox{$\scriptstyle#2$}\vss}}}}
+\def\ogets#1{\ensuremath\altoverset{\gets}{#1}}
+\def\oto#1{\ensuremath\altoverset{\to}{#1}}
 
 % Memoir tweaks --------------------------------------------------------
 
@@ -224,8 +250,21 @@
 
 % Header customization.
 \nouppercaseheads
-\def\headerstyle#1{\head@family#1}
+\def\headerstyle#1{\altsf@family@medium#1}
 \makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
 \makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
+
+% Chapter page footer: page number in the middle.
+\makeoddfoot{plain}{}{\headerstyle{\thepage}}{}
+\makeevenfoot{plain}{}{\headerstyle{\thepage}}{}
+
+\def\appendixname{Appendix}
+
+\setbeforesecskip{-1.333\onelineskip plus -0.2\onelineskip minus -0.2\onelineskip}
+\setaftersecskip{.667\onelineskip plus 0.1\onelineskip}
+\setbeforesubsecskip{-.889\onelineskip plus -0.1\onelineskip minus -0.1\onelineskip}
+\setaftersubsecskip{0.444\onelineskip plus 0.05\onelineskip}
+\setbeforesubsubsecskip{-0.667\onelineskip plus -0.1\onelineskip minus -0.1\onelineskip}
+\setaftersubsubsecskip{0.333\onelineskip plus 0.05\onelineskip}
 
 \makeatother

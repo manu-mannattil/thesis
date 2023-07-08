@@ -24,8 +24,8 @@
 
 This dissertation is concerned with two problems that lie at the interface of soft-matter physics, geometry, and asymptotics, but otherwise have no bearing on one another.
 In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks.
-These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems at the submicron scale such as proteins, colloidal clusters, DNA origami, etc.
-When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where the framework becomes energetically softer.
+These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems at the submicron scale such as proteins and colloidal clusters, and more recently, DNA origami.
+When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where it becomes energetically softer.
 As a consequence, the framework's free-energy landscape becomes dominated by the neighborhoods of points that correspond to these singularities.
 In the second problem, I study the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a uniaxially-curved shell as concrete examples.
 Waves propagating on such structures have multiple components owing to the curvature-mediated coupling of the tangential and normal components of the displacement field.
@@ -106,6 +106,7 @@ TODO...
   \setlength{\cftbeforechapterskip}{0.5em}
 \fi
 
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 % Notation -------------------------------------------------------------
@@ -126,7 +127,6 @@ TODO...
 \include{chap03}
 \include{chap04}
 \include{chap05}
-\include{chap06}
 \include{chap07}
 \include{chapss}
 \ifsustyle
@@ -152,7 +152,7 @@ TODO...
   \def\bibpreamble{{\normalsize \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.%
     \footnote{\url{https://web.archive.org}}}}
   \small
-  \bibliography{library,misc}
+  \bibliography{library}
 % BibLaTeX version only if not in draft mode.
 \else
   \defbibnote{myprenote}{\hypersetup{allcolors=general}% without this, footnote link will be in nord11.
@@ -185,9 +185,9 @@ TODO...
     \fussy
     \small This dissertation was produced using \LaTeX---a set of macros for the {\TeX} typesetting system---and the \emph{memoir} class.
     Figures and plots were created using a combination of Inkscape, Mathematica, and Matplotlib.
-    The body text is set in 10~pt \emph{Utopia} and the text in the figures is set in 8~pt (and sometimes 7~pt) \emph{{\TeX} Gyre Heros}, a free clone of \emph{Helvetica}.
+    The body text is set in 10~pt \emph{Utopia} and the text in the figures is set in 8~pt (and occasionally 7~pt) \emph{{\TeX} Gyre Heros}, a free clone of \emph{Helvetica}.
     Chapter and section headings are set in \emph{Inter} and mathematics is set in Fourier-GUT\emph{enberg}.\\\\
-    Much time was saved during the writing of this thesis thanks to several free software projects including
+    Much time was saved during the writing process thanks to several free software projects including
     BibTool,
     Debian GNU/Linux,
     Gimp,
@@ -210,6 +210,6 @@ TODO...
 \fi
 
 \small
-\emph{The lyf so short, the craft so long to lerne.}
+\emph{The lyf so short, the craft so longe to lerne.}
 
 \end{document}

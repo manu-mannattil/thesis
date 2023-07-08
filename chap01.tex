@@ -3,12 +3,16 @@
 
 \chapter{Introduction}
 
-This dissertation discusses two problems that are more or less unrelated apart from having a common origin in soft-matter physics.
-The concepts used for the discussion have their basis in a potpourri of fields ranging from classical and quantum mechanics to statistical mechanics to engineering, with an emphasis on geometric and asymptotic methods.
+\chapterprecishere{%
+  This dissertation discusses two problems that are more or less unrelated apart from having a common origin in soft-matter physics.
+  During the course of the discussion, we shall borrow concepts from a potpourri of fields ranging from classical and quantum mechanics to statistical mechanics to engineering.
+  Elementary notions from differential geometry and asymptotic analysis will also play a prominent role.
+  This chapter provides a quick overview of the dissertation, highlighting the key results, and concludes with an organizational summary.\\
+}
 
 \section{Frameworks, thermal fluctuations, and free energy landscapes}
 
-Simply put, a bar-joint mechanism is a deformable assembly of bars that connect freely rotating joints. Such mechanisms have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems, e.g., colloidal clusters, proteins, viruses, etc. More recently, DNA origami has made it possible to make these mechanisms at the nanoscale, where they undergo low-temperature thermal fluctuations due to the surrounding medium. Although the bars in a mechanism are only stiff and not rigid, it is useful to analyze a mecha- nism in the limit that the bars become fully rigid, i.e., when the bar lengths are fixed. Indeed, such a situation is an instance of a holonomically constrained classical system, often encountered in elementary mechanics.
+\textsc{Simply} put, a bar-joint mechanism is a deformable assembly of bars that connect freely rotating joints. Such mechanisms have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems, e.g., colloidal clusters, proteins, viruses, etc. More recently, DNA origami has made it possible to make these mechanisms at the nanoscale, where they undergo low-temperature thermal fluctuations due to the surrounding medium. Although the bars in a mechanism are only stiff and not rigid, it is useful to analyze a mecha- nism in the limit that the bars become fully rigid, i.e., when the bar lengths are fixed. Indeed, such a situation is an instance of a holonomically constrained classical system, often encountered in elementary mechanics.
 However, the imposed holonomic constraints need not always be well-behaved.
 To illustrate this point more generally, consider a particle constrained to move on two intersecting cylinders of equal radius with mutually perpendicular axes [Fig. 1(a)].
 The configuration space of this particle is not a smooth manifold, precisely because the cylinders have a nontransversal intersection at two singular points, where they share a common tangent plane.
@@ -19,8 +23,8 @@ Constraints in such a system are most clearly introduced by defining a constrain
 that vanishes when the constraints are satisfied, with $m$ being the number of constraints introduced.
 The map $f$ is a general nonlinear map in $\bm{q}$ and its linear approximation is given by the $m\times n$ Jacobian matrix $\nabla f$.
 Constraints in the two-cylinder system in Fig.~XXX, for instance is defined by the map $f(x, y, z) = (x^{2} + z^{2} - 1,\, y^{2} + z^{2} - 1)$.
-With these definitions, the configuration space of the system is $\Sigma = \left\{\bm{q} \in \mathbb{R}^{n} : f(\bm{q}) = \bm{0}\right\}$, which is the set of points where the constraints are satisfied exactly.
-Standard theorems in manifold theory% 
+With these definitions, the configuration space of the system is the set $\Sigma = \left\{\bm{q} \in \mathbb{R}^{n} : f(\bm{q}) = \bm{0}\right\}$, which is the set of points where the constraints are satisfied exactly.
+Standard theorems in manifold theory%
 \footnote{These theorems are almost never explicitly invoked in classical mechanics.
 However, they are implicit in the frequently used argument that a mechanical system with $n$ degrees of freedom and $m$ constraints have $(n-m)$ degrees of freedom, with the configuration space $\Sigma$ parameterizable by $(n-m)$ generalized coordinates.}
 ensure that $\Sigma$ is a smooth $(n-m)$-dimensional manifold if the Jacobian $\nabla f$ has full rank for all points in $\Sigma$.
@@ -29,10 +33,10 @@ At singularities, such as the ones in Fig.~XXX, the Jacobian $\nabla f$ drops ra
 and $\Sigma$ fails to be a manifold.
 
 In practice, there is no such thing as a system with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
-For realistic systems, the set $\Sigma$ would then form the ground-state manifold (assuming no other sources of energy).
+For realistic systems, the set $\Sigma$ would then form the ground-state manifold (assuming that energy costs solely arise due to the constraints being violated).
 At the most basic level, we can assume that energy $U$ of a stiffly constrained system depends only the value of the constraint map $f(\bm{q})$, so that we can take $U \equiv U[f(\bm{q})]$ with $U$ having a minimum for all points on $\Sigma$ where $f(\bm{q}) = \bm{0}$.
 
-To see this at an even elementary level, assume that we have just one constraint so that the constraint map $f: \mathbb{R}^{n} \to \mathbb{R}$ and the Jacobian $\nabla f$ is just the gradient of $f$.
+To see this at an even elementary level, assume that we have just one constraint so that the constraint map $f: \mathbb{R} \to \mathbb{R}$ and the Jacobian $\nabla f$ is just the gradient of $f$.
 Taylor expanding the energy to $\mathcal{O}(\Abs{\bm{q}}^{2})$, we get the familiar Harmonic approximation result
 %
 \begin{equation}
@@ -44,33 +48,70 @@ This shows that in the vicinity of points where $\nabla f$ becomes vanishingly s
 Higher-order corrections to $U$ are usually weaker (after all $\Abs{\bm{q}}$ is assumed to be small), and consequently the system becomes energetically soft.
 Although we restricted ourselves to the case with just one constraint here, the situation is analogous when there are more.
 
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=1.0]{misc/4bar_collage.pdf}
+  \end{center}
+\caption{(a) Configuration space of a four-bar linkage visualized as two intersecting curves on a torus. (b) its free energy $\mathscr{A}(\theta_{1})$ as a function of the angle $\theta_{1}$. (c) Four-bar linkage in the real world; photograph by J.~Beau, \emph{Photographie Sportive} (1898).}
+  \label{fig:4bar_collage}
+\end{figure}
+
 
 \section{Thin structures, elastic waves, and bound states}
+
+Wave propagation on thin structures.
+
+Musical saw. -- energy leaks through the fingers.
+
+Bound states.
+
+The key to understanding localization of waves and the formation of bound states is the eigenvalue problem
+%
+\begin{equation}
+  \hat{\mathsf{D}}\psi = \omega^{2}\psi
+\end{equation}
+%
+where $\hat{\mathsf{D}}$ is an $n\times n$ operator composed of spatial derivatives (i.e., powers of $\partial_x$) and $\omega$ is the frequency of oscillation.
+A plane wave solution of the form $\psi \sim e^{\pm i kx}$ is only applicable if the coefficients of the derivatives are constants.
+
+Semiclassical method.
+
+In asymptotic analysis, it is usually introduced as an approximate method to find solutions to differential equations whose highest-order derivative is multiplied by a small parameter $\epsilon$.
 
 Time-independent Schr\"{o}dinger equation for a particle in a potential $V(x)$
 %
 \begin{equation}
-  -\frac{\hbar^{2}}{2m}\partial_{x}^{2}\psi(x) + V(x)\psi(x) = E\psi(x),
+  \left[-\frac{\hbar^{2}}{2m}\partial_{x}^{2} + V(x)\right]\psi(x) = E\psi(x),
 \end{equation}
 %
 The semiclassical approximation is often introduced as the limit where the (reduced) Planck's constant $\hbar \to 0$.
-Without additional clarifications, such a limit makes no sense as $\hbar$ is a fundamental constant, whose value is fixed by the units we choose to work in.
-If the problem has an energy scale $U$ and a length scale $L$, we can nondimensionalize the time-independent Schr\"{o}dinger equation by setting $x \to Lx$, $E \to UE$, and $V(x) \to UV(x)$, to obtain
+At first glance, such a limit makes \emph{no} physical sense as $\hbar$ is a fundamental constant, whose value is fixed by the units we choose to work in.
+Rather, in considering the limit $\hbar \to 0$, we are considering the limit where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.%
+\footnote{%
+  This can be more clearly seen by nondimensionalizing the time-independent Schr\"{o}dinger equation by introducing an energy scale $U$ and a length scale $L$. After setting $x \to L{x}$, $E \to U{E}$, and $V(x) \to U{V}(x)$, we find
 %
 \begin{equation}
-  -\epsilon^{2}\partial_{\tilde{x}}^{2}\psi(x) + V(x)\psi(x) = E\psi(x),
+  -\epsilon^{2}\partial_{{x}}^{2}\psi(x) + {V}(x)\psi(x) = {E}\psi(x),
 \end{equation}
-where $\epsilon = \hbar/\sqrt{2mL^{2}U}$, is now a dimensionless parameter.
-The term in the denominator, $\sqrt{2mL^{2}U}$ has the dimension of the angular momentum.
-Therefore, in considering the limit $\hbar \to 0$, we are considering the limit where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.
+%
+where all quantities as well as the parameter $\epsilon = \hbar/\sqrt{2mL^{2}U}$ are now dimensionless.
+As $\sqrt{2mL^{2}U}$ has the dimension of the angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum is much larger than $\hbar$.}
 
 \begin{figure}
   \begin{center}
     \includegraphics{dna.pdf}
   \end{center}
   \caption{DNA origami has been widely used to self assemble a variety of objects at the nanoscale.
-    Depicted in the figure are (a) tensegrity structures \cite{liedl2010}; (b), (c) linkage-based mechanisms \cite{marras2015,zhou2015}; (d) a rhombus-shaped nanoactuator~\cite{ke2016}; and (e) self-assembled polyhedra~\cite{iinuma2014}.  All images used with permission.}
+Depicted in the figure are (a) tensegrity structures \cite{liedl2010}; (b), (c) linkage-based mechanisms \cite{marras2015,zhou2015}; (d) a rhombus-shaped nanoactuator~\cite{ke2016}; and (e) self-assembled polyhedra~\cite{iinuma2014}.}
   \label{fig:dna_origami}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{misc/confspace.pdf}
+  \end{center}
+  \caption{A classical system, composed of many point particles and rigid bodies, can be represented by a single configuration vector $\bm{q}$ of a high-dimensional configuration space $\Sigma$, which may or may not be a smooth manifold. (Inspired by Fig.~20.1 of Ref.~\cite{penrose2004}.)}
+  \label{fig:confspace}
 \end{figure}
 
 \begin{figure}
@@ -80,7 +121,7 @@ Therefore, in considering the limit $\hbar \to 0$, we are considering the limit 
   \caption{%
     An ordinary hand saw, when bent into the shape of the letter $\mathsf{S}$ can be played like a musical instrument using a violin's bow or a mallet.
     A sustained note is produced on bowing or hitting the saw at its inflection point, which is called a sweet spot by musicians.
-    Photographs adapted from Ref.~\cite{shankar2022} and used with permission.
+    Photographs sourced from Ref.~\cite{shankar2022}.
   }
   \label{fig:saw}
 \end{figure}

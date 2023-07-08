@@ -25,6 +25,7 @@ gitinfo:
 
 clean:
 	latexmk -c
+	rm -f *.fls tags
 
 distclean:
 	latexmk -C

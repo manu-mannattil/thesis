@@ -495,7 +495,7 @@ The matrix $\mathsf{J}\trans\mathsf{J}$ can be readily cast into blocks as
 %
 Here $(\nabla\psi)\trans\nabla\psi$ is the metric induced by the embedding $\xi \mapsto \psi(\xi)$ and since the normal modes are orthonormal vectors, $\mathsf{B} \trans\mathsf{B}  = \mathsf{I}_m$.
 Also, the off-diagonal blocks vanish since they involve inner products of the basis vectors of $T_{\bar{\bm{q}}}\Sigma$ and $N_{\bar{\bm{q}}}\Sigma$, which are orthogonal complements of each other.
-This gives $\sqrt{\abs{\det\,\mathsf{J}\trans\mathsf{J}}} = \sqrt{\abs{\det\, (\nabla\psi)\trans\nabla\psi}}$, which together with Eq.~\eqref{sm:eq:determinant} lets us evaluate the Gaussian integral in Eq.~\eqref{sm:eq:prob_gaussian} and write
+This gives $\sqrt{\abs{\det\,\mathsf{J}\trans\mathsf{J}}} = \sqrt{\smash[b]{\abs{\det\, (\nabla\psi)\trans\nabla\psi}}}$, which together with Eq.~\eqref{sm:eq:determinant} lets us evaluate the Gaussian integral in Eq.~\eqref{sm:eq:prob_gaussian} and write
 %
 \begin{equation}
   \mathscr{P}(\xi) \sim I(\xi)\left(\frac{2\pi}{\beta}\right)^{m/2}
@@ -863,8 +863,8 @@ The compatibility and dynamical matrices at this point are
 \end{equation}
 %
 The dynamical matrix has nonzero eigenvalues $(2+\sqrt{2})\kappa$, $2\kappa$, and $(2-\sqrt{2})\kappa$, which gives $\det\,\mathsf{D}^\perp = 4\kappa^3$.
-Also, the Hessian matrices of the four constraint functions $f_i$ at the singularity are
-%
+Also, the Hessian matrices of the four constraint functions $f_i$ at the singularity~are
+
 \begin{equation}
 \begin{aligned}
   \hess f_1 &=
@@ -1293,10 +1293,14 @@ The numerical results in Fig.~\ref{sm:fig:trimer}(b) show excellent agreement wi
 If the stiffness $\kappa$ is a constant, then $\Delta\mathscr{A}(\theta)$ vanishes for all values of $\theta$ and the landscape becomes flat.
 This should be contrasted with the examples for mechanisms with isolated singularities, where temperature-dependent free-energy barriers exist even for constant stiffness.
 
+\begin{subappendices}
+
 \section{Numerical Simulations}
 \label{sm:sec:numerics}
 
-For all the mechanisms we consider in this work, we perform our numerical simulations in the lab frame at an inverse temperature $\beta = 10^{4}$ using a central-force potential $\phi_i[\ell_i(\bm{r})] = [\ell_i^{2}(\bm{r}) - \bar{\ell}_i^2]^2/(8\bar{\ell}_i^2)$, which has an absolute minimum at $\ell_i = \bar{\ell}_i$, for $\ell_i \geq 0$.
+For all the mechanisms we consider in this work, we perform our numerical simulations%
+\footnote{The code we use for Monte Carlo simulations and numerical parameterization of the shape spaces is publicly available at \url{https://github.com/manu-mannattil/thermmech}.}
+in the lab frame at an inverse temperature $\beta = 10^{4}$ using a central-force potential $\phi_i[\ell_i(\bm{r})] = [\ell_i^{2}(\bm{r}) - \bar{\ell}_i^2]^2/(8\bar{\ell}_i^2)$, which has an absolute minimum at $\ell_i = \bar{\ell}_i$, for $\ell_i \geq 0$.
 With this potential, the stiffness $\kappa_{i} = \phi_i''(\bar{\ell}_i) = 1$ for all bars.
 Alternatively, any other potential $\phi_{i}(\ell_{i})$ that depends only on the bar lengths and having a minimum at $\ell_{i} = \bar{\ell}_{i}$ can be used.
 We find the marginal probability densities of the \ac{cv} [Eq.~\eqref{eq:mpd}] using histograms obtained from sampling the Boltzmann--Gibbs distribution using the classical Metropolis Monte Carlo algorithm (with an acceptance rate of about 50\% and $\sim 10^{9}$ samples).
@@ -1309,4 +1313,4 @@ For the triangulated origami, there is an additional need to reject all Monte Ca
     Since there are eight such face pairs, to reduce computational costs, we only check this when the origami is sufficiently folded.
 \end{enumerate}
 
-The code we use for Monte Carlo simulations and numerical parameterization of the shape spaces is publicly available.
+\end{subappendices}

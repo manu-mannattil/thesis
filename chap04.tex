@@ -3,78 +3,103 @@
 
 \chapter{Semiclassical physics}
 
-This chapter is a brief discussion of elastic waves.
-In particular, we discuss waves propagating on a filament and shell, both with varying curvatures.
-The equations we derive in this chapter would form the basis of our discussions in the next chapter.
+In this Chapter we present a quick rundown of the semiclassical approximation as applied to multicomponent waves.
+To keep the exposition simple, we will restrict ourselves to wave equations in one variable.
+For more detailed descriptions, we refer to the book by \citet{tracy2014}.
 
-\section{WKB analysis}
+% This chapter is a brief discussion of elastic waves.
+% In particular, we discuss waves propagating on a filament and shell, both with varying curvatures.
+% The equations we derive in this chapter would form the basis of our discussions in the next chapter.
 
-Consider the differential equation
+%\section{WKB analysis}
+
+%Consider the differential equation
+%%
+%\begin{equation}
+%  y''(x) + y(x) + \varepsilon \lambda(x) = 0.
+%\end{equation}
+%%
+%Here $\varepsilon$ is a small parameter and suppose we wish to find solutions to this differential equation when $\varepsilon \to 0$.
+%This is a \emph{regular perturbation} problem because the general characteristic features of this differential equation, namely the fact that it is second order with two independent solutions remains preserved on setting $\varepsilon = 0$.
+%Hence we can attempt to find a solution of the form
+%%
+%\begin{equation}
+%  y(x) = y_0(x) + \varepsilon y_{1}(x) + \varepsilon^{2} y_{2}(x) + \cdots
+%\end{equation}
+%%
+%Putting this in the original differential equation, we can solve it at different orders of $\varepsilon$ to find
+%%
+%\begin{equation}
+%  \begin{aligned}
+%    \mathcal{O}(\epsilon^{0}) &: y_{0}''(x) + y_{0}(x) = 0\\
+%    \mathcal{O}(\epsilon^{1}) &: y_{1}''(x) + y_{0}(x) = 0
+%  \end{aligned}
+%\end{equation}
+%%
+
+%The WKB method is a method to find solutions to \emph{singularly perturbed} different equations.
+
+%Trouble might occur for instance when
+
+%1) the highest order derivative is multiplied by $\varepsilon$.
+%2) the problem totally changes characteristics when the parameter $\varepsilon$ is equal to zero.
+%3) the problem is defined on infinite regions.
+%4) singular points are present.
+%5) the equation models physical processes with several time- or length scales.
+
+%1-5 are called singular perturbation problems.
+
+%In many cases we deal with problem containing boundary layers. We can roughly treat these problems by
+%i) letting  we get a good approximation for the outer region.
+%ii) rescale the problem to get an inner approximation.
+%iii) match inner and outer approximations.
+
+%Singular perturbation is matched asymptotic expansion.
+
+\section{Introduction}
+
+Consider a wave equation of the form
 %
 \begin{equation}
-  y''(x) + y(x) + \varepsilon \lambda(x) = 0.
+  \partial_{t}^{2}\Psi(x,t) + \widehat{\mathsf{H}}\Psi(x,t) = 0,
+  \label{eq:full_wave_eq}
 \end{equation}
 %
-Here $\varepsilon$ is a small parameter and suppose we wish to find solutions to this differential equation when $\varepsilon \to 0$.
-This is a \emph{regular perturbation} problem because the general characteristic features of this differential equation, namely the fact that it is second order with two independent solutions remains preserved on setting $\varepsilon = 0$.
-Hence we can attempt to find a solution of the form
+where $\Psi(x,t)$ is an $N$-component wave field described by a one-dimensional coordinate $x$ and time $t$.
+In elastodynamics, $\Psi$ is usually composed of displacements, e.g., for the rod we have $\Psi = (\zeta, u)$, and for the shell we have $\Psi = (\zeta, u, v)$ [see Figs.~\ref{fig:waves}(a) and~\ref{fig:waves}(b)].
+Also, $\widehat{\mathsf{H}}$ is taken to be a Hermitian operator in the form of an $N\times N$ matrix, composed solely of spatial derivatives (i.e., powers of $\partial_{x}$) with time-independent coefficients.
+Assuming that the waves are time harmonic with frequency $\omega$, i.e., $\Psi(x, t) = \psi(x)e^{\pm i\omega t}$, where $\psi(x)$ is the time-independent part of the wave field, Eq.~\eqref{eq:full_wave_eq} can be recast as
 %
 \begin{equation}
-  y(x) = y_0(x) + \varepsilon y_{1}(x) + \varepsilon^{2} y_{2}(x) + \cdots
+  \widehat{\mathsf{D}}\psi = 0,\quad \text{with}\enspace \widehat{\mathsf{D}} = \widehat{\mathsf{H}} - \omega^{2}\mathsf{I}_{N},
+  \label{eq:ev_problem}
 \end{equation}
 %
-Putting this in the original differential equation, we can solve it at different orders of $\varepsilon$ to find
+where $\mathsf{I}_{N}$ is the $N\times N$ identity matrix.
+
+If the coefficients of the spatial derivatives that appear in $\widehat{\mathsf{D}}$ are constants, then the eigenmodes $\psi$ are plain waves.
+In what follows we assume that these coefficients are slowly varying, with the variation controlled by a single positive parameter $\epsilon \ll 1$, called the \emph{eikonal parameter}.
+It is useful to treat $\epsilon$ as an ordering parameter so that we can look for solutions at various orders of $\epsilon$.
+To this end, we rescale $x \to \epsilon^{-1}x$ so that a derivative $\partial_{x}$ becomes $\epsilon \partial x$.
+With analogy to quantum mechanics, this allows us to recast the derivatives in $\widehat{\mathsf{D}}$ in terms of the wave number/momentum operator $\hat{k} = -i\epsilon \partial_{x}$, with $\epsilon$ playing the role of Planck's constant.
+Since we shall be considering $\widehat{\mathsf{D}}$ in the coordinate representation, the position operator $\hat{x} = x$.
+
+\subsection{Wave action}
+
+An equation like Eq.~\eqref{eq:ev_problem} can be derived from a wave action of the form
 %
 \begin{equation}
   \begin{aligned}
-    \mathcal{O}(\epsilon^{0}) &: y_{0}''(x) + y_{0}(x) = 0\\
-    \mathcal{O}(\epsilon^{1}) &: y_{1}''(x) + y_{0}(x) = 0
+    \mathscr{U}\left[\psi^{*}, \psi\right] &= \frac{1}{2}\bra{\psi}\widehat{\mathsf{D}}\ket{\psi}
+  = \frac{1}{2}\int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\widehat{\mathsf{D}}\ket{x'}\braket{x'|\psi}\\
+                                           &= \frac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{j}(x)\,\widehat{\mathsf{D}}_{jk}(x, x')\,\psi_{k}(x').
+  \label{eq:wave_action}
   \end{aligned}
-\end{equation}
-%
-
-The WKB method is a method to find solutions to \emph{singularly perturbed} different equations.
-
-Trouble might occur for instance when
-
-1) the highest order derivative is multiplied by $\varepsilon$.
-2) the problem totally changes characteristics when the parameter $\varepsilon$ is equal to zero.
-3) the problem is defined on infinite regions.
-4) singular points are present.
-5) the equation models physical processes with several time- or length scales.
-
-1-5 are called singular perturbation problems.
-
-In many cases we deal with problem containing boundary layers. We can roughly treat these problems by
-i) letting  we get a good approximation for the outer region.
-ii) rescale the problem to get an inner approximation.
-iii) match inner and outer approximations.
-
-Singular perturbation is matched asymptotic expansion.
-
-\section{Multicomponent wave problems}
-
-To keep the exposition simple, we will restrict ourselves to wave equations in one variable.
-
-Consider the wave equation
-%
-\begin{equation}
-  \widehat{\mathsf{D}}\ket{\psi} = 0
-  \qquad
-  (\text{i.e., }\widehat{\mathsf{D}}_{jk}\ket{\psi_{k}} = 0.)
-\end{equation}
-%
-An equation of this sort can be derived from an action of the form
-%
-\begin{equation}
-  \mathscr{U}\left[\psi^{*}, \psi\right] = \frac{1}{2}\bra{\psi}\widehat{\mathsf{D}}\ket{\psi}
-  = \frac{1}{2}\int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\widehat{\mathsf{D}}\ket{x'}\braket{x'|\psi}
-  = \frac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{j}(x)\,\widehat{\mathsf{D}}_{jk}(x, x')\,\psi_{k}(x') = 0.
 \end{equation}
 %
 Above we have inserted the resolution of identity $\int \dd{x}\,\ket{x}\bra{x} = 1$ in appropriate places to express $\mathscr{U}$ in terms of $\psi$ and its conjugate $\psi^{*}$.
 Also, we have made the product between the matrix operator $\widehat{\mathsf{D}}$ and the wave vector $\psi$ explicit, with $\braket{x|\widehat{\mathsf{D}}_{jk}|x'} = \widehat{\mathsf{D}}_{jk}(x, x')$ being the matrix element of $\widehat{\mathsf{D}}_{jk}$ in the position basis.
-Varying $\mathscr{U}[\psi^{*}, \psi]$ with respect to $\psi^{*}$ gives the original wave equation, Eq.~XXX.
+Varying $\mathscr{U}[\psi^{*}, \psi]$ with respect to $\psi^{*}$ gives the eigenvalue problem, Eq.~\eqref{eq:ev_problem}.
 
 For later use, we also note that $\mathscr{U}$ can also be written as
 %
@@ -83,9 +108,23 @@ For later use, we also note that $\mathscr{U}$ can also be written as
     \mathscr{U}\left[\psi^{*}, \psi\right] &= \tfrac{1}{2}\int \dd{x}' \braket{\psi_{\mu}|x'}\bra{x'}\widehat{\mathsf{D}}_{\mu\nu}\ket{\psi_{\nu}}
 = \tfrac{1}{2}\int \dd{x}' \bra{x'}\widehat{\mathsf{D}}_{\mu\nu}\ket{\psi_{\nu}} \braket{\psi_{\mu}|x'}\\
 &= \tfrac{1}{2}\int \dd{x}' \bra{x'}\widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}\ket{x'} = \tr\left(\widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}\right).
+  \label{eq:wave_action_trace_form}
   \end{aligned}
 \end{equation}
 %
+
+In order to solve Eq.~\eqref{eq:ev_problem} at various orders of $\epsilon$, it is convenient to make use of Weyl calculus, which allows one to map differential operators that are functions of $\hat{x}$ and $\hat{k}$ to ordinary functions, called Weyl symbols, defined on an $x$-$k$ phase space, and vice versa~\cite{chaichian2001,cohen2012}.
+For the purposes of this chapter, the following simple rules suffice to convert operators to symbols:
+%
+\begin{equation}
+  f(x) \to f(x),\enspace
+  g(\hat{k}) \to g(k),\enspace\text{and}\enspace
+  f(x)g(\hat{k}) \to f(x)g(k) + \frac{i\epsilon}{2}f'(x)g'(k) + \mathcal{O}(\epsilon^{2}).
+  \label{eq:weylrules}
+\end{equation}
+%
+Above, $f$ and $g$ are functions of $x$ and $\hat{k}$, with the primes denoting derivatives.
+Converting each entry of the matrix operator $\widehat{\mathsf{D}}$ into a Weyl symbol, we get the $N\times N$ dispersion matrix $\mathsf{D}$, which we express in various orders of $\epsilon$ as $\mathsf{D} = \mathsf{D}^{(0)} + \epsilon\mathsf{D}^{(1)} + \mathcal{O}(\epsilon^{2})$.
 
 The Wigner tensor $\mathsf{W}_{kj}$ is defined as the symbol of the density operator $\widehat{\mathsf{W}} = \ket{\psi}\bra{\psi}$ with kernel $\widehat{\mathsf{W}}_{kj}(x',x) = \psi_{k}(x')\psi_{j}^{*}(x)$.
 %
@@ -103,15 +142,17 @@ By inverting the above expression, and setting $x + \frac{1}{2}s \to x'$ and $x-
 %
 \begin{equation}
   \psi_{k}(x') \psi^{*}_{j}(x) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{ik(x' -x)/\epsilon}\,\mathsf{W}_{kj}\left[\tfrac{1}{2}(x' + x), k\right].
+  \label{eq:density_operator}
 \end{equation}
 %
 In a similar fashion, we find
 %
 \begin{equation}
   \widehat{\mathsf{D}}_{jk}(x, x') = \frac{1}{2\pi\epsilon} \int \dd{l}\, e^{il(x -x')/\epsilon}\,\mathsf{D}_{jk}\left[\tfrac{1}{2}(x + x'), l\right].
+  \label{eq:Dhat_integral}
 \end{equation}
 %
-Putting Eq.~XXX and XXX in Eq.~XXX, we arrive at
+Putting Eq.~\eqref{eq:Dhat_integral} and \eqref{eq:density_operator} in Eq.~\eqref{eq:wave_action}, we arrive at
 %
 \begin{equation}
   \mathscr{U} = \frac{1}{(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)(x -x')/\epsilon}\,\mathsf{W}_{kj}\left[\tfrac{1}{2}(x' + x), k\right]\, \mathsf{D}_{jk}\left[\tfrac{1}{2}(x + x'), l\right].
@@ -122,12 +163,13 @@ Performing the change of variables $x \to \frac{1}{2}(x + x')$ and $x' \to x - x
 \begin{equation}
   \begin{aligned}
     \mathscr{U} &= \frac{1}{(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)x'/\epsilon}\,\mathsf{W}_{kj}(x, k)\, \mathsf{D}_{jk}(x, l)\\
-                &= \frac{1}{2\pi\epsilon}\int \dd{x}\,\dd{k}\,\mathsf{W}_{kj}(x,k)\,\mathsf{D}_{jk}(x, k)
+                &= \frac{1}{2\pi\epsilon}\int \dd{x}\,\dd{k}\,\mathsf{W}_{kj}(x,k)\,\mathsf{D}_{jk}(x, k).
   \end{aligned}
+  \label{eq:wave_action_symbol_form}
 \end{equation}
 %
 
-The curious reader may wonder if the above equation is incorrect, in light of Eq.~XXX, where we have expressed $\mathscr{U}$ as the trace of the operator $\widehat{O} = \widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}$.
+The curious reader may wonder if the above equation is incorrect, in light of Eq.~\eqref{eq:wave_action_trace_form}, where we have expressed $\mathscr{U}$ as the trace of the operator $\widehat{O} = \widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}$.
 In terms of its symbol, the trace of an operator $\widehat{O}$ is
 %
 \begin{equation}
@@ -143,14 +185,15 @@ so that $\mathscr{U}$ must be
 where we have used the Moyal formula to write the symbol $O$ in terms of the symbols of $\mathsf{D}_{\mu\nu}$ and $\mathsf{W}_{\nu\mu}$.
 The problem here is a bit subtle---the resolution being that each correction term in the Moyal series can be expressed as divergence of a vector field in the $(x, k)$ phase space~\cite[Problem 3.16]{tracy2014}.
 Hence, using the divergence theorem, integral over the correction terms vanish for well behaved wave fields.
-Thus, only the first term in the Moyal series remain, and we get Eq.~XXX again.
-So far there has been no approximations involved and Eq.~XXX is exact to all orders of the eikonal parameter.
+Thus, only the first term in the Moyal series remain, and we get Eq.~\eqref{eq:wave_action_symbol_form} again.
+So far there has been no approximations involved and Eq.~\eqref{eq:wave_action_symbol_form} is exact to all orders of the eikonal parameter.
 
-Returning to our main problem, i.e., to employ the semiclassical approximation to solve Eq.~XXX, we will proceed as follows: (i) insert the eikonal ansatz; (ii) expand the action to the lowest order in the eikonal parameter and form the \emph{reduced action} $\mathscr{U}_{\text{R}}$; (iii) extract the semiclassical equations of motions by varying the reduced action.
+Returning to our main problem, i.e., to employ the semiclassical approximation to solve Eq.~\eqref{eq:ev_problem}, we will proceed as follows: (i) insert the eikonal ansatz; (ii) expand the action to the lowest order in the eikonal parameter and form the \emph{reduced action} $\mathscr{U}_{\text{R}}$; (iii) extract the semiclassical equations of motions by varying the reduced action.
 
 \subsubsection*{Reduced wave action}
 
-We insert the eikonal ansatz into Eq.~XXX, i.e., $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$ to obtain%
+We look for \emph{eikonal} solutions to Eq.~\eqref{eq:ev_problem} of the form $\psi(x) = A(x)e^{iS(x)/\epsilon}$, where the amplitude $A(x)$ is an $N$-component spinor with complex components, and $S(x)$ is a rapidly varying phase, playing the role of an action.
+To this end we set $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$ in Eq.~\eqref{eq:wave_action_symbol_form} to obtain%
 %
 \begin{equation}
     \mathsf{W}_{\nu\mu}(x, k) = \int \dd{r}\,e^{ikr/\epsilon} A_{\nu}\left(x + \tfrac{1}{2} r\right)A_{\mu}^{*}\left(x - \tfrac{1}{2} r\right)\exp\left\{\frac{i}{\epsilon}\left[S\left(x + \tfrac{1}{2} r\right) - S\left(x - \tfrac{1}{2} r\right)\right]\right\}.
@@ -165,10 +208,11 @@ Next, we set $r \to \epsilon r$ and expand the amplitude $A_{\nu}(x + \frac{1}{2
   \end{aligned}
 \end{equation}
 %
-Putting the ``reduced'' Wigner tensor in Eq.~XXX, we find
+Putting the ``reduced'' Wigner tensor in Eq.~\eqref{eq:wave_action_symbol_form}, we find
 %
 \begin{equation}
   \mathscr{U} = \tfrac{1}{2}\int \dd{x}\, \mathsf{D}_{\mu\nu}\left[x, k=\partial_{x}S(x)\right]A_{\nu}(x)A^{*}_{\mu}(x) + \mathcal{O}(\epsilon^{2}).
+  \label{eq:wave_action_reduced_1}
 \end{equation}
 %
 Next, we perform a spectral decomposition of the symbol matrix $\mathsf{D}_{\mu\nu}(x, k)$ and write it in terms of its eigenvectors $\tau_{a}$ and eigenvalues $\lambda_{a}$ as
@@ -177,7 +221,7 @@ Next, we perform a spectral decomposition of the symbol matrix $\mathsf{D}_{\mu\
   \mathsf{D}_{\mu\nu}(x, k) = \sum_{a} \lambda_{a}(x, k) \tau_{\mu, a}(x, k) \tau_{\nu, a}^{*}(x, k).
 \end{equation}
 %
-Using this in Eq.~XXX, and defining $B_{a} = \tau_{\nu, a}^{*}A_{\nu} = \braket{\tau_{a}|A}$, which is the projection of the amplitude $A_{\nu}$ along the direction of the polarization vector $\tau_{a}$, we finally arrive at the reduced action
+Using this in Eq.~\eqref{eq:wave_action_reduced_1}, and defining $B_{a} = \tau_{\nu, a}^{*}A_{\nu} = \braket{\tau_{a}|A}$, which is the projection of the amplitude $A_{\nu}$ along the direction of the polarization vector $\tau_{a}$, we finally arrive at the reduced action
 %
 \begin{equation}
   \mathscr{U}_{\text{R}}\left[B_{a}, S\right] = \tfrac{1}{2} \sum_{a} \int \dd{x}\, \lambda_{a}(x,k) \abs{B_{a}(x, k)}^{2},
@@ -244,6 +288,52 @@ $\partial_{k}\lambda_{a}(x, k)\abs{B_{a}(x, k)}^{2} = C$ (constant) and
 \end{equation}
 %
 Clearly, $B_{a}$ becomes ill defined at caustics where $\dot{x} = \partial_{k}\lambda_{a}(x, k) = 0$ and the eikonal form of the solutions breaks down.
+
+%Employing the eikonal ansatz, at $\mathcal{O}(\epsilon^{0})$, we find the matrix equation $\mathsf{D}^{(0)}A = 0$.
+%To satisfy this equation, at least one of the $N$ eigenvalues of $\mathsf{D}^{(0)}$, say $\lambda(x, k;\, \omega)$, must vanish so that $\det \mathsf{D}^{(0)}(x, k; \omega) = 0$.
+%A vanishing eigenvalue $\lambda$ and the associated normalized eigenvector $\tau$ describes different wave types or ``polarizations'' represented by Eq.~\eqref{eq:ev_problem}.
+%By a polarization we mean a linear subspace of the total wave field that is usually of a distinct physical nature, e.g., flexural waves on a curved rod.
+%Semiclassical approximation breaks down near points where more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish, precipitating an exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
+
+%In the absence of mode conversion, the vanishing eigenvalues of $\mathsf{D}^{(0)}$ also serve as the \emph{ray Hamiltonian} of waves of a specific polarization.
+% This leads us to the phase-space representation of waves as rays that satisfy the Hamilton's equations
+%%
+%\begin{equation}
+%  \dot{x} = \partial_{k} \lambda(x, k;\, \omega) = \left\{x, \lambda\right\}
+%  \quad\text{and}\quad
+%  \dot{k} = -\partial_{x} \lambda(x, k;\, \omega) = \left\{k, \lambda\right\},
+%\end{equation}
+%%
+%where the overdot denotes derivatives with respect to a parameter that parameterizes the rays and $\left\{\cdot, \cdot\right\}$ is the $x$-$k$ Poisson bracket.
+%Since the waves we consider propagate in a one-dimensional space, these rays are identical to the level curve defined by $\lambda(x, k; \omega) = 0$.
+%%
+% \begin{figure}
+%   \begin{center}
+%     \includegraphics{localization/caustic.pdf}
+%   \end{center}
+%   \caption{%
+%     (a) In phase space, bound states are represented by rays in the form of closed orbits, which is analogous to that of a bound particle oscillating between two classical turning points ($\pm x^{\star}$ in the cartoon).
+%     Other trajectories represent unbound states.
+%     (b) A bound state represented by a ``peanut''-shaped orbit has six caustics.%
+%   }
+%   \label{fig:caustic}
+% \end{figure}
+
+%%
+%\begin{equation}
+%\gamma_{\text{G}} = \oint \dd{\sigma}\, \dot{\gamma}_{\text{G}} = i\oint \dd{\sigma}\,\left\langle{\tau_{\alpha}}\middle|\dot{\tau}_{\alpha}\right\rangle =
+%  i\oint \dd\xi\cdot\left\langle{\tau_{\alpha}}\middle|\nabla_{\xi}\tau_{\alpha}\right\rangle,
+%\end{equation}
+%%
+%where $\xi = (x, k)$ denotes the ``parameters'' that are being varied.
+
+%%In Appendix~\ref{app:additional_phase} we prove that $\gamma_{\text{G}}$ vanishes if the relative phases between the components of the eigenvector $\tau_{\alpha}$ are constants.
+%%The second (non-geometric) phase $\gamma_{\text{NG}}$ need not vanish in such a situation, however.
+%Instead of explicitly accounting for the extra phase $\gamma$ in the quantization rule, we could have diagonalized the wave equation at various orders of $\epsilon$~\cite{littlejohn1991,littlejohn1991a,weigert1993,venaille2023}.
+%During such a procedure, terms proportional to $\dot{\gamma}_{\text{G}}$ and $\dot{\gamma}_{\text{NG}}$ naturally appear in the ray Hamiltonian $\lambda$ as a first-order correction.
+%Despite the elegance of the method, we do not use it in our analysis.
+%This is because, as we discuss in Appendix~\ref{app:additional_phase}, for both the problems we consider, the extra phases vanish.
+
 
 \section{Intermission: diagonalizing multicomponent operators}
 
@@ -359,7 +449,7 @@ The $\alpha\beta$th entry of the commutator term evalutes to
 %
 where we have made use of the fact that $\Lambda_{0}$ is diagonal with $\alpha\beta$th entry $\Lambda_{0,\alpha\beta} = \lambda_{0}^{(i)}\delta_{\alpha\beta}$.
 And we see that the diagonal entries (with $\alpha=\beta$) of the commutator vanish.
-So the commutator term does not contribute towards the diagonal entries of $\Lambda_{1}$ and we can find the $\mathcal{O}(\epsilon^{1})$ correction $\lambda_{1}$ by carefully evaluating diagonal entries of the remaining terms in the RHS of Eq.~XXX.
+So the commutator term does not contribute towards the diagonal entries of $\Lambda_{1}$ and we can find the $\mathcal{O}(\epsilon^{1})$ correction $\lambda_{1}$ by carefully evaluating diagonal entries of the remaining terms in the RHS of Eq.~\fixme.
 Before we do that, we need to discuss the role of the commutator term further.
 In fact, without this crucial term, the expansion will break down.
 
@@ -411,11 +501,11 @@ where
 Although we have found an expression that gives the off-diagonal elements of $\mathsf{B}$, nothing in our arguments so far guaratees the Hermiticity of $\mathsf{B}$ and we have to explicitly check this.%
 \footnote{Littlejohn and coworkers~\cite{littlejohn1991,weigert1993} seem to not have stressed this subtle point in their papers and they do not prove the Hermiticity of $\mathsf{B}$ explicitly.
   At first glance, we might think that $\mathsf{B}$ would Hermitian by construction because we \emph{took} $\mathsf{\mathsf{A}}$ and $i\mathsf{B}$ to be the Hermitian and anti-Hermitian parts of $\mathsf{X}$.
-  This is not true however, as we obtained $\mathsf{A}$ from requiring unitarity of $\mathsf{U}$ at $\mathcal{O}(\epsilon)$ and we are now attempting to find $\mathsf{B}$ from Eq.~XXX, which is an independent equation that guarantees the diagonalizability of $\mathsf{D}$ at $\mathcal{O}(\epsilon)$.
+  This is not true however, as we obtained $\mathsf{A}$ from requiring unitarity of $\mathsf{U}$ at $\mathcal{O}(\epsilon)$ and we are now attempting to find $\mathsf{B}$ from Eq.~\fixme, which is an independent equation that guarantees the diagonalizability of $\mathsf{D}$ at $\mathcal{O}(\epsilon)$.
   However, there is no obvious reason why unitarity at $\mathcal{O}(\epsilon)$ should be compatible with diagonalizability at $\mathcal{O}(\epsilon)$.
   Indeed, we still need an additional requirement, i.e., the Hermiticity of $\mathsf{D}_{1}$, for $\mathsf{B}$ to be Hermitian.
 }
-From Eq.~XXX, we see that the matrix $\mathsf{Q}$ should be Hermitian if $\mathsf{B}$ is to be Hermitian.
+From Eq.~\fixme, we see that the matrix $\mathsf{Q}$ should be Hermitian if $\mathsf{B}$ is to be Hermitian.
 For two general matrices $\mathsf{F}$ and $\mathsf{G}$ we have $\{\mathsf{F},\mathsf{G}\}^{\dagger} = -\{\mathsf{G}^{\dagger},\mathsf{H}^{\dagger}\}$
 Along with the assumption that $\mathsf{D}_{1}$ is Hermitian, we then find,
 %
@@ -431,7 +521,7 @@ which can be further simplified to show that $\mathsf{Q}^{\dagger} = \mathsf{Q}$
   and
   $\{\Lambda_{0}, \mathsf{U}_{0}^{\dagger}\} = \Lambda_{0}\{\mathsf{U}_{0}^{\dagger},\mathsf{U}_{0}\} - \mathsf{U}_{0}^{\dagger}\{\mathsf{D}_{0},\mathsf{U}_{0}\} - \{^{1}\mathsf{U}_{0}^{\dagger},^{3}\mathsf{U}_{0}\}^{2}\mathsf{D}_{0}$.
   Here the superscripts 1, 2, and 3 appearing before the matrices denote the order in which they are to be multiplied.
-  Upon using these results in the RHS of Eq.~XXX, we see that $\mathsf{Q}=\mathsf{Q}^{\dagger}$.
+  Upon using these results in the RHS of Eq.~\fixme, we see that $\mathsf{Q}=\mathsf{Q}^{\dagger}$.
 }
 from which the Hermiticity of $\mathsf{B}$ follows.
 
@@ -461,7 +551,7 @@ Rephasing the $\alpha$th column by $e^{-i\epsilon\mathsf{B}'_{\alpha\alpha}}$ tu
 \end{equation}
 %
 Under the gauge transformation, the matrices $\mathsf{A} \to \mathsf{A} + \mathcal{O}(\epsilon)$ and $\mathsf{B}'' \to \mathsf{B}'' + \mathcal{O}(\epsilon)$.
-Thus, the RHS of Eq.~XXX becomes
+Thus, the RHS of Eq.~\fixme becomes
 %
 \begin{equation}
   \left[\mathsf{U}_{0}(\mathsf{I}_{n} - i\epsilon\mathsf{B}') + \mathcal{O}(\epsilon^{2})\right]\left[\mathsf{I}_{n} + \epsilon\left(\mathsf{A} + i\mathsf{B}' + i\mathsf{B}'' + \mathcal{O}(\epsilon)\right)\right]
@@ -536,4 +626,44 @@ The solution to the original system can be recovered by $\Psi = \widehat{\mathsf
 where we have set $A_{\pm} = B_{\pm}/\sqrt{2}$, and have found the expected solution.
 \end{example}
 
+\subsection{Bound waves in phase space}
 
+We expect the rays of bound waves to be bounded in phase space as well, with these rays being topologically equivalent to a circle~\cite{keller1958,mcdonald1988}.
+Such rays oscillate between two classical turning points where $k = 0$ and $\dot{x} = 0$ [Fig.~\ref{fig:caustic}(a)].
+Turning points are examples of caustics, i.e., points on the ray where $\dot{x} = 0$, and in a bound ray, apart from the classical turning points, there could be other caustics as well [see Fig.~\ref{fig:caustic}(b)].
+Even though the semiclassical approximation breaks down near the caustics, we can recover the phase $S(x)$ by integrating $k(x)$ along a ray.
+Furthermore, for bound rays, single valuedness of $\psi(x)$ results in the modified Bohr--Sommerfeld quantization condition
+%
+\begin{equation}
+  \epsilon^{-1}\oint \dd{x}\,k(x;\, \omega) = 2\left(n + \frac{\alpha}{4}\right)\pi - \gamma,
+  \label{eq:quantization}
+\end{equation}
+%
+from which bound-state frequencies can be obtained.
+Above, the quantum number $n \in \mathbb{N}_{0}$ and $\alpha$ is the Keller--Maslov index~\cite{keller1958,maslov1981}.
+Closed orbits in a two-dimensional phase space that can be smoothly deformed to a small circle always have $\alpha = 2$~\cite{percival1977}.
+The additional phase $\gamma$ only appears when the wave field has more than one component, and is a consequence of the fact that the polarization vector $\tau$ is uniquely determined only up to an overall phase.
+Its rate of change $\dot{\gamma}$ as we move along a ray can be written as $\dot{\gamma} = \dot{\gamma}_{\text{G}} + \dot{\gamma}_{\text{NG}}$, with~\cite{yabana1986,kaufman1987,venaille2023}
+%
+\begin{equation}
+\dot{\gamma}_{\text{G}} = i\tau_{j}^{*}\left\{\tau_{j}, \lambda\right\} %= i{\tau_{j}}^{*}\dot{\tau}_{j}
+  \quad\text{and}\quad
+  \dot{\gamma}_{\text{NG}} = \frac{i}{2}\mathsf{D}^{(0)}_{jk}\left\{\tau^{*}_{j}, \tau_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k},
+  \label{eq:extra_phases}
+\end{equation}
+%
+where the asterisk represents complex conjugation and the subscripts $j, k$ represent the entries and components of $\mathsf{D}^{(0)}$ and $\tau$, respectively.
+It can be shown that the first phase $\gamma_{\text{G}}$ has the general form of a geometric phase~\cite{pancharatnam1956,berry1984} upon treating the $x$-$k$ phase space as a parameter space~\cite{yabana1986}.
+The second (non-geometric) phase $\gamma_{\text{NG}}$ has no such interpretation.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{localization/caustic.pdf}
+  \end{center}
+  \caption{%
+    (a) In phase space, bound states are represented by rays in the form of closed orbits, which is analogous to that of a bound particle oscillating between two classical turning points ($\pm x^{\star}$ in the cartoon).
+    Other trajectories represent unbound states.
+    (b) A bound state represented by a ``peanut''-shaped orbit has six caustics.%
+  }
+  \label{fig:caustic}
+\end{figure}

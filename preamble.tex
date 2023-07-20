@@ -33,9 +33,9 @@
   \fi
 \fi
 
-\ifdraftdoc
-  \DoubleSpacing
-\fi
+% \ifdraftdoc
+%   \DoubleSpacing
+% \fi
 
 % Important.  Potato layout otherwise.
 \checkandfixthelayout
@@ -53,7 +53,7 @@
 \setlength{\parskip}{0pt}
 
 % Reduce space before/after equations.
-% https://tex.stackexchange.com/a/47776
+% https:/tex.stackexchange.com/a/47776
 \g@addto@macro \normalsize {%
   \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
   \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
@@ -127,7 +127,7 @@
   % The fonts in the figures are at 10pt.  SU "demands" a font size of 12
   % pt.  Thus, scale all figures by 1.2.
   % Note that global scaling doesn't work for \includegraphics.
-  % https://tex.stackexchange.com/a/83074
+  % https:/tex.stackexchange.com/a/83074
   \let\includefigure\includegraphics
   \renewcommand{\includegraphics}[2][]{\includefigure[scale=1.2,#1]{#2}}
 \fi
@@ -167,8 +167,8 @@
 
   % Problem: for @book, @techreport, etc., biblatex-phys doesn't convert
   % titles to clickable hyperlinks if there is a URL.
-  % Adapted from: https://tex.stackexchange.com/a/48409
-  %               https://tex.stackexchange.com/a/471442
+  % Adapted from: https:/tex.stackexchange.com/a/48409
+  %               https:/tex.stackexchange.com/a/471442
   \newbibmacro{string+doiurl}[1]{%
     \iffieldundef{doi}{%
       \iffieldundef{url}{%
@@ -177,7 +177,7 @@
         \href{\thefield{url}}{#1}%
       }%
     }{%
-      \href{https://doi.org/\thefield{doi}}{#1}%
+      \href{https:/doi.org/\thefield{doi}}{#1}%
     }%
   }
   \DeclareFieldFormat{title}{\usebibmacro{string+doiurl}{\mkbibemph{#1}}}
@@ -193,7 +193,7 @@
   \DeclareNameAlias{default}{family-given}
 
   % Italic et al. when using \citet{...}.
-  % https://tex.stackexchange.com/a/352119
+  % https:/tex.stackexchange.com/a/352119
   \DefineBibliographyStrings{english}{%
     andothers = {\emph{et al}\adddot}
   }
@@ -206,20 +206,16 @@
 % Command to typeset with more separation between characters and words.
 % For reasons I don't understand, using \MakeUppercase doesn't work inside
 % widetext, so you have to manually type in all caps (if you want that).
-% Requires microtype for \textls: https://tex.stackexchange.com/q/23921
+% Requires microtype for \textls: https:/tex.stackexchange.com/q/23921
 % Note also that this is not the same command as REVTeX's \widetext.
-\ifsustyle
-  \def\widetext#1{#1}
-\else
-  \def\widetext#1{\textls[120]{%
-    \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
-    {#1}%
-  }}
-\fi
+\def\widetext#1{\textls[120]{%
+  \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
+  {#1}%
+}}
 
 % Link DOIs and arXiv preprints.
-\def\crossref#1#2{\href{https://doi.org/#1}{#2}}
-\def\arxiv#1#2{\href{https://arxiv.org/abs/#1}{arXiv:#1 [#2]}}
+\def\crossref#1#2{\href{https:/doi.org/#1}{#2}}
+\def\arxiv#1#2{\href{https:/arxiv.org/abs/#1}{arXiv:#1 [#2]}}
 
 % Command to make a blank page if we're using a two-side layout.
 \def\twosideblankpage{\if@twoside\blankpage\fi}
@@ -237,7 +233,7 @@
 
 % Math definitions.
 % \overset with less vertical space.
-% https://tex.stackexchange.com/a/194805
+% https:/tex.stackexchange.com/a/194805
 \newcommand{\altoverset}[3][0ex]{%
   \mathrel{\mathop{#3}\limits^{
     \vbox to#1{\kern-1\ex@
@@ -277,5 +273,8 @@
 \setaftersubsecskip{0.444\onelineskip plus 0.05\onelineskip}
 \setbeforesubsubsecskip{-0.667\onelineskip plus -0.1\onelineskip minus -0.1\onelineskip}
 \setaftersubsubsecskip{0.333\onelineskip plus 0.05\onelineskip}
+
+% TODO: fix me.
+\def\fixme{(\textbf{??})}
 
 \makeatother

@@ -227,7 +227,7 @@ Reintroducing the free index $i$, and noting that the stiffness $\kappa_{i} = \p
 %
 \begin{equation}
   U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \frac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.
-  \label{sm:eq:regenergy}
+  \label{eq:regenergy}
 \end{equation}
 %
 Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix evaluated at $\bar{\bm{q}}$~\cite{lubensky2015} (assuming joints of unit mass) and $\mathsf{K}$ is the diagonal matrix of bar stiffnesses $\phi_{i}''(\bar{\ell}_{i})$, which we set equal to $\kappa$ for all bars for simplicity.
@@ -294,6 +294,7 @@ Recognizing that $\frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$ is the $i$th compo
 %
 \begin{equation}
   U = \sum_{i=1}^m \phi_i \approx \frac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
+  \label{eq:energy_singular}
 \end{equation}
 %
 This equation is a generalization of the energy of harmonic spring networks~\cite{zhang2016,woodhouse2018} and colloidal clusters~\cite{kallus2017} that have zero modes, for an arbitrary number of zero modes and degrees of freedom, as well as a general interaction energy $\phi_{i}$ between the particles (i.e., the joints).

@@ -7,71 +7,69 @@
 In this appendix we collect some useful mathematical results and derivations that are frequently referenced to in this dissertation.
 For more detailed discussions, refer to standard references in the theory of manifolds, measure theory, and semiclassical physics.
 
-\section{Manifolds}
+%\section{Manifolds}
 
-A manifold, roughly speaking, a set that looks Euclidean\footnote{It is often said that manifolds are smooth sets that look locally ``flat'' and hence can be mapped to an open set in Euclidean space.
-This is a bit misleading as the case of the sphere $S^2$ illustrates.
-The entire northern hemisphere (except the north pole) of $S^2$ can be mapped to the real plane $\mathbb{R}^{2}$ using stereographic projection.
-This means that the two hemispheres of $S^2$ can be covered entirely using two charts.
-But neither hemispheres are flat structures.
-Flatness also reminds me of curvature, which isn't required for the definition of a smooth manifold, which is much more primitive structure.}
+%A manifold, roughly speaking, a set that looks Euclidean\footnote{It is often said that manifolds are smooth sets that look locally ``flat'' and hence can be mapped to an open set in Euclidean space.
+%This is a bit misleading as the case of the sphere $S^2$ illustrates.
+%The entire northern hemisphere (except the north pole) of $S^2$ can be mapped to the real plane $\mathbb{R}^{2}$ using stereographic projection.
+%This means that the two hemispheres of $S^2$ can be covered entirely using two charts.
+%But neither hemispheres are flat structures.
+%Flatness also reminds me of curvature, which isn't required for the definition of a smooth manifold, which is much more primitive structure.}
 
-A \emph{regular point} is a point in the domain $X$ where the Jacobian of the map is full rank.
-A \emph{regular value} is a point $y \in Y$ such that the Jacobian of all the points in the preimage $f^{-1}(y) \subset X$ is full rank.
-Sard's theorem ensures that almost all points in $Y$ are regular values.
-%
-\begin{theorem}[Sard's theorem]
-  The set of critical values of any smooth map $f: X \to Y$, has zero measure in the codomain $Y$.
-\end{theorem}
+%A \emph{regular point} is a point in the domain $X$ where the Jacobian of the map is full rank.
+%A \emph{regular value} is a point $y \in Y$ such that the Jacobian of all the points in the preimage $f^{-1}(y) \subset X$ is full rank.
+%Sard's theorem ensures that almost all points in $Y$ are regular values.
+%%
+%\begin{theorem}[Sard's theorem]
+%  The set of critical values of any smooth map $f: X \to Y$, has zero measure in the codomain $Y$.
+%\end{theorem}
 
-In other words, almost all points in $Y$ are regular values.
-As an example, consider $f: \mathbb{R} \to \mathbb{R}$ defined by $x \mapsto x^3 - x$.
-The Jacobian in this case is simply the derivative $f'(x) = 3x^2 - 1$, which vanishes only for $x = 3^{-1/2}$.
-Hence, every point other than $x = 3^{-1/2}$ is a regular point.%
-\footnote{A word of warning is appropriate here: Sard's theorem does not imply that the set of critical points in the domain $X$ is a measure zero subset.
-For example, if we consider a constant map, say $f(x) = c \in Y$, then all points in $X$ are critical points.}
+%In other words, almost all points in $Y$ are regular values.
+%As an example, consider $f: \mathbb{R} \to \mathbb{R}$ defined by $x \mapsto x^3 - x$.
+%The Jacobian in this case is simply the derivative $f'(x) = 3x^2 - 1$, which vanishes only for $x = 3^{-1/2}$.
+%Hence, every point other than $x = 3^{-1/2}$ is a regular point.%
+%\footnote{A word of warning is appropriate here: Sard's theorem does not imply that the set of critical points in the domain $X$ is a measure zero subset.
+%For example, if we consider a constant map, say $f(x) = c \in Y$, then all points in $X$ are critical points.}
 
-One might be tempted to apply the regular value theorem to the energy function itself.
-But this wouldn't work since for $E=\|\bm{f}\|^2$ to vanish, $\bm{f}$ must itself vanish, which in turn would make $\nabla E = 2 \bm{f}\nabla\bm{f} = \bm{0}$, making it impossible to apply the regular value theorem on the energy function.
+%One might be tempted to apply the regular value theorem to the energy function itself.
+%But this wouldn't work since for $E=\|\bm{f}\|^2$ to vanish, $\bm{f}$ must itself vanish, which in turn would make $\nabla E = 2 \bm{f}\nabla\bm{f} = \bm{0}$, making it impossible to apply the regular value theorem on the energy function.
 
-The dimension of tangent space is commonly called a \ac{dof}.
+%The dimension of tangent space is commonly called a \ac{dof}.
 
-\begin{theorem}[Preimage theorem]
-\end{theorem}
+%\begin{theorem}[Preimage theorem]
+%\end{theorem}
 
-\section{Laplace's method}
+%\section{Laplace's method}
 
-To evaluate
-%
-\begin{equation}
-  \int_{a}^{b} \dd{x}\, g(x) e^{-\beta U(x)},
-\end{equation}
-when $\beta$ is large, we first expand $U(x)$ to $\mathcal{O}(x^{2})$ around a critical point $x_{0}$ with $U'(x_{0}) = 0$.
-This turns the above integral into a standard Gaussian integral
-%
-\begin{equation}
-  \int_{a}^{b} \dd{x}\, g(x_{0}) \exp\left\{-\beta\left[U(x_{0}) +  U''(x_{0})(x-x_{0})^{2}\right]\right\},
-\end{equation}
+%To evaluate
+%%
+%\begin{equation}
+%  \int_{a}^{b} \dd{x}\, g(x) e^{-\beta U(x)},
+%\end{equation}
+%when $\beta$ is large, we first expand $U(x)$ to $\mathcal{O}(x^{2})$ around a critical point $x_{0}$ with $U'(x_{0}) = 0$.
+%This turns the above integral into a standard Gaussian integral
+%%
+%\begin{equation}
+%  \int_{a}^{b} \dd{x}\, g(x_{0}) \exp\left\{-\beta\left[U(x_{0}) +  U''(x_{0})(x-x_{0})^{2}\right]\right\},
+%\end{equation}
 
-\begin{figure}
-  % \begin{center}
-  %   \includegraphics[scale=1.0]{file}
-  % \end{center}
-  \caption{Plot of the function $U(x) = 9x^{2} + \sin^{2}{3x} + (1-x)\sin^{2}{6x}$ and $e^{-\beta U(x)}$ in the interval $[-1,1]$ for $\beta = 0.1, 0.2, \ldots, 6.4$.  For larger values of $\beta$ the plot is clearly indistinguishable from that of a Gaussian with a width of $U''(0)$.}
-  \label{fig:}
-\end{figure}
+%\begin{figure}
+%  % \begin{center}
+%  %   \includegraphics[scale=1.0]{file}
+%  % \end{center}
+%  \caption{Plot of the function $U(x) = 9x^{2} + \sin^{2}{3x} + (1-x)\sin^{2}{6x}$ and $e^{-\beta U(x)}$ in the interval $[-1,1]$ for $\beta = 0.1, 0.2, \ldots, 6.4$.  For larger values of $\beta$ the plot is clearly indistinguishable from that of a Gaussian with a width of $U''(0)$.}
+%  \label{fig:}
+%\end{figure}
 
-\subsection{Degenerate case}
+%\subsection{Degenerate case}
 
 \section{Coarea formula}
 
-Jacobian determinants are the corrective factors relating the elements of areas of the domains and images of functions (Morgan's book).
+% Jacobian determinants are the corrective factors relating the elements of areas of the domains and images of functions (Morgan's book).
 
-The coarea formula,\footnote{Sometimes the coarea formula is misleadingly written~\cite{hartmann2007,hartmann2007a} with the determinant of $(\nabla\hat{\xi})\trans\nabla\hat{\xi}$ in the denominator.  But the Jacobian $\nabla\hat{\xi}$ does not have full column rank when $m < n$ and the determinant $\det\,(\nabla\hat{\xi})\trans\nabla\hat{\xi}$ vanishes.}
-%
 \begin{theorem}[Coarea formula]
   Given an integrable function $\phi: \mathbb{R}^n \to \mathbb{R}$ and
-  Consider a map $\hat{\xi}: \mathbb{R}^n \to \mathbb{R}^m$ (with $m \leq n$) whose level sets foliate $N \subseteq \mathbb{R}^{n}$ we have
+  a map $\hat{\xi}: \mathbb{R}^n \to \mathbb{R}^m$ (with $m \leq n$) whose level sets foliate $\mathbb{R}^{n}$ we have
   \begin{equation}
     \begin{aligned}
       \int_{\mathbb{R}^n} \dd{\bm{q}}\, \phi(\bm{q}) &= \int_{\mathbb{R}^m} \dd{\xi}\,\int_{\mathbb{R}^n} \dd{\bm{q}}\, \delta\left[\hat{\xi}(\bm{q}) - \xi\right] \phi(\bm{q})\\
@@ -80,19 +78,20 @@ The coarea formula,\footnote{Sometimes the coarea formula is misleadingly writte
   \end{equation}
   where $\dd\Omega(\bm{q})$ is the area element on the level set $\hat{\xi}^{-1}(\xi)$.
 \end{theorem}
-\begin{proof}
-  %
-  \begin{equation}
-    \begin{aligned}
-      \int_{\mathbb{R}^{n}} \dd\bm{q}\,\delta\left[\hat{\xi}(\bm{q}) - \xi\right] \phi(\bm{q}) &=
-      \lim_{\alpha \to \infty} \left(\frac{\alpha}{2\pi}\right)^{m} \int_{\mathbb{R}^{n}} \dd\bm{q}\, \exp\left(-\tfrac{1}{2}\alpha\Abs{\hat{\xi}(\bm{q}) - \xi}^{2}\right) \phi(\bm{q})
-    \end{aligned}
-  \end{equation}
-  %
-  \qed
-\end{proof}
+%\begin{proof}
+%  %
+%  \begin{equation}
+%    \begin{aligned}
+%      \int_{\mathbb{R}^{n}} \dd\bm{q}\,\delta\left[\hat{\xi}(\bm{q}) - \xi\right] \phi(\bm{q}) &=
+%      \lim_{\alpha \to \infty} \left(\frac{\alpha}{2\pi}\right)^{m} \int_{\mathbb{R}^{n}} \dd\bm{q}\, \exp\left(-\tfrac{1}{2}\alpha\Abs{\hat{\xi}(\bm{q}) - \xi}^{2}\right) \phi(\bm{q})
+%    \end{aligned}
+%  \end{equation}
+%  %
+%  \qed
+%\end{proof}
 
-Foliation intuitively means that there is a unique hypersurface that passes through each point.
+%Above, foliation intuitively means that there is a unique hypersurface that passes through each point.
+Sometimes the coarea formula is misleadingly written~\cite{hartmann2007,hartmann2007a} with the determinant of $(\nabla\hat{\xi})\trans\nabla\hat{\xi}$ in the denominator.  But the Jacobian $\nabla\hat{\xi}$ does not have full column rank when $m < n$ and the determinant $\det\,(\nabla\hat{\xi})\trans\nabla\hat{\xi}$ vanishes.
 
 \begin{example}[Integration in polar coordinates]
   As a simple illustration of the coarea formula, consider evaluating the double integral $\int_{\mathbb{R}^{2}} \dd{x}\dd{y}\, \phi(x,y)$, where $\phi(x, y)$ is some integrable function of $(x, y)$.
@@ -116,19 +115,20 @@ Foliation intuitively means that there is a unique hypersurface that passes thro
   \altqed
 \end{example}
 
-Other examples: density of states.  See paper~\cite{gillespie1983}.
+% Other examples: density of states.  See paper~\cite{gillespie1983}.
 
 \section{Operators and symbols}
 
 An operator-symbol correspondence is an association between operators defined on some Hilbert space and ordinary $c$-numbered functions on the phase space, called symbols~\cite[\S 2.3.1]{chaichian2001}.
 
-The symmetrized product $\big\llbracket \widehat{A}_{1}^{k_{1}} \widehat{A}_{2}^{k_{2}} \cdots \widehat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\widehat{A}_{i}$ is defined as the coefficient of
-%
-\begin{equation}
-  \frac{k!}{k_{1}!k_{2}!\cdots k_{n}!} a_{1}^{k_{1}} a_{2}^{k_{2}} \cdots a_{n}^{k_{n}}
-\end{equation}
-%
-in the multinomial expansion of $\left(a_{1}\widehat{A}_{1} + a_{2}\widehat{A}_{2} + \cdots + a_{n}\widehat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
+% TODO: motivate properly.
+%The symmetrized product $\big\llbracket \widehat{A}_{1}^{k_{1}} \widehat{A}_{2}^{k_{2}} \cdots \widehat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\widehat{A}_{i}$ is defined as the coefficient of
+%%
+%\begin{equation}
+%  \frac{k!}{k_{1}!k_{2}!\cdots k_{n}!} a_{1}^{k_{1}} a_{2}^{k_{2}} \cdots a_{n}^{k_{n}}
+%\end{equation}
+%%
+%in the multinomial expansion of $\left(a_{1}\widehat{A}_{1} + a_{2}\widehat{A}_{2} + \cdots + a_{n}\widehat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
 
 \subsection{Weyl symbols}
 
@@ -144,12 +144,13 @@ A consequence of the above definition is that if operator $\widehat{A}$ is Hermi
 \begin{equation}
   A^{*}(x, k) = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\widehat{A}\Ket{x - \tfrac{1}{2}s}^{*}
   = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x - \tfrac{1}{2}s}\widehat{A}\Ket{x + \tfrac{1}{2}s} = A(x, k),
+  \label{eq:weylsym}
 \end{equation}
 %
 showing that the symbol $A(x, k)$ is a real function of $x$ and $k$.
 
 \begin{example}
-  For a one-dimensional operator $\widehat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~XXX, we find $A = a x^{n}$.
+  For a one-dimensional operator $\widehat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~\eqref{eq:weylsym}, we find $A = a x^{n}$.
   This also means that the operator $\widehat{A} = \sum_{n} a_{n}\hat{x}^{n}$, which is a polynomial in $\hat{x}$, with $a_{n}$ being the coefficients, has the symbol
   $A = \sum_{n} a_{n}{x}^{n}$, an ordinary polynomial in $x$.
   More generally, in $d$ dimensions, if $\widehat{A}$ is a multivariate polynomial in the components of $\hat{\bm{x}}$, i.e., $\widehat{A} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} \hat{x}_{1}^{n_{1}}\hat{x}_{2}^{n_{2}}\cdots \hat{x}_{d}^{n_{d}}$, then the corresponding Weyl symbol is $A = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} {x}_{1}^{n_{1}}{x}_{2}^{n_{2}}\cdots {x}_{d}^{n_{d}}$.%

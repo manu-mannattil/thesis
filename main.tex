@@ -68,7 +68,7 @@ This dissertation is concerned with two problems that lie at the interface of so
   \ifsustyle
     \relax
   \else
-    \phantom{}\\[2em]\color{gray}Git commit \href{https://github.com/manu-mannattil/thesis/tree/\gitHash}{\texttt{\gitShortHash}}; \gitCommitterDate
+    \phantom{}\\[2em]\color{gray}Git commit \href{https:/github.com/manu-mannattil/thesis/tree/\gitHash}{\texttt{\gitShortHash}}; \gitCommitterDate
   \fi
   \end{Spacing}
 \end{center*}
@@ -99,7 +99,7 @@ TODO...
 \newpage\pagestyle{headings}
 
 % More compact TOC if we're not using SU style.
-% https://tex.stackexchange.com/a/60322
+% https:/tex.stackexchange.com/a/60322
 \ifsustyle
   \relax
 \else
@@ -127,7 +127,7 @@ TODO...
 \include{chap03}
 \include{chap04}
 \include{chap05}
-\include{chap06}
+%\include{chap06}
 \ifsustyle
   \include{chapcv}
 \fi
@@ -149,13 +149,13 @@ TODO...
   \setlength{\bibsep}{0pt plus 0.3ex} % compress bibliography
   \def\thefootnote{\fnsymbol{footnote}}
   \def\bibpreamble{{\normalsize \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.%
-    \footnote{\url{https://web.archive.org}}}}
+    \footnote{\url{https:/web.archive.org}}}}
   \small
   \bibliography{library}
 % BibLaTeX version only if not in draft mode.
 \else
   \defbibnote{myprenote}{\hypersetup{allcolors=general}% without this, footnote link will be in nord11.
-    \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https://web.archive.org}}%
+    \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https:/web.archive.org}}%
     \vspace\baselineskip
   }
   \hypersetup{linkcolor=backref} % color of back references

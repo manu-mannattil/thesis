@@ -29,7 +29,7 @@ Connecting the two problems is the basic notion that geometry, whether that of t
 Both these problems, once formulated mathematically, have sufficient complexity that makes writing down exact solutions difficult.
 At the same time, both the problems are simple enough that asymptotic methods yield excellent approximate solutions, which means that we do not have to restrict ourselves to analyses of numerical experiments alone.
 In the following sections, we briefly summarize the main results of this dissertation, with subsequent chapters providing more detailed descriptions.
-We start by motivating the first problem.
+%We start by motivating the first problem.
 
 \section{Singular frameworks and thermal fluctuations}
 
@@ -38,7 +38,7 @@ We start by motivating the first problem.
 Central to geometric mechanics is the idea that the configuration of a physical system, however complicated, can be fully described by a single point of a (usually high-dimensional) configuration space.
 Consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}, whose configuration at any given moment is fully specified by the angle $\theta_{1}$.
 The simple pendulum's configurations space, is therefore equivalent to the circle $S^{1}$, which is a smooth manifold.
-To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}, however, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configurations space is the torus $S^{1}\times S^{1}$.
+To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}(b), on the other hand, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configurations space is the torus $S^{1}\times S^{1}$.
 Configuration spaces such as these, although abstract, have a one-to-one correspondence with the possible configurations that the system can be in.
 
 To shed some more light on the above discussion and make the definitions more precise, consider a mechanical system with $n$ \ac{dof}, whose configuration at any given moment is fully described by a single configuration vector $\bm{q} \in \mathbb{R}^{n}$.
@@ -52,7 +52,7 @@ The constraint in the simple pendulum, for instance, is described by the constra
 %
 whereas the constraint map for the double pendulum would be of the form
 %
-% XXX: row spacing in column vector.
+% TODO: row spacing in column vector.
 \begin{equation}
   f: \mathbb{R}^{4} \to \mathbb{R}^{2},\enspace f(q_{1}, \ldots, q_{4}) =
 \begin{pmatrix}
@@ -104,6 +104,17 @@ Configurations of the resulting ``bond skeleton'', with each bond at its respect
 Such colloidal skeletons are an example of a mechanical framework, which is an assembly of rigid bars connecting freely-rotating joints.
 Frameworks are indeed holonomically-constrained systems, not too different from the examples we have seen so far.
 In case of the colloidal cluster, the configuration space of the associated framework is equivalent to the ground-state manifold of the cluster.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{intro/dna.pdf}
+  \end{center}
+  \caption{DNA origami has been widely used to self assemble a variety of objects at the nanoscale.
+Depicted in the figure are (a) tensegrity structures \cite{liedl2010}; (b), (c) linkage-based mechanisms \cite{marras2015,zhou2015}; (d) a rhombus-shaped nanoactuator~\cite{ke2016}; and (e) self-assembled polyhedra~\cite{iinuma2014}.}
+  \label{fig:dna_origami}
+\end{figure}
+
+
 
 Apart from colloidal clusters, frameworks have been extensively to understand a variety of mechanical structures found in viruses~\cite{hespenheide2004},
 crystals~\cite{power2014} and minerals~\cite{kapko2011},
@@ -114,19 +125,20 @@ As far as more generic descriptions of thermally-driven frameworks are concerned
 There is, therefore, an arising need to understand how thermal excitations affect the physical properties of these frameworks, but only some attempts have been made so far~\cite{kallus2017,rocklin2018}.
 
 In practice, there is no such thing as a framework with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
-Multihelix bundles used in DNA origami, for instance, have measured stiffness in the range of XXX.
+Multihelix bundles used in DNA origami, for instance, have measured stiffness in the range of 0.1--1~pN$/$nm~\cite{jung2020}.
 For realistic frameworks, the configuration space $\Sigma$ would then form the ground-state manifold (assuming that energy costs arise solely due to the constraints being violated).
 
+\subsection{Free energy landscapes}
 
 The effect of thermal fluctuations on a physical system is often represented by its free-energy landscape in terms of a set of collective variables that provide a coarse-grained description of its slowest dynamics.
-In theory~\cite{go1976,echenique2011}, one can obtain the free energy of a mechanism by integrating out the fast modes that are transverse to its shape space, i.e., the subset of its configuration space once rigid-body motions are removed.
-Doing this, however, becomes nontrivial when the mechanism has shape-space singularities~\cite{zlatanov2002,liu2003,donelan2007}.
+In theory~\cite{go1976,echenique2011}, one can obtain the free energy of a framework by integrating out the fast modes that are transverse to its shape space, i.e., the subset of its configuration space once rigid-body motions are removed.
+Doing this, however, becomes nontrivial when the framework has shape-space singularities~\cite{zlatanov2002,liu2003,donelan2007}.
 For concreteness, consider the shape space of the planar four-bar linkage with freely rotating joints~\cite{grashof1883,hartenberg1964,shimamoto2005} (Fig.~\ref{fig:4bar_cs}).
 Though this linkage has one degree of freedom up to Euclidean motions, it has two modes of deformation, one where the angle $\theta_1 = \theta_2$ and another where $\theta_1 \ne \theta_2$, meeting at two isolated singular points $(\theta_1,\theta_2) = (0,0)$ and $(\pi,\pi)$.
-One generically expects the mechanism to be soft at these singularities, and indeed, as we see from the blue dashed curves in Fig.~XXX, the free energy diverges in a harmonic approximation of the elastic energy~\cite{rocklin2018}.
+One generically expects the framework to be soft at these singularities, and indeed, as we see from the blue dashed curves in Fig.~\ref{fig:4bar_collage}(b), the free energy diverges in a harmonic approximation of the elastic energy~\cite{rocklin2018}.
 These divergences must be cut off by higher-order nonlinear effects, yet how this happens and to what extent remains to be understood.
 
-In Chapters XXX and XXX, we develop a formalism to understand the thermal equilibration of common bar-joint mechanisms that have isolated shape-space singularities.
+In Chapters 2 and 3, we develop a formalism to understand the thermal equilibration of common bar-joint frameworks that have isolated shape-space singularities.
 We show that the divergent contributions to the free energy arising in the harmonic approximation to the energy are suppressed by anharmonic, quartic-order corrections.
 These findings show the existence of energetic free-energy barriers between configurations near the singularities and configurations farther from the singularities.
 Our results are consistent with a closely-related work~\cite{kallus2017,holmes-cerfon2017} on singular colloidal clusters, but allow for isolated singularities of the shape space.
@@ -144,6 +156,11 @@ The analyses presented in these chapters have direct consequences in the design 
 
 \section{Thin structures, elastic waves, and bound states}
 
+In the second part of this dissertation, we consider the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a singly-curved shell as concrete examples.
+Previous work on related problems have largely focused on the localization of flexural waves on such structures.
+Here, using the semiclassical/WKB approximation, we show that in addition to flexural waves, extensional and shear waves also form localized, bound states around points where the absolute curvature of the structure has a minimum.
+These findings open up novel ways to fine-tune the acoustic and vibrational properties of thin elastic structures, and raise the possibility of introducing new phenomena not easily captured by effective models of flexural waves alone.
+
 \subsection{Can one hear the shape of a shell?}
 
 Take an ordinary hand saw used for cutting wood.
@@ -158,18 +175,30 @@ Central to understanding the trapping of waves and the formation of bound states
 %
 \begin{equation}
   \widehat{\mathsf{D}}\psi = \omega^{2}\psi
+  \label{intro:eq:waveeq}
 \end{equation}
 %
 where $\widehat{\mathsf{D}}$ is a differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
 In the elastodynamic problems, the wave field $\psi$ is almost always composed of displacements from the neutral, undeformed configuration of the structure.
 Elastodynamic problems are made particularly challenging because $\psi$ usually has multiple components, and depending on the nature of $\widehat{\mathsf{D}}$, the components always remain coupled.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{intro/saw.pdf}
+  \end{center}
+  \caption{%
+    An ordinary hand saw, when bent into the shape of the letter $\mathsf{S}$ can be played like a musical instrument using a violin's bow or a mallet.
+    A sustained note is produced on bowing or hitting the saw at its inflection point, which is called a sweet spot by musicians.
+    Photographs sourced from Ref.~\cite{shankar2022}.
+  }
+  \label{fig:saw}
+\end{figure}
 
-Although the exact nature of the operator $\widehat{\mathsf{D}}$ is system dependent, for thin elastic structures, such as the musical saw,
+% Although the exact nature of the operator $\widehat{\mathsf{D}}$ is system dependent, for thin elastic structures, such as the musical saw,
 
 \subsection{Semiclassical approximation}
 
-A plane wave solution, where the wave field is of the form $\psi \sim e^{\pm i kx}$, is only applicable if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants.
-
+A plane wave solution to Eq.~\eqref{intro:eq:waveeq}, where the wave field is of the form $\psi \sim e^{\pm i kx}$, is only applicable if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants.
 The semiclassical approximation or the Wentzel--Krames--Brillouin (WKB) approximation%
 \footnote{Sometimes called the Jeffreys--Wentzel--Kramers--Brillouin method and also the Liouville--Green method.}
 is a widely used method to obtain approximate solutions to differential equations.
@@ -189,7 +218,7 @@ $-\epsilon^{2}\partial_{{x}}^{2}\psi(x) + {V}(x)\psi(x) = {E}\psi(x)$,
 where all quantities as well as the parameter $\epsilon = \hbar/\sqrt{2mL^{2}U}$ are now dimensionless.
 As $\sqrt{2mL^{2}U}$ has the dimension of the angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum is much larger than $\hbar$.}
 It is in this context that the WKB method takes the alternative moniker of semiclassical approximation.%
-\footnote{Also known as the quasiclassical method.  In harmonic analysis, the semiclassial approximation is also called semiclassical analysis.  Some others choose to call it the eikonal method and some others call it ray approximation or ray tracing.}
+%\footnote{Also known as the quasiclassical method.  In harmonic analysis, the semiclassial approximation is also called semiclassical analysis.  Some others choose to call it the eikonal method and some others call it ray approximation or ray tracing.}
 
 Modern reformulations of the semiclassical method, based on the Weyl symbol calculus, provide unparalleled insights into the connection between classical and quantum mechanics.
 Weyl calculus provides an elegant way to construct one-to-one maps between differential operators (i.e., powers of $\partial_{x}$) defined on Hilbert spaces and ordinary functions defined on a position--momentum phase space.
@@ -198,7 +227,7 @@ The basic premise is that, under the Weyl transform, the momentum operator $\hat
 Thus, after expressing the derivatives of a given differential operator in terms of $\hat{k}$ and its powers, the operator can be mapped to an ordinary function---called its Weyl symbol---defined on an $x$-$k$ phase space.
 For example, in the case of a one-dimensional operator $\widehat{D}(x, \partial_{x})$, we have
 %
-% XXX: use tikz instead of harpoons: https://tex.stackexchange.com/questions/312491/bumpy-uneven-arrows-in-mathtools-mhchem-etc
+% TODO: use tikz instead of harpoons: https:/tex.stackexchange.com/questions/312491/bumpy-uneven-arrows-in-mathtools-mhchem-etc
 \begin{equation}
   \widehat{D}\left(x, \partial_{x}\right) = \widehat{D}\left(x, i\hat{k}\right) \quad\text{\small(Hilbert space)} \quad\xrightleftharpoons[\text{Wigner map}]{\text{Weyl transform}}\quad D\left(x, k\right) \quad\text{\small(phase space)}.
 \end{equation}
@@ -206,8 +235,8 @@ For example, in the case of a one-dimensional operator $\widehat{D}(x, \partial_
 The Schr\"{o}dinger operator $\widehat{H} = -\partial_{x}^{2}/2m + V(x)$, for instance, gets mapped to the classical Hamiltonian of a point particle $H(x, k) = k^{2}/2m + V(x)$, as one would expect.
 Once the operator is in symbol form, it can be expanded and approximated just like any other ordinary function, which provides a direct path towards obtaining asymptotic solutions to wave equations.
 
-For matrix operators that act on multicomponent wave fields, such as the one in Eq.~XXX, the corresponding Weyl symbol $\mathsf{D}$ is called the dispersion matrix---an ordinary matrix, whose entries are functions defined on an $x$-$k$ phase space.
-The eigenvalues $\lambda(x, k)$ of the dispersion matrix serve as ray Hamiltonians of the different wave types represented by Eq.~XXX.
+For matrix operators that act on multicomponent wave fields, such as the one in Eq.~\eqref{intro:eq:waveeq}, the corresponding Weyl symbol $\mathsf{D}$ is called the dispersion matrix---an ordinary matrix, whose entries are functions defined on an $x$-$k$ phase space.
+The eigenvalues $\lambda(x, k)$ of the dispersion matrix serve as ray Hamiltonians of the different wave types represented by Eq.~\eqref{intro:eq:waveeq}.
 This leads us to the phase space representation of waves as rays that satisfy the Hamilton's equations
 %
 \begin{equation}
@@ -218,33 +247,16 @@ This leads us to the phase space representation of waves as rays that satisfy th
 %
 The advantage provided by the semiclassical approximation cannot be overstated: we have effectively reduced the wave equation to a Hamiltonian system describing point particles, a system that is much more easier to analyze.
 
-\subsection{Bound states in thin elastic structures}
-
-%
-\begin{figure}
-  \begin{center}
-    \includegraphics{intro/dna.pdf}
-  \end{center}
-  \caption{DNA origami has been widely used to self assemble a variety of objects at the nanoscale.
-Depicted in the figure are (a) tensegrity structures \cite{liedl2010}; (b), (c) linkage-based mechanisms \cite{marras2015,zhou2015}; (d) a rhombus-shaped nanoactuator~\cite{ke2016}; and (e) self-assembled polyhedra~\cite{iinuma2014}.}
-  \label{fig:dna_origami}
-\end{figure}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics{intro/saw.pdf}
-  \end{center}
-  \caption{%
-    An ordinary hand saw, when bent into the shape of the letter $\mathsf{S}$ can be played like a musical instrument using a violin's bow or a mallet.
-    A sustained note is produced on bowing or hitting the saw at its inflection point, which is called a sweet spot by musicians.
-    Photographs sourced from Ref.~\cite{shankar2022}.
-  }
-  \label{fig:saw}
-\end{figure}
+% \subsection{Bound states in thin elastic structures}
 
 \section{Organizational summary and other comments}
 
-In the interest of making this dissertation more readable, I have broken up and expanded the papers that I wrote.
-I have also added many footnotes, with most of them trying to explain a concept that I struggled with initially.
-That said, this dissertation is organized as follows:
+In the interest of making this dissertation more readable, I have broken up and expanded the papers that I wrote, trying to make the material as self contained as possible.
+%I have also added many footnotes, with most of them trying to explain a concept that I struggled with initially.
+This dissertation is organized as follows:
+In Chapter 2 we review basic facts about frameworks, their configuration spaces, and derive asymptotic expressions for their elastic energies.
+Chapter 3 deals with the effect that thermal fluctuations have on these frameworks, and presents a detailed calculation of the free-energy profiles for three example frameworks.
+Chapters 4 and 5 are concerned with the second problem discussed in this dissertation.
+In Chapter 4, we review the semiclassical theory of wave phenomena, with special attention paid to multicomponent wave equations.
+Chapter 5 is concerned with the application of semiclassical approximation to understand the formation of bound states in thin elastic structures.
 Finally, in Appendix~\ref{app:math}, we collect some helpful mathematical results that are used throughout the dissertation.

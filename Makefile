@@ -3,7 +3,7 @@
 all: gitinfo thesis.pdf thesis-print.pdf thesis-su.pdf
 
 %.pdf: %.tex
-	latexmk $<
+	latexmk -f $<
 
 gitinfo:
 	git --no-pager log -1 --date=short --decorate=short --pretty=format:"\

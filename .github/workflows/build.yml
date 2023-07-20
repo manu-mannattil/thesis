@@ -24,9 +24,6 @@ jobs:
 
       - name: Generate PDFs
         run: |
-          git clone --depth=1 https://github.com/manu-mannattil/texmf
-          export TEXMFHOME=./texmf
-
           # For some reason, Git doesn't treat the checked
           # out directory as a Git repo unless we do this.
           # https://github.com/actions/checkout/issues/363#issuecomment-1163942488

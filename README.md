@@ -1,5 +1,8 @@
 # Dissertation
 
+[![PDF](https://shields.io/badge/PDF-master-informational)](https://raw.githubusercontent.com/manu-mannattil/vitae/build/vitae.pdf)
+[![build](https://github.com/manu-mannattil/vitae/actions/workflows/build.yml/badge.svg)](https://github.com/manu-mannattil/vitae/actions/workflows/build.yml)
+
 The dependency tree below shows how the various files are included.
 
     thesis.tex

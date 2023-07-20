@@ -1,0 +1,423 @@
+% NAME
+%
+%   emem.sty - a personal LaTeX style file
+%
+% DESCRIPTION
+%
+%   emem.sty is an opinionated LaTeX style file meant to be used with
+%   the memoir LaTeX class.  This style file monkey patches some
+%   commands to typeset things the way I want.
+%
+% USAGE
+%
+%   emem.sty can be loaded like any other package with \usepackage{emem}.
+%
+% OPTIONS
+%
+%   cmd     --  define custom commands and load a minimum set of
+%               packages, but don't do anything else
+%   draft   --  disable loading of cosmetic/heavyweight packages
+%   fancy   --  load everything (default)
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{emem}[2022/09/22 v0.3]
+
+%%% Option processing ---------------------------------------------------------
+
+\newif\if@fancy
+\DeclareOption{fancy}\@fancytrue
+\DeclareOption{draft}\@fancyfalse
+
+\newif\if@cmd
+\DeclareOption{cmd}\@cmdtrue
+
+\newif\if@natbib
+\DeclareOption{natbib}\@natbibtrue
+
+\ExecuteOptions{fancy}
+\ProcessOptions\relax
+
+%%% Mathematics ---------------------------------------------------------------
+
+\RequirePackage{mathtools}
+
+% Dirac bra-ket notation (from braket.sty).
+\def\bra#1{\ensuremath\mathinner{\langle{#1}\rvert}}
+\def\ket#1{\ensuremath\mathinner{\lvert{#1}\rangle}}
+\def\Bra#1{\ensuremath\left\langle#1\right|}
+\def\Ket#1{\ensuremath\left|#1\right\rangle}
+
+% Usage: \braket{x|y} and \Braket{X\middle|Y}.
+\def\braket#1{\ensuremath\mathinner{\langle{#1}\rangle}}
+\def\Braket#1{\ensuremath\left\langle#1\right\rangle}
+
+% Upright derivates and partials.
+\def\dd{\ensuremath\mathrm{d}}
+\def\Dd{\ensuremath\mathrm{D}}
+
+% Linear algebra
+\def\hess{\ensuremath\nabla\nabla}                  % Hessian (two nablas)
+\def\trans{\ensuremath{^\mathsf{T}}}                % transpose
+
+% New operators.
+\DeclareMathOperator{\coker}{coker}                 % cokernel of a matrix
+\DeclareMathOperator{\corank}{corank}               % corank of a matrix
+\DeclareMathOperator{\erf}{erf}                     % Gauss error function
+\DeclareMathOperator{\diag}{diag}                   % diagonal matrix
+\DeclareMathOperator{\im}{im}                       % image of a map
+\DeclareMathOperator{\rank}{rank}                   % rank of a matrix
+\DeclareMathOperator{\Residue}{Res}                 % residue
+\DeclareMathOperator{\tr}{tr}                       % trace of a matrix
+\DeclareMathOperator{\Tr}{Tr}                       % trace of a matrix (alternate)
+
+\def\id{\ensuremath\mathrm{id}}                     % identity map
+
+\DeclareMathOperator{\sech}{sech}                   % hyperbolic sec
+\DeclareMathOperator{\csch}{csch}                   % hyperbolic csc
+
+\DeclareMathOperator*{\argmax}{argmax}              % argmax (without space and underneath limits)
+\DeclareMathOperator*{\argmin}{argmin}              % argmin (without space and underneath limits)
+
+% Absolute value sign.  Simply using |...| results in poor spacing, e.g., see
+% the output of $|-1|$ vs $|{-1}|$.  It's the second kind of spacing that we
+% want.  Source: https://tex.stackexchange.com/q/43008
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\Abs}{\|}{\|} % || ... || version
+
+%%% Miscellaneous -------------------------------------------------------------
+
+\def\etal{\emph{et al.}}
+
+\def\blankpage{\newpage\phantom{}\thispagestyle{empty}}
+
+\newenvironment{flushright*}
+  {\null\hfill\begin{tabular}{l@{}}}
+  {\end{tabular}}
+
+%%% Environments --------------------------------------------------------------
+
+% Environment for typing right-indented quotes and command for typing the
+% name of the quotee.
+\newenvironment{rightquote}[1][0.8]{%
+  \flushright%
+  \begin{minipage}{#1\textwidth}%
+  \small%
+}{%
+  \end{minipage}\par%
+}
+\def\quotee#1{\par\flushright\unskip\small{#1}}
+
+% Environment to vertically/horizontally center text.
+\newenvironment{center*}
+  {\hspace{0pt}\vfill\begin{center}}
+  {\end{center}\vfill\hspace{0pt}}
+
+%%% Git info ------------------------------------------------------------------
+
+% An NIH-hack to avoid using the gitinfo2 package.  To generate the
+% gitInfo.in file, within the root directory of the repository, run
+%
+%   git --no-pager log -1 --date=short --decorate=short --pretty=format:'
+%     \def\gitHash{%H}
+%     \def\gitShortHash{%h}
+%     \def\gitRefName{%D}
+%     \def\gitAuthorName{%an}
+%     \def\gitAuthorEmail{%ae}
+%     \def\gitAuthorDate{%ai}
+%     \def\gitAuthorAltDate{%aD}
+%     \def\gitCommitterName{%cn}
+%     \def\gitCommitterEmail{%ce}
+%     \def\gitCommitterDate{%ci}
+%     \def\gitCommitterAltDate{%cD}
+%   ' HEAD >.git/gitInfo.in
+%
+\ifdefined\gitInfo\else\def\gitInfo{.git/gitInfo.in}\fi
+\IfFileExists{\gitInfo}{\input{\gitInfo}}{
+  \def\gitError{$\heartsuit\heartsuit\heartsuit$}
+  \def\gitHash{\gitError}
+  \def\gitShortHash{\gitError}
+  \def\gitRefName{\gitError}
+  \def\gitAuthorName{\gitError}
+  \def\gitAuthorEmail{\gitError}
+  \def\gitAuthorDate{\gitError}
+  \def\gitAuthorAltDate{\gitError}
+  \def\gitCommitterName{\gitError}
+  \def\gitCommitterEmail{\gitError}
+  \def\gitCommitterDate{\gitError}
+  \def\gitCommitterAltDate{\gitError}
+}
+
+%%% Color definitions ---------------------------------------------------------
+
+\RequirePackage{color}
+
+% 10 shades of grey.
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+\definecolor{gray1}{rgb}{0.2,0.2,0.2}
+\definecolor{gray2}{rgb}{0.4,0.4,0.4}
+\definecolor{gray3}{rgb}{0.6,0.6,0.6}
+\definecolor{gray4}{rgb}{0.8,0.8,0.8}
+\definecolor{grey1}{rgb}{0.2,0.2,0.2}
+\definecolor{grey2}{rgb}{0.4,0.4,0.4}
+\definecolor{grey3}{rgb}{0.6,0.6,0.6}
+\definecolor{grey4}{rgb}{0.8,0.8,0.8}
+
+% Bluesmoke colors.
+\definecolor{bs0}{rgb}{0.184314,0.364706,0.549020}    % #cde-9
+\definecolor{bs1}{rgb}{0.207843,0.415686,0.623529}    % #cde-8
+\definecolor{bs2}{rgb}{0.235294,0.466667,0.698039}    % #cde-7
+\definecolor{bs3}{rgb}{0.274510,0.517647,0.756863}    % #cde-6
+\definecolor{bs4}{rgb}{0.349020,0.564706,0.784314}    % #cde-5
+\definecolor{bs5}{rgb}{0.423529,0.615686,0.807843}    % #cde-4
+\definecolor{bs6}{rgb}{0.501961,0.666667,0.831373}    % #cde-3
+\definecolor{bs7}{rgb}{0.576471,0.717647,0.858824}    % #cde-2
+\definecolor{bs8}{rgb}{0.650980,0.764706,0.882353}    % #cde-1
+\definecolor{bs9}{rgb}{0.800000,0.866667,0.933333}    % #cde+0
+\definecolor{bs10}{rgb}{0.874510,0.917647,0.956863}   % #cde+1
+\definecolor{bs11}{rgb}{0.949020,0.964706,0.984314}   % #cde+2
+
+% Nord colors.
+\definecolor{nord0}{rgb}{0.180392,0.203922,0.250980}  % polar night (darkest grey)
+\definecolor{nord1}{rgb}{0.231373,0.258824,0.321569}  % polar night (dark grey)
+\definecolor{nord2}{rgb}{0.262745,0.298039,0.368627}  % polar night (less dark grey)
+\definecolor{nord3}{rgb}{0.298039,0.337255,0.415686}  % polar night (lesser dark grey)
+\definecolor{nord4}{rgb}{0.847059,0.870588,0.913725}  % snow storm (grey)
+\definecolor{nord5}{rgb}{0.898039,0.913725,0.941176}  % snow storm (light grey)
+\definecolor{nord6}{rgb}{0.925490,0.937255,0.956863}  % snow storm (lighter grey)
+\definecolor{nord7}{rgb}{0.560784,0.737255,0.733333}  % frost (green)
+\definecolor{nord8}{rgb}{0.533333,0.752941,0.815686}  % frost (greenish blue)
+\definecolor{nord9}{rgb}{0.505882,0.631373,0.756863}  % frost (greyish blue)
+\definecolor{nord10}{rgb}{0.368627,0.505882,0.674510} % frost (blue)
+\definecolor{nord11}{rgb}{0.749020,0.380392,0.415686} % aurora (red)
+\definecolor{nord12}{rgb}{0.815686,0.529412,0.439216} % aurora (orange)
+\definecolor{nord13}{rgb}{0.921569,0.796078,0.545098} % aurora (yellow)
+\definecolor{nord14}{rgb}{0.639216,0.745098,0.549020} % aurora (green)
+\definecolor{nord15}{rgb}{0.705882,0.556863,0.678431} % aurora (magenta)
+
+% Matplotlib colors.
+\definecolor{C0}{rgb}{0.121569,0.466667,0.705882}     % blue
+\definecolor{C1}{rgb}{1.000000,0.498039,0.054902}     % orange
+\definecolor{C2}{rgb}{0.172549,0.627451,0.172549}     % green
+\definecolor{C3}{rgb}{0.839216,0.152941,0.156863}     % red
+\definecolor{C4}{rgb}{0.580392,0.403922,0.741176}     % purple
+\definecolor{C5}{rgb}{0.549020,0.337255,0.294118}     % brown
+\definecolor{C6}{rgb}{0.890196,0.466667,0.760784}     % pink
+\definecolor{C7}{rgb}{0.498039,0.498039,0.498039}     % grey
+\definecolor{C8}{rgb}{0.737255,0.741176,0.133333}     % lime green
+\definecolor{C9}{rgb}{0.090196,0.745098,0.811765}     % cyan
+
+% NOTE: Lines following this apply to the memoir LaTeX class.
+% Thus, terminate processing at this point if the `cmd' option is given
+% or if memoir is not loaded.
+\if@cmd\endinput\fi
+\@ifclassloaded{memoir}{}{\endinput}
+
+%%% Package loading -----------------------------------------------------------
+
+% Only packages included in a standard TeXLive distribution ought to be
+% loaded by default.
+
+% Load heavyweights and cosmetic packages by default, but also give an option
+% to disable them.
+\if@fancy
+  % Use the same color for all links.
+  \RequirePackage[
+    allcolors=bs1,
+    breaklinks,
+    colorlinks,
+    unicode,
+    linktocpage=true
+  ]{hyperref}
+  \urlstyle{same}
+  \RequirePackage[
+    kerning=true,
+    spacing=true,
+    tracking=true,
+    factor=1100,
+    stretch=10,
+    shrink=10,
+  ]{microtype}
+  \microtypecontext{spacing=nonfrench}
+  \RequirePackage{graphicx}
+\else
+  \RequirePackage[draft]{hyperref}
+  \RequirePackage[draft]{graphicx}
+  \RequirePackage[draft]{microtype}
+\fi
+
+%%% References ----------------------------------------------------------------
+
+\if@natbib
+  \ifartopt
+    \RequirePackage[square,merge,numbers,sort&compress,sectionbib]{natbib}
+    % This is an undocumented command used by memoir to typeset
+    % references when natbib is loaded with the sectionbib option.
+    % For some reason, redefining \bibsection doesn't work.
+    \def\@memb@bsec{\section*{\bibname}\prebibhook}
+  \else
+    \RequirePackage[square,merge,numbers,sort&compress]{natbib}
+  \fi
+
+  \bibliographystyle{apsrev4-1}
+  \def\bibfont{\small}
+  \def\prebibhook{%
+    \setlength{\bibsep}{0pt plus 0.3ex}%
+    \setlength{\parskip}{10pt}%
+  }
+\fi
+
+%%% Custom package-depended commands ------------------------------------------
+
+% Commands to typeset emails/DOI links that obeys \urlstyle.
+\def\email#1{\href{mailto:#1}{\nolinkurl{#1}}}
+\def\doi#1#2{\href{https://dx.doi.org/#1}{\nolinkurl{#2}}}
+
+% Define \alturl to get a \url-like command that can accept an
+% alternative text.  This is not equivalent to \href since the text gets
+% hyphenated (and treated like ordinary text) with \href.
+\def\alturl#1#2{\href{#1}{\nolinkurl{#2}}}
+
+% CC licenses.
+\newcommand\ccbysa[1][CC BY-SA 4.0]{\href{http://creativecommons.org/licenses/by-sa/4.0/}{#1}}
+\newcommand\ccby[1][CC BY 4.0]{\href{http://creativecommons.org/licenses/by/4.0/}{#1}}
+
+% Highlights.
+\definecolor{hlcolor}{rgb}{0.7,0.1,0.0}
+\def\hl#1{{\color{hlcolor}#1}}
+\newenvironment{hlblock}{\color{hlcolor}}{}
+
+% AMS packages ----------------------------------------------------------------
+
+\RequirePackage{amsthm}
+
+% Break display eqs
+\allowdisplaybreaks
+
+% Theorem style with period after the theorem head removed and bold theorem
+% spec: https://tex.stackexchange.com/a/185168.
+\newtheoremstyle{ememstyle}%                      % name
+  {}%                                             % space above
+  {}%                                             % space below
+  {\itshape}%                                     % body font
+  {}%                                             % indent amount
+  {\bfseries}%                                    % theorem head font
+  {.}%                                            % punctuation after theorem head
+  {1.2em}%                                        % space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%   % theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{ememstyle}
+\newtheorem{claim}{Claim}
+\newtheorem{prop}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+% Style for problems and examples.
+\newtheoremstyle{ememstylesmall}%                 % name
+  {1em}%                                          % space above
+  {1em}%                                          % space below
+  {\small}%                                       % body font
+  {}%                                             % indent amount
+  {\small\bfseries}%                              % theorem head font
+  {.}%                                            % punctuation after theorem head
+  {1.2em}%                                        % space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%   % theorem head spec (can be left empty, meaning `normal')
+
+% Problem + solution as theorem/proof style environments.
+% \theoremstyle{definition}
+\theoremstyle{ememstylesmall}
+\newtheorem{problem}{Problem}
+\newenvironment{solution}{\proof[Solution]}{\endproof}
+\newtheorem{example}{Example}
+
+% We could've used \diamond (and its variants), but they don't always
+% produce a "square" diamond.  So it's better to make one by rotating
+% a square.
+\def\altqed{\nolinebreak\hfill\rotatebox[origin=c]{45}{\footnotesize$\square$}}
+
+%%% Whitespace management -----------------------------------------------------
+
+\if@fancy
+  % From Section 3.5 of memoir's documentation.
+  \clubpenalty=9996
+  \widowpenalty=9999
+  \brokenpenalty=4991
+  \predisplaypenalty=10000
+  \postdisplaypenalty=1549
+  \displaywidowpenalty=1602
+\fi
+
+%%% Memoir customization -----------------------------------------------
+
+\providecommand{\altsf@family}{\sffamily}
+\providecommand{\altsf@family@medium}{\sffamily}
+\providecommand{\altsf@family@bold}{\bfseries\sffamily}
+
+% Use smaller sans-serif fonts in chapter headings.
+\def\chapnumfont{\large\altsf@family}
+\def\chapnamefont{\large\altsf@family}
+\def\chaptitlefont{\Large\altsf@family@bold}
+\setlength{\beforechapskip}{4em}
+\setlength{\midchapskip}{0.25em}
+\setlength{\afterchapskip}{3em}
+
+% sans-serif fonts for section titles.
+\setsecheadstyle{\large\altsf@family@bold}
+\setsubsecheadstyle{\altsf@family@bold}
+% Use a slightly smaller medium italic sans type; 10pt
+% italic sans looks somewhat bigger to me.
+\setsubsubsecheadstyle{\fontsize{9.75}{10}\selectfont\itshape\altsf@family@medium}
+
+% AFAIK memoir doesn't provide a direct command to customize paragraphs,
+% so we steal REVTeX's definition.
+\def\paragraph{%
+  \@startsection
+  {paragraph}%
+  {4}%
+  {\parindent}%
+  {\z@}%
+  {-1em}%
+  {\normalfont\normalsize\itshape}%
+}
+
+% Table of Contents.
+\def\cftchapterfont{\altsf@family@bold}     % bold sans-serif for chapters
+\def\cftchapterpagefont{\cftchapterfont}    % also for page numbers
+
+% Remove dots in TOC and bring page numbers closer to
+% chapter/section titles.  Another alternative is
+% just \def\cftdotsep{1234}, which would keep the space, but
+% remove all the dots.
+\def\cftdotsep{1234}
+\def\cftchapterleader{\quad}
+\def\cftsectionleader{\enspace}
+\def\cftsubsectionleader{\enspace}
+\def\cftchapterafterpnum{\cftparfillskip}
+\def\cftsectionafterpnum{\cftparfillskip}
+\def\cftsubsectionafterpnum{\cftparfillskip}
+
+% Make captions in tables, figures, etc., to use a period after the caption
+% identifier (e.g., Figure, Table, etc.) instead of a colon.  Also use sans
+% font for the identifier.
+\captionnamefont{\altsf@family@bold\small}
+\captiondelim{.\enspace}
+
+% Title
+\captiontitlefont{\small}
+
+% Number everything from sections to subsections.
+\setsecnumdepth{subsection}
+
+\ifartopt
+  % Article-specific tweaks.
+  % Omit chapter numbers from section titles.
+  \counterwithout{section}{chapter}
+\else
+  % Number subsubsections as well.
+  \setsecnumdepth{subsubsection}
+\fi
+
+\endinput
+
+% vim: ft=tex fdm=manual et sts=2 sw=2 nospell cole=0

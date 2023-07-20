@@ -30,6 +30,11 @@ jobs:
           # https://github.com/actions/runner/issues/2033
           git config --global --add safe.directory $(realpath .)
 
+          # We need to increase the POST buffer size as the built PDFs
+          # tend to be largish.
+          git config --global http.postBuffer 2097152000
+          git config --global https.postBuffer 2097152000
+
           make gitinfo
           make thesis.pdf
           make thesis-su.pdf

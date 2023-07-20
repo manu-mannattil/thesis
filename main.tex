@@ -22,15 +22,7 @@
 % \addcontentsline{toc}{chapter}{Abstract}
 \thispagestyle{empty}
 
-This dissertation is concerned with two problems that lie at the interface of soft-matter physics, geometry, and asymptotics, but otherwise have no bearing on one another.
-In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks.
-These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems at the submicron scale such as proteins and colloidal clusters, and more recently, DNA origami.
-When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where it becomes energetically softer.
-As a consequence, the framework's free-energy landscape becomes dominated by the neighborhoods of points that correspond to these singularities.
-In the second problem, I study the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a uniaxially-curved shell as concrete examples.
-Waves propagating on such structures have multiple components owing to the curvature-mediated coupling of the tangential and normal components of the displacement field.
-Here, using the semiclassical approximation, I show that these waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
-Both these problems exemplify the subtle interplay between the mechanical properties of soft materials and their geometry, which further sets the stage for many interesting consequences.
+This dissertation is concerned with two problems that lie at the interface of soft-matter physics, geometry, and asymptotics, but otherwise have no bearing on one another.  In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks.  These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems at the submicron scale such as colloidal clusters and DNA origami.  When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where it becomes energetically softer.  Consequently, the framework's free-energy landscape becomes dominated by the neighborhoods of points corresponding to these singularities.  In the second problem, I study the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a uniaxially-curved shell as concrete examples.  Waves propagating on such structures have multiple components owing to the curvature-mediated coupling of the tangential and normal components of the displacement field.  Here, using the semiclassical approximation, I show that these waves form localized, bound states around points where the absolute curvature of the structure has a minimum.  Both these problems exemplify the subtle interplay between the mechanical properties of soft materials and their geometry, which further sets the stage for many interesting consequences.
 
 \ifdeadtree
   \blankpage
@@ -59,7 +51,7 @@ Both these problems exemplify the subtle interplay between the mechanical proper
   \ifsustyle
     \relax
   \else
-    \includegraphics[scale=1.25]{sulogo.pdf}\\[1em]
+    \includegraphics[scale=1.25]{misc/sulogo.pdf}\\[1em]
   \fi
   \widetext{SYRACUSE UNIVERSITY}\\[1em]
   August 2023
@@ -87,8 +79,16 @@ Both these problems exemplify the subtle interplay between the mechanical proper
 \chapter*{Acknowledgments}
 % \addcontentsline{toc}{chapter}{Acknowledgments}
 
-\sloppy
 TODO...
+% I thank my adviser Chris Santangelo for many useful discussions, for giving me
+% ample independence, and for his near-infinite patience.  I also thank Jen
+% Schwarz, Joey Paulsen, and Will Wylie, for serving on my committee.  I am also
+% grateful to Jen for helping me find a home in the soft matter group.  Let me
+% also collectively acknowledge all others with whom I have had fruitful
+% conversations during my Ph.D.  Special thanks are due to my undergraduate
+% adviser Sagar Chakraborty, with whom I did my first serious research work.
+% Finally, I thank my parents for their encouragement and kind generosity over
+% the years.
 
 \ifdeadtree
   \blankpage
@@ -127,12 +127,12 @@ TODO...
 \include{chap03}
 \include{chap04}
 \include{chap05}
+\include{chap06}
 \include{chap07}
-\include{chapss}
 \ifsustyle
   \include{chapcv}
 \fi
-\include{comments}
+% \include{comments}
 
 \appendix
 
@@ -190,26 +190,28 @@ TODO...
     Much time was saved during the writing process thanks to several free software projects including
     BibTool,
     Debian GNU/Linux,
+    Exuberant Ctags,
     Gimp,
     Git,
     ImageMagick,
     Inkscape,
-    Matplotlib,
-    Python,
-    \TeX~Live,
     latexmk,
+    Matplotlib,
     optipng,
     pdfsizeopt,
+    \textsc{pdf}\TeX,
     pdftk,
+    Python,
     qpdfview,
+    \TeX~Live,
     Vim,
     and Vim\TeX.
     Much time was lost yak shaving some of these tools to perfection.
   \end{minipage}
   \vfill
-\fi
 
 \small
 \emph{The lyf so short, the craft so longe to lerne.}
+\fi
 
 \end{document}

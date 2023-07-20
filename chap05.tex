@@ -59,24 +59,35 @@ To keep the exposition simple, we will restrict ourselves to wave equations in o
 Consider the wave equation
 %
 \begin{equation}
-  \hat{\mathsf{D}}\ket{\psi} = 0
+  \widehat{\mathsf{D}}\ket{\psi} = 0
   \qquad
-  (\text{i.e., }\hat{\mathsf{D}}_{jk}\ket{\psi_{k}} = 0.)
+  (\text{i.e., }\widehat{\mathsf{D}}_{jk}\ket{\psi_{k}} = 0.)
 \end{equation}
 %
 An equation of this sort can be derived from an action of the form
 %
 \begin{equation}
-  \mathscr{U}\left[\psi^{*}, \psi\right] = \frac{1}{2}\bra{\psi}\hat{\mathsf{D}}\ket{\psi}
-  = \int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\hat{\mathsf{D}}\ket{x'}\braket{x'|\psi}
-  = \frac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{j}(x)\,\hat{\mathsf{D}}_{jk}(x, x')\,\psi_{k}(x') = 0.
+  \mathscr{U}\left[\psi^{*}, \psi\right] = \frac{1}{2}\bra{\psi}\widehat{\mathsf{D}}\ket{\psi}
+  = \frac{1}{2}\int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\widehat{\mathsf{D}}\ket{x'}\braket{x'|\psi}
+  = \frac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{j}(x)\,\widehat{\mathsf{D}}_{jk}(x, x')\,\psi_{k}(x') = 0.
 \end{equation}
 %
 Above we have inserted the resolution of identity $\int \dd{x}\,\ket{x}\bra{x} = 1$ in appropriate places to express $\mathscr{U}$ in terms of $\psi$ and its conjugate $\psi^{*}$.
-Also, we have made the product between the matrix operator $\hat{\mathsf{D}}$ and the wave vector $\psi$ explicit, with $\braket{x|\hat{\mathsf{D}}_{jk}|x'} = \hat{\mathsf{D}}_{jk}(x, x')$ being the matrix element of $\hat{\mathsf{D}}_{jk}$ in the position basis.
+Also, we have made the product between the matrix operator $\widehat{\mathsf{D}}$ and the wave vector $\psi$ explicit, with $\braket{x|\widehat{\mathsf{D}}_{jk}|x'} = \widehat{\mathsf{D}}_{jk}(x, x')$ being the matrix element of $\widehat{\mathsf{D}}_{jk}$ in the position basis.
 Varying $\mathscr{U}[\psi^{*}, \psi]$ with respect to $\psi^{*}$ gives the original wave equation, Eq.~XXX.
 
-The Wigner tensor $\mathsf{W}_{kj}$ is defined as the symbol of the density operator $\hat{\mathsf{W}} = \ket{\psi}\bra{\psi}$ with kernel $\hat{\mathsf{W}}_{kj}(x',x) = \psi_{k}(x')\psi_{j}^{*}(x)$.
+For later use, we also note that $\mathscr{U}$ can also be written as
+%
+\begin{equation}
+  \begin{aligned}
+    \mathscr{U}\left[\psi^{*}, \psi\right] &= \tfrac{1}{2}\int \dd{x}' \braket{\psi_{\mu}|x'}\bra{x'}\widehat{\mathsf{D}}_{\mu\nu}\ket{\psi_{\nu}}
+= \tfrac{1}{2}\int \dd{x}' \bra{x'}\widehat{\mathsf{D}}_{\mu\nu}\ket{\psi_{\nu}} \braket{\psi_{\mu}|x'}\\
+&= \tfrac{1}{2}\int \dd{x}' \bra{x'}\widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}\ket{x'} = \tr\left(\widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}\right).
+  \end{aligned}
+\end{equation}
+%
+
+The Wigner tensor $\mathsf{W}_{kj}$ is defined as the symbol of the density operator $\widehat{\mathsf{W}} = \ket{\psi}\bra{\psi}$ with kernel $\widehat{\mathsf{W}}_{kj}(x',x) = \psi_{k}(x')\psi_{j}^{*}(x)$.
 %
 \begin{equation}
   \mathsf{W}_{kj}(x, k) = \int \dd{s}\, e^{-iks/\epsilon}\, \psi_{k}\left(x + \tfrac{1}{2}s\right)\psi^{*}_{j}\left(x - \tfrac{1}{2}s\right).
@@ -97,7 +108,7 @@ By inverting the above expression, and setting $x + \frac{1}{2}s \to x'$ and $x-
 In a similar fashion, we find
 %
 \begin{equation}
-  \hat{\mathsf{D}}_{jk}(x, x') = \frac{1}{2\pi\epsilon} \int \dd{l}\, e^{il(x -x')/\epsilon}\,\mathsf{D}_{jk}\left[\tfrac{1}{2}(x + x'), l\right].
+  \widehat{\mathsf{D}}_{jk}(x, x') = \frac{1}{2\pi\epsilon} \int \dd{l}\, e^{il(x -x')/\epsilon}\,\mathsf{D}_{jk}\left[\tfrac{1}{2}(x + x'), l\right].
 \end{equation}
 %
 Putting Eq.~XXX and XXX in Eq.~XXX, we arrive at
@@ -116,15 +127,131 @@ Performing the change of variables $x \to \frac{1}{2}(x + x')$ and $x' \to x - x
 \end{equation}
 %
 
+The curious reader may wonder if the above equation is incorrect, in light of Eq.~XXX, where we have expressed $\mathscr{U}$ as the trace of the operator $\widehat{O} = \widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}$.
+In terms of its symbol, the trace of an operator $\widehat{O}$ is
+%
+\begin{equation}
+  \tr\widehat{O} = \frac{1}{2\pi\epsilon} \int \dd{x}\,\dd{k}\, O(x, k),
+\end{equation}
+%
+so that $\mathscr{U}$ must be
+%
+\begin{equation}
+  \mathscr{U} = \frac{1}{4\pi\epsilon}\int \dd{x}\,\dd{k}\, D_{\mu\nu}(x,k)e^{i\mathcal{L}}W_{\nu\mu}(x, k),
+\end{equation}
+%
+where we have used the Moyal formula to write the symbol $O$ in terms of the symbols of $\mathsf{D}_{\mu\nu}$ and $\mathsf{W}_{\nu\mu}$.
+The problem here is a bit subtle---the resolution being that each correction term in the Moyal series can be expressed as divergence of a vector field in the $(x, k)$ phase space~\cite[Problem 3.16]{tracy2014}.
+Hence, using the divergence theorem, integral over the correction terms vanish for well behaved wave fields.
+Thus, only the first term in the Moyal series remain, and we get Eq.~XXX again.
+So far there has been no approximations involved and Eq.~XXX is exact to all orders of the eikonal parameter.
 
-To employ the semiclassical approximation to solve Eq.~XXX, we will proceed as follows: (i) write the matrix elements of $\hat{\mathsf{D}}$ and $W_{jk}$ in terms of their Weyl symbols; (ii) insert the eikonal ansatz; (iii) expand the action to the lowest order in the eikonal parameter and form the \emph{reduced action} $\mathscr{U}_{\text{R}}$; (iv) extract the semiclassical equations of motions by varying the reduced action.
+Returning to our main problem, i.e., to employ the semiclassical approximation to solve Eq.~XXX, we will proceed as follows: (i) insert the eikonal ansatz; (ii) expand the action to the lowest order in the eikonal parameter and form the \emph{reduced action} $\mathscr{U}_{\text{R}}$; (iii) extract the semiclassical equations of motions by varying the reduced action.
+
+\subsubsection*{Reduced wave action}
+
+We insert the eikonal ansatz into Eq.~XXX, i.e., $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$ to obtain%
+%
+\begin{equation}
+    \mathsf{W}_{\nu\mu}(x, k) = \int \dd{r}\,e^{ikr/\epsilon} A_{\nu}\left(x + \tfrac{1}{2} r\right)A_{\mu}^{*}\left(x - \tfrac{1}{2} r\right)\exp\left\{\frac{i}{\epsilon}\left[S\left(x + \tfrac{1}{2} r\right) - S\left(x - \tfrac{1}{2} r\right)\right]\right\}.
+\end{equation}
+%
+Next, we set $r \to \epsilon r$ and expand the amplitude $A_{\nu}(x + \frac{1}{2}\epsilon r) = A_{\nu}(x) + \frac{1}{2}(\partial_{x}A_{\nu})\epsilon r + \mathcal{O}(\epsilon^{2})$ and the phase $S(x + \frac{1}{2}\epsilon r) = S(x) + \frac{1}{2}[\partial_{x}S(x)]\epsilon r + \mathcal{O}(\epsilon^{2})$ to obtain
+%
+\begin{equation}
+  \begin{aligned}
+    \mathsf{W}_{\nu\mu}(x, k) &= \epsilon\int \dd{r}\,e^{ikr} A_{\nu}(x)A_{\mu}^{*}(x)\exp\left\{ir\left[\partial_{x}S(x) - k\right]\right\} + \mathcal{O}(\epsilon^{2}) \\
+                        &= 2\pi\epsilon A_{\nu}(x)A^{*}_{\mu}(x)\delta\left[k - \partial_{x}S(x)\right] + \mathcal{O}(\epsilon^{2}).
+  \end{aligned}
+\end{equation}
+%
+Putting the ``reduced'' Wigner tensor in Eq.~XXX, we find
+%
+\begin{equation}
+  \mathscr{U} = \tfrac{1}{2}\int \dd{x}\, \mathsf{D}_{\mu\nu}\left[x, k=\partial_{x}S(x)\right]A_{\nu}(x)A^{*}_{\mu}(x) + \mathcal{O}(\epsilon^{2}).
+\end{equation}
+%
+Next, we perform a spectral decomposition of the symbol matrix $\mathsf{D}_{\mu\nu}(x, k)$ and write it in terms of its eigenvectors $\tau_{a}$ and eigenvalues $\lambda_{a}$ as
+%
+\begin{equation}
+  \mathsf{D}_{\mu\nu}(x, k) = \sum_{a} \lambda_{a}(x, k) \tau_{\mu, a}(x, k) \tau_{\nu, a}^{*}(x, k).
+\end{equation}
+%
+Using this in Eq.~XXX, and defining $B_{a} = \tau_{\nu, a}^{*}A_{\nu} = \braket{\tau_{a}|A}$, which is the projection of the amplitude $A_{\nu}$ along the direction of the polarization vector $\tau_{a}$, we finally arrive at the reduced action
+%
+\begin{equation}
+  \mathscr{U}_{\text{R}}\left[B_{a}, S\right] = \tfrac{1}{2} \sum_{a} \int \dd{x}\, \lambda_{a}(x,k) \abs{B_{a}(x, k)}^{2},
+  \quad\text{with}\quad
+  k = \partial_{x}S(x).
+\end{equation}
+%
+
+Variation with respect to the amplitude $B_{a}$ yields
+%
+\begin{equation}
+  \lambda_{a}(x, k) B_{a}(x, k) = 0.
+\end{equation}
+%
+For nontrivial solutions with $B_{a}(x, k) \neq 0$, we must then have
+%
+\begin{equation}
+  \lambda_{a}\left[x, \partial_{x}S(x)\right] = 0,
+\end{equation}
+%
+which is the eikonal equation.
+This equation is nothing but the Hamilton--Jacobi equation with $S(x)$ playing the role of the classical action.
+The corresponding Hamilton's equations read
+%
+\begin{equation}
+  \frac{\dd{x}}{\dd{\sigma}} = \partial_{k}\lambda_{a}(x, k)
+  \quad\text{and}\quad
+  \frac{\dd{k}}{\dd{\sigma}} = -\partial_{x}\lambda_{a}(x, k),
+\end{equation}
+%
+where $\sigma$ is some parameter that parameterizes the rays $[x(\sigma), k(\sigma)]$ in the phase space.
+
+A vanishing eigenvalue $\lambda$ and the associated normalized eigenvector $\tau$ describes different wave types or ``polarizations'' represented by Eq.~\eqref{eq:ev_problem}.
+By a polarization we mean a linear subspace of the total wave field that is usually of a distinct physical nature, e.g., flexural waves on a curved rod.
+Semiclassical approximation breaks down near points where more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish, precipitating an exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
+
+In the absence of mode conversion, the vanishing eigenvalues of $\mathsf{D}^{(0)}$ also serve as the \emph{ray Hamiltonian} of waves of a specific polarization.
+ This leads us to the phase-space representation of waves as rays that satisfy the Hamilton's equations
+%
+\begin{equation}
+  \dot{x} = \partial_{k} \lambda(x, k;\, \omega) = \left\{x, \lambda\right\}
+  \quad\text{and}\quad
+  \dot{k} = -\partial_{x} \lambda(x, k;\, \omega) = \left\{k, \lambda\right\},
+\end{equation}
+%
+where the overdot denotes derivatives with respect to a parameter that parameterizes the rays and $\left\{\cdot, \cdot\right\}$ is the $x$-$k$ Poisson bracket.
+Since the waves we consider propagate in a one-dimensional space, these rays are identical to the level curve defined by $\lambda(x, k; \omega) = 0$.
+
+In higher dimensions, solving the Hamilton-Jacobi equations can be nontrivial.
+However, in one-dimensions, it is always theoretically possible to solve for $k(x)$ from $\lambda_{a}(x, k) = 0$.
+Tori...
+
+Variation with respect to the phase $S(x)$ yields the amplitude transport equation
+%
+\begin{equation}
+  \frac{\dd}{\dd{x}}\left\{\partial_{k}\left[\lambda_{a}(x, k)\abs{B_{a}(x, k)}^{2}\right]\right\} = 0
+\end{equation}
+%
+so that%
+\footnote{Here we have ignored the term $\lambda_{a}(x, k)\partial_{k}\abs{B_{a}(x,k)}^{2}$, which trivially vanishes as $\lambda_{a}(x, k) = 0$ on an orbit.}
+$\partial_{k}\lambda_{a}(x, k)\abs{B_{a}(x, k)}^{2} = C$ (constant) and
+%
+\begin{equation}
+  B_{a}(x) = \frac{C}{\sqrt{\partial_{k}\lambda_{a}(x, k)}}.
+\end{equation}
+%
+Clearly, $B_{a}$ becomes ill defined at caustics where $\dot{x} = \partial_{k}\lambda_{a}(x, k) = 0$ and the eikonal form of the solutions breaks down.
 
 \section{Intermission: diagonalizing multicomponent operators}
 
-Consider a Hermitian linear differential operator $\hat{\mathsf{D}}$ satisfying the wave equation
+Consider a Hermitian linear differential operator $\widehat{\mathsf{D}}$ satisfying the wave equation
 %
 \begin{equation}
-  \hat{\mathsf{D}}\Psi = 0,
+  \widehat{\mathsf{D}}\Psi = 0,
 \end{equation}
 %
 where $\Psi$ is a multicomponent wave field.
@@ -135,35 +262,35 @@ We want to find a unitary operator ${\mathsf{U}}$ such that%
   In this sense $\mathsf{U}\Sigma$ can diagonalize $\mathsf{D}$ without being unitary.}
 %
 \begin{equation}
-  \hat{\mathsf{U}}^{\dagger}\hat{\mathsf{D}}\hat{\mathsf{U}} = \hat{\Lambda}\label{eq:diagonalization}
+  \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{D}}\widehat{\mathsf{U}} = \hat{\Lambda}\label{eq:diagonalization}
 \end{equation}
 %
 is a diagonal operator.
-Clearly, this equivalent to demanding that $\hat{\mathsf{D}}\hat{\mathsf{U}} = \hat{\mathsf{U}}\hat{\Lambda}$.
+Clearly, this equivalent to demanding that $\widehat{\mathsf{D}}\widehat{\mathsf{U}} = \widehat{\mathsf{U}}\hat{\Lambda}$.
 If we can find such an operator and solve the decoupled set of equations given by $\hat{\Lambda}\Phi = 0$ somehow,
-the solutions to the original equation can then be recovered from $\Phi$ using $\Psi = \hat{\mathsf{U}}\Phi$.
-However, Eq.~\eqref{eq:diagonalization} is an equation involving operators and standard linear algebra methods do not (directly) help in finding the unitary operator $\hat{\mathsf{U}}$.
+the solutions to the original equation can then be recovered from $\Phi$ using $\Psi = \widehat{\mathsf{U}}\Phi$.
+However, Eq.~\eqref{eq:diagonalization} is an equation involving operators and standard linear algebra methods do not (directly) help in finding the unitary operator $\widehat{\mathsf{U}}$.
 
 We start by finding the symbol form of the following two equations.
 %
 \begin{equation}
   \begin{aligned}
-    \hat{\mathsf{D}}\hat{\mathsf{U}} &= \hat{\mathsf{U}}\hat{\Lambda}\\
-    \hat{\mathsf{U}}^{\dagger}\hat{\mathsf{U}} &= \mathsf{I}_{n}.
+    \widehat{\mathsf{D}}\widehat{\mathsf{U}} &= \widehat{\mathsf{U}}\hat{\Lambda}\\
+    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \mathsf{I}_{n}.
   \end{aligned}
 \end{equation}
 %
-Here we assume that the operators $\hat{\mathsf{D}}$, $\hat{\mathsf{U}}$, and $\hat{\Lambda}$ have some problem-relevant ordering parameter $\epsilon$ so that we can expanded the operators (and their symbols) in terms of $\epsilon$.%
-\footnote{In their papers, Littlejohn and coworkers~\cite{littlejohn1991,weigert1993} assume that $\hat{\mathsf{D}}$ is \emph{not} ordered in $\epsilon$, i.e., $\hat{\mathsf{D}} = \hat{\mathsf{D}}_{0}$.
+Here we assume that the operators $\widehat{\mathsf{D}}$, $\widehat{\mathsf{U}}$, and $\hat{\Lambda}$ have some problem-relevant ordering parameter $\epsilon$ so that we can expanded the operators (and their symbols) in terms of $\epsilon$.%
+\footnote{In their papers, Littlejohn and coworkers~\cite{littlejohn1991,weigert1993} assume that $\widehat{\mathsf{D}}$ is \emph{not} ordered in $\epsilon$, i.e., $\widehat{\mathsf{D}} = \widehat{\mathsf{D}}_{0}$.
   This might seem confusing at first since the parameter $\epsilon$ must appear somewhere in the problem.
   The thing is that very often, $\epsilon$ appears as a factor to a spatial derivative operator, e.g., $-i\epsilon\partial_{x}$, which put together becomes a momentum operator that doesn't have further $\epsilon$ dependence.
-  Of course, $\hat{\mathsf{D}}$ could have further nontrivial dependence on $\epsilon$, which is a more general situation, and the one we want to consider here.
+  Of course, $\widehat{\mathsf{D}}$ could have further nontrivial dependence on $\epsilon$, which is a more general situation, and the one we want to consider here.
 }
 %
 \begin{equation}
   \begin{aligned}
-    \hat{\mathsf{D}} &= \hat{\mathsf{D}}_{0} + \epsilon\hat{\mathsf{D}}_{1} + \epsilon^{2}\hat{\mathsf{D}}_{2} + \cdots\\
-    \hat{\mathsf{U}} &= \hat{\mathsf{U}}_{0} + \epsilon\hat{\mathsf{U}}_{1} + \epsilon^{2}\hat{\mathsf{U}}_{2} + \cdots\\
+    \widehat{\mathsf{D}} &= \widehat{\mathsf{D}}_{0} + \epsilon\widehat{\mathsf{D}}_{1} + \epsilon^{2}\widehat{\mathsf{D}}_{2} + \cdots\\
+    \widehat{\mathsf{U}} &= \widehat{\mathsf{U}}_{0} + \epsilon\widehat{\mathsf{U}}_{1} + \epsilon^{2}\widehat{\mathsf{U}}_{2} + \cdots\\
     \hat{\Lambda} &= \hat{\mathsf\Lambda}_{0} + \epsilon\hat{\mathsf\Lambda}_{1} + \epsilon^{2}\hat{\mathsf\Lambda}_{2} + \cdots
   \end{aligned}
   \qquad\text{and}\qquad
@@ -347,10 +474,10 @@ In other words, we can obsorb any nonzero diagonal entries of $\mathsf{B}$ by a 
 Thus, without loss of generality we take the diagonal part $\mathsf{B}'$ to be zero.
 
 \begin{example}[A simple ``coupled'' differential operator]
-Consider an operator $\hat{\mathsf{D}}$ (with symbol $\mathsf{D}$) defined by
+Consider an operator $\widehat{\mathsf{D}}$ (with symbol $\mathsf{D}$) defined by
 %
 \begin{equation}
-  \hat{\mathsf{D}} =
+  \widehat{\mathsf{D}} =
   \begin{pmatrix}
     \hat{p} & -\lambda\\
     -\lambda & \hat{p}
@@ -363,7 +490,7 @@ Consider an operator $\hat{\mathsf{D}}$ (with symbol $\mathsf{D}$) defined by
   \end{pmatrix}.
 \end{equation}
 %
-The wave equation $\hat{\mathsf{D}}\Psi = 0$ defined by this operator can be trivially shown to be equivalent to the uncoupled ODEs $\partial_{x}^{2}\Psi_{\alpha} + \lambda^{2}\Psi_{\alpha} = 0$ in components $\Psi_{\alpha}$ of $\Psi$.
+The wave equation $\widehat{\mathsf{D}}\Psi = 0$ defined by this operator can be trivially shown to be equivalent to the uncoupled ODEs $\partial_{x}^{2}\Psi_{\alpha} + \lambda^{2}\Psi_{\alpha} = 0$ in components $\Psi_{\alpha}$ of $\Psi$.
 Solving this ODE, we find $\Psi_{1} = A_{+}e^{i \lambda x} + A_{-}e^{-i\lambda x}$ and $\Psi_{2} = A_{+}e^{i \lambda x} - A_{-}e^{-i\lambda x}$.
 %
 By diagonalizing the symbol matrix $\mathsf{D}$, we find $\mathsf{U}$ and $\Lambda$, which can be transformed back to find the diagonalized operator $\hat{\Lambda}$:
@@ -388,7 +515,7 @@ By diagonalizing the symbol matrix $\mathsf{D}$, we find $\mathsf{U}$ and $\Lamb
 \end{equation}
 %
 The uncoupled system given by $\hat{\Lambda}\Phi = 0 $ has solutions $\Phi_{1} = B_{+}e^{i\lambda x}$ and $\Phi_{2} = B_{-}e^{-i\lambda x}$.
-The solution to the original system can be recovered by $\Psi = \hat{\mathsf{U}}\Phi$, which gives us\footnote{The operator $\hat{\mathsf{U}}$ is equal to its symbol $\mathsf{U}$ since its matrix entries are constants.}
+The solution to the original system can be recovered by $\Psi = \widehat{\mathsf{U}}\Phi$, which gives us\footnote{The operator $\widehat{\mathsf{U}}$ is equal to its symbol $\mathsf{U}$ since its matrix entries are constants.}
 %
 \begin{equation}
   \Psi = \frac{1}{\sqrt{2}}

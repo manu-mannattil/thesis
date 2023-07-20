@@ -57,11 +57,197 @@
 \begin{enumerate}
   \item Parity of the filament operator.%
     \footnote{%
-    More quantum mechanically, this can be shown by considering the commutation of $\hat{\mathsf{D}}$ with the operators $\mathsf{P}_{\pm} = \diag\left(\hat{\pi}, \pm\hat{\pi}\right)$, where $\hat{\pi}$ is the usual parity operator~\cite{cohen-tannoudji2019}.
-      Clearly, $\hat{\mathsf{P}}_{\pm}\Psi(x) = \left[\zeta(-x), \pm u(-x)\right]$ so that
+    More quantum mechanically, this can be shown by considering the commutation of $\widehat{\mathsf{D}}$ with the operators $\mathsf{P}_{\pm} = \diag\left(\hat{\pi}, \pm\hat{\pi}\right)$, where $\hat{\pi}$ is the usual parity operator~\cite{cohen-tannoudji2019}.
+      Clearly, $\widehat{\mathsf{P}}_{\pm}\Psi(x) = \left[\zeta(-x), \pm u(-x)\right]$ so that
       the eigenstates of $\mathsf{P}_{+}$ always have $\zeta(x)$ and $u(x)$ of the same parity, whereas the eigenstates of $\mathsf{P}_{-}$ always have $\zeta(x)$ and $u(x)$ of different parity.
-      Furthermore, for odd and even $m(x)$, we can show that $\hat{\mathsf{D}}$ commutes with $\hat{\mathsf{P}}_{+}$ and $\hat{\mathsf{P}}_{-}$, respectively.
+      Furthermore, for odd and even $m(x)$, we can show that $\widehat{\mathsf{D}}$ commutes with $\widehat{\mathsf{P}}_{+}$ and $\widehat{\mathsf{P}}_{-}$, respectively.
       As commuting operators share the same eigenstates (assuming nondegeneracy), this proves the claim made above.%
     }
 \end{enumerate}
 
+\subsection{Crap}
+
+Applying the rank-nullity theorem to the compatibility matrix, we arrive at the Maxwell--Calladine theorem.\footnote{Originally devised by Maxwell in the context of tensegrity structures.}
+%
+\begin{theorem}[Maxwell--Calladine index theorem]
+  Given a mechanism with $n$ degrees of freedom and $m$ constraints in a state of self stress, the number of zero modes $z$ and the number of self stresses $s$ satisfy the relation
+  \begin{equation*}
+    n - m = z - s.
+  \end{equation*}
+\end{theorem}
+
+\section{Unused}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{unused/confspace.pdf}
+  \end{center}
+  \caption{A classical system, composed of many point particles and rigid bodies, can be represented by a single configuration vector $\bm{q}$ of a high-dimensional configuration space $\Sigma$, which may or may not be a smooth manifold. (Inspired by Fig.~20.1 of Ref.~\cite{penrose2004}.)}
+\end{figure}
+
+\subsection{Effect of pinning the vertices}
+
+The number of self stresses depend strongly on the number of pinned vertices -- a square with an internal vertex, but pinned corners has two states of self stress.  The same square has only one state of self stress if the corners are not pinned.
+This can be physical explained on the basis of force balance.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{unused/origami2/selfstress.pdf}
+  \end{center}
+  \caption{
+    Two independent states of self stress in an origami with two internal vertices.
+    The lengths of the self stress arrows on the $i$th edge is proportional to $\sqrt[4]{\sigma_{i}}$.
+  }
+  \label{fig:origami2_selfstress}
+\end{figure}
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{unused/pinned/pinned.pdf}
+  \end{center}
+  \caption{
+    \textsf{\textbf{(a)}} A quadrilateral framework with one self stress.
+    \textsf{\textbf{(b)}} The same framework has two independent self stresses when the corners are pinned.
+  }
+  \label{fig:quad_pinned}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{unused/zerodof.pdf}
+  \end{center}
+\caption{A zero \ac{dof} linkage without self stress.  Note how the two constraint manifolds $\mathcal{M}_1$ and $\mathcal{M}_2$ are transverse to each other.}
+  \label{fig:hello}
+\end{figure}
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{unused/zerodof_spring.pdf}
+  \end{center}
+\caption[foo]{A zero \ac{dof} linkage without self stress.  Note how the two constraint manifolds $\mathcal{M}_1$ and $\mathcal{M}_2$ are transverse to each other.}
+  \label{fig:hello2}
+\end{figure}
+\pagebreak
+
+\section{Energy (unused)}
+\label{sec:Energy (unused}
+
+
+The potential energy of the entire framework, at a point $\bar{\bm{q}} \in \Sigma$, under a general perturbation $\bar{\bm{q}} \to \bar{\bm{q}} + \bm{v}$, with $\bm{v} \in \mathbb{R}^n$, to the lowest order in $\bm{v}$ is
+\begin{equation}
+  U(\bm{v}) \approx \frac{1}{2}\bm{v}\trans\mathsf{C}\trans\mathsf{K}K\mathsf{C}\bm{v} = \frac{1}{2}\bm{v}\trans\mathsf{D}D\bm{v}\,,\label{eq:energy1}
+\end{equation}
+where $\mathsf{K}K = \diag(K_1, K_2, \ldots, K_m)$ is the $m\times m$ diagonal matrix of spring constants $K_i = \phi_i''(\bar{\ell_i})$ and $\mathsf{D}D = \mathsf{C}\trans\mathsf{K}K\mathsf{C}$ is the $n\times n$ dynamical matrix.
+Since all the potential functions $\phi_i$ have a minimum at $\ell_i = \bar{\ell_i}$, the spring constants $K_i$ are positive nonzero numbers and the matrix $\mathsf{K}K$ is positive definite.
+However, the dynamical matrix $\mathsf{D}D$ is, in general, only positive semidefinite since $\ker{\mathsf{C}}$ need not be empty.
+
+If point $\bar{\bm{q}} \in \Sigma$ does not admit a state of self stress, then the dynamical matrix $\mathsf{D}D$ has $z = n - m$ zero eigenvalues, each corresponding to a zero mode.
+The other $n - z = m$ eigenvalues of $\mathsf{D}D$ are nonzero and correspond to the normal modes of the spring framework.
+Essentially, the number of normal modes is the codimenison of the manifold $\Sigma$.
+Since $\Sigma$ is a smooth manifold at $\bar{\bm{q}}$, we can identify the $z$-dimensional space of zero modes with the tangent space $T_{\bar{\bm{q}}}\Sigma$ at that point.
+Similarly, the $m$-dimensional space of normal modes can be identified with the normal space $N_{\bar{\bm{q}}}$.
+% Each zero mode in $X$ corresponds to a smooth deformation of the framework that does not change spring lengths and hence do not cost energy to \emph{any order}.
+% However, as in Section~TODO, we are often interested in the energy change due perturbations that change the spring lengths.
+% In other words, the perturbations that move the point $\bm{q}$ away from the shape space $\Sigma$.
+% Thus, we focus on perturbations $\ybm \in Y = N_{\bm{q}}\Sigma$, in which case the energy to the lowest order is
+% \begin{equation}
+%   U(\ybm) \approx \frac{1}{2}\ybm \mathsf{D}D \ybm\,.
+% \end{equation}
+
+On the other hand, if the framework admits self-stress states at a point $\bar{\bm{q}} \in \Sigma$, then $\mathsf{C}$ is not full rank and there is no well defined tangent space or normal space at $\bar{\bm{q}}$.
+Nonetheless, one can still define the $z$-dimensional subspace of the zero modes as $\ker{\mathsf{C}}$.
+From Eq.~\eqref{eq:mcindex} we have $z = n - m + s$, with $s$ being the dimension of the subspace of self stresses.
+Similarly, the 2space of normal modes is $(\ker \mathsf{C})^\perp$, the orthogonal complement of $\ker{\mathsf{C}}$ in $\mathbb{R}^n$ under the standard Euclidean dot product.
+Clearly, the number of normal modes is $n - z = m - s$.
+
+However, unlike the case without self stresses, now, zero modes in do not \emph{always} correspond to deformations of the framework that preserve the spring lengths.
+Therefore, they \emph{do} contribute to the energy at higher orders and one has to analyze their contributions more systematically.
+We can decompose any general perturbation $\bm{v} \in \mathbb{R}^n$ as
+
+\section{Introduction}
+
+A \emph{framework} can be broadly defined as a mechanical system comprised of rigid parts that move under constraints.%
+\footnote{There is some inconsistency in the definition of a framework.
+  For instance, in most engineering contexts~\cite{hartenberg1964,hunt1978,myszka2012}, a framework is considered to be a subelement of a larger machine, or is synonymous with it.
+  On the other hand, some authors~\cite{connelly2022} often define a framework to be a specific deformation of a mechanical system allowed by its constraints, e.g., a rotor with two degrees of freedom and one constraint is said to possess one framework.
+  In this thesis, we prefer the engineering definition and a framework always refers to a mechanical system or its subelements, and not its individual motions.}
+A framework could something simple like a linear rotor to something complex like an internal-combustion engine.
+A large class of frameworks are modeled as frameworks comprising of joints connected by rigid bars.
+
+\section{Rigidity theory}
+
+See the notes by \citet{connelly2022} for an introduction to tensegrity structures and the primer by \citet{williams2003} for a slightly advanced treatment.
+
+Forces involved in a state of self stress obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque \cite[\S 1.2]{goldstein2002}.
+Thus, a tensegrity under self stress is in a state of mechanical equilibrium.
+The equilibrium may or may not be stable: again, think of the example with a particle tethered to two walls using springs that are under compression (unstable) or under elongation (stable).
+
+Note that SS exists outside of tensegrity structures.
+The only requirement is that all particles interact via central forces.
+E.g., one can think of electrostatic analogies, or sticky colloidal clusters.
+
+SS is caused due to linear dependence of constraints.
+They might be independent nonlinearly, but on a linear level they are dependent.
+Linear constraints are, simply put, hyperplanes.
+
+Maxwell--Calladine theorem is a finite-dimensional toy ``index'' theorem~\cite[\S 2.2]{nakahara2003}.
+
+See the thesis \cite{lengyel2002}.
+
+\subsection{Four-bar linkage}
+
+Originally analyzed by Franz Grashof~\cite[pp.~113--118]{grashof1883}.
+
+
+\subsection{Fold angles}
+
+How does one assign signs for fold angles on an origami where the faces are triangles?
+Imagine that you are standing with your head pointing in the positive $z$ direction at the corner of the triangle that is opposite to the fold and facing it.
+Now, keep your right feet on one of the sides and your left feet on the other.
+Now when you look at the fold, if it's a mountain fold, assign it a positive sign, and if it's a valley fold, assign it a negative sign.
+
+\section{Self stress}
+
+Note that sometimes it is customary to define self stresses as belonging to the cokernel of the rigidity matrix, i.e., $\sigma_{\mathsf{R}}$ satisfying $\mathsf{R}\trans\sigma_{\mathsf{R}} = 0$.
+As $\mathsf{C}\trans = \mathsf{R}\trans\mathsf{L}^{-1}$, for every $\sigma \in \coker\mathsf{C}$, we have
+%
+\begin{equation}
+  %\mathsf{\sigma}_{\mathsf{C}}\mathsf{C} = (\sigma_{\mathsf{C}} \mathsf{L}^{-1})\mathsf{R} = 0,
+  \mathsf{C}\trans\sigma = \mathsf{R}\trans\left(\mathsf{L}^{-1}\mathsf{\sigma}\right) = 0
+\end{equation}
+%
+so that $\sigma_{\mathsf{R}} = \mathsf{L}^{-1}\sigma$.
+
+
+
+
+\section{Unused: Hard vs. soft constraints}
+
+Trimer discussed in Refs.~\cite{kampen1981,kampen1984} (and also in Refs.~\cite[Section 15.1]{frenkel2001} and \cite{walter2011})
+
+\section{CV under a transformation that is not smooth}
+
+The free energy difference becomes
+%
+\begin{equation}
+  \Delta\free{\xi} = -\beta^{-1}\log\left[\frac{\sqrt{\pi}\left(\abs{\cos\xi'} + \abs{\sin\xi'}\right)}{2 + \sqrt{X}D_{-1/2}(0)\left(1 + Y\right)}\right]
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \Delta\free{\xi} &= \beta^{-1}\log\left[2 + \sqrt{X}D_{-1/2}(0)\left(1 + Y\right)\right] \\
+                     &\qquad -\beta^{-1}\log\Big\{2\abs{\cos\xi'}^{-1} + \sqrt{X}\big[\exp(-X^{2}\xi'^{4})D_{-1/2}(-2X\xi'^{2})\\
+                     & \phantom{\qquad-\beta^{-1}\log\Big\{2\abs{\cos\xi'}^{-1} + \sqrt{X}\big[}
+                 \quad+Y\exp(-X^{2}Y^{2}\xi'^{4})D_{-1/2}(-2XY\xi'^{2})\big]\Big\}   \end{aligned}
+\end{equation}
+%
+Here $\xi' = \pi\xi/4$.
+
+\subsubsection{Cone-plane intersection}
+
+A singularity is formed at the origin when a cone $z^2 = x^2 + y^2$ intersects with the $yz$ plane.
+However, there's no lowering of the free energy since the intersection isn't a nontransversal intersection.
+The only plane tangent to the $yz$ plane is the $yz$ plane itself, which is not tangential to the cone at the origin.
+One might object that the cone itself ceases to be a manifold at the origin.
+However, one can always ``file off'' the tip of the cone and make it infinitesimally smooth like a physicist would do.
+This would still produce no lowering of the free energy.

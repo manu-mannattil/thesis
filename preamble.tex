@@ -33,6 +33,10 @@
   \fi
 \fi
 
+\ifdraftdoc
+  \DoubleSpacing
+\fi
+
 % Important.  Potato layout otherwise.
 \checkandfixthelayout
 
@@ -48,8 +52,8 @@
 \setlength{\skip\footins}{16pt plus 4pt minus 4pt}
 \setlength{\parskip}{0pt}
 
-% % Reduce space before/after equations.
-% % https://tex.stackexchange.com/a/47776
+% Reduce space before/after equations.
+% https://tex.stackexchange.com/a/47776
 \g@addto@macro \normalsize {%
   \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
   \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
@@ -77,7 +81,6 @@
   \usepackage[draft]{emem}
 \else
   \usepackage{emem}
-  \usepackage{pdfpages}
   \usepackage{xcolor}
 
   % No colors for links in printed version.
@@ -113,6 +116,7 @@
 
 \usepackage{acronym}
 \usepackage{fourierx} % fonts
+%\usepackage{lmodern,amssymb,mathrsfs,stmaryrd,bm} % fonts
 
 % Set up path for graphicsx.
 \graphicspath{{figures}}
@@ -243,6 +247,8 @@
 
 % Memoir tweaks --------------------------------------------------------
 
+% XXX: Move as much as possible to emem.sty
+
 % Chapter precis (i.e., abstract for a chapter) tweaks.
 % TODO: How to control spacing after the precis without a \\?
 \setlength{\prechapterprecisshift}{-\baselineskip}
@@ -251,8 +257,13 @@
 % Header customization.
 \nouppercaseheads
 \def\headerstyle#1{\altsf@family@medium#1}
-\makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
-\makeoddhead{headings}{}{\headerstyle{\rightmark}}{\headerstyle{\thepage}}
+\ifsustyle
+  \makeevenhead{headings}{}{}{\headerstyle{\thepage}}
+  \makeoddhead{headings}{}{}{\headerstyle{\thepage}}
+\else
+  \makeevenhead{headings}{\headerstyle{\thepage}}{\headerstyle{\leftmark}}{}
+  \makeoddhead{headings}{}{\headerstyle{\hskip0.05em\rightmark}}{\headerstyle{\thepage}}
+\fi
 
 % Chapter page footer: page number in the middle.
 \makeoddfoot{plain}{}{\headerstyle{\thepage}}{}

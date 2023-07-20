@@ -6,30 +6,7 @@
 
 \section{Introduction}
 
-Bar-joint mechanisms constitute one of the simplest, widely-employed models to understand a variety of mechanical structures ranging from viruses~\cite{hespenheide2004},
-colloidal clusters~\cite{holmes-cerfon2013,kallus2017,holmes-cerfon2017,robinson2019},
-crystals~\cite{power2014} and minerals~\cite{kapko2011}, %, allostery in proteins~\cite{gaspar2012},
-and robots and machines~\cite{farber2008,donelan2007}.
-More recently, DNA origami has made the direct fabrication of miniaturized mechanisms possible at the nanoscale, where thermal fluctuations due to the surrounding medium cannot be neglected~\cite{marras2015,jung2020}.
-As far as more generic descriptions of thermally-driven mechanisms are concerned, there has been long-standing interest in the effect of thermal fluctuations on the mechanical properties of ordered and disordered lattices~\cite{zhang2016,woodhouse2018,yan2018}, and the folding of polymerized membranes~\cite{di-francesco2000,nelson2004} and polyhedral nets~\cite{shenoy2012,dodd2018,melo2020}.
-There is, therefore, an arising need to understand how thermal excitations affect the physical properties of these mechanisms, but only some attempts have been made so far~\cite{kallus2017,rocklin2018}.
-
-The effect of thermal fluctuations on a physical system is often represented by its free-energy landscape in terms of a set of collective variables that provide a coarse-grained description of its slowest dynamics.
-In theory~\cite{go1976,echenique2011}, one can obtain the free energy of a mechanism by integrating out the fast modes that are transverse to its shape space, i.e., the subset of its configuration space once rigid-body motions are removed.
-Doing this, however, becomes nontrivial when the mechanism has shape-space singularities~\cite{zlatanov2002,liu2003,donelan2007}.
-For concreteness, consider the shape space of the planar four-bar linkage with freely rotating joints~\cite{grashof1883,hartenberg1964,shimamoto2005} (Fig.~\ref{fig:4bar_cs}).
-Though this linkage has one degree of freedom up to Euclidean motions, it has two modes of deformation, one where the angle $\theta_1 = \theta_2$ and another where $\theta_1 \ne \theta_2$, meeting at two isolated singular points $(\theta_1,\theta_2) = (0,0)$ and $(\pi,\pi)$.
-One generically expects the mechanism to be soft at these singularities, and indeed the free energy diverges in a harmonic approximation of the elastic energy~\cite{rocklin2018}.
-These divergences must be cut off by higher-order nonlinear effects, yet how this happens and to what extent remains to be understood.
-
-In this Letter, we develop a formalism to understand the thermal equilibration of common bar-joint mechanisms that have isolated shape-space singularities.
-We show that the divergent contributions to the free energy arising in the harmonic approximation to the energy are suppressed by anharmonic corrections.
-These findings show the existence of energetic free-energy barriers between configurations near the singularities and configurations farther from the singularities.
-Our results are consistent with a closely-related work~\cite{kallus2017,holmes-cerfon2017} on singular colloidal clusters, but allow for isolated singularities of the shape space.
-We demonstrate our results using both the four-bar linkage as well as a flat, triangulated origami~\cite{chen2018}.
-Our analysis has direct consequences in the design and employment of nanoscale mechanisms in applications ranging from self-assembly~\cite{liedl2010} to drug delivery~\cite{zhao2019}, where relative thermodynamic stability of different configurations is of paramount importance.
-
-\section{Mechanisms and singularities}
+\section{Constraints in frameworks}
 
 We consider bar-joint mechanisms made of $N \geq 3$ point-like joints in $d$ dimensions connected by $m < Nd - \frac{1}{2}d(d+1)$ freely-rotating, massless bars.
 If the joints have position vectors $\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N} \in \mathbb{R}^d$ in the lab frame, the mechanism's configuration can be fully described at any given moment using a configuration vector $\bm{r}\in\mathbb{R}^{N d}$ defined by $\bm{r} = (\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N})$.
@@ -38,7 +15,7 @@ Here $\ell_{i}(\bm{r})$ is the length of the $i$th bar with an energy $\phi_i(\e
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech//4bar_cs.pdf}
+    \includegraphics{frameworks//4bar_cs.pdf}
   \end{center}
   \caption{Shape space of the planar four-bar linkage visualized as two intersecting curves on a torus, each curve representing a ``branch'' of the shape space.
     The poloidal and toroidal angles along the branches correspond to the angles $\theta_1$ and $\theta_2$ of the linkage, which has two modes of deformation with $\theta_{1} = \theta_{2}$ (blue curve) and $\theta_{1} \ne \theta_{2}$ (red curve).}
@@ -88,6 +65,7 @@ At low temperatures (i.e., large $\beta$) we can asymptotically evaluate the int
 Since all ground states belong to the shape space $\Sigma$, they could be regular (i.e., nonsingular) points or singularities of $\Sigma$.
 We call $\xi$ a regular value of the \ac{cv} if $\hat{\xi}^{-1}(\xi)$ does not contain singularities of $\Sigma$ and vice-versa.
 For now, let us assume that $\xi$ is a regular value of the \ac{cv} and that $\hat{\xi}^{-1}(\xi)$ contains just one ground state $\bar{\bm{q}}$.
+
 If $\bm{q}$ is a point near $\bar{\bm{q}}$, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, we expand the energy to the lowest order around $\bar{\bm{q}}$ and find the harmonic energy $U \approx \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}$.
 Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix evaluated at $\bar{\bm{q}}$~\cite{lubensky2015} (assuming joints of unit mass) and $\mathsf{K}$ is the diagonal matrix of bar stiffnesses $\phi_{i}''(\bar{\ell}_{i})$, which we set equal to $\kappa$ for all bars for simplicity.
 See the Supplemental Material (SM) for details.
@@ -156,7 +134,7 @@ Also, for both the quartic and harmonic approximations for $\mathscr{P}(\xi)$, w
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech//4bar_free.pdf}
+    \includegraphics{frameworks//4bar_free.pdf}
   \end{center}
   \caption{Free-energy difference $\Delta\mathscr{A}(\theta_1)$ of a four-bar linkage with parameters $a=1$ and $\lambda=2$ in units of $\beta^{-1}$ at $\beta = 10^{4}$.
   The inset shows the absolute errors between the numerical and asymptotic results using the harmonic approximation [Eq.~\eqref{eq:4bar_reg}, blue curve] and quartic approximation [Eq.~\eqref{eq:4bar_0}, red curves].}
@@ -167,10 +145,10 @@ So far we have only considered cases where the \ac{cv} level set $\hat{\xi}^{-1}
 However, as $\Sigma$ has a branched structure, $\xi$ need not identify a configuration in $\Sigma$ uniquely.
 Indeed, for the four-bar linkage, we see that there are as many as two configurations with a given value of $\theta_{1}$ (Fig.~\ref{fig:4bar_cs}).
 Nonetheless, it is easy to find the asymptotic marginal density for more general cases by using combinations of Eqs.~\eqref{eq:mpd_regular} and \eqref{eq:mpd_singular} to add the contribution of each ground state in $\hat{\xi}^{-1}(\xi)$ individually, noting that Eq.~\eqref{eq:mpd_singular} gives the collective contribution from all the branches meeting at a singularity.
-%
+% XXX: make smaller figure.
 \begin{figure*}
   \begin{center}
-    \includegraphics{singmech//origami_free.pdf}
+    \includegraphics[width=\textwidth]{frameworks//origami_free.pdf}
   \end{center}
   \caption{(a) A triangulated origami modeled as a bar-joint mechanism and (b) its shape space visualized in the space of fold angles $\rho_{1}, \rho_{2}$, and $\rho_{3}$.
     (c) Free-energy difference $\Delta\mathscr{A}(\rho_{1})$ in units of $\beta^{-1}$ at $\beta = 10^{4}$.
@@ -239,105 +217,6 @@ Since changes in configuration space topology is known to drive equilibrium phas
 Indeed, the affinity for the origami to be in nearly-flat configurations is reminiscent of the well-known flat phase of a polymerized membrane~\cite{abraham1990,bowick1996}, which is the natural thermodynamic limit of the triangulated origami.
 Other open questions include the behavior of these mechanisms in the presence of active (nonthermal) noise~\cite{woodhouse2018}, which is known to preferentially actuate zero modes, and methods to bias their dynamics towards desired states~\cite{kang2019}, e.g., by introducing \ac{cv}-dependent bias potentials~\cite{kastner2011}.
 
-\section{Lowest-order Approximation of the Energy}
-\label{sm:sec:energy}
-
-The $i$th bar in the mechanism has a potential energy $\phi_i[\ell_i(\bm{q})]$.
-The constraint function associated with this bar is $f_i(\bm{q}) = [\ell_i^2(\bm{q}) - \bar{\ell}_i^2]/(2\bar{\ell}_i)$.
-Consider a point $\bar{\bm{q}}$ on the shape space $\Sigma$ where the mechanism is in equilibrium.
-Dropping the index $i$ for now and noting that $\ell(\bar{\bm{q}}) = \bar{\ell}$, we first express the gradient and the Hessian of the length $\ell(\bm{q})$ at $\bm{q} = \bar{\bm{q}}$ in terms of the gradient and the Hessian of $f(\bm{q})$ as
-%
-\begin{equation}
-\begin{aligned}
-  \partial_j \ell &= \partial_j f,\\
-  \partial_j\partial_k \ell &= \partial_j\partial_k f - \bar{\ell}^{-2}\partial_j f\partial_k f,
-  \label{sm:eq:lentomap}
-\end{aligned}
-\end{equation}
-%
-where all the partial derivatives are with respect to the components of $\bm{q}$ and evaluated at $\bm{q} = \bar{\bm{q}}$.
-
-Since we have assumed the potential energy of all bars to have a minimum value (assumed to be zero) on the shape space, where $\ell = \bar{\ell}$, the derivative $\phi'(\bar{\ell})$ vanishes.
-We wish to find the lowest-order expansion of the total potential energy $U(\bm{q})$ near a point $\bar{\bm{q}} \in \Sigma$.
-First, let us consider the case where $\bar{\bm{q}}$ is not a point of self stress, in which case all zero modes are tangent to $\Sigma$ and can be extended to smooth deformations of the mechanism that do not cost energy to any order.
-In such a situation, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, the potential energy of a single bar to $\mathscr{O}(\Abs{\bm{q}}^2)$ is the familiar Hookean potential
-%
-\begin{equation}
-  \phi[\ell(\bar{\bm{q}} + \bm{q})] =  \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 + \mathscr{O}(\Abs{\bm{q}}^3).
-\end{equation}
-%
-Above, the partial derivatives of $\ell(\bm{q})$ and the derivatives of $\phi(\ell)$ have been evaluated at $\bar{\bm{q}} \in \Sigma$ and $\ell = \bar{\ell}$, respectively.
-The repeated indices are summed over as usual.
-Reintroducing the free index $i$, and noting that the stiffness $\kappa_{i} = \phi_{i}''(\ell_{i})$ and $\partial_{j}\ell_{i}\,q_{j} = \partial_{j}f_{i}\,q_{j} = \nabla f_{i}\cdot\bm{q}$, the total energy becomes
-%
-\begin{equation}
-  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \frac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.
-  \label{sm:eq:regenergy}
-\end{equation}
-
-Now let us analyze the case where there are additional zero modes due to the presence of a self stress.
-Dropping the index $i$ again, we first expand the energy of a bar to $\mathscr{O}(\Abs{\bm{q}}^4)$ and find
-%
-\begin{equation}
-  \begin{aligned}
-    \phi[\ell(\bar{\bm{q}} + \bm{q})] &=
-    \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 +
-    \frac{1}{6}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^3 +
-    \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)\partial_k\partial_l \ell\, q_k q_l\\ &\qquad+
-    \frac{1}{24}\phi''''(\bar{\ell})(\partial_j \ell\,q_j)^4 +
-    \frac{1}{4}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^2 \partial_k \partial_l \ell\, q_k q_l\\ &\qquad+
-    \frac{1}{8}\phi''(\bar{\ell})(\partial_j\partial_k \ell\, q_j q_k)^2 +
-    \frac{1}{6}\phi''(\bar{\ell})(\partial_j \ell\, q_j)\partial_k\partial_l\partial_m \ell\, q_k q_l q_m + \mathscr{O}(\Abs{\bm{q}}^5).
-  \end{aligned}
-  \label{sm:eq:energyexp}
-\end{equation}
-%
-As in the main text, the subspace of zero modes is $\ker\mathsf{C}$ and its orthogonal compliment in $\mathbb{R}^n$ is $(\ker\mathsf{C})^\perp$ and we write $\bm{q} = \bm{u} + \bm{v}$, with $\bm{u} \in \ker\mathsf{C}$ and $\bm{v} \in (\ker\mathsf{C})^{\perp}$.
-First let us analyze the contribution of the zero mode $\bm{u}$ to the energy.
-Since $\bm{u}$ is a zero mode, we have $\mathsf{C}\bm{u} = \bm{0}$.
-Now, as $\partial_j f$ is a row of $\mathsf{C}$, this implies $\partial_j f u_j = 0$.
-Using this in Eq.~\eqref{sm:eq:lentomap} we get
-%
-\begin{equation}
-  \begin{aligned}
-    \partial_j \ell\,u_j &= \partial_j f u_j=0,\\
-    \partial_j \partial_k \ell\, u_j u_k
-                        &= \partial_j\partial_k f u_j u_k - \bar{\ell}^{-2}(\partial_j f\, u_j) (\partial_k f\, u_k)\\
-                        &= \partial_j\partial_k f\, u_j u_k.
-  \end{aligned}
-\end{equation}
-%
-Setting $\bm{v} = \bm{0}$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathscr{O}(\Abs{\bm{u}}^4)$ term $\frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
-
-To understand how a fast mode $\bm{v}$ contributes to the energy, we similarly set $\bm{u} = \bm{0}$ in the energy expansion.
-Since $\bm{v}$ belongs to the orthogonal compliment of the subspace of zero modes, by definition, $\partial_j \ell v_j = \partial_j f v_j \ne 0$.
-Hence, we see that the first nonvanishing contribution comes from the $\mathscr{O}(\Abs{\bm{v}}^2)$ term $\frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\, v_j)^2 = \frac{1}{2}\phi''(\bar{\ell})(\partial_j f\, v_j)^2$.
-This shows that the energy scales as $\mathscr{O}(\Abs{\bm{u}}^4) \sim \mathscr{O}(\Abs{\bm{v}}^2)$, i.e., zero and fast modes respectively make quartic- and harmonic-order contributions to the energy.
-Finally, we set $\bm{q} = \bm{u} + \bm{v}$ in Eq.~\eqref{sm:eq:energyexp}, and find the energy of the $i$th bar to the lowest order in $\bm{u}$ and $\bm{v}$ as
-%
-\begin{equation}
-  \begin{aligned}
-    \phi_i &= \frac{1}{2}\phi_i''(\bar{\ell}_i)(\partial_j\, f_i\, v_j)^2 + \frac{1}{2}\phi''_i(\bar{\ell}_i)(\partial_j f_i\, v_j)(\partial_k \partial_l f_i\, u_k u_l) + \frac{1}{8}\phi''_i(\bar{\ell}_i)(\partial_k \partial_l f_i\, u_k u_l)^2\\
-           &\qquad+ \mathscr{O}(\Abs{\bm{u}}^5) + \mathscr{O}(\Abs{\bm{u}}^{3}\Abs{\bm{v}}) +\mathscr{O}(\Abs{\bm{u}}\Abs{\bm{v}}^{2}),
-  \end{aligned}
-\end{equation}
-%
-where we have reintroduced the free index $i$.
-In the above equation, $\phi_{i}''(\bar{\ell}_i) = \kappa_i$, the stiffness of the $i$th bar, $\partial_j f_i v_j = \nabla f_i\cdot\bm{v}$, and $\partial_k\partial_l f_i\, u_k u_l = \bm{u}\trans(\hess f_i)\bm{u}$, with $\hess f_i$ being the Hessian matrix of the $i$th constraint function $f_i$.
-Then, the energy of the $i$th bar to the lowest order is
-%
-\begin{equation}
-  \phi_i \approx \frac{1}{2}\kappa_i \left[\nabla f_i\cdot\bm{v} + \frac{1}{2}\bm{u}\trans(\hess f_i)\bm{u}\right]^2.
-\end{equation}
-%
-Recognizing that $\frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$ is the $i$th component of the column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ defined in the main text, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ takes the form
-%
-\begin{equation}
-  U = \sum_{i=1}^m \phi_i \approx \frac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
-\end{equation}
-%
-This equation is a generalization of the energy of harmonic spring networks~\cite{zhang2016,woodhouse2018} and colloidal clusters~\cite{kallus2017} that have zero modes, for an arbitrary number of zero modes and degrees of freedom, as well as a general interaction energy $\phi_{i}$ between the particles (i.e., the joints).
-
 \section{Asymptotic Expressions for the Marginal Probability Density}
 
   As we remarked in the main text, the presence of the delta function restricts the domain of integration in the marginal density $\mathscr{P}(\xi)$ [Eq.~\eqref{eq:mpd}] to the \ac{cv} level set $\hat{\xi}^{-1}(\xi) = \left\{\bm{q} \in \mathbb{R}^{n}: \hat{\xi}(\bm{q}) = \xi\right\}$~\cite{hartmann2011}.
@@ -395,7 +274,7 @@ We have also rescaled $\bm{q} \to \alpha^{-1/2}\bm{q}$ for convenience.
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/levelsets}
+    \includegraphics{frameworks/levelsets}
   \end{center}
   \caption{Cartoon illustrating the shape space $\Sigma$ parameterized by the \ac{cv} $\xi$ and the CV level set $\hat{\xi}^{-1}(\xi)$.
     In general, the sets $\Sigma$ and $\hat{\xi}^{-1}(\xi)$ could intersect at multiple points, each of which is an energy ground state.
@@ -506,7 +385,7 @@ The form of the above equation suggests that the nonzero eigenvalues of $\mathsf
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/intersect.pdf}
+    \includegraphics{frameworks/intersect.pdf}
   \end{center}
   \caption{Cartoon illustrating the geometry of the branches and the level set $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$ of the linearized \ac{cv} map near the singularity, which is at $\bar{\bm{q}}^{*}$.
     The two ground-state configurations in the \ac{cv} level set are indicated by the intersection points of the branches with $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*})$.  As $\xi \to \xi^{*}$, these ground states get infinitesimally close to each other and the mechanism becomes soft.
@@ -718,7 +597,7 @@ Dropping the constant factor that one gets after integrating over $x_1, x_2, \te
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/4bar.pdf}
+    \includegraphics{frameworks/4bar.pdf}
   \end{center}
   \caption{Body frame on the planar four-bar linkage with joint~1 at the origin and bar~1--2 lying along the horizontal axis.
     The angle between the horizontal axes of the body and lab frame is $\eta$.}
@@ -1016,7 +895,7 @@ The net increase in the number of thermodynamically favorable states near small 
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/4bar_energy34.pdf}
+    \includegraphics{frameworks/4bar_energy34.pdf}
   \end{center}
   \caption{The level sets of the energy in Eq.~\eqref{sm:eq:energy34} around $(\theta_{1}, \theta_{2}) = (0, 0)$ for $a = \kappa = 1$ and $\lambda = 2$.  The width of the energy sublevel sets is larger along small nonzero values of $\theta_{1}$ compared to $\theta_{1} = 0$ (e.g., $\delta' > \delta$).}
   \label{sm:fig:energy34}
@@ -1051,7 +930,7 @@ After integrating over the coordinates of joint~1 (i.e., the translational coord
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/origami.pdf}
+    \includegraphics{frameworks/origami.pdf}
   \end{center}
   \caption{(a) A triangulated origami as a bar-joint mechanism illustrating the coordinates of the joints in the body frame. When the origami is flat, the external vertices lie on the corners of a unit square and the internal vertices 5 and 6 have coordinates $(1/4,1/2,0)$ and $(3/4,1/2,0)$. (b) Finding the \ac{cv} (i.e., fold angle $\rho_{1}$) using simple geometry.}
   \label{sm:fig:origami}
@@ -1142,7 +1021,7 @@ This is again because of the branched nature of its shape space and the increase
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/5bar.pdf}
+    \includegraphics{frameworks/5bar.pdf}
   \end{center}
   \caption{(a) The five-bar linkage and (b) its shape space visualized in terms of the angles $\zeta_{1}, \zeta_{2},$ and $\zeta_{3}$.  These angles are measured counterclockwise from an axis parallel to bar~1--5.  Free-energy profile (in units of $\beta^{-1})$ at $\beta = 10^{4}$ around the singular value $\zeta^{*} = (0, 0)$ from (c) theory [Eq.~\eqref{sm:eq:5bar}] and (d) simulations, with the dashed curves depicting the approximate bottom of the hyperbolic valley [Eq.~\eqref{sm:eq:5barvalley}].}
   \label{sm:fig:5bar}
@@ -1226,7 +1105,7 @@ Note that such a decomposition of $\ker\mathsf{C}$ into two vector subspaces is 
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{singmech/trimer.pdf}
+    \includegraphics{frameworks/trimer.pdf}
   \end{center}
   \caption{(a) A planar mechanism with four joints and four bars in a body frame attached to the mechanism.  A bar of length $a$ connects joints~1 and~2, and two other bars of length $\frac{1}{2}a$ connect joint~3 with joints~1 and~2, which results in a state of self stress between joints 1, 2, and 3~\cite{calladine1978} for all values of $\theta$. Here $\bm{t}$ is the zero mode corresponding to tangential motion on the shape space $\Sigma$, $\bm{u}$ is a singular zero mode associated with the self stress, and $\bm{v}$ is one of the three vibrational modes.  (b) Free-energy difference $\Delta\mathscr{A}(\theta)$ [Eq.~\eqref{sm:eq:trimer_free}] in units of $\beta^{-1}$ for a hypothetical $\theta$-dependent stiffness $\kappa(\theta) = \kappa_{0}(1 + \cos^{2}{\theta})$, chosen to verifying scaling. For constant stiffness, $\Delta\mathscr{A}(\theta)$ is zero and the free-energy landscape is flat (unlike in the case of isolated singularities).}
   \label{sm:fig:trimer}

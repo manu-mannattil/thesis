@@ -122,54 +122,54 @@ Other examples: density of states.  See paper~\cite{gillespie1983}.
 
 An operator-symbol correspondence is an association between operators defined on some Hilbert space and ordinary $c$-numbered functions on the phase space, called symbols~\cite[\S 2.3.1]{chaichian2001}.
 
-The symmetrized product $\big\llbracket \hat{A}_{1}^{k_{1}} \hat{A}_{2}^{k_{2}} \cdots \hat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\hat{A}_{i}$ is defined as the coefficient of
+The symmetrized product $\big\llbracket \widehat{A}_{1}^{k_{1}} \widehat{A}_{2}^{k_{2}} \cdots \widehat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\widehat{A}_{i}$ is defined as the coefficient of
 %
 \begin{equation}
   \frac{k!}{k_{1}!k_{2}!\cdots k_{n}!} a_{1}^{k_{1}} a_{2}^{k_{2}} \cdots a_{n}^{k_{n}}
 \end{equation}
 %
-in the multinomial expansion of $\left(a_{1}\hat{A}_{1} + a_{2}\hat{A}_{2} + \cdots + a_{n}\hat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
+in the multinomial expansion of $\left(a_{1}\widehat{A}_{1} + a_{2}\widehat{A}_{2} + \cdots + a_{n}\widehat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
 
 \subsection{Weyl symbols}
 
-The Weyl symbol of an operator $\hat{A}$ is defined by
+The Weyl symbol of an operator $\widehat{A}$ is defined by
 %
 \begin{equation}
-  A(x, k) = \int \dd{s}\, e^{-iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\hat{A}\Ket{x - \tfrac{1}{2}s}.
+  A(x, k) = \int \dd{s}\, e^{-iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\widehat{A}\Ket{x - \tfrac{1}{2}s}.
   \label{app:eq:weyl_def}
 \end{equation}
 %
-A consequence of the above definition is that if operator $\hat{A}$ is Hermitian with $\hat{A}^{\dagger} = \hat{A}$, then, taking the complex conjugate of Eq.~\eqref{app:eq:weyl_def}, we find
+A consequence of the above definition is that if operator $\widehat{A}$ is Hermitian with $\widehat{A}^{\dagger} = \widehat{A}$, then, taking the complex conjugate of Eq.~\eqref{app:eq:weyl_def}, we find
 %
 \begin{equation}
-  A^{*}(x, k) = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\hat{A}\Ket{x - \tfrac{1}{2}s}^{*}
-  = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x - \tfrac{1}{2}s}\hat{A}\Ket{x + \tfrac{1}{2}s} = A(x, k),
+  A^{*}(x, k) = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\widehat{A}\Ket{x - \tfrac{1}{2}s}^{*}
+  = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x - \tfrac{1}{2}s}\widehat{A}\Ket{x + \tfrac{1}{2}s} = A(x, k),
 \end{equation}
 %
 showing that the symbol $A(x, k)$ is a real function of $x$ and $k$.
 
 \begin{example}
-  For a one-dimensional operator $\hat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~XXX, we find $A = a x^{n}$.
-  This also means that the operator $\hat{A} = \sum_{n} a_{n}\hat{x}^{n}$, which is a polynomial in $\hat{x}$, with $a_{n}$ being the coefficients, has the symbol
+  For a one-dimensional operator $\widehat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~XXX, we find $A = a x^{n}$.
+  This also means that the operator $\widehat{A} = \sum_{n} a_{n}\hat{x}^{n}$, which is a polynomial in $\hat{x}$, with $a_{n}$ being the coefficients, has the symbol
   $A = \sum_{n} a_{n}{x}^{n}$, an ordinary polynomial in $x$.
-  More generally, in $d$ dimensions, if $\hat{A}$ is a multivariate polynomial in the components of $\hat{\bm{x}}$, i.e., $\hat{A} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} \hat{x}_{1}^{n_{1}}\hat{x}_{2}^{n_{2}}\cdots \hat{x}_{d}^{n_{d}}$, then the corresponding Weyl symbol is $A = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} {x}_{1}^{n_{1}}{x}_{2}^{n_{2}}\cdots {x}_{d}^{n_{d}}$.%
+  More generally, in $d$ dimensions, if $\widehat{A}$ is a multivariate polynomial in the components of $\hat{\bm{x}}$, i.e., $\widehat{A} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} \hat{x}_{1}^{n_{1}}\hat{x}_{2}^{n_{2}}\cdots \hat{x}_{d}^{n_{d}}$, then the corresponding Weyl symbol is $A = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} {x}_{1}^{n_{1}}{x}_{2}^{n_{2}}\cdots {x}_{d}^{n_{d}}$.%
   \footnote{Here, we could have alternatively considered the operator $\sum_{n} a_{n} \hat{\bm{x}}^{n}$, but raising a vector operator to a power is not readily obvious.
-    In any case, the generalization we have considered does cover common cases such as $\hat{A} = \hat{\bm{x}}\cdot\hat{\bm{x}}$.
+    In any case, the generalization we have considered does cover common cases such as $\widehat{A} = \hat{\bm{x}}\cdot\hat{\bm{x}}$.
   In this case, in two dimensions, for instance, the polynomial coefficients will all be zero except for $a_{20} = 1$ and $a_{02} = 1$, and the Weyl symbol would trivially be $x_{1}^{2} + x_{2}^{2}$.}
 \end{example}
 
 \section{Star product of symbols}
 
 How can we express the symbol of the product of two operators in terms of their individual symbols?
-For example, if $\hat{C} = \hat{A}\hat{B}$, then how is the symbol $C$ related to the symbols $A$ and $B$?
-As $\hat{A}$ and $\hat{B}$ are general noncommuting operators, there is no apriori reason to assume that $C = AB$, and indeed $C \neq AB$, in general.
+For example, if $\widehat{C} = \widehat{A}\widehat{B}$, then how is the symbol $C$ related to the symbols $A$ and $B$?
+As $\widehat{A}$ and $\widehat{B}$ are general noncommuting operators, there is no apriori reason to assume that $C = AB$, and indeed $C \neq AB$, in general.
 %
 \begin{equation}
-  C(x, k) = 2\int \dd{x'}\, \dd{x''} \,e^{-2ikx} \bra{x + x'}\hat{A}\ket{x''}\bra{x''}\hat{B}\ket{x - x'}.
+  C(x, k) = 2\int \dd{x'}\, \dd{x''} \,e^{-2ikx} \bra{x + x'}\widehat{A}\ket{x''}\bra{x''}\widehat{B}\ket{x - x'}.
 \end{equation}
 %
 Above we have set $x' \to 2x'$ in the usual Wigner transform expression.
-Using the Weyl transform to express the matrix elements $\bra{x + \frac{1}{2}x'}\hat{A}\ket{x''}$ and $\bra{x''}\hat{B}\ket{x - \frac{1}{2}x'}$ in terms of the symbols $A$ and $B$, we find
+Using the Weyl transform to express the matrix elements $\bra{x + \frac{1}{2}x'}\widehat{A}\ket{x''}$ and $\bra{x''}\widehat{B}\ket{x - \frac{1}{2}x'}$ in terms of the symbols $A$ and $B$, we find
 %
 \begin{equation}
   \begin{aligned}

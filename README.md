@@ -1,6 +1,6 @@
 # Dissertation
 
-Below is a dependency tree showing how the various files are included.
+The dependency tree below shows how the various files are included.
 
     thesis.tex
     ├── ifdefs.tex

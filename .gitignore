@@ -1,6 +1,14 @@
 notes.txt
+writing.txt
+examples/
+misc/
+cover/
+figuresx/
 
-figures/
+thesis.pdf
+thesis-su.pdf
+thesis-print.pdf
+
 *.jpg
 *.pdf_tex
 *.png
@@ -29,7 +37,6 @@ library.bib
 # Exclude images/output for now.
 *.ps
 *.eps
-*.pdf
 *.svg
 *.svgi
 *.py

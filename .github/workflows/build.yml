@@ -35,7 +35,7 @@ jobs:
           make thesis-su.pdf
 
           mkdir build
-          mv thesis.pdf thesis-su build
+          mv thesis.pdf thesis-su.pdf build
 
       # The purpose here is to replace the contents of
       # the target branch with the contents of the build

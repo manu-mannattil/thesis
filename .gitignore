@@ -9,6 +9,8 @@ thesis.pdf
 thesis-su.pdf
 thesis-print.pdf
 
+!figures/misc
+
 *.jpg
 *.pdf_tex
 *.png

@@ -12,7 +12,6 @@ thesis-print.pdf
 *.jpg
 *.pdf_tex
 *.png
-library.bib
 
 ### TeX ###
 ## Core latex/pdflatex auxiliary files:

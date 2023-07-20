@@ -9,6 +9,8 @@ thesis.pdf
 thesis-su.pdf
 thesis-print.pdf
 
+cpfigs.sh
+
 !figures/misc
 
 *.jpg

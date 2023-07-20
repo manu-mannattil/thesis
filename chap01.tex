@@ -7,8 +7,7 @@
   This dissertation discusses two problems that are more or less unrelated apart from having a common origin in soft-matter physics.  During the course of the discussion, we shall borrow concepts from a potpourri of fields ranging from classical and quantum mechanics to statistical mechanics to structural engineering.  Elementary notions from differential geometry and asymptotic analysis will also play a prominent role.  This chapter provides a whirlwind tour of the dissertation, highlighting the key results, and concludes with an organizational summary.\\
 }
 
-It goes without saying that topological and geometrical ideas are now a mainstay of all branches of modern theoretical physics.
-%They form the backbone of cutting-edge research in gravitation, high-energy theory, and condensed-matter physics.
+Topological and geometrical ideas are now a mainstay of all branches of modern theoretical physics.
 And because of vigorous research efforts that began in the latter half of the 20th century, geometric methods also find a natural home in more classical fields of physics such as analytical mechanics~\cite{arnold1978,souder2017} and elasticity theory~\cite{marsden1994}.
 More recently, information geometry and the theory of statistical manifolds have been described as promising tools to understand fundamental issues in thermodynamics, statistical mechanics, and learning theory~\cite{ruppeiner1995}.
 In some sense, the ubiquity of geometry and topology in physics and other mathematical sciences should not be surprising---many problems in these areas are best formulated mathematically in terms of configuration (or parameter) spaces that are not Euclidean.
@@ -25,7 +24,7 @@ For this reason, many physical problems, especially those in condensed-matter an
 Furthermore, such problems often require the employment of a range of asymptotic methods for their solution.
 Such methods, perhaps fittingly, tend to be far less rigorous in comparison to the elegant logical structure usually found in other fields of mathematics.
 
-In dissertation we discuss two problems, at two very different length and energy scales, that have a common origin in soft matter physics.
+In this dissertation we discuss two problems, at two very different length and energy scales, that have a common origin in soft matter physics.
 Connecting the two problems is the basic notion that geometry, whether that of the abstract spaces describing a physical system, or its intrinsic shape and structure, plays a crucial role in dictating its properties.
 Both these problems, once formulated mathematically, have sufficient complexity that makes writing down exact solutions difficult.
 At the same time, both the problems are simple enough that asymptotic methods yield excellent approximate solutions, which means that we do not have to restrict ourselves to analyses of numerical experiments alone.
@@ -37,9 +36,9 @@ We start by motivating the first problem.
 \subsection{Configuration spaces}
 
 Central to geometric mechanics is the idea that the configuration of a physical system, however complicated, can be fully described by a single point of a (usually high-dimensional) configuration space.
-Consider, for instance, the simple pendulum in Fig.~XXX, whose configuration at any given moment is fully specified by the angle $\theta_{1}$.
+Consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}, whose configuration at any given moment is fully specified by the angle $\theta_{1}$.
 The simple pendulum's configurations space, is therefore equivalent to the circle $S^{1}$, which is a smooth manifold.
-To specify the configuration of the double pendulum in Fig.~XXX, however, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configurations space is the torus $S^{1}\times S^{1}$.
+To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}, however, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configurations space is the torus $S^{1}\times S^{1}$.
 Configuration spaces such as these, although abstract, have a one-to-one correspondence with the possible configurations that the system can be in.
 
 To shed some more light on the above discussion and make the definitions more precise, consider a mechanical system with $n$ \ac{dof}, whose configuration at any given moment is fully described by a single configuration vector $\bm{q} \in \mathbb{R}^{n}$.
@@ -74,27 +73,31 @@ Configuration spaces in both the above examples arose as a result of holonomic c
 However, the imposed holonomic constraints need not always be well-behaved.
 To illustrate this point, consider a particle constrained to move on two intersecting cylinders of equal radius with mutually perpendicular axes, as illustrated in Fig. 1(a).
 If the particle is to obey both constraints simultaneously, it can only move on the cylinders' intersection curve $\Sigma$, which forms the configuration space of the particle.
-As we see from Fig.~1(a), the curve has two singularities where it self intersects, which prevents the configuration space from being a smooth manifold.
-Mathematically, the constraints in the two-cylinder system in Fig.~XXX, is described by the map $f: \mathbb{R}^{3} \to \mathbb{R}^{2}$, defined by $f(x, y, z) = (x^{2} + z^{2} - 1,\, y^{2} + z^{2} - 1)$.
- At singularities, such as the ones in Fig.~XXX, direct computation reveals that the Jacobian $\nabla f$ drops rank.%
+As we see from Fig.~\ref{fig:confspaces}(c), the curve has two singularities where it self intersects, which prevents the configuration space from being a smooth manifold.
+Mathematically, the constraints in the two-cylinder system, is described by the map $f: \mathbb{R}^{3} \to \mathbb{R}^{2}$, defined by $f(x, y, z) = (x^{2} + z^{2} - 1,\, y^{2} + z^{2} - 1)$.
+At singularities, such as the ones in Fig.~\ref{fig:confspaces}(c), direct computation reveals that the Jacobian $\nabla f$ drops rank.%
 \footnote{Since the Jacobian is an $m\times n$ matrix, it drops rank whenever its rows---each representing a single linearized constraint---cease to become linearly independent.}
 Such singularities, which arise when the constraints imposed on a system cease to be linearly independent, are not mere pathological irregularities, and they have been extensively studied in many fields, e.g., robotics and locomotion.
 
 \begin{figure}
-  % \begin{center}
-  %   \includegraphics[scale=1.0]{file}
-  % \end{center}
+  \begin{center}
+    \includegraphics{intro/confspaces.pdf}
+  \end{center}
   \caption{
-At these singularities, the two cylinders have a nontransversal intersection, where they share a common tangent plane.
+  (a) A simple pendulum and its configuration space $\Sigma = S^{1}$.
+  (b) A double pendulum and its configuration space $\Sigma = S^{1} \times S^{1}$.
+  (c) Configuration space of a particle constrained to move on two mutually perpendicular cylinders of equal radii is the cylinders' intersection curve, which is not a smooth manifold.
   }
-  \label{fig:cylcyl}
+  \label{fig:confspaces}
+  % TODO: more descriptive label.
 \end{figure}
 
 \subsection{Frameworks}
 
 Soft, few-body systems, composed of a small number of particles or units, interacting via short-ranged forces are commonplace in soft-matter physics.
 A paradigmatic example of such a system is a colloidal cluster, which is composed of a small number of colloidal particles with sizes typically ranging from 1~nm to 0.1~$\mu$m.
-Colloidal clusters, such as the one shown in Fig.~XXX, have been extensively studied both experimentally and theoretically, and provide fundamental insights into a host of phenomena including the formation of nucleation barriers, crystallization, glass transition, etc.
+% TODO: figure of a colloidal cluster and cite papers in the following sentence; plagiarism issues as well.
+Colloidal clusters, have been extensively studied both experimentally and theoretically, and provide fundamental insights into a host of phenomena including the formation of nucleation barriers, crystallization, glass transition, etc.
 Although the particles in a colloidal cluster are held together by subtle effects of electrostatic and van der Waal forces, such details are often irrelevant if our goal is to describe the more macroscopic properties of the cluster.
 To a good approximation, the interactions between the different particles are effectively described using central-force bonds connecting their centers.
 Configurations of the resulting ``bond skeleton'', with each bond at its respective rest length, describe the different ground states of the cluster.
@@ -112,7 +115,7 @@ There is, therefore, an arising need to understand how thermal excitations affec
 
 In practice, there is no such thing as a framework with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
 Multihelix bundles used in DNA origami, for instance, have measured stiffness in the range of XXX.
-For realistic frameworks, the configuration space $\Sigma$ would then form the ground-state manifold (assuming that energy costs solely arise due to the constraints being violated).
+For realistic frameworks, the configuration space $\Sigma$ would then form the ground-state manifold (assuming that energy costs arise solely due to the constraints being violated).
 
 
 The effect of thermal fluctuations on a physical system is often represented by its free-energy landscape in terms of a set of collective variables that provide a coarse-grained description of its slowest dynamics.
@@ -145,9 +148,9 @@ The analyses presented in these chapters have direct consequences in the design 
 
 Take an ordinary hand saw used for cutting wood.
 Clamp down the handle end of the saw using your feet and bend its tip using your dominant hand into the shape of an $\mathsf{S}$.
-The saw is now a ``singing'' saw: on bowing or it striking it with a mallet, it produces a sharp, sustained sound.
+The saw is now a ``singing'' saw: on bowing or striking it with a mallet, it produces a sharp, sustained sound.
 But how does the saw sing and why does it have to be shaped like an \textsf{S}?
-The first rigorous answer to this question was provided by \citet{scott1992} who showed that waves get trapped around the inflection point of a singly-curved elastic shell.
+The first rigorous answer to this question was provided by \citet{scott1992} who modeled the saw as a singly-curved elastic shell and showed that vibrations get trapped around the saw's inflection point.
 Saw enthusiasts call the inflection point, where the local curvature vanishes, as the musical ``sweet spot''.
 As trapped waves remain confined to the immediate vicinity of the inflection point, it reduces the energy leakage through the two ends of the saw, resulting in a sustained note.
 
@@ -159,9 +162,9 @@ Central to understanding the trapping of waves and the formation of bound states
 %
 where $\widehat{\mathsf{D}}$ is a differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
 In the elastodynamic problems, the wave field $\psi$ is almost always composed of displacements from the neutral, undeformed configuration of the structure.
-Elastodynamic problems are made particularly challenging because $\psi$ usually has multiple components, and depending on the nature of $\hat{\mathsf{D}}$, the components always remain coupled.
+Elastodynamic problems are made particularly challenging because $\psi$ usually has multiple components, and depending on the nature of $\widehat{\mathsf{D}}$, the components always remain coupled.
 
-Although the exact nature of the operator $\hat{\mathsf{D}}$ is system dependent, for thin elastic structures, such as the musical saw, 
+Although the exact nature of the operator $\widehat{\mathsf{D}}$ is system dependent, for thin elastic structures, such as the musical saw,
 
 \subsection{Semiclassical approximation}
 
@@ -193,7 +196,7 @@ Weyl calculus provides an elegant way to construct one-to-one maps between diffe
 The basic premise is that, under the Weyl transform, the momentum operator $\hat{k} = -i\partial_{x}$ gets mapped to the momentum $k$.
 (For simplicity, we have suppressed factors of $\hbar$.)
 Thus, after expressing the derivatives of a given differential operator in terms of $\hat{k}$ and its powers, the operator can be mapped to an ordinary function---called its Weyl symbol---defined on an $x$-$k$ phase space.
-For example, in the case of a one-dimensional operator $\hat{D}(x, \partial_{x})$, we have
+For example, in the case of a one-dimensional operator $\widehat{D}(x, \partial_{x})$, we have
 %
 % XXX: use tikz instead of harpoons: https://tex.stackexchange.com/questions/312491/bumpy-uneven-arrows-in-mathtools-mhchem-etc
 \begin{equation}

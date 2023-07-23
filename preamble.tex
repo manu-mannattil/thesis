@@ -153,7 +153,7 @@
     eprint=true,       % phys: include arXiv info
     chaptertitle=true, % phys: include chapter titles for @incollection
     biblabel=brackets, % phys: square brackets, e.g., [12], and not superscripts
-    pageranges=false,  % phys: just page number
+    pageranges=false,  % phys: just the first page number, and not the range: 1-10 vs 1
     backref,           % back references in bibliography
     natbib,            % allows usage of \citet{...} and other natbib commands
     sorting=nyt        % sort according to name/year/title
@@ -212,24 +212,24 @@
 % Note the double braces in the above example.  Without the extra brace, a
 % keyval error would result if the text has commas.
 %
-\usepackage{accsupp} % to make the text copiable/searchable.
-\def\widetext#1#2{%
-  \BeginAccSupp{method=escape,ActualText=#2}%
-    \textls[120]{%
-      \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
-      \MakeUppercase{#1}%
-    }%
-  \EndAccSupp{}%
-}
+\ifdraftdoc
+  % No fancy typesetting in draft mode.
+  \def\widetext#1#2{\MakeUppercase{#1}}
+\else
+  \usepackage{accsupp} % to make the text copiable/searchable.
+  \def\widetext#1#2{%
+    \BeginAccSupp{method=escape,ActualText=#2}%
+      \textls[120]{%
+        \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
+        \MakeUppercase{#1}%
+      }%
+    \EndAccSupp{}%
+  }
+\fi
 
 % Link DOIs and arXiv preprints.
 \def\crossref#1#2{\href{https:/doi.org/#1}{#2}}
 \def\arxiv#1#2{\href{https:/arxiv.org/abs/#1}{arXiv:#1 [#2]}}
-
-% Command to make a blank page if we're using a two-side layout.
-\def\twosideblankpage{\if@twoside\blankpage\fi}
-
-\def\footmark#1{\textsuperscript{\emph{#1}}}
 
 % Math -----------------------------------------------------------------
 

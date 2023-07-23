@@ -204,14 +204,23 @@
 % Commands -------------------------------------------------------------
 
 % Command to typeset with more separation between characters and words.
-% For reasons I don't understand, using \MakeUppercase doesn't work inside
-% widetext, so you have to manually type in all caps (if you want that).
 % Requires microtype for \textls: https:/tex.stackexchange.com/q/23921
 % Note also that this is not the same command as REVTeX's \widetext.
-\def\widetext#1{\textls[120]{%
-  \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
-  {#1}%
-}}
+%
+% Usage: \widetext{{ ... commands go here ... }}{{ ... text to be copied ... }}
+%
+% Note the double braces in the above example.  Without the extra brace, a
+% keyval error would result if the text has commas.
+%
+\usepackage{accsupp} % to make the text copiable/searchable.
+\def\widetext#1#2{%
+  \BeginAccSupp{method=escape,ActualText=#2}%
+    \textls[120]{%
+      \spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font minus 1.5\fontdimen4\font%
+      \MakeUppercase{#1}%
+    }%
+  \EndAccSupp{}%
+}
 
 % Link DOIs and arXiv preprints.
 \def\crossref#1#2{\href{https:/doi.org/#1}{#2}}

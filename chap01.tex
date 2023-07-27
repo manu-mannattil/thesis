@@ -4,13 +4,14 @@
 \chapter{Introduction}
 
 \chapterprecishere{%
-  This dissertation discusses two problems that are more or less unrelated apart from having a common origin in soft-matter physics.  During the course of the discussion, we shall borrow concepts from a potpourri of fields ranging from classical and quantum mechanics to statistical mechanics to structural engineering.  Elementary notions from differential geometry and asymptotic analysis will also play a prominent role.  This chapter provides a whirlwind tour of the dissertation, highlighting the key results, and concludes with an organizational summary.\\
+  This dissertation discusses two problems that are more or less unrelated apart from having a common origin in soft-matter physics.  During the course of the discussion, we shall rely on concepts from a potpourri of fields ranging from classical and quantum mechanics to statistical mechanics to structural engineering.  Elementary notions from differential geometry and asymptotic analysis will also play a prominent role.  This chapter provides a whirlwind tour of the dissertation, highlighting the key results, and concludes with an organizational summary.\\
 }
 
-Topological and geometrical ideas are now a mainstay of all branches of modern theoretical physics.
-And because of vigorous research efforts that began in the latter half of the 20th century, geometric methods also find a natural home in more classical fields of physics such as analytical mechanics~\cite{arnold1978,souder2017} and elasticity theory~\cite{marsden1994}.
-More recently, information geometry and the theory of statistical manifolds have been described as promising tools to understand fundamental issues in thermodynamics, statistical mechanics, and learning theory~\cite{ruppeiner1995}.
-In some sense, the ubiquity of geometry and topology in physics and other mathematical sciences should not be surprising---many problems in these areas are best formulated mathematically in terms of configuration (or parameter) spaces that are not Euclidean.
+Geometrical methods are now a mainstay of all branches of modern theoretical physics;
+% TODO: Important developments include the
+and vigorous research efforts in the second half of the 20th century lead to the geometrization of the more classical fields of physics such as analytical mechanics~\cite{sudarshan1974,arnold1978,souder2017} and elasticity theory~\cite{marsden1994,audoly2010}.
+Even more recently, information geometry and the theory of statistical manifolds have been described as promising tools for understanding fundamental issues in thermodynamics, statistical mechanics, and learning theory~\cite{ruppeiner1995}.
+In some sense, the unreasonable effectiveness of geometrical methods in physics (among other mathematical sciences) should not be surprising---after all, many physical problems are best formulated mathematically in terms of configuration (or parameter) spaces that are not Euclidean.
 
 On a less abstract level, the intrinsic shape and structure of a physical system can also play a major role in dictating its physical properties.
 This is particularly true for soft, deformable materials, or ``soft matter''---the stuff of everyday things.
@@ -18,10 +19,10 @@ Indeed, mechanical pliability is often intimately connected to geometry, a fact 
 Because soft materials are easily deformed, the presence of external perturbations such as thermal fluctuations or applied fields can have dramatic effects on their stability.
 For this reason, creating materials with designer microstructure to improve their strength has become a central research theme in many disciplines, with applications cutting across several length and energy scales.
 
-Theoretical physics is abound with exactly-solvable problems and spherical-cow models involving conserved quantities, rigid bodies, ideal fluids, point particles, impenetrable walls, uniform fields, and elegant linear equations.
+Theoretical physics abounds with exactly-solvable problems and ``spherical cow'' models involving conserved quantities, rigid bodies, ideal fluids, point particles, impenetrable walls, uniform fields, and elegant linear equations.
 Many of these models, however, stand in stark contrast to the fantastic haphazardness of the real world, which is messy and nonlinear, and continues to bewilder us as our experimental abilities evolve.
 For this reason, many physical problems, especially those in condensed-matter and materials physics---archetypal examples of the sentiment that ``more is different''~\cite{anderson1972}---can only be formulated approximately.
-Furthermore, such problems often require the employment of a range of asymptotic methods for their solution.
+Furthermore, such problems often require the employment of a range of asymptotic and perturbative methods for their solution.
 Such methods, perhaps fittingly, tend to be far less rigorous in comparison to the elegant logical structure usually found in other fields of mathematics.
 
 In this dissertation we discuss two problems, at two very different length and energy scales, that have a common origin in soft matter physics.  Connecting the two problems is the basic notion that geometry, whether that of the abstract spaces describing a physical system, or its intrinsic shape and structure, plays a crucial role in dictating its properties.  Both these problems, once formulated mathematically, have sufficient complexity that makes writing down exact solutions difficult.  At the same time, both the problems are simple enough that asymptotic methods yield excellent approximate solutions, which means that we do not have to restrict ourselves to analyses of numerical experiments alone.  In the following sections, we briefly summarize the main results of this dissertation, with subsequent chapters providing more detailed descriptions.
@@ -33,8 +34,8 @@ In this dissertation we discuss two problems, at two very different length and e
 
 Central to geometric mechanics is the idea that the configuration of a physical system, however complicated, can be fully described by a single point of a (usually high-dimensional) configuration space.
 Consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}, whose configuration at any given moment is fully specified by the angle $\theta_{1}$.
-The simple pendulum's configurations space, is therefore equivalent to the circle $S^{1}$, which is a smooth manifold.
-To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}(b), on the other hand, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configurations space is the torus $S^{1}\times S^{1}$.
+The simple pendulum's configuration space, is therefore equivalent to the circle $S^{1}$, which is a smooth manifold.
+To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}(b), on the other hand, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configuration space is the torus $S^{1}\times S^{1}$.
 Configuration spaces such as these, although abstract, have a one-to-one correspondence with the possible configurations that the system can be in.
 
 To shed some more light on the above discussion and make the definitions more precise, consider a mechanical system with $n$ \ac{dof}, whose configuration at any given moment is fully described by a single configuration vector $\bm{q} \in \mathbb{R}^{n}$.
@@ -164,15 +165,19 @@ These findings open up novel ways to fine-tune the acoustic and vibrational prop
 \subsection{Can one hear the shape of a shell?}
 
 Take an ordinary hand saw used for cutting wood.
-Clamp down the handle end of the saw using your feet and bend its tip using your dominant hand into the shape of an $\mathsf{S}$ (see Fig.~\ref{fig:saw} for example).
-The saw is now a ``singing'' saw: on bowing or striking it with a mallet, it produces a sharp, sustained sound.
-But how does the saw sing and why does it have to be shaped like an \textsf{S}?
-The first rigorous answer to this question was provided by \citet{scott1992} who modeled the saw as a thin elastic shell with a varying curvature profile and showed that vibrations get trapped around the saw's inflection point.
-Incidentally, saw enthusiasts call the inflection point, where the local curvature vanishes, as the musical ``sweet spot''.
-In a very recent work, \citet{shankar2022} argued that the vibrations around the inflection point of a saw are topologically protected.
-As trapped waves remain confined to the immediate vicinity of the inflection point, it reduces the energy leakage through the two ends of the saw, resulting in a sustained note.
+Clamp down the handle end of the saw using your feet and bend its tip using your dominant hand so that its overall shape is similar to the letter $\mathsf{S}$ (see Fig.~\ref{fig:saw}).
+The saw is now a ``singing'' saw: bowing or striking it with a mallet, produces a sharp, sustained sound.
+But how does the saw sing, and more importantly, why does it have to be shaped like an \textsf{S}?
+Although the sonorousness of the saw has been known at least since the 19th century~\cite{stuckenbruck2016}, the first scientific explanation for it was provided only in the 90s by \citet{scott1992}.
+They modeled the saw as a thin elastic shell with a varying curvature profile and showed that the saw's sonority is due to vibrations that get trapped around its inflection point, where the local curvature vanishes.
+As trapped vibrations remain confined to the immediate vicinity of the inflection point, it reduces energy dissipation through the two ends of the saw, resulting in a sustained note.
+In a very recent work, \citet{shankar2022} pushed the analysis further by declaring that these vibrations are topologically protected, on the basis of jumps in an integral topological invariant as we move across the inflection point.
 
-In this dissertation, we explore other features of curvature-induced localization of elastic waves on thin elastic structures such as rods and shells.
+Despite the conscientious efforts of the aforementioned authors, several critical questions remain unanswered: Do we really need an inflection point to observe bound modes?  Is there a difference between the vibrational spectrum of one-dimensional and two-dimensional thin structures, i.e., rods vs. shells?
+Is it possible to compute, even approximately, the shapes and frequencies of the vibrational modes?
+What kinds of waves on thin structures show localization?
+In this dissertation, we explore these questions using a thin shell and a rod as concrete examples.
+
 Central to understanding the localization of waves and the formation of bound states in elastodynamic systems, such as the musical saw, is an eigenvalue problem of the form
 %
 \begin{equation}
@@ -182,9 +187,11 @@ Central to understanding the localization of waves and the formation of bound st
 %
 where $\widehat{\mathsf{D}}$ is a differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
 In the elastodynamic problems involving thin structures, the wave field $\psi$ is almost always composed of displacements---broken up into tangential and normal components---from the neutral, undeformed configuration of the structure.
-The operator $\hat{\mathsf{D}}$, the exact nature of which is model dependent, would generally be a matrix of spatial derivatives that act on $\psi$.
-An uncurved elastic structure can support three basis wave types: extensional and shear waves, which propagate by stretching the structure and involving only the tangential components [$u$ and $v$ in Fig.~XXX]; and flexural waves that propagate by bending the structure and involving only the normal component [$\zeta$ in Fig.~XXX].
-However, if the structure is curved, the normal and tangential components remain coupled, and we can only speak of waves that are predominantly flexural or extensional or shear like. 
+The operator $\widehat{\mathsf{D}}$, the exact nature of which is model dependent, would generally be a square matrix of spatial derivatives that act on $\psi$.
+For instance, for the rod model we use in this work, Eq.~\ref{intro:eq:waveeq} reads
+An uncurved elastic structure can support three basis wave types: extensional and shear waves, which respectively propagate by stretching and shearing the structure, and involve only the tangential components (e.g., $u$ in Fig.~\ref{fig:saw}); and flexural waves that propagate by bending the structure and involve only the normal component (e.g., $\zeta$ in Fig.~\ref{fig:saw}).
+However, if the structure is curved, the normal and tangential components remain coupled, and we can only speak of waves that are predominantly flexural or extensional or shear like.
+It this curvature-mediated coupling between the various components that ultimately leads to the formation of bound states in curved structures.
 %
 \begin{figure}
   \begin{center}
@@ -192,7 +199,8 @@ However, if the structure is curved, the normal and tangential components remain
   \end{center}
   \caption{%
     An ordinary hand saw, when bent into the shape of the letter $\mathsf{S}$ can be played like a musical instrument using a violin's bow or a mallet.
-    A sustained note is produced on bowing or hitting the saw at its inflection point, which is called a sweet spot by musicians.
+    A sustained note is produced on bowing or hitting the saw close to its inflection point, which is called a sweet spot by saw enthusiasts.
+    In most models of thin elastic structures, such as the saw here, the displacement field is broken up into a normal (e.g., $\zeta$) and tangential (e.g., $u$) component, which remain coupled if the structure is curved.
     Photographs sourced from Ref.~\cite{shankar2022}.
   }
   \label{fig:saw}
@@ -200,24 +208,24 @@ However, if the structure is curved, the normal and tangential components remain
 
 \subsection{Semiclassical approximation}
 
-Usually, we would look for plane-wave solutions to Eq.~\eqref{intro:eq:waveeq} of the form $\psi \sim e^{\pm i kx}$. 
-This, however, is only applicable if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants, which is not the case for a thin structure with a varying curvature profile.\footnote{To be clear, the exact form of the operator $\widehat{\mathsf{D}}$ depends on the shell or rod model we choose to work with, and even when the curvature is a constant, a plain-wave solution may not be applicable.}
-The semiclassical approximation or the Wentzel--Krames--Brillouin (WKB) approximation is a widely used method to obtain approximate solutions to differential equations where these coefficients are slowly varying.
+The usual line of attack, when faced with an equation similar to Eq.~\eqref{intro:eq:waveeq}, is to look for plane-wave solutions of the form $\psi \sim e^{\pm i kx}$.
+Such an endeavor, however, fails if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants, which is not the case for a thin structure with a varying curvature profile.\footnote{To be clear, as the exact form of the operator $\widehat{\mathsf{D}}$ depends on the shell or rod model we choose to work with, even when the curvature is a constant, a plain-wave solution may not be applicable.}
+The semiclassical approximation or the Wentzel--Kramers--Brillouin (WKB) approximation is a widely used method to obtain approximate solutions to differential equations where these coefficients are slowly varying.
 In asymptotic analysis, it is usually introduced as an approximate method to find solutions to differential equations whose highest derivative is multiplied by a small parameter~\cite{bender1978}.
-A paradigmatic example from physics is the time-independent Schr\"{o}dinger equation for a particle of mass $m$ in a potential $V(x)$
+A paradigmatic example from physics is the time-independent Schr\"{o}dinger equation for a particle of mass $m$ in a potential $V(x)$,
 %
 \begin{equation}
   \left[-\frac{\hbar^{2}}{2m}\partial_{x}^{2} + V(x)\right]\psi(x) = E\psi(x),
 \end{equation}
 %
 where the WKB method is frequently employed to find asymptotic solutions in the limit the (reduced) Planck's constant $\hbar \to 0$.
-At first glance, such a limit makes \emph{no} physical sense as $\hbar$ is a fundamental constant, whose value is fixed by the units we choose to work in.
-Rather, in considering the limit $\hbar \to 0$, we are considering the limit where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.%
+At first glance, such a limit is perplexing and makes \emph{no} physical sense as $\hbar$ is a fundamental constant, whose value is fixed by the units we choose to work in.
+In reality, the limit $\hbar \to 0$ represents the situation where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.%
 \footnote{%
   This can be more clearly seen by nondimensionalizing the time-independent Schr\"{o}dinger equation by introducing an energy scale $U$ and a length scale $L$, after which it can be written as
 $-\epsilon^{2}\partial_{{x}}^{2}\psi(x) + {V}(x)\psi(x) = {E}\psi(x)$,
 where all quantities as well as the parameter $\epsilon = \hbar/\sqrt{2mL^{2}U}$ are now dimensionless.
-As $\sqrt{2mL^{2}U}$ has the dimension of the angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum is much larger than $\hbar$.}
+As $\sqrt{2mL^{2}U}$ has dimensions of angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum is much larger than $\hbar$.}
 It is in this context that the WKB method gets the alternative moniker of semiclassical approximation.%
 %\footnote{Also known as the quasiclassical method.  In harmonic analysis, the semiclassial approximation is also called semiclassical analysis.  Some others choose to call it the eikonal method and some others call it ray approximation or ray tracing.}
 
@@ -250,23 +258,37 @@ The advantage provided by the semiclassical approximation cannot be overstated: 
 \subsection{Bound states in thin elastic structures}
 
 The semiclassical approximation also provides a simple way to extract the bound state frequencies by ``quantizing'' the ray trajectories in the phase space.
-As we move around a bound orbit, single valuedness of the wave field requires the overall phase to be a half-integral multiple of $2\pi$.
-Additional subtleties arise when the wave field has more than one component, which leads to a corrected Bohr--Sommerfeld-type quantization condition of the form
+As bound waves are bounded in the phase space as well, the rays corresponding to these waves appear in the form of closed orbits when visualized [see Fig.~XXX(a)].
+Each bound orbit is associated with a wave of a specific frequency $\omega$.
+Additionally, the single valuedness of the wave field as we traverse the orbit requires the overall phase to be a half-integral multiple of $2\pi$.
+Additional complications arise when the wave field has more than one component, which leads to a corrected Bohr--Sommerfeld-type quantization condition of the form
 %
 \begin{equation}
   \epsilon^{-1}\oint \dd{x}\,k(x) = 2\left(n + \frac{1}{2}\right)\pi - \left(\gamma_{\text{G}} + \gamma_{\text{NG}}\right).
 \end{equation}
 %
 Here $\gamma_{\text{G}}$ and $\gamma_{\text{NG}}$ are extra phases that arise because of the multicomponent nature of the problem.
-The phase $\gamma_{\text{G}}$ is a geometric phase~\cite{pancharatnam1956,berry1984}, which was recently shown to be responsible for the toplogical protection of equatorial oceanic waves on the Earth's surface~\cite{venaille2023}.
+The phase $\gamma_{\text{G}}$ is a geometric phase~\cite{pancharatnam1956,berry1984}, which was very recently shown to be responsible for the topological protection of equatorial oceanic waves on the Earth's surface~\cite{venaille2023}.
+That said, for the two example systems we study in this work, both the extra phases $\gamma_{\text{G}}$ and $\gamma_{\text{NG}}$ vanish.
+Although one might expect this to change based on the equations we work with, this seems to be a generic result, which we expect to hold in other models of curved structures as well.
+
+Because the extra phases vanish, the analysis becomes less cumbersome, and ultimately leads to impressive agreement between the bound-state frequencies obtained through quantization and those seen in numerical experiments.
+The basic result from a combined semiclassical and numerical analysis is as follows: for the variably curved rod, which supports only extensional and flexural waves, only flexural waves form bound states; and in case of the shell, all three wave types, i.e., flexural, extensional, and shear, exhibit bound states.
+For both the shell and the rod, the bound states develop around points where the absolute curvature has a minimum.
+The localization of flexural waves around the inflection point of a musical saw, which is what both \citet{scott1992} and \citet{shankar2022} restricted their attention to, is a specific case of this more generic observation.
+
+Many practical applications of elastic waves from acoustic cloaking to negative refraction rely on delicate aspects of wave localization.
+The vast majority of these applications, however, require designer materials with intricate microstructure.
+Being able to induce localization by a mere change of the material geometry is clearly advantageous.
+For this reason, the results presented here lay the groundwork for the design of even simpler instruments capable of inducing wave localization.
 
 \section{Organizational summary and other comments}
 
-In the interest of making this dissertation more readable and as as self contained as possible, I have broken up and expanded the two papers I wrote.
+In the interest of making this dissertation more readable and self contained, I have broken up and expanded the two papers I wrote.
 This dissertation is organized as follows:
-In Chapter 2 we review basic facts about frameworks, their configuration spaces, and derive asymptotic expressions for their elastic energies.
-Chapter 3 deals with the effect that thermal fluctuations have on these frameworks, and presents a detailed calculation of the free-energy profiles for three example frameworks.
-Chapters 4 and 5 are concerned with the second problem discussed in this dissertation.
-In Chapter 4, we review the semiclassical theory of wave phenomena, with special attention paid to multicomponent wave equations.
-Chapter 5 is concerned with the application of semiclassical approximation to understand the formation of bound states in thin elastic structures.
+In Chapter~\ref{chap02} we review basic facts about frameworks, their configuration spaces, and derive asymptotic expressions for their elastic energies.
+Chapter~\ref{chap03} deals with the effect that thermal fluctuations have on these frameworks, and presents a detailed calculation of the free-energy profiles for three example frameworks.
+Chapters~\ref{chap04} and~\ref{chap05} are concerned with the second problem discussed in this dissertation.
+The semiclassical approximation, is reviewed in Chapter 4, with special attention paid to multicomponent wave equations.
+Chapter~\ref{chap05} makes use of the semiclassical approximation to understand the formation of bound states in thin, elastic structures.
 Finally, in Appendix~\ref{app:math}, we collect some helpful mathematical results that are used throughout the dissertation.

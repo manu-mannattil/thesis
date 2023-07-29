@@ -76,9 +76,9 @@ At singularities, such as the ones in Fig.~\ref{fig:confspaces}(c), direct compu
 \footnote{Since the Jacobian is an $m\times n$ matrix, it drops rank whenever its rows---each representing a single linearized constraint---cease to become linearly independent.}
 Such singularities, which arise when the constraints imposed on a system cease to be linearly independent, are not mere pathological irregularities, and they have been extensively studied in many fields, e.g., robotics and locomotion.
 
-why are they studied in robotics?
-locomotion?
-topological robotics.
+% why are they studied in robotics?
+% locomotion?
+% topological robotics.
 
 \begin{figure}
   \begin{center}
@@ -171,7 +171,7 @@ But how does the saw sing, and more importantly, why does it have to be shaped l
 Although the sonorousness of the saw has been known at least since the 19th century~\cite{stuckenbruck2016}, the first scientific explanation for it was provided only in the 90s by \citet{scott1992}.
 They modeled the saw as a thin elastic shell with a varying curvature profile and showed that the saw's sonority is due to vibrations that get trapped around its inflection point, where the local curvature vanishes.
 As trapped vibrations remain confined to the immediate vicinity of the inflection point, it reduces energy dissipation through the two ends of the saw, resulting in a sustained note.
-In a very recent work, \citet{shankar2022} pushed the analysis further by declaring that these vibrations are topologically protected, on the basis of jumps in an integral topological invariant as we move across the inflection point.
+In a very recent work, \citet{shankar2022} declared that these vibrations are topologically protected on the basis of jumps in an integral topological invariant as we move across the inflection point.
 
 Despite the conscientious efforts of the aforementioned authors, several critical questions remain unanswered: Do we really need an inflection point to observe bound modes?  Is there a difference between the vibrational spectrum of one-dimensional and two-dimensional thin structures, i.e., rods vs. shells?
 Is it possible to compute, even approximately, the shapes and frequencies of the vibrational modes?
@@ -187,8 +187,7 @@ Central to understanding the localization of waves and the formation of bound st
 %
 where $\widehat{\mathsf{D}}$ is a differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
 In the elastodynamic problems involving thin structures, the wave field $\psi$ is almost always composed of displacements---broken up into tangential and normal components---from the neutral, undeformed configuration of the structure.
-The operator $\widehat{\mathsf{D}}$, the exact nature of which is model dependent, would generally be a square matrix of spatial derivatives that act on $\psi$.
-For instance, for the rod model we use in this work, Eq.~\ref{intro:eq:waveeq} reads
+The operator $\widehat{\mathsf{D}}$, the exact nature of which is model dependent, is a square matrix of spatial derivatives that act on $\psi$.
 An uncurved elastic structure can support three basis wave types: extensional and shear waves, which respectively propagate by stretching and shearing the structure, and involve only the tangential components (e.g., $u$ in Fig.~\ref{fig:saw}); and flexural waves that propagate by bending the structure and involve only the normal component (e.g., $\zeta$ in Fig.~\ref{fig:saw}).
 However, if the structure is curved, the normal and tangential components remain coupled, and we can only speak of waves that are predominantly flexural or extensional or shear like.
 It this curvature-mediated coupling between the various components that ultimately leads to the formation of bound states in curved structures.
@@ -258,7 +257,7 @@ The advantage provided by the semiclassical approximation cannot be overstated: 
 \subsection{Bound states in thin elastic structures}
 
 The semiclassical approximation also provides a simple way to extract the bound state frequencies by ``quantizing'' the ray trajectories in the phase space.
-As bound waves are bounded in the phase space as well, the rays corresponding to these waves appear in the form of closed orbits when visualized [see Fig.~XXX(a)].
+As bound waves are bounded in the phase space as well, the rays corresponding to these waves appear in the form of closed orbits when visualized [see Fig.~\ref{fig:phasespace}(a)].
 Each bound orbit is associated with a wave of a specific frequency $\omega$.
 Additionally, the single valuedness of the wave field as we traverse the orbit requires the overall phase to be a half-integral multiple of $2\pi$.
 Additional complications arise when the wave field has more than one component, which leads to a corrected Bohr--Sommerfeld-type quantization condition of the form
@@ -276,7 +275,16 @@ Because the extra phases vanish, the analysis becomes less cumbersome, and ultim
 The basic result from a combined semiclassical and numerical analysis is as follows: for the variably curved rod, which supports only extensional and flexural waves, only flexural waves form bound states; and in case of the shell, all three wave types, i.e., flexural, extensional, and shear, exhibit bound states.
 For both the shell and the rod, the bound states develop around points where the absolute curvature has a minimum.
 The localization of flexural waves around the inflection point of a musical saw, which is what both \citet{scott1992} and \citet{shankar2022} restricted their attention to, is a specific case of this more generic observation.
-
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{figures/intro/phasespace.pdf}
+  \end{center}
+  \caption{(a) Phase-space representation of waves as rays, showing bound and unbound waves. (b) A predominantly flexural bound state in a uniaxially curved shell with a curvature minimum at $x = 0$ obtained by solving Eq.~\eqref{intro:eq:waveeq} numerically.
+  Here $x$ is an arc-length coordinate, $\zeta$ and $u, v$ are the normal and tangential components of the displacement field, respectively; see Fig.~\ref{fig:saw} and Chapter~\ref{chap04} for more details.}
+  \label{fig:phasespace}
+\end{figure}
+%
 Many practical applications of elastic waves from acoustic cloaking to negative refraction rely on delicate aspects of wave localization.
 The vast majority of these applications, however, require designer materials with intricate microstructure.
 Being able to induce localization by a mere change of the material geometry is clearly advantageous.

@@ -124,8 +124,8 @@
 % More Syracuse BS -----------------------------------------------------
 
 \ifsustyle
-  % The fonts in the figures are at 10pt.  SU "demands" a font size of 12
-  % pt.  Thus, scale all figures by 1.2.
+  % The fonts in the figures are intended to match a type size of 10pt.
+  % But SU "demands" a font size of 12 pt.  Thus, scale all figures by 1.2.
   % Note that global scaling doesn't work for \includegraphics.
   % https:/tex.stackexchange.com/a/83074
   \let\includefigure\includegraphics
@@ -142,7 +142,7 @@
   % Amerika ist wunderbar
   % ---
   % No, seriously, we need this if we want punctuation inside quotation
-  % marks, i.e., "as the period that ends this sentence."
+  % marks, i.e., "as in the period that ends this sentence."
   \usepackage[american]{babel}
   \usepackage{csquotes}
 

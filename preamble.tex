@@ -159,11 +159,24 @@
     sorting=nyt        % sort according to name/year/title
   ]{biblatex}
 
-  % Formatting of back references.
+  % Text in back references.
   \DefineBibliographyStrings{american}{
     backrefpage = {cited on p.~},
     backrefpages = {cited on pp.~},
   }
+
+  % Write backrefs as "<citation>; cited on pp. XX-YY".
+  % Adapted from https://tex.stackexchange.com/a/609093
+  % and the BiBLaTeX source at https://github.com/plk/biblatex/blob/ca032db/tex/latex/biblatex/biblatex.def#L2934-L2941
+  \renewcommand*{\bibpagerefpunct}{\addsemicolon\space}
+  \newbibmacro*{pageref}{%
+    \iflistundef{pageref}
+      {}
+      {\printtext[noformat]{%
+        \ifnumgreater{\value{pageref}}{1}
+          {\bibstring{backrefpages}\ppspace}
+          {\bibstring{backrefpage}\ppspace}%
+        \printlist[pageref][-\value{listtotal}]{pageref}}}}
 
   % Problem: for @book, @techreport, etc., biblatex-phys doesn't convert
   % titles to clickable hyperlinks if there is a URL.

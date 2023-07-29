@@ -107,7 +107,11 @@ TODO...
 \fi
 
 \setcounter{tocdepth}{2}
-\tableofcontents
+
+% Use the starred version of \tableofcontents to avoid a
+% self reference.  See Chapter 9 of the memoir
+% documentation.
+\tableofcontents*
 
 % Notation -------------------------------------------------------------
 

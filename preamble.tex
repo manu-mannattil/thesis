@@ -168,8 +168,8 @@
   % Write backrefs as "<citation>; cited on pp. XX-YY".
   % Adapted from https://tex.stackexchange.com/a/609093
   % and the BiBLaTeX source at https://github.com/plk/biblatex/blob/ca032db/tex/latex/biblatex/biblatex.def#L2934-L2941
-  \renewcommand*{\bibpagerefpunct}{\addsemicolon\space}
-  \newbibmacro*{pageref}{%
+  \def\bibpagerefpunct{\addsemicolon\space}
+  \renewbibmacro*{pageref}{%
     \iflistundef{pageref}
       {}
       {\printtext[noformat]{%

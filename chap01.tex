@@ -38,38 +38,38 @@ The simple pendulum's configuration space, is therefore equivalent to the circle
 To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}(b), on the other hand, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configuration space is the torus $S^{1}\times S^{1}$.
 Configuration spaces such as these, although abstract, have a one-to-one correspondence with the possible configurations that the system can be in.
 
-To shed some more light on the above discussion and make the definitions more precise, consider a mechanical system with $n$ \ac{dof}, whose configuration at any given moment is fully described by a single configuration vector $\bm{q} \in \mathbb{R}^{n}$.
+To shed some more light on the above discussion and make the definitions more precise, consider a mechanical system with $n$ \ac{dof}, whose configuration at any given moment is fully described by a single configuration vector $\bm{r} \in \mathbb{R}^{n}$.
 Constraints in such a system are most clearly introduced by defining a constraint map $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$
 that vanishes when the constraints are satisfied, with $m$ being the number of constraints introduced.
 The constraint in the simple pendulum, for instance, is described by the constraint map
 %
 \begin{equation}
-    f: \mathbb{R}^{2} \to \mathbb{R},\enspace f(q_{1}, q_{2}) = q_{1}^{2} + q_{2}^{2} - \ell^{2},
+    f: \mathbb{R}^{2} \to \mathbb{R},\enspace f(r_{1}, r_{2}) = r_{1}^{2} + r_{2}^{2} - \ell^{2},
 \end{equation}
 %
 whereas the constraint map for the double pendulum would be of the form
 %
 % TODO: row spacing in column vector.
 \begin{equation}
-  f: \mathbb{R}^{4} \to \mathbb{R}^{2},\enspace f(q_{1}, \ldots, q_{4}) =
+  f: \mathbb{R}^{4} \to \mathbb{R}^{2},\enspace f(r_{1}, \ldots, r_{4}) =
 \begin{pmatrix}
- q_{1}^{2} + q_{2}^{2} - \ell_{1}^{2}\\
- (q_{3} - q_{1})^{2} + (q_{4} - q_{2})^{2} - \ell_{2}^{2}
+ r_{1}^{2} + r_{2}^{2} - \ell_{1}^{2}\\
+ (r_{3} - r_{1})^{2} + (r_{4} - r_{2})^{2} - \ell_{2}^{2}
 \end{pmatrix}.
 \end{equation}
 %
-As we see from these examples, the constraint map $f$ is a general nonlinear map in the coordinates $\bm{q}$.
+As we see from these examples, the constraint map $f$ is a general nonlinear map in the coordinates $\bm{r}$.
 The linear approximation of $f$ is given by the $m\times n$ Jacobian matrix whose $i\!j$th entry is $\partial_{j}f_{i}$.
-With these definitions, the configuration space of a general mechanical system is the zero level set $\Sigma = \left\{\bm{q} \in \mathbb{R}^{n} : f(\bm{q}) = \bm{0}\right\}$, which is the set of points where the constraints are satisfied exactly.
+With these definitions, the configuration space of a general mechanical system is the zero level set $\Omega = \left\{\bm{r} \in \mathbb{R}^{n} : f(\bm{r}) = \bm{0}\right\}$, which is the set of points where the constraints are satisfied exactly.
 Standard theorems%
 \footnote{These theorems are almost never explicitly invoked in classical mechanics.
-However, they are implicit in the frequently used argument that a mechanical system with $n$ degrees of freedom and $m$ constraints has $(n-m)$ degrees of freedom, with the configuration space $\Sigma$ parameterizable by $(n-m)$ generalized coordinates.}
-ensure that $\Sigma$ is a smooth $(n-m)$-dimensional manifold if the Jacobian $\nabla f$ has full rank for all points in $\Sigma$.
+However, they are implicit in the frequently used argument that a mechanical system with $n$ degrees of freedom and $m$ constraints has $(n-m)$ degrees of freedom, with the configuration space $\Omega$ parameterizable by $(n-m)$ generalized coordinates.}
+ensure that $\Omega$ is a smooth $(n-m)$-dimensional manifold if the Jacobian $\nabla f$ has full rank for all points in $\Omega$.
 
 Configuration spaces in both the above examples arose as a result of holonomic constraints imposed on a physical system.
 However, the imposed holonomic constraints need not always be well-behaved.
 To illustrate this point, consider a particle constrained to move on two intersecting cylinders of equal radius with mutually perpendicular axes, as illustrated in Fig. 1(a).
-If the particle is to obey both constraints simultaneously, it can only move on the cylinders' intersection curve $\Sigma$, which forms the configuration space of the particle.
+If the particle is to obey both constraints simultaneously, it can only move on the cylinders' intersection curve $\Omega$, which forms the configuration space of the particle.
 As we see from Fig.~\ref{fig:confspaces}(c), the curve has two singularities where it self intersects, which prevents the configuration space from being a smooth manifold.
 Mathematically, the constraints in the two-cylinder system, is described by the map $f: \mathbb{R}^{3} \to \mathbb{R}^{2}$, defined by $f(x, y, z) = (x^{2} + z^{2} - 1,\, y^{2} + z^{2} - 1)$.
 At singularities, such as the ones in Fig.~\ref{fig:confspaces}(c), direct computation reveals that the Jacobian $\nabla f$ drops rank.%
@@ -85,8 +85,8 @@ Such singularities, which arise when the constraints imposed on a system cease t
     \includegraphics{intro/confspaces.pdf}
   \end{center}
   \caption{
-  (a) A simple pendulum and its configuration space $\Sigma = S^{1}$.
-  (b) A double pendulum and its configuration space $\Sigma = S^{1} \times S^{1}$.
+  (a) A simple pendulum and its configuration space $\Omega = S^{1}$.
+  (b) A double pendulum and its configuration space $\Omega = S^{1} \times S^{1}$.
   (c) Configuration space of a particle constrained to move on two mutually perpendicular cylinders of equal radii is the cylinders' intersection curve, which is not a smooth manifold.
   }
   \label{fig:confspaces}
@@ -127,19 +127,19 @@ There is, therefore, an arising need to understand how thermal excitations affec
 
 In practice, there is no such thing as a framework with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
 Multihelix bundles used in DNA origami, for instance, have measured stiffness in the range of 0.1--1~pN$/$nm~\cite{jung2020}.
-For realistic frameworks, the configuration space $\Sigma$ would then form the ground-state manifold (assuming that energy costs arise solely due to the constraints being violated).
+For realistic frameworks, the configuration space $\Omega$ would then form the ground-state manifold (assuming that energy costs arise solely due to the constraints being violated).
 
 \subsection{Free energy landscapes}
 
 The effect of thermal fluctuations on a physical system is often represented by its free-energy landscape in terms of a set of collective variables that provide a coarse-grained description of its slowest dynamics.
 In theory~\cite{go1976,echenique2011}, one can obtain the free energy of a framework by integrating out the fast modes that are transverse to its shape space, i.e., the subset of its configuration space once rigid-body motions are removed.
 Doing this, however, becomes nontrivial when the framework has shape-space singularities~\cite{zlatanov2002,liu2003,donelan2007}.
-For concreteness, consider the shape space of the planar four-bar linkage with freely rotating joints~\cite{grashof1883,hartenberg1964,shimamoto2005} (Fig.~\ref{fig:4bar_cs}).
+For concreteness, consider the shape space of the planar four-bar linkage with freely rotating joints~\cite{grashof1883,hartenberg1964,shimamoto2005} [Fig.~\ref{fig:4bar_collage}(a)].
 Though this linkage has one degree of freedom up to Euclidean motions, it has two modes of deformation, one where the angle $\theta_1 = \theta_2$ and another where $\theta_1 \ne \theta_2$, meeting at two isolated singular points $(\theta_1,\theta_2) = (0,0)$ and $(\pi,\pi)$.
 One generically expects the framework to be soft at these singularities, and indeed, as we see from the blue dashed curves in Fig.~\ref{fig:4bar_collage}(b), the free energy diverges in a harmonic approximation of the elastic energy~\cite{rocklin2018}.
 These divergences must be cut off by higher-order nonlinear effects, yet how this happens and to what extent remains to be understood.
 
-In Chapters 2 and 3, we develop a formalism to understand the thermal equilibration of common bar-joint frameworks that have isolated shape-space singularities.
+In Chapters \ref{chap02} and \ref{chap03}, we develop a formalism to understand the thermal equilibration of common bar-joint frameworks that have isolated shape-space singularities.
 We show that the divergent contributions to the free energy arising in the harmonic approximation to the energy are suppressed by anharmonic, quartic-order corrections.
 These findings show the existence of energetic free-energy barriers between configurations near the singularities and configurations farther from the singularities.
 Our results are consistent with a closely-related work~\cite{kallus2017,holmes-cerfon2017} on singular colloidal clusters, but allow for isolated singularities of the shape space.
@@ -158,9 +158,9 @@ The analyses presented in these chapters have direct consequences in the design 
 \section{Thin structures, elastic waves, and bound states}
 
 In the second part of this dissertation, we consider the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a singly-curved shell as concrete examples.
-Previous work on related problems have largely focused on the localization of flexural waves on such structures.
-Here, using the semiclassical/WKB approximation, we show that in addition to flexural waves, extensional and shear waves also form localized, bound states around points where the absolute curvature of the structure has a minimum.
-These findings open up novel ways to fine-tune the acoustic and vibrational properties of thin elastic structures, and raise the possibility of introducing new phenomena not easily captured by effective models of flexural waves alone.
+% Previous work on related problems have largely focused on the localization of flexural waves on such structures.
+% Here, using the semiclassical/WKB approximation, we show that in addition to flexural waves, extensional and shear waves also form localized, bound states around points where the absolute curvature of the structure has a minimum.
+% These findings open up novel ways to fine-tune the acoustic and vibrational properties of thin elastic structures, and raise the possibility of introducing new phenomena not easily captured by effective models of flexural waves alone.
 
 \subsection{Can one hear the shape of a shell?}
 
@@ -173,7 +173,7 @@ They modeled the saw as a thin elastic shell with a varying curvature profile an
 As trapped vibrations remain confined to the immediate vicinity of the inflection point, it reduces energy dissipation through the two ends of the saw, resulting in a sustained note.
 In a very recent work, \citet{shankar2022} declared that these vibrations are topologically protected on the basis of jumps in an integral topological invariant as we move across the inflection point.
 
-Despite the conscientious efforts of the aforementioned authors, several critical questions remain unanswered: Do we really need an inflection point to observe bound modes?  Is there a difference between the vibrational spectrum of one-dimensional and two-dimensional thin structures, i.e., rods vs. shells?
+Despite the conscientious efforts of the above-mentioned authors, several critical questions remain unanswered: Do we really need an inflection point to observe bound modes?  Is there a difference between the vibrational spectrum of one-dimensional and two-dimensional thin structures, i.e., rods vs. shells?
 Is it possible to compute, even approximately, the shapes and frequencies of the vibrational modes?
 What kinds of waves on thin structures show localization?
 In this dissertation, we explore these questions using a thin shell and a rod as concrete examples.
@@ -189,7 +189,7 @@ where $\widehat{\mathsf{D}}$ is a differential operator, $\psi$ is the wave fiel
 In the elastodynamic problems involving thin structures, the wave field $\psi$ is almost always composed of displacements---broken up into tangential and normal components---from the neutral, undeformed configuration of the structure.
 The operator $\widehat{\mathsf{D}}$, the exact nature of which is model dependent, is a square matrix of spatial derivatives that act on $\psi$.
 An uncurved elastic structure can support three basis wave types: extensional and shear waves, which respectively propagate by stretching and shearing the structure, and involve only the tangential components (e.g., $u$ in Fig.~\ref{fig:saw}); and flexural waves that propagate by bending the structure and involve only the normal component (e.g., $\zeta$ in Fig.~\ref{fig:saw}).
-However, if the structure is curved, the normal and tangential components remain coupled, and we can only speak of waves that are predominantly flexural or extensional or shear like.
+In contrast, if the structure is curved, the normal and tangential components remain coupled, and we can only speak of waves that are predominantly flexural or extensional or shear like.
 It this curvature-mediated coupling between the various components that ultimately leads to the formation of bound states in curved structures.
 %
 \begin{figure}
@@ -208,7 +208,7 @@ It this curvature-mediated coupling between the various components that ultimate
 \subsection{Semiclassical approximation}
 
 The usual line of attack, when faced with an equation similar to Eq.~\eqref{intro:eq:waveeq}, is to look for plane-wave solutions of the form $\psi \sim e^{\pm i kx}$.
-Such an endeavor, however, fails if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants, which is not the case for a thin structure with a varying curvature profile.\footnote{To be clear, as the exact form of the operator $\widehat{\mathsf{D}}$ depends on the shell or rod model we choose to work with, even when the curvature is a constant, a plain-wave solution may not be applicable.}
+Such an endeavor, however, fails if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants, which is the case for a thin structure with a varying curvature profile.\footnote{To be clear, as the exact form of the operator $\widehat{\mathsf{D}}$ depends on the shell or rod model we choose to work with, even when the curvature is a constant, a plain-wave solution may not be applicable.}
 The semiclassical approximation or the Wentzel--Kramers--Brillouin (WKB) approximation is a widely used method to obtain approximate solutions to differential equations where these coefficients are slowly varying.
 In asymptotic analysis, it is usually introduced as an approximate method to find solutions to differential equations whose highest derivative is multiplied by a small parameter~\cite{bender1978}.
 A paradigmatic example from physics is the time-independent Schr\"{o}dinger equation for a particle of mass $m$ in a potential $V(x)$,
@@ -239,7 +239,7 @@ Thus, after expressing the derivatives of a given differential operator in terms
   \widehat{D}\left(x, \partial_{x}\right) = \widehat{D}\left(x, i\hat{k}\right) \quad\text{\small(Hilbert space)} \quad\xrightleftharpoons[\text{Wigner map}]{\text{Weyl transform}}\quad D\left(x, k\right) \quad\text{\small(phase space)}.
 \end{equation}
 %
-The Schr\"{o}dinger operator $\widehat{H} = -\partial_{x}^{2}/2m + V(x)$, for instance, gets mapped to the classical Hamiltonian of a point particle $H(x, k) = k^{2}/2m + V(x)$, as one would expect.
+The Schr\"{o}dinger operator $\widehat{H} = -\partial_{x}^{2}/2m + V(x)$, for instance, gets mapped to the classical Hamiltonian of a point particle $H(x, k) = k^{2}/2m + V(x)$.
 Once the operator is in symbol form, it can be expanded and approximated just like any other ordinary function, which provides a direct path towards obtaining asymptotic solutions to wave equations.
 
 For matrix operators that act on multicomponent wave fields, such as the one in Eq.~\eqref{intro:eq:waveeq}, the corresponding Weyl symbol $\mathsf{D}$ is called the dispersion matrix---an ordinary matrix, whose entries are functions defined on an $x$-$k$ phase space.
@@ -256,14 +256,14 @@ The advantage provided by the semiclassical approximation cannot be overstated: 
 
 \subsection{Bound states in thin elastic structures}
 
-The semiclassical approximation also provides a simple way to extract the bound state frequencies by ``quantizing'' the ray trajectories in the phase space.
+The semiclassical approximation also provides a direct route to extract the bound state frequencies by ``quantizing'' the ray trajectories in the phase space.
 As bound waves are bounded in the phase space as well, the rays corresponding to these waves appear in the form of closed orbits when visualized [see Fig.~\ref{fig:phasespace}(a)].
 Each bound orbit is associated with a wave of a specific frequency $\omega$.
 Additionally, the single valuedness of the wave field as we traverse the orbit requires the overall phase to be a half-integral multiple of $2\pi$.
 Additional complications arise when the wave field has more than one component, which leads to a corrected Bohr--Sommerfeld-type quantization condition of the form
 %
 \begin{equation}
-  \epsilon^{-1}\oint \dd{x}\,k(x) = 2\left(n + \frac{1}{2}\right)\pi - \left(\gamma_{\text{G}} + \gamma_{\text{NG}}\right).
+  \oint \dd{x}\,k(x) = 2\left(n + \frac{1}{2}\right)\pi - \left(\gamma_{\text{G}} + \gamma_{\text{NG}}\right).
 \end{equation}
 %
 Here $\gamma_{\text{G}}$ and $\gamma_{\text{NG}}$ are extra phases that arise because of the multicomponent nature of the problem.

@@ -11,7 +11,7 @@ Geometrical methods are now a mainstay of all branches of modern theoretical phy
 % TODO: Important developments include the
 and vigorous research efforts in the second half of the 20th century lead to the geometrization of the more classical fields of physics such as analytical mechanics~\cite{sudarshan1974,arnold1978,souder2017} and elasticity theory~\cite{marsden1994,audoly2010}.
 Even more recently, information geometry and the theory of statistical manifolds have been described as promising tools for understanding fundamental issues in thermodynamics, statistical mechanics, and learning theory~\cite{ruppeiner1995}.
-In some sense, the unreasonable effectiveness of geometrical methods in physics (among other mathematical sciences) should not be surprising---after all, many physical problems are best formulated mathematically in terms of configuration (or parameter) spaces that are not Euclidean.
+In some sense, the unreasonable effectiveness of geometrical methods in physics (among other mathematical sciences) should come as no surprise--after all, many physical problems are best formulated mathematically in terms of configuration (or parameter) spaces that are not Euclidean.
 
 On a less abstract level, the intrinsic shape and structure of a physical system can also play a major role in dictating its physical properties.
 This is particularly true for soft, deformable materials, or ``soft matter''---the stuff of everyday things.
@@ -96,7 +96,7 @@ Such singularities, which arise when the constraints imposed on a system cease t
 \subsection{Frameworks}
 
 Soft, few-body systems, composed of a small number of particles or units, interacting via short-ranged forces are commonplace in soft-matter physics.
-A paradigmatic example of such a system is a colloidal cluster, which is composed of a small number of colloidal particles with sizes typically ranging from 1~nm to 0.1~$\mu$m.
+A quintessential example of such a system is a colloidal cluster, which is composed of a small number of colloidal particles with sizes typically ranging from 1~nm to 0.1~$\mu$m.
 % TODO: figure of a colloidal cluster and cite papers in the following sentence; plagiarism issues as well.
 Colloidal clusters, have been extensively studied both experimentally and theoretically, and provide fundamental insights into a host of phenomena including the formation of nucleation barriers, crystallization, glass transition, etc.
 Although the particles in a colloidal cluster are held together by subtle effects of electrostatic and van der Waal forces, such details are often irrelevant if our goal is to describe the more macroscopic properties of the cluster.
@@ -157,10 +157,8 @@ The analyses presented in these chapters have direct consequences in the design 
 
 \section{Thin structures, elastic waves, and bound states}
 
-In the second part of this dissertation, we consider the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a singly-curved shell as concrete examples.
-% Previous work on related problems have largely focused on the localization of flexural waves on such structures.
-% Here, using the semiclassical/WKB approximation, we show that in addition to flexural waves, extensional and shear waves also form localized, bound states around points where the absolute curvature of the structure has a minimum.
-% These findings open up novel ways to fine-tune the acoustic and vibrational properties of thin elastic structures, and raise the possibility of introducing new phenomena not easily captured by effective models of flexural waves alone.
+In the second part of this dissertation, we consider the trapping of elastic waves in thin elastic structures with spatially varying curvature profiles. 
+This problem was partly motivated by a fascinating acoustic phenomenon.
 
 \subsection{Can one hear the shape of a shell?}
 
@@ -168,32 +166,33 @@ Take an ordinary hand saw used for cutting wood.
 Clamp down the handle end of the saw using your feet and bend its tip using your dominant hand so that its overall shape is similar to the letter $\mathsf{S}$ (see Fig.~\ref{fig:saw}).
 The saw is now a ``singing'' saw: bowing or striking it with a mallet produces a sharp, sustained sound.
 But how does the saw sing, and more importantly, why does it have to be shaped like an \textsf{S}?
-Although the sonorousness of the saw has been known at least since the 19th century~\cite{stuckenbruck2016}, the first scientific explanation for it was provided only in the early 90s by \citet{scott1992}.
+Although the sonorousness of the common saw has been known at least since the 19th century~\cite{stuckenbruck2016}, the first scientific explanation for it was provided only in the early 90s by \citet{scott1992}.
 These authors modeled the saw as a thin elastic shell with a varying curvature profile and showed that the saw's sonority is due to vibrations that get trapped around its inflection point, where the local curvature vanishes.
 As trapped vibrations remain confined to the immediate vicinity of the inflection point, it reduces energy dissipation through the two ends of the saw, resulting in a sustained note.
-In a very recent work, \citet{shankar2022} declared that these vibrations are topologically protected on the basis of jumps in an integral topological invariant as we move across the inflection point.
+In a very recent work, \citet{shankar2022} reported that these vibrations have a topological origin on the basis of jumps in an integer-valued invariant as we move across the inflection point.
 
-Despite the conscientious efforts of the above-mentioned authors, several critical questions remain unanswered: Do we really need an inflection point to observe trapped waves?  Is there a difference between the vibrational spectrum of one-dimensional and two-dimensional thin structures, i.e., rods vs. shells?
-Is it possible to compute, even approximately, the shapes and frequencies of the vibrational modes?
+Despite the efforts of the above-mentioned authors, several critical questions remain unanswered: 
 What kinds of waves on thin structures get trapped?
+Do we really need an inflection point to observe trapped waves?  Is there a difference between the vibrational spectrum of one-dimensional and two-dimensional thin structures, i.e., rods vs. shells?
+Is it possible to compute, even approximately, the shapes and frequencies of the vibrational modes?
 In this dissertation, we explore these questions using a thin shell and a rod as concrete examples.
 
-Central to understanding the trapping of waves in elastodynamic systems, such as the musical saw, is an eigenvalue problem of the form
+Central to understanding the trapping of waves in elastodynamic systems, such as the musical saw, is a commonplace eigenvalue problem of the form
 %
 \begin{equation}
-  \widehat{\mathsf{D}}\psi = \omega^{2}\psi,
+  \widehat{\mathsf{D}}\psi = \omega^{2}\psi.
   \label{intro:eq:waveeq}
 \end{equation}
 %
-which is commonplace in all mathematical sciences.
-Above, $\widehat{\mathsf{D}}$ is a differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
+Above, $\widehat{\mathsf{D}}$ is a self-adjoint linear differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
 A trapped wave is a solution $\psi$ to Eq.~\eqref{intro:eq:waveeq} satisfying the prescribed boundary conditions and decaying exponentially as we approach the physical boundaries.
 In quantum-mechanical contexts, such solutions are called localized or bound states---vocabulary that we will continue to use.
 
 In elastodynamic problems involving thin structures, the wave field $\psi$ is almost always composed of displacements---broken up into tangential and normal components---from the neutral, undeformed configuration of the structure.
 The operator $\widehat{\mathsf{D}}$, the exact nature of which is model dependent, is a square matrix of spatial derivatives that act on $\psi$.
-An uncurved elastic structure can support three basis wave types: extensional and shear waves, which respectively propagate by stretching and shearing the structure, and involve only the tangential components (e.g., $u$ in Fig.~\ref{fig:saw}); and flexural waves that propagate by bending the structure and involve only the normal component (e.g., $\zeta$ in Fig.~\ref{fig:saw}).
-In contrast, if the structure is curved, the normal and tangential components remain coupled, and we can only speak of waves that are predominantly flexural or extensional or shear like.
+An uncurved elastic structure can support three basic wave types: extensional and shear waves, which respectively propagate by stretching and shearing the structure, and involve only the tangential components (e.g., $u$ in Fig.~\ref{fig:saw}); and flexural waves that propagate by bending the structure and involve only the normal component (e.g., $\zeta$ in Fig.~\ref{fig:saw}).
+By contrast, if the structure is curved, the normal and tangential components remain coupled. 
+In this case, we can only speak of waves that are predominantly flexural or extensional or shear like, based on which component is more dominant in magnitude.
 It this curvature-mediated coupling between the various components that ultimately leads to the formation of bound states in curved structures.
 %
 \begin{figure}
@@ -212,10 +211,10 @@ It this curvature-mediated coupling between the various components that ultimate
 \subsection{Semiclassical approximation}
 
 The usual line of attack, when faced with an equation similar to Eq.~\eqref{intro:eq:waveeq}, is to look for plane-wave solutions of the form $\psi \sim e^{\pm i kx}$.
-Such an endeavor, however, fails if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are constants, which is the case for a thin structure with a varying curvature profile.\footnote{To be clear, as the exact form of the operator $\widehat{\mathsf{D}}$ depends on the shell or rod model we choose to work with, even when the curvature is a constant, a plain-wave solution may not be applicable.}
+Such an endeavor, however, fails if the coefficients of the derivatives in $\widehat{\mathsf{D}}$ are not constants, which is the case for a thin structure with a varying curvature profile.\footnote{To be clear, as the exact form of the operator $\widehat{\mathsf{D}}$ depends on the shell or rod model we choose to work with, even when the curvature is a constant, a plain-wave solution may not be applicable.}
 The semiclassical approximation or the Wentzel--Kramers--Brillouin (WKB) approximation is a widely used method to obtain approximate solutions to differential equations where these coefficients are slowly varying.
 In asymptotic analysis, it is usually introduced as an approximate method to find solutions to differential equations whose highest derivative is multiplied by a small parameter~\cite{bender1978}.
-A paradigmatic example from physics is the time-independent Schr\"{o}dinger equation for a particle of mass $m$ in a potential $V(x)$,
+A representative example from physics is the time-independent Schr\"{o}dinger equation for a particle of mass $m$ in a potential $V(x)$,
 %
 \begin{equation}
   \left[-\frac{\hbar^{2}}{2m}\partial_{x}^{2} + V(x)\right]\psi(x) = E\psi(x),
@@ -228,12 +227,12 @@ In reality, the limit $\hbar \to 0$ represents the situation where the value of 
   This can be more clearly seen by nondimensionalizing the time-independent Schr\"{o}dinger equation by introducing an energy scale $U$ and a length scale $L$, after which it can be written as
 $-\epsilon^{2}\partial_{{x}}^{2}\psi(x) + {V}(x)\psi(x) = {E}\psi(x)$,
 where all quantities as well as the parameter $\epsilon = \hbar/\sqrt{2mL^{2}U}$ are now dimensionless.
-As $\sqrt{2mL^{2}U}$ has dimensions of angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum is much larger than $\hbar$.}
+As $\sqrt{2mL^{2}U}$ has dimensions of angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum are much larger than $\hbar$.}
 It is in this context that the WKB method gets the alternative moniker of semiclassical approximation.%
 %\footnote{Also known as the quasiclassical method.  In harmonic analysis, the semiclassial approximation is also called semiclassical analysis.  Some others choose to call it the eikonal method and some others call it ray approximation or ray tracing.}
 
 Modern reformulations of the semiclassical method, based on the Weyl symbol calculus, provide unparalleled insights into the connection between classical and quantum mechanics.
-Weyl calculus provides an elegant way to set up a one-to-one correspondence between differential operators (i.e., powers of $\partial_{x}$) defined on Hilbert spaces and ordinary functions defined on a position--momentum phase space.
+Weyl calculus provides an elegant way to set up a one-to-one association between differential operators (i.e., powers of $\partial_{x}$) defined on Hilbert spaces and ordinary functions defined on a position--momentum phase space.
 The basic premise is that, under the Weyl transform, the momentum operator $\hat{k} = -i\partial_{x}$ gets mapped to the momentum $k$.
 (For simplicity, we have suppressed factors of $\hbar$.)
 Thus, after expressing the derivatives of a given differential operator $D(x, \partial_{x})$ in terms of $\hat{k}$ and its powers, the operator can be mapped to an ordinary function---called its Weyl symbol---defined on an $x$-$k$ phase space, i.e.,
@@ -244,7 +243,7 @@ Thus, after expressing the derivatives of a given differential operator $D(x, \p
 \end{equation}
 %
 The Schr\"{o}dinger operator $\widehat{H} = -\partial_{x}^{2}/2m + V(x)$, for instance, gets mapped to the classical Hamiltonian of a point particle $H(x, k) = k^{2}/2m + V(x)$.
-Once the operator is in its symbol form, it can be expanded and approximated just like any other ordinary function, which provides a direct path towards obtaining asymptotic solutions to wave equations.
+Once the operator is in its symbol form, it can be expanded and approximated just like any other ordinary function, providing a direct path towards obtaining asymptotic solutions to wave equations.
 
 For matrix operators that act on multicomponent wave fields, such as the one in Eq.~\eqref{intro:eq:waveeq}, the corresponding Weyl symbol $\mathsf{D}$ is called the dispersion matrix---an ordinary matrix, whose entries are functions defined on an $x$-$k$ phase space.
 The eigenvalues $\lambda(x, k)$ of the dispersion matrix serve as ray Hamiltonians of the different wave types represented by Eq.~\eqref{intro:eq:waveeq}.

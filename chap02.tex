@@ -4,7 +4,7 @@
 \chapter[Frameworks and singularities]{Frameworks and singularities\footnote{%
   This chapter and the next are expanded versions of \crossref{10.1103/PhysRevLett.128.208005}{M.~Mannattil, J.~M.~Schwarz, C.~D.~Santangelo, Phys.\ Rev.\ Lett.\ \textbf{128}, 208005 (2022)}.
   The problem discussed in this paper emerged during conversations with my coauthors.
-  I was responsible for all the analytical calculations and numerical experiments, and wrote the paper with additional inputs from my coauthors.}}
+  I was responsible for all the analytical calculations and numerical experiments, and wrote the paper with inputs from my coauthors.}}
   \label{chap02}
 
 % \chapterprecishere{
@@ -106,13 +106,13 @@ Geometrically, this corresponds to nontransversal intersection of the zero level
 We consider bar-joint frameworks made of $N \geq 3$ point-like joints in $d$ dimensions connected by $m < Nd - \frac{1}{2}d(d+1)$ freely-rotating, massless bars.
 If the joints have position vectors $\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N} \in \mathbb{R}^d$ in the lab frame, the framework's configuration can be fully described at any given moment using a configuration vector $\bm{r}\in\mathbb{R}^{N d}$ defined by $\bm{r} = (\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N})$.
 Let the $i$th bar in the framework have a length $\ell_{i}$.
-It is also clear that the length can always be considered as a function of the coordinate $\bm{r}$ describing the entire network, and we emphasize this by writing $\ell_i \equiv \ell_i(\bm{r})$.
+It is also clear that the length $\ell(\bm{r}_{i})$ can always be considered as a function of the coordinate $\bm{r}$ describing the entire network.
 
 As before, the configuration space of the framework is the set $\Omega$ such that the length of the $i$th bar $\ell_{i}$ is equal to its rest length $\bar{\ell}_{i}$.
 Configurations in $\Omega$ are deformed states of the framework or the configurations obtained from such states after a rigid motion in $d$-dimensional space (i.e., after rotations, reflections, or translations).
 To separate the actual deformations of the framework from trivial rigid motions, it is more useful to consider the shape space $\Sigma$, is the set of all configurations with distinct shapes, and
-obtained after ``filtering out'' all the rigid motions from the configuration space.
-More technically, the shape space is the quotient space $\Sigma = \Omega/SE(d)$, where $SE(d)$ is the special Euclidean group in $d$ dimensions~\cite{littlejohn1995}.
+obtained after ``filtering out'' all the rigid motions from the configuration space.%
+\footnote{More technically, the shape space is the quotient space $\Sigma = \Omega/SE(d)$, where $SE(d)$ is the special Euclidean group in $d$ dimensions~\cite{littlejohn1995}.}
 
 To practically identify $\Sigma$, we first switch to a Cartesian body frame attached to the framework so that all $\frac{1}{2}d(d+1)$ rigid motions are eliminated~\cite{herschbach1959,echenique2011}.
 We require $n = Nd - \frac{1}{2}d(d+1)$ coordinates to specify the state of the framework in the body frame and let $\bm{q} \in \mathbb{R}^{n}$ be its configuration vector in this frame.
@@ -120,14 +120,17 @@ Now consider $m$ holonomic constraint functions $f_i: \mathbb{R}^{n} \to \mathbb
 %
 \begin{equation}
   f_i(\bm{q}) = \frac{\ell_i^2(\bm{q}) - \bar{\ell}_i^2}{2\bar{\ell}_i},
+  \label{eq:consmap}
 \end{equation}
 %
 where the factor of $1/(2\bar{\ell}_i)$ is for later convenience.
 As before, the $m$ scalar constraint functions can also be considered together as a single constraint map $f: \mathbb{R}^{n} \to \mathbb{R}^m$ defined by $f(\bm{q}) = [f_1(\bm{q}), f_2(\bm{q}), \ldots, f_m(\bm{q})]$.
-Then, the shape space is the zero level set $\Sigma = \left\{\bm{q} \in \mathbb{R}^{n}: f(\bm{q}) = \bm{0} \right\}$.
+Then, the shape space is the zero level set $\Sigma = \{\bm{q} \in \mathbb{R}^{n}: f(\bm{q}) = \bm{0}\}$.
 In the absence of external forces, each point in $\Sigma$ is a ground-state configuration of the framework with a distinct shape.
 
-The compatibility matrix $\mathsf{C}(\bm{q})$~\cite{pellegrino1986,lubensky2015} at a configuration $\bm{q} \in \Sigma$ is the $m \times n$ Jacobian matrix $\nabla f$ of the constraint map $f$.
+The compatibility matrix $\mathsf{C}(\bm{q})$~\cite{pellegrino1986,lubensky2015} at a configuration $\bm{q} \in \Sigma$ is the $m \times n$ Jacobian matrix $\nabla f$ of the constraint map $f$.%
+\footnote{In Eq.~\eqref{eq:consmap} it might have been more natural to use the constraint function $f_{i} = \frac{1}{2}[\ell_{i}^{2}(\bm{q}) - \ell_{i}^{2}(\bar{\bm{q}})]$, without the $\bar{\ell}_{i}^{-1}$ factor.  This would have made $\nabla f$ the rigidity matrix instead of the compatibility matrix.  For our purposes, however, it is more convenient to work with the compatibility matrix as its entries are dimensionless.}
+
 If $\mathsf{C}$ has full rank for all points in $\Sigma$, then $\Sigma$ is an $(n - m)$-dimensional submanifold of $\mathbb{R}^{n}$~\cite{leimkuhler2005,lee2013}.
 When $\Sigma$ has a ``branched'' structure, e.g., like in Fig.~\ref{fig:4bar_cs}, $\mathsf{C}(\bm{q})$ drops rank at the singularity where the branches meet~\cite{lopez-custodio2020,muller2019}, and the constraints cease to be linearly independent.
 Such singularities are the most common singularities~\cite{lopez-custodio2019,lopez-custodio2020} found in a framework and here we consider the situation where they occur only at isolated points of $\Sigma$.\footnote{For other, less common singularities that can occur in a framework, see Refs.~\cite{lopez-custodio2020,muller2019,muller2017}, and references therein.}
@@ -192,7 +195,7 @@ The total energy of the framework is then
   U({\bm{q}}) = \sum_{i=1}^{m} \phi_i[\ell_i({\bm{q}})]\,.
 \end{equation}
 %
-On the shape space $\Sigma$, the bars are at their natural lengths, i.e., for all points $\bar{\bm{q}} \in \Sigma$, $\ell_i(\bar{\bm{q}}) = \bar{\ell_i}$.
+On the shape space $\Sigma$, the bars are at their natural lengths, i.e., for all points $\bar{\bm{q}} \in \Sigma$, we have $\ell_i(\bar{\bm{q}}) = \bar{\ell_i}$.
 The bars are also at their minimum potential energies $\phi_i(\bar{\ell_i})$, which we assume to be zero for all bars without any loss of generality.
 We first look at the lowest-order approximation to the energy, viz., the harmonic approximation.
 
@@ -216,10 +219,10 @@ where all the partial derivatives are with respect to the components of $\bm{q}$
 Since we have assumed the potential energy of all bars to have a minimum value (assumed to be zero) on the shape space, where $\ell = \bar{\ell}$, the derivative $\phi'(\bar{\ell})$ vanishes.
 We wish to find the lowest-order expansion of the total potential energy $U(\bm{q})$ near a point $\bar{\bm{q}} \in \Sigma$.
 First, let us consider the case where $\bar{\bm{q}}$ is not a point of self stress, in which case all zero modes are tangent to $\Sigma$ and can be extended to smooth deformations of the framework that do not cost energy to any order.
-In such a situation, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, the potential energy of a single bar to $\mathscr{O}(\Abs{\bm{q}}^2)$ is the familiar Hookean potential
+In such a situation, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, the potential energy of a single bar to $\mathcal{O}(\Abs{\bm{q}}^2)$ is the familiar Hookean potential
 %
 \begin{equation}
-  \phi[\ell(\bar{\bm{q}} + \bm{q})] =  \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 + \mathscr{O}(\Abs{\bm{q}}^3).
+  \phi[\ell(\bar{\bm{q}} + \bm{q})] =  \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 + \mathcal{O}(\Abs{\bm{q}}^3).
 \end{equation}
 %
 Above, the partial derivatives of $\ell(\bm{q})$ and the derivatives of $\phi(\ell)$ have been evaluated at $\bar{\bm{q}} \in \Sigma$ and $\ell = \bar{\ell}$, respectively.
@@ -236,7 +239,7 @@ Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix
 \subsection{Higher-order approximations}
 
 Now let us analyze the case where there are additional zero modes due to the presence of a self stress.
-Dropping the index $i$ again, we first expand the energy of a bar to $\mathscr{O}(\Abs{\bm{q}}^4)$ and find
+Dropping the index $i$ again, we first expand the energy of a bar to $\mathcal{O}(\Abs{\bm{q}}^4)$ and find
 %
 \begin{equation}
   \begin{aligned}
@@ -247,7 +250,7 @@ Dropping the index $i$ again, we first expand the energy of a bar to $\mathscr{O
     \frac{1}{24}\phi''''(\bar{\ell})(\partial_j \ell\,q_j)^4 +
     \frac{1}{4}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^2 \partial_k \partial_l \ell\, q_k q_l\\ &\qquad+
     \frac{1}{8}\phi''(\bar{\ell})(\partial_j\partial_k \ell\, q_j q_k)^2 +
-    \frac{1}{6}\phi''(\bar{\ell})(\partial_j \ell\, q_j)\partial_k\partial_l\partial_m \ell\, q_k q_l q_m + \mathscr{O}(\Abs{\bm{q}}^5).
+    \frac{1}{6}\phi''(\bar{\ell})(\partial_j \ell\, q_j)\partial_k\partial_l\partial_m \ell\, q_k q_l q_m + \mathcal{O}(\Abs{\bm{q}}^5).
   \end{aligned}
   \label{sm:eq:energyexp}
 \end{equation}
@@ -268,18 +271,18 @@ Using this in Eq.~\eqref{sm:eq:lentomap} we get
   \end{aligned}
 \end{equation}
 %
-Setting $\bm{v} = \bm{0}$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathscr{O}(\Abs{\bm{u}}^4)$ term $\frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
+Setting $\bm{v} = \bm{0}$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathcal{O}(\Abs{\bm{u}}^4)$ term $\frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
 
 To understand how a fast mode $\bm{v}$ contributes to the energy, we similarly set $\bm{u} = \bm{0}$ in the energy expansion.
 Since $\bm{v}$ belongs to the orthogonal compliment of the subspace of zero modes, by definition, $\partial_j \ell v_j = \partial_j f v_j \ne 0$.
-Hence, we see that the first nonvanishing contribution comes from the $\mathscr{O}(\Abs{\bm{v}}^2)$ term $\frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\, v_j)^2 = \frac{1}{2}\phi''(\bar{\ell})(\partial_j f\, v_j)^2$.
-This shows that the energy scales as $\mathscr{O}(\Abs{\bm{u}}^4) \sim \mathscr{O}(\Abs{\bm{v}}^2)$, i.e., zero and fast modes respectively make quartic- and harmonic-order contributions to the energy.
+Hence, we see that the first nonvanishing contribution comes from the $\mathcal{O}(\Abs{\bm{v}}^2)$ term $\frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\, v_j)^2 = \frac{1}{2}\phi''(\bar{\ell})(\partial_j f\, v_j)^2$.
+This shows that the energy scales as $\mathcal{O}(\Abs{\bm{u}}^4) \sim \mathcal{O}(\Abs{\bm{v}}^2)$, i.e., zero and fast modes respectively make quartic- and harmonic-order contributions to the energy.
 Finally, we set $\bm{q} = \bm{u} + \bm{v}$ in Eq.~\eqref{sm:eq:energyexp}, and find the energy of the $i$th bar to the lowest order in $\bm{u}$ and $\bm{v}$ as
 %
 \begin{equation}
   \begin{aligned}
     \phi_i &= \frac{1}{2}\phi_i''(\bar{\ell}_i)(\partial_j\, f_i\, v_j)^2 + \frac{1}{2}\phi''_i(\bar{\ell}_i)(\partial_j f_i\, v_j)(\partial_k \partial_l f_i\, u_k u_l) + \frac{1}{8}\phi''_i(\bar{\ell}_i)(\partial_k \partial_l f_i\, u_k u_l)^2\\
-           &\qquad+ \mathscr{O}(\Abs{\bm{u}}^5) + \mathscr{O}(\Abs{\bm{u}}^{3}\Abs{\bm{v}}) +\mathscr{O}(\Abs{\bm{u}}\Abs{\bm{v}}^{2}),
+           &\qquad+ \mathcal{O}(\Abs{\bm{u}}^5) + \mathcal{O}(\Abs{\bm{u}}^{3}\Abs{\bm{v}}) +\mathcal{O}(\Abs{\bm{u}}\Abs{\bm{v}}^{2}),
   \end{aligned}
 \end{equation}
 %

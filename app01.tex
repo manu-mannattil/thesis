@@ -119,16 +119,42 @@ Sometimes the coarea formula is misleadingly written~\cite{hartmann2007,hartmann
 
 \section{Operators and symbols}
 
-An operator-symbol correspondence is an association between operators defined on some Hilbert space and ordinary $c$-numbered functions on the phase space, called symbols~\cite[\S 2.3.1]{chaichian2001}.
+By quantization we mean an association of an operator, e.g., $\hat{f}$, defined on some Hilbert space to an ordinary $c$-numbered function $f$ on the $x$-$k$ position--momentum phase space.
+In this context, the ordinary function is called the symbol of the operator~\cite[\S 2.3.1]{chaichian2001}.
+In physics, this usually entails replacing the momentum $k$ with the operator $\hat{k} = -i\epsilon\partial_{x}$, where $\epsilon$ is a small parameter, which in quantum mechanics is the Planck's constant.
+Ambiguities arise when we encounter functions that depend on both $x$ and $k$, e.g., $f(x, k) = xk$.
+As $x$ and $k$ are ordinary variables that commute, $f(x, k) = kx$.
+But should the quantized operator be $\hat{f} = x\hat{k}$, or $\hat{f} = \hat{k}x$, or the symmetrized version $\hat{f} = \frac{1}{2}\left(\hat{x}\hat{k} + \hat{k}\hat{x}\right)$?
+This is the operator ordering problem.%
+\footnote{This problem only exists between $\hat{x}$ and $\hat{k}$ }
 
-% TODO: motivate properly.
-%The symmetrized product $\big\llbracket \widehat{A}_{1}^{k_{1}} \widehat{A}_{2}^{k_{2}} \cdots \widehat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\widehat{A}_{i}$ is defined as the coefficient of
-%%
-%\begin{equation}
-%  \frac{k!}{k_{1}!k_{2}!\cdots k_{n}!} a_{1}^{k_{1}} a_{2}^{k_{2}} \cdots a_{n}^{k_{n}}
-%\end{equation}
-%%
-%in the multinomial expansion of $\left(a_{1}\widehat{A}_{1} + a_{2}\widehat{A}_{2} + \cdots + a_{n}\widehat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
+The symmetrized product $\big\llbracket \widehat{A}_{1}^{k_{1}} \widehat{A}_{2}^{k_{2}} \cdots \widehat{A}_{n}^{k_n} \big\rrbracket$ of $n$ noncommuting operators $\widehat{A}_{i}$ is defined as the coefficient of
+%
+\begin{equation}
+  \frac{k!}{k_{1}!k_{2}!\cdots k_{n}!} a_{1}^{k_{1}} a_{2}^{k_{2}} \cdots a_{n}^{k_{n}}
+\end{equation}
+%
+in the multinomial expansion of $\left(a_{1}\widehat{A}_{1} + a_{2}\widehat{A}_{2} + \cdots + a_{n}\widehat{A}_{n}\right)^{k}$ with $k = k_{1} + k_{2} + \cdots + k_{n}$.
+
+\subsection{From operators to symbols}
+
+A natural way to construct symbols from operators is to use $xk$ ordering, where we order powers of $x$ before powers of $k$.
+This way, the derivative in $x$ does not have to act on the $x$ terms.
+An operator of the form 
+%
+\begin{equation}
+  \hat{f} = \sum_{\mu,\nu} c_{\mu\nu} \hat{x}^{\mu}\hat{k}^{\nu},
+\end{equation}
+%
+has been naturally expressed this way.
+For operators of the form
+%
+\begin{equation}
+  \hat{f} = \sum_{\mu\,\nu} c_{\mu\nu} \hat{k}^{\mu}\hat{x}^{\nu},
+\end{equation}
+%
+we use the standard canonical commutation relationship, $[\hat{x}, \hat{k}] = i\epsilon$, to write $\hat{k}\hat{x} = i\epsilon - \hat{x}\hat{k}$
+
 
 \subsection{Weyl symbols}
 
@@ -219,13 +245,13 @@ Similarly, we see that
   e^{2ikx_{2}}e^{-\frac{i}{2}\ogets{\partial_{k}}\oto{\partial_{x}}} = e^{2ikx_{2}}e^{x_{2}\partial_{x}}.\label{eq:moyal4}
 \end{equation}
 %
-Using Eqs.~\eqref{eq:moyal2}--\eqref{eq:moyal4}, and defining $\hat{\mathcal{L}} = \ogets{\partial_{x}} \oto{\partial_{k}} - \ogets{\partial_{k}}\oto{\partial_{x}}$, we can turn Eq.~\eqref{eq:moyal1} into
+Using Eqs.~\eqref{eq:moyal2}--\eqref{eq:moyal4}, and defining $\widehat{\mathcal{L}} = \ogets{\partial_{x}} \oto{\partial_{k}} - \ogets{\partial_{k}}\oto{\partial_{x}}$, we can turn Eq.~\eqref{eq:moyal1} into
 %
 \begin{equation}
   \begin{aligned}
-    C(x, k) &= \frac{1}{\pi^{2}} \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \dd{x_{2}}\, \dd{k_{2}}\,e^{2i[k_{2}(x_{1} - x) - x_{2}(k_{1} - k)]} A(x_{1}, k_{1})\, e^{\frac{i}{2}\hat{\mathcal{L}}}\right] B(x, k)\\
-                     &= \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \delta(x_{1} - x)\,\delta(k_{1} - k) A(x_{1}, k_{1})\, e^{\frac{i}{2}\hat{\mathcal{L}}}\right] B(x, k)\\
-                     &= A(x, k)e^{\frac{i}{2}\hat{\mathcal{L}}} B(x, k).
+    C(x, k) &= \frac{1}{\pi^{2}} \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \dd{x_{2}}\, \dd{k_{2}}\,e^{2i[k_{2}(x_{1} - x) - x_{2}(k_{1} - k)]} A(x_{1}, k_{1})\, e^{\frac{i}{2}\widehat{\mathcal{L}}}\right] B(x, k)\\
+                     &= \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \delta(x_{1} - x)\,\delta(k_{1} - k) A(x_{1}, k_{1})\, e^{\frac{i}{2}\widehat{\mathcal{L}}}\right] B(x, k)\\
+                     &= A(x, k)e^{\frac{i}{2}\widehat{\mathcal{L}}} B(x, k).
   \end{aligned}
 \end{equation}
 %
@@ -234,7 +260,7 @@ The final step defines the Moyal (or ``star'' $\star$) product, which can be use
 %
 \begin{equation}
   \begin{aligned}
-    C(x, k) = A(x, k)\star B(x, k) &= A(x, k)e^{\frac{i\epsilon}{2}\hat{\mathcal{L}}} B(x, k)\\
+    C(x, k) = A(x, k)\star B(x, k) &= A(x, k)e^{\frac{i\epsilon}{2}\widehat{\mathcal{L}}} B(x, k)\\
                                                              &= A(x, k)\left[1 + \frac{i\epsilon}{2}\left(\ogets{\partial_{x}}\oto{\partial_{k}} - \ogets{\partial_{k}}\oto{\partial_{x}}\right) + \mathcal{O}(\epsilon^{2}) \right] B(x, k)\\
                                                              &= A(x, k)B(x, k) + \frac{i\epsilon}{2}\left\{A(x, k), B(x, k)\right\} + \mathcal{O}(\epsilon^{2}).
   \end{aligned}

@@ -305,12 +305,12 @@ Note again that Eq.~\eqref{eq:coarea} makes no reference to the shape space $\Si
 This however, comes at the expense of having to do a higher-dimensional integral over $\hat{\xi}^{-1}(\xi)$.
 The next strategy is to make physically valid assumptions that can be used to dimensionally reduce this integral.
 
-% To simplify the evaluation, we make two assumptions: (i) for points close to $\bar{\bm{q}}^{*}$, the \ac{cv} map $\hat{\xi}$ can be approximated by its Taylor expansion around $\bar{\bm{q}}^{*}$: $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^{2})$, with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$; (ii) fast modes that belong to $(\ker\mathsf{C})^{\perp}$ do not change the value of the CV to linear order at $\bar{\bm{q}}^{*}$, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
+% To simplify the evaluation, we make two assumptions: (i) for points close to $\bar{\bm{q}}^{*}$, the \ac{cv} map $\hat{\xi}$ can be approximated by its Taylor expansion around $\bar{\bm{q}}^{*}$: $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathcal{O}(\Abs{\bm{q}}^{2})$, with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$; (ii) fast modes that belong to $(\ker\mathsf{C})^{\perp}$ do not change the value of the CV to linear order at $\bar{\bm{q}}^{*}$, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
 % Assumption (i) linearizes the \ac{cv} map and turns its level sets near the singularity into hyperplanes, simplifying the evaluation of Eq.~\eqref{eq:mpd}.
 % Although assumption (ii) is stringent on the shape coordinate we use as the \ac{cv}, it is true for most reasonable choices and a good CV should mainly be sensitive to the slow modes~\cite{tiwary2016}.
 % This makes it possible to use the quartic energy expansion and integrate over the fast modes.
 
-The first such assumption we make is that the \ac{cv} map can be approximated by its Taylor expansion $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^2)$ around the singularity $\bar{\bm{q}}^{*}$ for points close to $\bar{\bm{q}}^{*}$.
+The first such assumption we make is that the \ac{cv} map can be approximated by its Taylor expansion $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathcal{O}(\Abs{\bm{q}}^2)$ around the singularity $\bar{\bm{q}}^{*}$ for points close to $\bar{\bm{q}}^{*}$.
 with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$.
 This linearizes the \ac{cv} map and turns its level sets $(\nabla\hat{\xi})^{-1}(\xi - \xi^{*}) = \{\bm{u} \in \mathbb{R}^{n}: \xi^{*} + (\nabla\hat{\xi})\bm{u} = \xi\}$ near the singularity into hyperplanes (see Fig.~\ref{fig:intersect}).
 Since this hyperplane is considerably easier to parameterize in comparison to the actual \ac{cv} level set $\hat{\xi}^{-1}(\xi)$, this makes the evaluation of $\mathscr{P}(\xi)$ as a surface integral using Eq.~\eqref{eq:coarea} less difficult.
@@ -503,7 +503,7 @@ Further details on the simulations are given in Appendix~\ref{sec:numerics}.
 
 %Equation~\eqref{eq:energy_singular} is only valid when the expansion is around the singularity $\bar{\bm{q}}^{*}$, and a similar expansion does not exist for ground states in $\hat{\xi}^{-1}(\xi)$ for $\xi$ close to $\xi^{*}$, where the harmonic approximation is not applicable either.
 %Thus, for $\xi \to \xi^{*}$, we choose to find $\mathscr{P}(\xi)$ by directly evaluating the integral over $\hat{\xi}^{-1}(\xi)$ using the coarea formula.
-%To simplify the evaluation, we make two assumptions: (i) for points close to $\bar{\bm{q}}^{*}$, the \ac{cv} map $\hat{\xi}$ can be approximated by its Taylor expansion around $\bar{\bm{q}}^{*}$: $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathscr{O}(\Abs{\bm{q}}^{2})$, with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$; (ii) fast modes that belong to $(\ker\mathsf{C})^{\perp}$ do not change the value of the CV to linear order at $\bar{\bm{q}}^{*}$, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
+%To simplify the evaluation, we make two assumptions: (i) for points close to $\bar{\bm{q}}^{*}$, the \ac{cv} map $\hat{\xi}$ can be approximated by its Taylor expansion around $\bar{\bm{q}}^{*}$: $\hat{\xi} = \xi^{*} + (\nabla\hat{\xi})\bm{q} + \mathcal{O}(\Abs{\bm{q}}^{2})$, with $\nabla\hat{\xi}$ being the Jacobian matrix of $\hat{\xi}$ at $\bar{\bm{q}}^{*}$; (ii) fast modes that belong to $(\ker\mathsf{C})^{\perp}$ do not change the value of the CV to linear order at $\bar{\bm{q}}^{*}$, i.e., $(\nabla\hat{\xi})\bm{v} = \bm{0}$.
 %Assumption (i) linearizes the \ac{cv} map and turns its level sets near the singularity into hyperplanes, simplifying the evaluation of Eq.~\eqref{eq:mpd}.
 %Although assumption (ii) is stringent on the shape coordinate we use as the \ac{cv}, it is true for most reasonable choices and a good CV should mainly be sensitive to the slow modes~\cite{tiwary2016}.
 %This makes it possible to use the quartic energy expansion and integrate over the fast modes.
@@ -892,7 +892,7 @@ For example, expanding Eq.~\eqref{eq:4bar_0} in $\theta_{1}$ around $\theta_{1} 
 \end{equation}
 %
 which is the equation for a double well, with $\Gamma(\cdot)$ being the gamma function.
-Expanding $\Delta\mathscr{A}(\theta_{1})$ to $\mathscr{O}(\abs{\theta_{1}}^{6})$ we see that the two double-well minima are approximately at\footnote{We expand $\Delta\mathscr{A}(\theta_{1})$ to $\mathscr{O}(\abs{\theta_{1}}^{6})$ instead of $\mathscr{O}(\abs{\theta_{1}}^{4})$ since there are higher-order corrections to Eq.~\eqref{eq:4barwell} that make an $\mathscr{O}(\abs{\theta_{1}}^{4})$ estimation less accurate.}
+Expanding $\Delta\mathscr{A}(\theta_{1})$ to $\mathcal{O}(\abs{\theta_{1}}^{6})$ we see that the two double-well minima are approximately at\footnote{We expand $\Delta\mathscr{A}(\theta_{1})$ to $\mathcal{O}(\abs{\theta_{1}}^{6})$ instead of $\mathcal{O}(\abs{\theta_{1}}^{4})$ since there are higher-order corrections to Eq.~\eqref{eq:4barwell} that make an $\mathcal{O}(\abs{\theta_{1}}^{4})$ estimation less accurate.}
 %
 \begin{equation}
   \theta_{1}^{\text{min}} \approx \pm \sqrt{\frac{\Gamma^{2}\left(\frac{1}{4}\right)\left\{8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right) - \sqrt{\left[8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right)\right]^{2} - (16\pi^{2})^{2}}\right\}}{64\pi^{3}X}}.
@@ -1054,7 +1054,7 @@ Since the other details are very similar to the previous calculations for the fo
 where $Z$ is a positive dimensionless term defined by $Z = \sqrt{\beta\kappa}a/(2\sqrt{5})$ [cf.~Eq.~\eqref{eq:4bar_0}].
 A comparison between the theoretical and numerical results [Figs.~\ref{fig:5bar}(c) and \ref{fig:5bar}(d)] shows very good agreement between the two.
 Similar to the four-bar linkage and the triangulated origami, the effective free energy minimum of the five-bar linkage is not at the singular value $\zeta^{*} = (0, 0)$.
-Expanding $\Delta\mathscr{A}(\zeta)$ to $\mathscr{O}(\zeta_{1}^{3}\zeta_{2}^{3})$ around $\zeta^{*}$ we see that the bottom of the free-energy valley near the singular value [white dashed curves in Figs.~\ref{fig:5bar}(c) and \ref{fig:5bar}(d)] is approximately defined by the equation
+Expanding $\Delta\mathscr{A}(\zeta)$ to $\mathcal{O}(\zeta_{1}^{3}\zeta_{2}^{3})$ around $\zeta^{*}$ we see that the bottom of the free-energy valley near the singular value [white dashed curves in Figs.~\ref{fig:5bar}(c) and \ref{fig:5bar}(d)] is approximately defined by the equation
 %
 \begin{equation}
   \zeta_{1}\zeta_{2} = \frac{\Gamma^{2}\left(\frac{1}{4}\right)\left\{8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right) - \sqrt{\left[8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right)\right]^{2} - (16\pi^{2})^{2}}\right\}}{64\pi^{3}Z},

@@ -9,6 +9,11 @@ s|\\hat{\\mathcal{\([A-Z]\)}}|\\widehat{\\mathcal{\1}}|g
 s|\\subsubsection{|\\subsubsection*{|g
 
 s|Thin elastic|Thin, elastic|g
+s|Soft Few-body|Soft, Few-body|g
+s|Thin, Elastic|Thin, Elastic|g
 s|thin, elastic|thin, elastic|g
+s|Soft few-body|Soft, few-body|g
+s|Soft Few-body|Soft, Few-body|g
+s|soft few-body|soft, few-body|g
 
 s|\\mathscr{O}|\\mathcal{O}|g

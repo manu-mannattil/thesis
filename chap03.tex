@@ -345,7 +345,9 @@ where $\mathsf{D}^\perp$ is the diagonal matrix of the $m - s$ nonzero eigenvalu
   \Pi = \mathsf{I}_{m} - \mathsf{C}\mathsf{B} (\mathsf{B} ^\mathsf{T}\mathsf{C}^\mathsf{T}\mathsf{C}\mathsf{B} )^{-1}\mathsf{B} ^\mathsf{T}\mathsf{C}^\mathsf{T}
 \end{equation}
 %
-is a projection operator that projects $\bm{w}(\bm{u})$ to the cokernel of $\mathsf{C}\mathsf{B}$ (i.e., to $\ker\mathsf{B}\trans\mathsf{C}\trans$).
+is a projection operator%
+\footnote{This operator may be compared with a similar projection operator that appears in the theory of polymerized membranes, once the in-plane components of the elastic free energy (i.e., the fast modes) are integrated out; see, e.g., Eqs.~(6)--(8) of Ref.~\cite{nelson1987}.}
+that projects $\bm{w}(\bm{u})$ to the cokernel of $\mathsf{C}\mathsf{B}$ (i.e., to $\ker\mathsf{B}\trans\mathsf{C}\trans$).
 Note that this operator would trivially have been the identity matrix if it were not for the cross term $\bm{w}(\bm{u})\trans\mathsf{K}\mathsf{C}\bm{v}$ in the energy expansion [Eq.~\eqref{eq:energy_singular}] that couples the fast modes and the zero modes.
 Since the cokernel of $\mathsf{CB}$ is identical to the cokernel of $\mathsf{C}$, it is spanned by an orthonormal basis of self stresses $\bm{\sigma}$, and one can write the action of $\Pi$ on $\bm{w}(\bm{u})$ as
 %

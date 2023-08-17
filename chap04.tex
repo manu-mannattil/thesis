@@ -214,19 +214,21 @@ Next, we set $r \to \epsilon r$ and expand the amplitude $A_{\nu}(x + \frac{1}{2
   \end{aligned}
 \end{equation}
 %
-Putting the ``reduced'' Wigner tensor in Eq.~\eqref{eq:wave_action_symbol_form}, we find
+We assume that the dispersion matrix is ordered in the eikonal parameter $\epsilon$ so that we can write
+$\mathsf{D} = \mathsf{D}^{(0)} + \epsilon \mathsf{D}^{(1)} + \mathcal{O}(\epsilon^{2})$.
+Hence, after putting the ``reduced'' Wigner tensor in Eq.~\eqref{eq:wave_action_symbol_form}, we find the action to the lowest order as
 %
 \begin{equation}
-  \mathscr{U} = \tfrac{1}{2}\int \dd{x}\, \mathsf{D}_{\mu\nu}\left[x, k=\partial_{x}S(x)\right]A_{\nu}(x)A^{*}_{\mu}(x) + \mathcal{O}(\epsilon^{2}).
+  \mathscr{U} = \tfrac{1}{2}\int \dd{x}\, \mathsf{D}^{(0)}_{\mu\nu}\left[x, k=\partial_{x}S(x)\right]A_{\nu}(x)A^{*}_{\mu}(x) + \mathcal{O}(\epsilon^{2}).
   \label{eq:wave_action_reduced_1}
 \end{equation}
 %
-Next, we perform a spectral decomposition of the symbol matrix $\mathsf{D}_{\mu\nu}(x, k)$ and write it in terms of its eigenvectors $\tau_{a}$ and eigenvalues $\lambda_{a}$ as%
+Next, we perform a spectral decomposition of the lowest-order dispersion matrix $\mathsf{D}^{(0)}_{\mu\nu}(x, k)$ and write it in terms of its eigenvectors $\tau_{a}$ and eigenvalues $\lambda_{a}$ as%
 \footnote{In Eq.~\eqref{eq:Dmat_polarization}, the subscripts $\mu$ and $\nu$ indicate the components of $\tau_{a}$.
 Also, we have made the summation over the polarization index $a$ explicit---a convention that we will use throughout this dissertation.}
 %
 \begin{equation}
-  \mathsf{D}_{\mu\nu}(x, k) = \sum_{a} \lambda_{a}(x, k) \tau_{a, \mu}(x, k) \tau_{a, \nu}^{*}(x, k).
+  \mathsf{D}^{(0)}_{\mu\nu}(x, k) = \sum_{a} \lambda_{a}(x, k) \tau_{a, \mu}(x, k) \tau_{a, \nu}^{*}(x, k).
   \label{eq:Dmat_polarization}
 \end{equation}
 %
@@ -249,14 +251,14 @@ This results in a reduced action of the form
 Variation of the reduced action, Eq.~\eqref{eq:reduced_action}, with respect to the amplitude $B_{a}$ yields
 %
 \begin{equation}
-  \lambda_{a}\big[x, \partial_{x}S(x)\big] B_{a}\big[x, \partial_{x}S(x)\big] = 0
+  \lambda_{a}[x, k(x)]\,B_{a}[x, k(x)] = 0
   \quad\text{for all $a$}.
 \end{equation}
 %
-Assume that the amplitudes $B_{a}$ is nonzero only for one polarization, say, $a = I$, so that the corresponding eigenvalue must vanish:
+Assume that the amplitudes $B_{a}$ is nonzero only for one polarization, say, $a = I$, which means that the corresponding eigenvalue must vanish:
 %
 \begin{equation}
-  \lambda_{I}\left[x, \partial_{x}S(x)\right] = 0,
+  \lambda_{I}\left[x, k(x)\right] = \lambda_{I}\left[x, \partial_{x}S(x)\right] = 0.
   \label{eq:eikonal}
 \end{equation}
 %
@@ -270,43 +272,64 @@ The above equation, which is known as the eikonal equation, is nothing but the H
 \end{equation}
 %
 where $\sigma$ is some parameter that parameterizes the rays $[x(\sigma), k(\sigma)]$ in the phase space, and $\left\{\cdot, \cdot\right\}$ is the $x$-$k$ Poisson bracket.
-Since the waves we consider propagate in a one-dimensional space, these rays are identical to the level curve defined by $\lambda_{I}(x, k; \omega) = 0$.
+Since the waves we consider propagate in a one-dimensional space, these rays are identical to the level curve defined by $\lambda_{I}(x, k) = 0$.
 
 In higher dimensions, solving the Hamilton-Jacobi equations can be nontrivial.
 However, in one dimension, it is always theoretically possible to solve for $k(x)$ from $\lambda_{I}(x, k) = 0$.
 % TODO: Tori... quantization, more stuff about Hamilton-Jacobi equations.
-Variation with respect to the phase $S(x)$ yields the amplitude transport equation
+Variation of the action, Eq.~\eqref{eq:reduced_action}, with respect to the phase $S(x)$ yields the amplitude transport equation%
+\footnote{Here we have ignored the term $\partial_{k}{B_{I}^{2}(x,k)}\lambda_{I}$, which trivially vanishes as $\lambda_{I}(x, k) = 0$ on an orbit.
+Also, since $k$ is a function of $x$ on an orbit, we can simply write the projected amplitude as $B(x)$ instead of $B(x,k)$.
+Note also that after evaluating the partial derivative of $\lambda_{I}$ with respect to $k$, we need to set $k \to k(x)$ for the full derivative with respect to $x$ to make sense.}
 %
 \begin{equation}
-  \frac{\dd}{\dd{x}}\left\{\partial_{k}\left[\lambda_{I}(x, k){B^{2}_{I}(x, k)}^{2}\right]\right\} = 0
+  \frac{\dd}{\dd{x}}\left[B^{2}_{I}(x)\partial_{k}\lambda^{(0)}_{I}(x, k)\right] = 0
 \end{equation}
 %
-so that%
-\footnote{Here we have ignored the term $\lambda_{I}(x, k)\partial_{k}\abs{B_{I}(x,k)}^{2}$, which trivially vanishes as $\lambda_{I}(x, k) = 0$ on an orbit.}
-$\partial_{k}\lambda_{I}(x, k)\abs{B_{I}(x, k)}^{2} = C$ (constant) and
+so that
+$B^{2}(x,k)\partial_{k}\lambda^{(0)}_{I}(x, k) = C$ (constant) and
 %
 \begin{equation}
   B_{I}(x) = \frac{C}{\sqrt{\partial_{k}\lambda_{I}(x, k)}}.
 \end{equation}
 %
-Clearly, $B_{I}$ becomes ill defined at caustics where $\dot{x} = \partial_{k}\lambda_{I}(x, k) = 0$ and the eikonal form of the solutions breaks down.
+Clearly, the amplitude projection $B_{I}$ becomes ill defined at caustics where $\dot{x} = \partial_{k}\lambda_{I}(x, k) = 0$.
+Geometrically, caustics arise because of ill-defined projections from the ray trajectory, which lives in the $x$-$k$ phase space, to the coordinate space, i.e., $x$ space.
+The issue can be sidestepped using the Keller--Maslov method~\cite{keller1958,maslov1981} where one Fourier transforms the wave field and uses the eikonal ansatz in the momentum space.
+Although we shall later rely on some results of this procedure,
+we will not discuss its technical details here.
+Interested readers are encouraged to look at the book by \citet[Chapter 6]{tracy2014} (and references therein).
 
-Semiclassical approximation breaks down near points where more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish, precipitating an exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
-
-Next, note that $A_{\mu} = \sum_{I} B_{I} \tau_{a,\mu} = B_{I}\tau_{I,\mu}$, so that, at the lowest-order, we can write
+Next, as $B_{a} \neq 0$ only for $a = I$, we have $A_{\mu} = \sum_{I} B_{I} \tau_{a,\mu} = B_{I}\tau_{I,\mu}$.
+Therefore, we can write the final eikonal solution as
 %
 \begin{equation}
-  \psi_{\mu} \sim B_{I}\tau_{I,\mu}e^{iS(x)/\epsilon}.
+  \psi_{\mu}(x) \sim B_{I}[x, k(x)]\,\tau_{I,\mu}[x, k(x)]e^{iS(x)/\epsilon}.
+  \label{eq:psi_wkb_wrong}
 \end{equation}
 %
+This would clearly be wrong if more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish.
+In that case there would be more than one polarization vector
+Semiclassical approximation breaks down near points where more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish, precipitating an exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
+
 At this juncture, we must discuss a subtle issue.
 The polarization vector $\tau_{I}$ is only defined up to an overall phase.
-Such a phase is important when quantizing orbits, which boils down to the single valuedness of $\psi_{\mu}$.
-Unfortunately, our analysis so far does not tell us how this unknown phase evolves.
-For instance, we might have attempted to find the evolution equation of this phase from the reduced action, Eq.~\eqref{eq:reduced_action}.
-However, Eq.~\eqref{eq:reduced_action} clearly remains invariant on explicitly including an unknown phase $\gamma$ along with $\tau_{I}$, i.e., if we were to replace $\tau_{I}$ with $\tau_{I}e^{i\gamma}$.
-To find $\gamma$, we need to include higher-order corrections in the wave action.
-Rather than follow the cumbersome derivations provided in Refs.~\cite{kaufman1987,yabana1986}, it is more insightful to use a different approach due to Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a} for (approximately) diagonalizing multicomponent differential operators.
+Thus, instead of the above equation, it is more appropriate to write
+%
+\begin{equation}
+  \psi_{\mu}(x) \sim B_{I}[x, k(x)]\,\tau_{I,\mu}e^{i\gamma[x, k(x)]}e^{iS(x)/\epsilon},
+\end{equation}
+%
+where $\gamma[x, k(x)]$ stands for an adiabatic phase that we have not determined so far.%
+As $\tau_{I}$ is obtained from $\mathsf{D}^{(0)}$, whose entries are slowly varying functions of $(x, k)$, it makes sense to consider the phase $\gamma[x, k(x)]$ to be slowly varying as well.
+For this reason, $\gamma$ cannot be absorbed into the eikonal phase $S(x)/\epsilon$, which is rapidly varying.
+
+The phase $\gamma$ becomes important when quantizing orbits---a step that boils down to the single valuedness of $\psi_{\mu}$ as we move around a closed orbit, i.e., the sum of $\gamma$ and $S/\epsilon$ must be a half-integral multiple of $2\pi$.
+Unfortunately, our lowest-order analysis is insufficient to determine this phase.
+Attempts to find the evolution equation of this phase from the reduced action, Eq.~\eqref{eq:reduced_action}, will not work as the action is independent of $\gamma$.
+It can also be easily checked that the phase $\gamma$ cannot be introduced in the action by rephasing $\tau$ by the phase factor $e^{i\gamma(x,k)}$, as the action remains invariant.
+The message is clear: to find $\gamma$, we need to include higher-order corrections in the wave action.
+To this end, rather than repeat the cumbersome derivations scattered across Refs.~\cite{bernstein1975,berk1980,yabana1986,kaufman1987}, it is more sagacious to switch gears and follow a different approach due to Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a} for (approximately) diagonalizing multicomponent differential operators.
 
 %Employing the eikonal ansatz, at $\mathcal{O}(\epsilon^{0})$, we find the matrix equation $\mathsf{D}^{(0)}A = 0$.
 %To satisfy this equation, at least one of the $N$ eigenvalues of $\mathsf{D}^{(0)}$, say $\lambda(x, k;\, \omega)$, must vanish so that $\det \mathsf{D}^{(0)}(x, k; \omega) = 0$.
@@ -383,17 +406,18 @@ Instead, we start by finding the symbol form of the following two equations:
 \begin{equation}
   \begin{aligned}
     \widehat{\mathsf{D}}\widehat{\mathsf{U}} &= \widehat{\mathsf{U}}\widehat{\Lambda}\\
-    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \mathsf{I}_{n}.
+    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \mathsf{I}_{N}.
   \end{aligned}
   \label{eq:diagonal2}
 \end{equation}
 %
-Here we assume that the operators $\widehat{\mathsf{D}}$, $\widehat{\mathsf{U}}$, and $\widehat{\Lambda}$ have some problem-relevant ordering parameter $\epsilon$ so that we can expand the operators (and their symbols) in terms of $\epsilon$.%
+Here we assume that the operators $\widehat{\mathsf{D}}$, $\widehat{\mathsf{U}}$, and $\widehat{\Lambda}$ have some problem-relevant ordering parameter $\epsilon$ so that we can expand%
 \footnote{In their papers, Littlejohn and coworkers~\cite{littlejohn1991,weigert1993} assume that $\widehat{\mathsf{D}}$ is \emph{not} ordered in $\epsilon$, i.e., $\widehat{\mathsf{D}} = \widehat{\mathsf{D}}_{0}$.
   This might seem confusing at first since the parameter $\epsilon$ must appear somewhere in the problem.
   The thing is that very often, $\epsilon$ appears as a factor to a spatial derivative operator, e.g., $\epsilon\partial_{x}$, which once expressed in terms of the momentum operator, does not have additional dependence on $\epsilon$.
   Of course, $\widehat{\mathsf{D}}$ could have further nontrivial dependence on $\epsilon$, which is a more general situation, and the one we want to consider here.
 }
+the operators (and their symbols) in terms of $\epsilon$ as follows:
 %
 \begin{equation}
   \begin{aligned}
@@ -409,7 +433,7 @@ Here we assume that the operators $\widehat{\mathsf{D}}$, $\widehat{\mathsf{U}}$
   \end{aligned}
 \end{equation}
 %
-Because the Weyl correspondence preserves Hermiticity, $\mathsf{D}$ is a Hermitian matrix.
+Because the Weyl correspondence preserves Hermiticity, $\mathsf{D}$ is a Hermitian matrix to all orders.
 We demand that $\Lambda$ remains diagonal at all orders of $\epsilon$.
 We then use the Moyal star product to find the symbol form of Eq.~\eqref{eq:diagonal2} at different orders of $\epsilon$.
 At $\mathcal{O}(\epsilon^0)$ we find $\mathsf{D}^{(0)}\mathsf{U}^{(0)} = \mathsf{U}^{(0)}\Lambda^{(0)}$ and $\mathsf{U}^{(0)\dagger}\mathsf{U}^{(0)} = \mathsf{I}_{n}$, which is equivalent to
@@ -419,7 +443,7 @@ At $\mathcal{O}(\epsilon^0)$ we find $\mathsf{D}^{(0)}\mathsf{U}^{(0)} = \mathsf
 \end{equation}
 %
 Since we demand $\Lambda^{(0)}$ to be diagonal, this is the usual linear-algebra problem of diagonalizing the matrix $\mathsf{D}^{(0)}$.
-We thus deduce that the columns of the lowest order symbol $\mathsf{U}^{(0)}$ is composed of eigenvectors $\tau_{i}$ with eigenvalues $\lambda^{(0)}$ satisfying $\mathsf{D}^{(0)}\tau_{a} = \lambda^{(0)}_{a}\tau_{a}$ with $a = 1,2,\ldots,N$, i.e.,
+We thus deduce that the columns of the lowest order symbol $\mathsf{U}^{(0)}$ is composed of eigenvectors $\tau_{a}$ with eigenvalues $\lambda^{(0)}_{a}$ satisfying $\mathsf{D}^{(0)}\tau_{a} = \lambda^{(0)}_{a}\tau_{a}$, with $a = 1,2,\ldots,N$, i.e.,
 %
 \begin{equation}
   \mathsf{U}^{(0)} =
@@ -428,7 +452,7 @@ We thus deduce that the columns of the lowest order symbol $\mathsf{U}^{(0)}$ is
   \end{pmatrix},
 \end{equation}
 %
-and $\Lambda^{(0)}$ is the diagonal matrix composed of the eigenvalues $\lambda_{i}^{(0)}$.
+and $\Lambda^{(0)}$ is the diagonal matrix composed of the eigenvalues $\lambda_{a}^{(0)}$.
 
 At $\mathcal{O}(\epsilon^{1})$, demanding $\mathsf{D}\mathsf{U} = \mathsf{U}\Lambda$ gives us
 %
@@ -459,12 +483,12 @@ The $ab$th entry of the commutator term evalutes to
   %\left(\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right)_{a\gamma}\Lambda_{0,\gammab}\\
     %&= \lambda_{0}^{(i)}\delta_{a\gamma}\left(\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right)_{\gammab}
   %-\left(\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right)_{a\gamma} \lambda_{0}^{(k)}\delta_{\gammab}\\
-    \left[\lambda^{(0)}_{i} - \lambda^{(0)}_{j}\right]\left(\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right)_{ab},
+    \left[\lambda^{(0)}_{a} - \lambda^{(0)}_{b}\right]\left(\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right)_{ab},
 %  \end{aligned}
     \label{eq:diagonal}
 \end{equation}
 %
-where we have made use of the fact that $\Lambda^{(0)}$ is diagonal with $ab$th entry $\Lambda_{0,ab} = \lambda^{(0)}_{i}\delta_{ab}$.
+where we have made use of the fact that $\Lambda^{(0)}$ is diagonal so that $\Lambda^{(0)}_{ab} = \lambda^{(0)}_{a}\delta_{ab}$.
 And we see that the diagonal entries (with $a=b$) of the commutator vanish.
 So the commutator term does not contribute towards the diagonal entries of $\Lambda^{(1)}$ and we can find the $\mathcal{O}(\epsilon^{1})$ correction $\lambda^{(1)}$ by carefully evaluating diagonal entries of the remaining terms in the RHS of Eq.~\eqref{eq:Lambda1}.
 Before we do that, we need to discuss the role of the commutator term further.
@@ -682,7 +706,10 @@ The $\mathcal{O}(\epsilon^{2})$ above correction term now includes corrections i
 To $\mathcal{O}(\epsilon^{2})$, we have $\lambda_{a} = \lambda_{a}^{(0)} + \epsilon\lambda_{a}^{(1)} + \mathcal{O}(\epsilon)$, so that using Eq.~\eqref{eq:lambda1},
 %
 \begin{equation}
-  \mathscr{U}\big[B_{a}, S\big] = \tfrac{1}{2} \sum_{a} \int \dd{x}\, \left[\lambda_{a}^{(0)}(x, k) + \epsilon\lambda_{a}^{(1)}(x, k) + \mathcal{O}(\epsilon^{2})\right]\left[\abs{B_{a}}^{2} + \mathcal{O}(\epsilon)\right].
+  \begin{aligned}
+    \mathscr{U}\big[B_{a}, S\big] &= \mathscr{U}^{(0)}\left[B_{a}, S\right] + \epsilon\mathscr{U}^{(1)}\left[B_{a}, S\right] + \mathcal{O}(\epsilon^{2})\\
+                                  &= \tfrac{1}{2} \sum_{a} \int \dd{x}\, \lambda_{a}^{(0)}(x)B^{2}_{a}(x) + \tfrac{1}{2}\epsilon\sum_{a}\int\dd{x}\,\lambda_{a}^{(1)}(x)B^{2}_{a}(x) + \mathcal{O}(\epsilon^{2}).
+  \end{aligned}
 \end{equation}
 %
 To the lowest order, the action above is equivalent to the reduced action we saw previously.
@@ -705,10 +732,11 @@ Using the higher-order terms in Eq.~XXX and varying with respect to $B_{a}$, we 
 Using Eq.~XXX in the above equation and noting that $\lambda_{I}^{(0)} = 0$, we find
 %
 \begin{equation}
-\tau_{I,\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{I,\nu} - i\tau_{I,\mu}\left\{\tau_{I,\mu}, \lambda^{(0)}_{a}\right\} - \frac{i}{2}\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{I,\mu}^{*}, \tau_{I,\nu}\right\} = 0
+\tau_{I,\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{I,\nu} - \frac{i}{2}\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{I,\mu}^{*}, \tau_{I,\nu}\right\}
+  - i\tau_{I,\mu}\left\{\tau_{I,\mu}, \lambda^{(0)}_{a}\right\} = 0
 \end{equation}
 %
-Explicitly introducing the phase dependence on $\gamma$ by setting $\tau \to \tau e^{i\gamma}$, we find
+Upon explicitly introducing the phase dependence on $\gamma$ by setting $\tau \to \tau e^{i\gamma}$, we find that the first two term
 %
 \begin{equation}\boxed{%
   \dot{\gamma} = \dot{\gamma}_{\text{G}} + \dot{\gamma}_{\text{NG}},
@@ -720,16 +748,18 @@ Explicitly introducing the phase dependence on $\gamma$ by setting $\tau \to \ta
 %
 
 The first of the extra phases $\gamma_{\text{G}}$ has a general form of a geometric phase upon treating the phase space as the parameter space.
-To see this, note that $\dot{\gamma}_{\text{G}} = i\tau^{*}_{\mu}\left\{\tau_{\mu},\lambda^{(0)}\right\} = i\tau^{\dagger}\cdot\dot{\tau}$ so that
+To see this, note that $\dot{\gamma}_{\text{G}} = i\tau^{*}_{\mu}\left\{\tau_{\mu},\lambda^{(0)}\right\} = i\tau^{\dagger}\cdot\dot{\tau}$, so that around a closed orbit $\mathcal{C}$ in phase space, the accumulated phase is
 %
 \begin{equation}
-\gamma_{\text{G}} = \oint \dd{\sigma}\, \dot{\gamma}_{\text{G}} = i\oint \dd{\sigma}\,\braket{\tau|\dot{\tau}} = 
-i\oint \dd\theta\cdot\braket{\tau |\nabla_{\theta}\tau},
+\gamma_{\text{G}}
+= \oint_{\mathcal{C}} \dot{\gamma}_{\text{G}}\,\dd{\sigma}
+= i\oint_{\mathcal{C}} \tau^{\dagger}\cdot\dd{\tau}
+= i\oint_{\mathcal{C}} \braket{\tau |\nabla_{\vartheta}\tau}
+\cdot\dd\vartheta,
 \end{equation}
 %
-where $\theta = (x, k)$ denotes the ``parameters'' that are being varied.
-
-
+where $\vartheta = (x, k)$ denotes the ``parameters'' that are being varied along the orbit.
+The phase $\gamma_{\text{G}}$, which is the integral of a differential 1-form, depends only on the path $\mathcal{C}$ and not how it is parameterized (like all geometric phases).
 
 \begin{example}[A simple ``coupled'' differential operator]
 Consider an operator $\widehat{\mathsf{D}}$ (with symbol $\mathsf{D}$) defined by

@@ -59,11 +59,19 @@
 
 % Reduce space before/after equations.
 % https:/tex.stackexchange.com/a/47776
+% \g@addto@macro \normalsize {%
+%   \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
+%   \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
+%   \setlength{\belowdisplayskip}{6pt plus 1pt minus 2pt}%
+%   \setlength{\belowdisplayshortskip}{4pt plus 1pt minus 1pt}%
+% }
+
+% amsart.cls spacing.
 \g@addto@macro \normalsize {%
-  \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
-  \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
-  \setlength{\belowdisplayskip}{6pt plus 1pt minus 2pt}%
-  \setlength{\belowdisplayshortskip}{4pt plus 1pt minus 1pt}%
+  \setlength{\abovedisplayskip}{4.2pt plus 4.2pt}%
+  \setlength{\abovedisplayshortskip}{0pt plus 4.2pt}%
+  \setlength{\belowdisplayskip}{4.2pt plus 4.2pt}%
+  \setlength{\belowdisplayshortskip}{2.1pt plus 4.2pt}%
 }
 
 % Hack to almost completely remove orphans.

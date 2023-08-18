@@ -274,7 +274,7 @@ The above equation, which is known as the eikonal equation, is nothing but the H
 where $\sigma$ is some parameter that parameterizes the rays $[x(\sigma), k(\sigma)]$ in the phase space, and $\left\{\cdot, \cdot\right\}$ is the $x$-$k$ Poisson bracket.
 Since the waves we consider propagate in a one-dimensional space, these rays are identical to the level curve defined by $\lambda_{I}(x, k) = 0$.
 
-In higher dimensions, solving the Hamilton-Jacobi equations can be nontrivial.
+In higher dimensions, solving the Hamilton-Jacobi equation can be nontrivial.
 However, in one dimension, it is always theoretically possible to solve for $k(x)$ from $\lambda_{I}(x, k) = 0$.
 % TODO: Tori... quantization, more stuff about Hamilton-Jacobi equations.
 Variation of the action, Eq.~\eqref{eq:reduced_action}, with respect to the phase $S(x)$ yields the amplitude transport equation%
@@ -293,26 +293,26 @@ $B^{2}(x,k)\partial_{k}\lambda^{(0)}_{I}(x, k) = C$ (constant) and
   B_{I}(x) = \frac{C}{\sqrt{\partial_{k}\lambda_{I}(x, k)}}.
 \end{equation}
 %
-Clearly, the amplitude projection $B_{I}$ becomes ill defined at caustics where $\dot{x} = \partial_{k}\lambda_{I}(x, k) = 0$.
-Geometrically, caustics arise because of ill-defined projections from the ray trajectory, which lives in the $x$-$k$ phase space, to the coordinate space, i.e., $x$ space.
+Clearly, the amplitude projection $B_{I}$ becomes singular at points on the phase space where $\dot{x} = \partial_{k}\lambda_{I}(x, k) = 0$, i.e., when the local tangent along a ray points along the $k$ axis.
+Such points are called caustics, and they arise because of ill-defined projections from the ray, which lives in the $x$-$k$ phase space, to the coordinate space, i.e., $x$ space.
 The issue can be sidestepped using the Keller--Maslov method~\cite{keller1958,maslov1981} where one Fourier transforms the wave field and uses the eikonal ansatz in the momentum space.
-Although we shall later rely on some results of this procedure,
-we will not discuss its technical details here.
-Interested readers are encouraged to look at the book by \citet[Chapter 6]{tracy2014} (and references therein).
+Although we shall later rely on some results of this procedure, we will not discuss its technical details here.
+Interested readers are encouraged to look at the book by \citet[Chapter 6]{tracy2014} (and references therein) for more information.
 
-Next, as $B_{a} \neq 0$ only for $a = I$, we have $A_{\mu} = \sum_{I} B_{I} \tau_{a,\mu} = B_{I}\tau_{I,\mu}$.
-Therefore, we can write the final eikonal solution as
+In writing down the eikonal equation, Eq.~\eqref{eq:eikonal}, we have assumed that the amplitude projection $B_{a} \neq 0$ only for $a = I$.
+Now, as $\mathsf{D}^{(0)}$ is a Hermitian matrix, its eigenvectors $\tau_{a}$ are mutually orthogonal, and the wave amplitude $A_{\mu} = \sum_{a} B_{a} \tau_{a,\mu} = B_{I}\tau_{I,\mu}$.
+This would clearly be wrong if the matrix $\mathsf{D}^{(0)}$ is degenerate.
+For this reason, usual semiclassical solutions also break down near points in the phase-space where more than one eigenvalue of $\mathsf{D}^{(0)}$ simultaneously vanish, leading to a exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
+As the wave problems we study in this dissertation do not suffer from mode-conversion issues (at least in the parameter ranges we are interested in), we forgo a more detailed discussion on these issues here.
+
+Assuming that we are far away from caustics and ignoring mode-conversion effects, we can write the final eikonal solution as
 %
 \begin{equation}
   \psi_{\mu}(x) \sim B_{I}[x, k(x)]\,\tau_{I,\mu}[x, k(x)]e^{iS(x)/\epsilon}.
   \label{eq:psi_wkb_wrong}
 \end{equation}
 %
-This would clearly be wrong if more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish.
-In that case there would be more than one polarization vector
-Semiclassical approximation breaks down near points where more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish, precipitating an exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
-
-At this juncture, we must discuss a subtle issue.
+At this juncture, we must discuss a subtle problem.
 The polarization vector $\tau_{I}$ is only defined up to an overall phase.
 Thus, instead of the above equation, it is more appropriate to write
 %
@@ -320,16 +320,16 @@ Thus, instead of the above equation, it is more appropriate to write
   \psi_{\mu}(x) \sim B_{I}[x, k(x)]\,\tau_{I,\mu}e^{i\gamma[x, k(x)]}e^{iS(x)/\epsilon},
 \end{equation}
 %
-where $\gamma[x, k(x)]$ stands for an adiabatic phase that we have not determined so far.%
+where $\gamma[x, k(x)]$ stands for an adiabatic phase that we have not determined so far.
 As $\tau_{I}$ is obtained from $\mathsf{D}^{(0)}$, whose entries are slowly varying functions of $(x, k)$, it makes sense to consider the phase $\gamma[x, k(x)]$ to be slowly varying as well.
 For this reason, $\gamma$ cannot be absorbed into the eikonal phase $S(x)/\epsilon$, which is rapidly varying.
 
-The phase $\gamma$ becomes important when quantizing orbits---a step that boils down to the single valuedness of $\psi_{\mu}$ as we move around a closed orbit, i.e., the sum of $\gamma$ and $S/\epsilon$ must be a half-integral multiple of $2\pi$.
+The phase $\gamma$ becomes important when quantizing orbits---a step that boils down to the single valuedness of $\psi_{\mu}$ as we move around a closed orbit, i.e., the sum of $\gamma$ and $S/\epsilon$ must be a half-integral multiple of $2\pi$ (see Section~\ref{sec:bound}).
 Unfortunately, our lowest-order analysis is insufficient to determine this phase.
-Attempts to find the evolution equation of this phase from the reduced action, Eq.~\eqref{eq:reduced_action}, will not work as the action is independent of $\gamma$.
+We cannot also find an evolution equation for this phase from the reduced action, Eq.~\eqref{eq:reduced_action}, as it is independent of $\gamma$.
 It can also be easily checked that the phase $\gamma$ cannot be introduced in the action by rephasing $\tau$ by the phase factor $e^{i\gamma(x,k)}$, as the action remains invariant.
 The message is clear: to find $\gamma$, we need to include higher-order corrections in the wave action.
-To this end, rather than repeat the cumbersome derivations scattered across Refs.~\cite{bernstein1975,berk1980,yabana1986,kaufman1987}, it is more sagacious to switch gears and follow a different approach due to Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a} for (approximately) diagonalizing multicomponent differential operators.
+To this end, rather than repeat the original, but cumbersome derivations scattered across Refs.~\cite{bernstein1975,berk1980,yabana1986,kaufman1987}, it is more sagacious to switch gears and follow a different approach due to Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a} for (approximately) diagonalizing multicomponent differential operators.
 
 %Employing the eikonal ansatz, at $\mathcal{O}(\epsilon^{0})$, we find the matrix equation $\mathsf{D}^{(0)}A = 0$.
 %To satisfy this equation, at least one of the $N$ eigenvalues of $\mathsf{D}^{(0)}$, say $\lambda(x, k;\, \omega)$, must vanish so that $\det \mathsf{D}^{(0)}(x, k; \omega) = 0$.
@@ -406,7 +406,7 @@ Instead, we start by finding the symbol form of the following two equations:
 \begin{equation}
   \begin{aligned}
     \widehat{\mathsf{D}}\widehat{\mathsf{U}} &= \widehat{\mathsf{U}}\widehat{\Lambda}\\
-    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \mathsf{I}_{N}.
+    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \widehat{\mathsf{I}}_{N}.
   \end{aligned}
   \label{eq:diagonal2}
 \end{equation}
@@ -825,7 +825,8 @@ The solution to the original system can be recovered by $\Psi = \widehat{\mathsf
 where we have set $A_{\pm} = B_{\pm}/\sqrt{2}$, and have found the expected solution.
 \end{example}
 
-\subsection{Bound waves in phase space}
+\section{Bound waves in phase space}
+\label{sec:bound}
 
 We expect the rays of bound waves to be bounded in phase space as well, with these rays being topologically equivalent to a circle~\cite{keller1958,mcdonald1988}.
 Such rays oscillate between two classical turning points where $k = 0$ and $\dot{x} = 0$ [Fig.~\ref{fig:caustic}(a)].
@@ -866,3 +867,5 @@ The second (non-geometric) phase $\gamma_{\text{NG}}$ has no such interpretation
   }
   \label{fig:caustic}
 \end{figure}
+
+\the\textwidth

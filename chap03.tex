@@ -839,6 +839,7 @@ where $X$ and $Y$ are positive dimensionless terms independent of $\theta_1$ and
 \begin{equation}
   X = \frac{\sqrt{\beta\kappa}\lambda a}{8\abs{\lambda-1}},\qquad
   Y = \left|\frac{\lambda-1}{\lambda+1}\right|.
+  \label{eq:XandY}
 \end{equation}
 %
 From Eq.~\eqref{eq:4bar_free}, we also find the free-energy difference between the singular values $\theta_{1} = 0$ and $\theta_{1} = \pm\pi$ to be
@@ -859,6 +860,11 @@ A comparison between the numerical results and asymptotic expressions in Eq.~\eq
   The inset shows the absolute errors between the numerical and asymptotic results using the harmonic and quartic approximations [Eq.~\eqref{eq:4bar_free}].}
   \label{fig:4bar_free}
 \end{figure}
+
+Clearly, the free-energy profiles have minima for values of $\theta_{1}$ close to $0$ or $\pm\pi$, corresponding to shape-space singularities.
+But a more assiduous reader may have noticed that the free-energy curves actually have a double-well minima around $\theta_{1} = 0$ and $\theta_{1} = \pm\pi$.
+Also, there is an assymetry in these curves---the free energies of the four-bar linkage for $\theta_{1}$ close to $0$ is lower than $\theta_{1}$ close to $\pm\pi$.
+In the next two subsections, we will try to understand these two features.
 
 \subsubsection*{Double-well structures}
 
@@ -903,6 +909,32 @@ Expanding $\Delta\mathscr{A}(\theta_{1})$ to $\mathcal{O}(\abs{\theta_{1}}^{6})$
 %
 Since $X \sim \sqrt{\beta}$, this also shows that as $\beta$ increases, $\theta_{1}^{\text{min}}$ shifts closer to $0$.
 
+\subsubsection*{Asymmetries in the free-energy landscape}
+
+We will now try to understand the origin of the asymmetry in the four-bar linkage's free-energy profile, more specifically, why the free-energy values close to $\theta_{1} = \pm \pi$ is higher than the values at $\theta_{1} = 0$.
+Consider Fig.~\ref{fig:4bar_asymmetry} where we show a four-bar linkage in four different configurations, but each having the same value of $\theta_{1}$.
+The configurations are symmetric only along the parallel branch, where the
+a configuration with $\theta_{1}$.
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{frameworks/4bar_asymmetry.pdf}
+  \end{center}
+  \caption{%
+    For values of the angle $\theta_{1} \to 0 \text{ or } \pi$, the configurations of the four-bar linkage display a certain asymmetry depending on the branch they are in.
+    In case of the parallel branch, the two configurations are mirror images of each other (top figures).
+    On the twisted branch, however, the two configurations are asymmetric and cannot be rotated/reflected into one another (bottom figures).
+    The value of the angle $\theta_{1}$ is the same in all figures.
+  }
+  \label{fig:4bar_asymmetry}
+\end{figure}
+
+The asymptotic results can be obtained following the general procedure outlined in this section.
+
+Eq.~\eqref{eq:4bar_free} after replacing the nondimensional parameters $X \to \sqrt{\beta\kappa}\lambda a/(8\abs{\lambda+1})$ and $Y \to \left|(\lambda+1)/(\lambda-1)\right|$ [cf.~Eq.~\eqref{eq:XandY}].
+
+
 \section{Example: triangulated origami}
 \label{sec:origami}
 
@@ -910,11 +942,22 @@ For further testing our methods, we consider an origami made by triangulating a 
 To make the origami more realistic, in simulations, we avoid all configurations that result in face intersections.
 The one-dimensional shape space [Fig.~\ref{fig:origami}(b)] of this origami can be visualized as four intersecting branches in the space of the fold angles, i.e., the supplement of the dihedral angle at a fold.
 The intersection point is the singular flat state of the origami, where all the fold angles are zero.
-After numerically parameterizing the branches of the shape space in terms of the fold angle $\rho_{1}$, which we use as our \ac{cv}, we utilize Eq.~\eqref{eq:mpd_regular} to find the free energy $\mathscr{A}(\rho_{1})$ for $\abs{\rho_{1}} \gg 0$.
+After numerically parameterizing the branches of the shape space in terms of the fold angle $\rho_{1}$, which we use as our \ac{CV}, we utilize Eq.~\eqref{eq:mpd_regular} to find the free energy $\mathscr{A}(\rho_{1})$ for $\abs{\rho_{1}} \gg 0$.
 We next find $\mathscr{A}(\rho_{1})$ as $\rho_{1} \to 0$ using Eq.~\eqref{eq:mpd_singular} and choose $\rho_{1}=0$ as the point of zero free energy.
 A comparison between the numerical and the asymptotic results for the free-energy difference  $\Delta\mathscr{A}(\rho_{1})$ shows good agreement in both regimes of $\rho_{1}$ [Fig.~\ref{fig:origami}(c)].
 Self-avoidance of the faces forces us to consider only a part of each branch of the shape space for our analysis.
 Since the extent of these parts (in $\rho_{1}$) vary for the four branches [Fig.~\ref{fig:origami}(b)], it results in discontinuous jumps in the free-energy curves.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{frameworks/4bar_free_theta2.pdf}
+  \end{center}
+  \caption{Free-energy difference $\Delta\mathscr{A}(\theta_2)$ of a four-bar linkage with parameters $a=1$ and $\lambda=2$ as a function of the angle $\theta_{1}$ [cf.~Fig.~\ref{fig:4bar_free}].
+  The free energy is in units of $\beta^{-1}$ at $\beta = 10^{4}$.
+  Finally, the inset shows the absolute errors between the numerical and asymptotic results.
+}
+\end{figure}
+
 
 \subsection{Body frame}
 

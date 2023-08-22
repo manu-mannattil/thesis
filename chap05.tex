@@ -1,7 +1,7 @@
 %! TEX root = thesis.tex
 % vim: ft=tex et sts=2 sw=2
 
-\chapter[Wave localization in thin elastic structures]{Wave localization in thin elastic structures\footnote{
+\chapter[Wave localization in thin elastic structures]{Wave localization in thin elastic structures\starfootnote{
   This chapter is an extended version of \href{https:/arxiv.org/abs/2306.07213}{M.~Mannattil and C.~D.~Santangelo, arXiv:2306.07213 [cond-mat.soft]}.
   The problem discussed in this work emerged during discussions with my coauthor.
   I was responsible for all the analytical and numerical calculations and wrote the paper taking into consideration my coauthor's comments.
@@ -29,7 +29,7 @@ More recently, \citet{shankar2022} revisited the musical saw using both experime
 Forgoing an explicit analytical computation of the mode frequencies, they argued that the bound modes that appear at the inflection point of the saw are topologically protected.
 Localization of elastic waves on variably-curved shells, such as the musical saw, is not entirely surprising as it is known that curvature acts as an effective refractive index for such waves~\cite{norris1994,evans2013}.
 
-Motivated by the above studies, in this paper, we investigate further aspects of curvature-controlled localization of waves in thin elastic structures, choosing a singly-curved shell and a curved rod as our examples.
+Motivated by the above studies, in this chapter, we investigate further aspects of curvature-controlled localization of waves in thin elastic structures, choosing a singly-curved shell and a curved rod as our examples.
 If the structure is uncurved, there are three basic types of waves that can propagate.
 Extensional waves propagate by stretching and compressing the structure, and involve only the tangential displacements ($u$ and $v$ in Fig.~\ref{fig:waves}).
 Flexural waves, by contrast, propagate by bending the structure and involve only the normal displacement ($\zeta$ in Fig.~\ref{fig:waves}).
@@ -71,7 +71,7 @@ We also saw that in wave equations supporting bound-state solutions, the semicla
 In multicomponent equations, however, subtleties can arise owing to the presence of an extra phase in the quantization rule~\cite{yabana1986,kaufman1987,littlejohn1991,littlejohn1991a}.
 Recently, this phase has been shown~\cite{venaille2023} to be responsible for a spectral flow in the rotating shallow-water equations that describe oceanic waves on the Earth's surface, leading to the topological protection of equatorial waves~\cite{delplace2017}.
 
-In this paper, we use the semiclassical approximation to study the bound-state spectrum of elastic waves in a curved rod and a singly-curved shell with a varying curvature profile.
+In this chapter, we use the semiclassical approximation to study the bound-state spectrum of elastic waves in a curved rod and a singly-curved shell with a varying curvature profile.
 To avoid losing the main results of this chapter in a thicket of details, we summarize them here:
 %
 \begin{enumerate}
@@ -1300,7 +1300,7 @@ In contrast to shells, bound states in a curved rod (which are always extensiona
 These findings set the stage for the design of simple devices capable of inducing wave localization without relying on metamaterials with nontrivial microstructure.
 
 Semiclassical approximation presents challenges of its own when used to study multicomponent waves, particularly due to the presence of nontrivial phases in the quantization rule.
-The rod and shell equations we use in this paper, however, have properties that cause these phases to vanish.
+The rod and shell equations we use in this chapter, however, have properties that cause these phases to vanish.
 Nevertheless, topologically protected waves in continuous media can arise when this phase is nonzero, especially when time-reversal symmetry is broken~\cite{venaille2023}.
 For this reason, it is worthwhile to explore the use of semiclassical methods in problems with broken time-reversal symmetry such as those in rotating elastic media~\cite{marijanovic2022}, fluids with odd viscosity~\cite{souslov2019}, and magnetoelastic waves~\cite{banos1956}, where one would generically expect this phase to be nonzero.
 
@@ -1308,7 +1308,7 @@ Ray tracing methods have continued to receive extensive attention in recent year
 An interesting line of work involves the phenomenon of branched flows---the spatial branching of rays as a result of random, but weak inhomogeneities in the medium, the end result being the formation of tree-like structures and fluctuations of extreme intensity~\cite{heller2021}.
 Branched flows have been observed in a host of systems, including tsunami waves in the ocean, light propagation in soap films, the flow of electrons in semiconductors, etc.
 In elastodynamics, branched flows have been shown to exist in thin elastic plates and cylinders with varying thickness profiles~\cite{jose2022,jose2023}.
-For obvious reasons, it would be interesting to extend these results to consider shells with random curvature profiles, akin to crumpled paper~\cite{gopinathan2002}.
+For obvious reasons, it would also be interesting to extend these results to consider shells with random curvature profiles, akin to crumpled paper~\cite{gopinathan2002}.
 
 \begin{subappendices}
 
@@ -1316,7 +1316,7 @@ For obvious reasons, it would be interesting to extend these results to consider
 \label{app:additional_phase}
 
 In this appendix we will look at situations where the extra phase $\gamma$ that appears in the quantization condition in Eq.~\eqref{eq:quantization} vanishes.
-As we described in the main text, $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$, where $\gamma_{\text{G}}$ is the term that gives rise to a nonzero geometric phase and $\gamma_{\text{NG}}$ is the other (non-geometric) term.
+As we discussed during the derivation of Eq.~\eqref{eq:extra_phases}, $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$, where $\gamma_{\text{G}}$ is the term that gives rise to a nonzero geometric phase and $\gamma_{\text{NG}}$ is the other (non-geometric) term.
 First, we shall analyze general $N$-component wave equations with an $N\times N$ dispersion matrix $\mathsf{D}^{(0)}$.
 
 \subsection{General wave equations}
@@ -1470,7 +1470,7 @@ When the matrix $\mathsf{D}^{(1)}$ is of the form in Eq.~\eqref{eq:gen_disp_matr
 Next, we note that $\mathsf{D}_{12}^{(0)}e^{-i\varphi_{12}} = \pm A^{(0)}$, $\mathsf{D}_{13}^{(0)}e^{-i\varphi_{13}} = \pm B^{(0)}$, and $\mathsf{D}_{23}^{(0)}e^{-i\varphi_{23}} = \pm C^{(0)}$, are all real.
 From Eq.~\eqref{eq:gamma_NG} it then follows that $\dot{\gamma}_{\text{NG}}$ vanishes, and we can take $\gamma_{\text{NG}}$ to be zero as well.
 
-The dispersion matrices for the thin shell we considered in Eq.~\eqref{eq:shell_disp_matrices} of the main text is of the form in Eq.~\eqref{eq:gen_disp_matrix}, and hence the phase $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$ is zero for the shell.
+The dispersion matrices for the thin shell we considered in Eq.~\eqref{eq:shell_disp_matrices} is of the form in Eq.~\eqref{eq:gen_disp_matrix}, and hence the phase $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$ is zero for the shell.
 It can be verified that the dispersion matrices for many higher-order shell theories~\cite{doyle2021} would also be of this form.
 For the curved rod, the dispersion matrices in Eq.~\eqref{eq:rod_D} are identical to the shell dispersion matrices once we delete the third row and column, and set $l=0$.
 Proceeding by arguments similar to previous ones, we see that the extra phase $\gamma$ vanishes for the rod as well.
@@ -1503,6 +1503,6 @@ using points $\left[x, k(x)\right]$ from the ray trajectory, with the integral e
 For a general $\omega$, the estimated $n(\omega)$ will not be integer valued.
 Quantized frequencies $\omega$ can be obtained by solving $n(\omega) = n$ using a numerical root finder.
 Alternatively, we could minimize the absolute ``error'' $\abs{n - n(\omega)}$ using random values of $\omega$ spread around the initial guess, and take the quantized frequency to be $\argmin_{\omega}\,\abs{n - n(\omega)}$.
-For the results reported in the main text, this error is less than $10^{-10}$.
+For the results reported in this chapter, this error is less than $10^{-10}$.
 
 \end{subappendices}

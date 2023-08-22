@@ -257,6 +257,16 @@
 \def\crossref#1#2{\href{https:/doi.org/#1}{#2}}
 \def\arxiv#1#2{\href{https:/arxiv.org/abs/#1}{arXiv:#1 [#2]}}
 
+% Make one footnote use \star instead of fnsymbol.
+\def\starfootnote#1{%
+  \let\oldthefootnote=\thefootnote%
+  \setcounter{footnote}{0}%
+  \renewcommand{\thefootnote}{$\star$}%
+  \footnote{#1}%
+  \let\thefootnote=\oldthefootnote%
+  \setcounter{footnote}{0}%
+}
+
 % Math -----------------------------------------------------------------
 
 % Chapter-wise equation numbers.

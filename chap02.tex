@@ -1,16 +1,24 @@
 %! TEX root = thesis.tex
 % vim: ft=tex et sts=2 sw=2
 
-\chapter[Frameworks and singularities]{Frameworks and singularities\footnote{%
+\chapter[Constraints, frameworks, and singularities]{Constraints, frameworks, and singularities\starfootnote{%
   This chapter and the next are expanded versions of \crossref{10.1103/PhysRevLett.128.208005}{M.~Mannattil, J.~M.~Schwarz, C.~D.~Santangelo, Phys.\ Rev.\ Lett.\ \textbf{128}, 208005 (2022)}.
   The problem discussed in this paper emerged during conversations with my coauthors.
   I was responsible for all the analytical calculations and numerical experiments, and wrote the paper with inputs from my coauthors.}}
   \label{chap02}
 
-% \chapterprecishere{
-%   This chapter is an introduction to the basic concepts and mathematics used in this thesis.
-%   In particular, we discuss the geometrical concepts needed.
-% }
+\chapterprecishere{%
+This chapter provides background material for the first part of this dissertation.
+First, we discuss holonomic constraints and how they can sculpt the configuration space of a classical-mechanical system in a nontrivial manner.
+Next, we extend the general discussion on constraints to look at mechanical frameworks and their configuration spaces.
+Finally, we derive two expressions for the energy of a mechanical framework, to be used in the next chapter.
+\\
+}
+
+In classical mechanics, the concept of a configuration space makes it possible for us to abstract away a physical system as a single point, no matter how complicated the system is (see Fig.~\ref{fig:confblob}).
+The elegance behind the notion of a configuration space can be seen by considering the simple example of a rigid body, which is composed of an infinite number of particles.
+Yet, its configuration space is just a 6-dimensional space whose points have a one-to-one correspondence with the location and the spatial orientation of the rigid body in Euclidean 3-space.
+In many situations, such as the rigid body, the nature of a system's configuration space is entirely dictated by the (holonomic) constraints imposed on it, so we discuss them first.
 
 \section{Geometry of constraints}
 \label{sec:constraints}
@@ -33,40 +41,48 @@ Now, consider the constraints
 \end{equation}
 %
 where $a, b > 0$ are constants.
-As we discuss below, physically, this corresponds to constraining a particle to move on two mutually perpendicular cylinders.
+Geometrically, this corresponds to constraining a particle to move on two mutually perpendicular cylinders in $\mathscr{R}$.
 
 For the general case, we will first look at the constraints individually.
 Each constraint function $f_i$ has an associated zero level set $\Omega_i = f_i^{-1}(0) = \{\bm{r} \in \mathscr{R}: f_i(\bm{r}) = 0\}$ whose elements satisfy the $i$th constraint exactly.
 If for all points $\bm{r} \in \Omega_{i}$, the gradient $\nabla f_i(\bm{r})$ is nonzero, then by the preimage theorem, $\Omega_i$ is an $(n-1)$-dimensional submanifold of the ambient space $\mathscr{R}$~\cite{guillemin1974,lee2013}.
 For the example system in Eq.~\eqref{eq:cylcyl}, the level set $\Omega_1$ corresponding to the first constraint function $f_1$ is a cylinder of diameter $a$ lying along the $r_{1}$ axis.
 Meanwhile, the level set $\Omega_2$ is a cylinder of radius $b$ lying along the $r_{2}$ axis.
-Although these constraints may seem artificial, they are in fact the ones seen in a crank-slider framework, which is illustrated in Fig.~\ref{fig:crankslider}(c).
+Although these constraints may seem artificial, they are in fact the ones seen in a crank-slider framework, which is illustrated in Fig.~\ref{fig:slider}(c).
 % TODO: more on the crank-slider framework.
 Since the gradients $\nabla f_1$ and $\nabla f_2$ never vanish for any point in $\Omega_1$ and $\Omega_2$, they are both smooth submanifolds of $\mathscr{R}$.
 At each point $\bm{r} \in \Omega_i$ we can identify two vector spaces, namely the tangent space $T_{\bm{r}}\Omega_i = \{\bm{v} \in \mathbb{R}^n: \nabla f_i(\bm{r})\cdot \bm{v} = 0\}$ and the normal space\footnote{Here it is the rather trivial one-dimensional space spanned by $\{\nabla f_i\}$.} $N_{\bm{r}}\Omega_i = (T_{\bm{r}}\Omega_i)^\perp$, the orthogonal complement of the tangent space in $\mathbb{R}^n$ under the standard Euclidean dot product.
 From these definitions, we see that the direct sum $T_{\bm{r}}\Omega_i\oplus N_{\bm{r}}\Omega_i = \mathbb{R}^n$.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{frameworks/confblob.pdf}
+  \end{center}
+  \caption{A classical system of point particles and rigid bodies can be represented by a single configuration vector $\bm{q}$ of a high-dimensional configuration space $\Omega$, which may or may not be a smooth manifold. (Inspired by Fig.~20.1 of Ref.~\cite{penrose2004}.)}
+  \label{fig:confblob}
+\end{figure}
 
 The $m$ constraint functions $f_i$ can also be considered together as a single constraint map $f: \mathscr{R} \subseteq \mathbb{R}^n \to \mathbb{R}^m$ with $f(\bm{r}) = [f_1(\bm{r}), f_2(\bm{r}), \dots, f_m(\bm{r})]$.
 The zero level set $\Omega$ of this map is a subset of the configuration space where all $m$ constraints functions $f_i$ vanish, i.e., it is formed by the intersection of the zero level sets corresponding to each constraint: $\Omega = \Omega_1 \cap \Omega_2 \cap \dots \cap \Omega_m$.
 The constraint map $f$ has an $m\times n$ Jacobian matrix $\mathsf{J} = \nabla f$ and since $m\leq n$, it has a maximum possible rank of $m$.
 A point $\bar{\bm{r}}$ on $\Omega$ is called \emph{regular} if the Jacobian $\mathsf{J}$ has maximum rank at that point.
 Like we have used here, from here on, an overbar on a point denotes that it belongs to $\Omega$.
-In the case of maps, the preimage theorem states that if each $\bar{\bm{r}} \in \Omega$ is regular, then $\Omega$ is a smooth submanifold of $\mathscr{R}$ of dimension $n - m$ and codimension $m$.\footnote{This is equivalent to the familiar notion that imposing $m$ well-behaved constraints on a system with $n$ degrees of freedom reduces its number of degrees of freedom to $n-m$.}
+In the case of maps, the preimage theorem~\cite{lee2013} states that if each $\bar{\bm{r}} \in \Omega$ is regular, then $\Omega$ is a smooth submanifold of $\mathscr{R}$ of dimension $n - m$ and codimension $m$.\footnote{This is equivalent to the familiar notion that imposing $m$ well-behaved constraints on a system with $n$ degrees of freedom reduces its number of degrees of freedom to $n-m$.}
 Since $\Omega$ is the set of points where all the constraints are obeyed, it forms the configuration space of the system.
-As before, we identify the tangent space $T_{\bar{\bm{r}}}\Omega = \ker{\mathsf{J}(\bar{\bm{r}})} = \{\bm{v} \in \mathbb{R}^n: \mathsf{J}(\bar{\bm{r}})\bm{v} = 0\}$ and the normal space $N_{\bar{\bm{r}}}\Omega = T_{\bar{\bm{r}}}\Omega^\perp$, the orthogonal complement of the tangent space in $\mathbb{R}^n$ under the standard Euclidean dot product.
+
+Given a configuration space $\Omega$, we identify the tangent space $T_{\bar{\bm{r}}}\Omega = \ker{\mathsf{J}(\bar{\bm{r}})} = \{\bm{v} \in \mathbb{R}^n: \mathsf{J}(\bar{\bm{r}})\bm{v} = 0\}$ and the normal space $N_{\bar{\bm{r}}}\Omega = T_{\bar{\bm{r}}}\Omega^\perp$, the orthogonal complement of the tangent space in $\mathbb{R}^n$ under the standard Euclidean dot product.
 Using the rank-nullity theorem, we see that $\dim T_{\bar{\bm{r}}}\Omega = n-m$.
+As $\Omega$ is an $(n-m)$-dimensional submanifold of $\mathbb{R}^n$, it is theoretically possible to find a smooth parameterization $\psi$ such that all points $\bar{\bm{r}} \in \Omega$ can be written as $\bar{\bm{r}} = \psi(\xi)$, where $\xi = (\xi_1, \xi_2, \ldots, \xi_{n-m}) \in \mathbb{R}^{n-m}$.
+We also remark that one generally needs multiple such parameterizations to cover all points in $\Omega$.
+The collective coordinates $\xi_i$ used to parameterize $\Omega$ could be any set of coordinates, although it is more convenient to choose coordinates physically relevant to the system.
 %
 \begin{figure}
   \begin{center}
     \includegraphics{frameworks/crank-slider.pdf}
   \end{center}
-    \caption{Crank slider}
-  \label{fig:crankslider}
+  \caption{(c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl}, the three-slider mechanism.}
+  \label{fig:slider}
 \end{figure}
-
-As $\Omega$ is an $(n-m)$-dimensional submanifold of $\mathbb{R}^n$, it is theoretically possible to find a smooth parameterization $\psi$ such that all points $\bar{\bm{r}} \in \Omega$ can be written as $\bar{\bm{r}} = \psi(\xi)$, where $\xi = (\xi_1, \xi_2, \ldots, \xi_{n-m}) \in \mathbb{R}^{n-m}$.
-We also remark that one generally needs multiple such parameterizations to cover all points in $\Omega$.
-The collective coordinates $\xi_i$ used to parameterize $\Omega$ could be any set of coordinates, although it is more convenient to choose coordinates physically relevant to the system.
 
 It is also useful to analyze the intersection of level sets, say $\Omega_i$ and $\Omega_j$, locally at a point $\bar{\bm{r}} \in \Omega$.
 If the Jacobian $\mathsf{J}$ is full rank, then its rows, i.e., the gradients $\nabla f_i$ of the constraint functions $f_i$, are independent.
@@ -76,11 +92,11 @@ In other words, $T_{\bar{\bm{r}}}{\Omega_i}$ and $T_{\bar{\bm{r}}}{\Omega_j}$ to
 Hence, the Jacobian being full rank ensures that the level sets $\Omega_i$ of \emph{all} constraints are pairwise transverse.
 
 Going back to our example, the configuration space $\Omega$ is composed of the curves obtained by the intersection of the cylinders $\Omega_1$ and $\Omega_2$.
-When the cylinder radii satisfy $a < b$, then $\Omega$ is made up of two disconnected closed curves as illustrated in Fig.~\ref{fig:crankslider}(a).
+When the cylinder radii satisfy $a < b$, then $\Omega$ is made up of two disconnected closed curves as illustrated in Fig.~\ref{fig:slider}(a).
 Since $n = 3$ and $m=2$, $\Omega$ has a dimension equal to $n-m=1$, consistent with the fact that the curves are one dimensional.
 The tangent spaces $T_{\bar{\bm{r}}}\Omega_1$ and $T_{\bar{\bm{r}}}\Omega_2$ for a point $\bar{\bm{r}} \in \Omega$ can be identified with the tangent planes of the two cylinders at that point.
 It is clear that there is no point in $\Omega$ where the two cylinders share a common tangent plane and it can be shown (by direct computation) that Jacobian of the constraint map never drops rank.
-Hence, the intersection shown in Fig.~\ref{fig:crankslider}(a) is indeed a transverse intersection.
+Hence, the intersection shown in Fig.~\ref{fig:slider}(a) is indeed a transverse intersection.
 
 More generally, there could be points $\bar{\bm{r}} \in \Omega$ where the Jacobian $\mathsf{J}(\bar{\bm{r}})$ is not full rank.
 Such points are called \emph{singular points}.
@@ -167,7 +183,7 @@ However, one can still count the number $z$ of zero modes by applying the rank-n
 \begin{equation}
   z = n - \rank{\mathsf{C}(\bar{\bm{q}})}\label{eq:zmcount}\,.
 \end{equation}
-Eliminating $\rank{\mathsf{C}(\bar{\bm{q}})}$ from Eqs.~\eqref{eq:sscount} and \eqref{eq:zmcount} we arrive at the Maxwell--Calladine relation
+Eliminating $\rank{\mathsf{C}(\bar{\bm{q}})}$ from Eqs.~\eqref{eq:sscount} and \eqref{eq:zmcount} we arrive at the Maxwell--Calladine~\cite{maxwell1864,calladine1978} relation
 %
 \begin{equation}
   z - s = n - m\,,\label{eq:mcindex}
@@ -294,7 +310,8 @@ Then, the energy of the $i$th bar to the lowest order is
   \phi_i \approx \frac{1}{2}\kappa_i \left[\nabla f_i\cdot\bm{v} + \frac{1}{2}\bm{u}\trans(\hess f_i)\bm{u}\right]^2.
 \end{equation}
 %
-Recognizing that $\frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$ is the $i$th component of the column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ defined in the main text, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ takes the form
+For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $\bm{w}(\bm{u})_{i} = \frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
+With this definition, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ is
 %
 \begin{equation}
   U = \sum_{i=1}^m \phi_i \approx \frac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
@@ -302,3 +319,22 @@ Recognizing that $\frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$ is the $i$th compo
 \end{equation}
 %
 This equation is a generalization of the energy of harmonic spring networks~\cite{zhang2016,woodhouse2018} and colloidal clusters~\cite{kallus2017} that have zero modes, for an arbitrary number of zero modes and degrees of freedom, as well as a general interaction energy $\phi_{i}$ between the particles (i.e., the joints).
+
+We now briefly remark on an interesting comparison between Eq.~\eqref{eq:energy_singular} and the nonlinear strain that is considered for large deflections of a thin plate.
+In our notation, this strain can be written as%
+\footnote{See, e.g., Section 2.14 of Ref.~\cite{landau1986} or Section 6.2 of Ref.~\cite{nelson2004}.}
+%
+\begin{equation}
+  \epsilon_{ij} = \tfrac{1}{2}\left[\partial_{i}v_{i} + \partial_{j}v_{i} + (\partial_{i}u)(\partial_{j}u)\right].
+  \label{eq:plate_strain}
+\end{equation}
+%
+The above strain has been written down assuming that the plate, which is initially flat and described as a plane $\bm{r}(x, y)$ in $\mathbb{R}^{3}$, is undergoing a deformation $\bm{r}(x, y) \to \bm{r}(x, y) + v_{1}(x, y)\hat{\bm{x}} + v_{2}(x, y)\hat{\bm{y}} + u(x, y)\hat{\bm{z}}$.
+If we were to consider the plate as being composed of a set of discrete points connected by stiff bars, then the zero modes are the up/down out-of-plane displacements that the points can undergo without changing the constraints to linear order.
+Consequently, the fast vibrational modes would be composed of the in-plane displacements.
+In the discrete limit, the in-plane components of the displacement field, $v_{1}$ and $v_{2}$, would get replaced by a single vector $\bm{v} \in (\ker\mathsf{C})^{\perp}$.
+Meanwhile, the out-of-plane component $u$ of the displacement field would be replaced by a vector $\bm{u} \in \ker\mathsf{C}$.
+With this set up, the deformation energy can be obtained from Eq.~\eqref{eq:energy_singular}.
+We then realize that the bracketed term in Eq.~\eqref{eq:energy_singular}, i.e., $\mathsf{C}\bm{v} + \bm{w}(\bm{u})$ is a discrete version of the continuum strain in Eq.~\eqref{eq:plate_strain}:
+the linear part $\mathsf{C}\bm{v}$ is roughly analogous to $(\partial_{i}v_{j} + \partial_{j}v_{i})$, whereas the nonlinear part $\bm{w}(\bm{u})_{i} \sim \bm{u}\trans(\hess f_{i})\bm{u}$ is analogous to $(\partial_{i} u)(\partial_{j} u)$.
+Thus, the energy in Eq.~\eqref{eq:energy_singular} can be thought of as the square of a discrete, nonlinear strain.

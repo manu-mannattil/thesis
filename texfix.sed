@@ -17,3 +17,5 @@ s|Soft Few-body|Soft, Few-body|g
 s|soft few-body|soft, few-body|g
 
 s|\\mathscr{O}|\\mathcal{O}|g
+
+s|\\kappa\\beta|\\beta\\kappa|g

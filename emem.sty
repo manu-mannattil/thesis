@@ -308,11 +308,18 @@
   {1.2em}%                                        % space after theorem head, ' ', or \newline
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%   % theorem head spec (can be left empty, meaning `normal')
 
+% Numbered versions.
 \theoremstyle{ememstyle}
 \newtheorem{claim}{Claim}
 \newtheorem{prop}{Proposition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
+
+% Unnumbered versions.
+\newtheorem*{claim*}{Claim}
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
 
 % Style for problems and examples.
 \newtheoremstyle{ememstylesmall}%                 % name
@@ -329,13 +336,10 @@
 % \theoremstyle{definition}
 \theoremstyle{ememstylesmall}
 \newtheorem{problem}{Problem}
+\newtheorem*{problem*}{Problem}
 \newenvironment{solution}{\proof[Solution]}{\endproof}
 \newtheorem{example}{Example}
-
-% We could've used \diamond (and its variants), but they don't always
-% produce a "square" diamond.  So it's better to make one by rotating
-% a square.
-\def\altqed{\nolinebreak\hfill\rotatebox[origin=c]{45}{\footnotesize$\square$}}
+\newtheorem*{example*}{Example}
 
 %%% Whitespace management -----------------------------------------------------
 

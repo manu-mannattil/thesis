@@ -80,7 +80,7 @@ The collective coordinates $\xi_i$ used to parameterize $\Omega$ could be any se
   \begin{center}
     \includegraphics{frameworks/crank-slider.pdf}
   \end{center}
-  \caption{(c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl} is the three-slider mechanism~\cite{bohigas2019}, which is composed of three particles (the ``sliders'') that can freely move on two mutually perpendicular axes (the ``rails'').  
+  \caption{(c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl} is the three-slider mechanism~\cite{bohigas2019}, which is composed of three particles (the ``sliders'') that can freely move on two mutually perpendicular axes (the ``rails'').
     The particles are connected by bars of length $a$ and $b$, which gives rise to the constraints in Eq.~\eqref{eq:cylcyl}.
   }
   \label{fig:slider}
@@ -146,20 +146,42 @@ As before, the $m$ scalar constraint functions can also be considered together a
 Then, the shape space is the zero level set $\Sigma = \{\bm{q} \in \mathbb{R}^{n}: f(\bm{q}) = \bm{0}\}$.
 In the absence of external forces, each point in $\Sigma$ is a ground-state configuration of the framework with a distinct shape.
 
-The compatibility matrix $\mathsf{C}(\bm{q})$~\cite{pellegrino1986,lubensky2015} at a configuration $\bm{q} \in \Sigma$ is the $m \times n$ Jacobian matrix $\nabla f$ of the constraint map $f$.%
-\footnote{In Eq.~\eqref{eq:consmap} it might have been more natural to use the constraint function $f_{i} = \frac{1}{2}[\ell_{i}^{2}(\bm{q}) - \ell_{i}^{2}(\bar{\bm{q}})]$, without the $\bar{\ell}_{i}^{-1}$ factor.  This would have made $\nabla f$ the rigidity matrix instead of the compatibility matrix.  For our purposes, however, it is more convenient to work with the compatibility matrix as its entries are dimensionless.}
-
+The compatibility matrix $\mathsf{C}(\bar{\bm{q}})$~\cite{pellegrino1986,lubensky2015} at a configuration $\bar{\bm{q}} \in \Sigma$ is the $m \times n$ Jacobian matrix $\nabla f$ of the constraint map $f$.%
+\footnote{In Eq.~\eqref{eq:consmap} it might have been more natural to use the constraint function $f_{i} = \frac{1}{2}[\ell_{i}^{2}(\bm{q}) - \bar{\ell}_{i}^{2}]$, without the $\bar{\ell}_{i}^{-1}$ factor.  This would have made $\nabla f$ the rigidity matrix instead of the compatibility matrix.  For our purposes, however, it is more convenient to work with the compatibility matrix as its entries are dimensionless.}
 If $\mathsf{C}$ has full rank for all points in $\Sigma$, then $\Sigma$ is an $(n - m)$-dimensional submanifold of $\mathbb{R}^{n}$~\cite{leimkuhler2005,lee2013}.
-When $\Sigma$ has a ``branched'' structure, e.g., like in Fig.~\ref{fig:4bar_cs}, $\mathsf{C}(\bm{q})$ drops rank at the singularity where the branches meet~\cite{lopez-custodio2020,muller2019}, and the constraints cease to be linearly independent.
-Such singularities are the most common singularities~\cite{lopez-custodio2019,lopez-custodio2020} found in a framework and here we consider the situation where they occur only at isolated points of $\Sigma$.\footnote{For other, less common singularities that can occur in a framework, see Refs.~\cite{lopez-custodio2020,muller2019,muller2017}, and references therein.}
+But frameworks, like general constrained-systems, can have shape spaces that are not smooth manifolds.
+Consider, for example, the four-bar linkage depicted in Fig.~\ref{fig:4bar_cs}.
+The four-bar linkage is a simple framework made out of four bars with freely rotating joints~\cite{grashof1883,hartenberg1964,shimamoto2005}.
+Although the linkage has one \ac{dof} up to Eu Euclidean motions,
+it has two modes of deformation: one where the angle $\theta_1 = \theta_2$ and another where $\theta_1 \ne \theta_2$.
+To visualize these two modes of deformation it is most natural to plot the angles $\theta_{1}$ and $\theta_{2}$ on a torus as in Fig.~\ref{fig:4bar_cs}.
+From this figure we see that the deformation modes appear as two branches meeting at two isolated singular points $(\theta_1,\theta_2) = (0,0)$ and $(\pi,\pi)$.
+The two curves put together form the shape space $\Sigma$ of the four-bar linkage.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{frameworks/4bar_cs.pdf}
+  \end{center}
+  \caption{Shape space of the planar four-bar linkage visualized as two intersecting curves on a torus, each curve representing a ``branch'' of the shape space.
+    The poloidal and toroidal angles along the branches correspond to the angles $\theta_1$ and $\theta_2$ of the linkage, which has two modes of deformation with $\theta_{1} = \theta_{2}$ (blue curve) and $\theta_{1} \ne \theta_{2}$ (red curve).}
+  \label{fig:4bar_cs}
+\end{figure}
+
+When the shape space of a framework has a ``branched'' structure, like in the case of the four-bar linkage, it is no longer a smooth manifold
+In such a situation, the compatibility matrix $\mathsf{C}(\bm{q})$ drops rank at the singularity where the branches meet~\cite{lopez-custodio2020,muller2019}, and the constraints cease to be linearly independent.
+Such singularities are the most common singularities~\cite{lopez-custodio2019,lopez-custodio2020} found in a framework and here we consider the situation where they occur only at isolated points of $\Sigma$.\footnote{In engineering literature they are usually called $c$-space singularities. For other, less common singularities that can occur in a framework, see Refs.~\cite{lopez-custodio2020,muller2019,muller2017}, and references therein.}
 The branches of $\Sigma$, being $(n-m)$-dimensional submanifolds of $\mathbb{R}^{n}$, can be individually parameterized using a set of coordinates $\xi \in \mathbb{R}^{n-m}$, analogous to generalized coordinates, called shape coordinates~\cite{littlejohn1995} as they capture the shape changes of the framework as it moves on $\Sigma$.
 We also assume that $n$ is small enough that such parameterizations can be found without much difficulty and that
 the branches are linearly independent at the singularity~\cite{lopez-custodio2020}.
+Before moving on, we need to familiarize ourselves with a few other concepts, which have their origin in rigidity theory~\cite{connelly2022}.
 
 \subsection{Zero modes and self stresses}
 
-Irrespective of whether or not $\mathsf{C}$ is full rank, we define a \emph{zero mode} to be a perturbation $\bm{v} \in \mathbb{R}^n$ that preserves the constraints to linear order, i.e., $\mathsf{C}\bm{v} = 0$ or $\bm{v} \in \ker \mathsf{C}$.
-If $\mathsf{C}$ is full rank, then there is a well-defined tangent space $T_{\bar{\bm{q}}}\Sigma$ at $\bar{\bm{q}}$ and $\bm{v} \in T_{\bar{\bm{q}}} \Sigma$.
+Irrespective of whether or not $\mathsf{C}$ is full rank, we define a \emph{zero mode}%
+\footnote{Also called a soft mode, flex, etc.
+Sometimes it is also customary to explicitly differentiate between linear zero modes (those that preserve the constraints only to linear order) and nonlinear zero modes (those that preserve constrains to higher orders).}
+to be a perturbation $\bm{u} \in \mathbb{R}^n$ that preserves the constraints to linear order, i.e., $\mathsf{C}\bm{u} = 0$ or $\bm{u} \in \ker \mathsf{C}$.
+If $\mathsf{C}$ is full rank, then there is a well-defined tangent space $T_{\bar{\bm{q}}}\Sigma$ at $\bar{\bm{q}}$ and $\bm{u} \in T_{\bar{\bm{q}}} \Sigma$.
 In such a situation, the number $z$ of zero modes is
 %
 \begin{equation}
@@ -167,19 +189,26 @@ In such a situation, the number $z$ of zero modes is
 \end{equation}
 %
 which is equal to the dimension of tangent space.
-Zero modes include every infinitesimal perturbations of the framework that restricts $\bar{\bm{q}}$ to the shape space $\Sigma$.
 
-However, like in the case of general constraints, the compatibility matrix $\mathsf{C}$ need not always be full rank.
+However, as we have remarked, the compatibility matrix $\mathsf{C}$ drops rank at shape-space singularities.
 If the compatibility matrix is not full rank, then this implies that its rows are not fully independent and there are $m$-dimensional nonzero vectors $\sigma \in \mathbb{R}^m$ such that
+%
 \begin{equation}
   \sigma\trans\mathsf{C}(\bar{\bm{q}}) = \bm{0}\,.\label{eq:selfstress}
 \end{equation}
-Any vector $\sigma$ that belongs to the left null space of the compatibility matrix has the physical interpretation of having components equal to  the signed magnitude of spring tensions that enforce static equilibrium of the framework.
+%
+Any vector $\sigma$ that belongs to the left null space of the compatibility matrix has the physical interpretation of having components equal to the signed magnitude of spring tensions (up to normalization factors) that enforce static equilibrium of the framework.
 For this reason, $\sigma$ is called a self stress.
-Applying the rank-nullity theorem to the transpose of Eq.~\eqref{eq:selfstress} we find the number $s$ of self stresses to be
+Forces involved in a state of self stress obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque~\cite{goldstein2002}.
+Thus, a framework under self stress is in a state of mechanical equilibrium.
+Note, however, that such an equilibrium may or may not be stable.
+
+Applying the rank-nullity theorem to the transpose of Eq.~\eqref{eq:selfstress} we find the number $s$ of (independent) self stresses to be
+%
 \begin{equation}
   s = m - \rank{\mathsf{C}\trans(\bar{\bm{q}})} = m - \rank{\mathsf{C}(\bar{\bm{q}})}\,.\label{eq:sscount}
 \end{equation}
+%
 If the compatibility matrix $\mathsf{C}$ is not full rank at a point $\bar{\bm{q}}$, there is no well defined tangent space $T_{\bar{\bm{q}}}\Sigma$ at that point.
 However, one can still count the number $z$ of zero modes by applying the rank-nullity theorem on $\mathsf{C}$, which gives
 \begin{equation}
@@ -188,14 +217,16 @@ However, one can still count the number $z$ of zero modes by applying the rank-n
 Eliminating $\rank{\mathsf{C}(\bar{\bm{q}})}$ from Eqs.~\eqref{eq:sscount} and \eqref{eq:zmcount} we arrive at the Maxwell--Calladine~\cite{maxwell1864,calladine1978} relation
 %
 \begin{equation}
-  z - s = n - m\,,\label{eq:mcindex}
+  z - s = n - m,
+  \label{eq:mcindex}
 \end{equation}
 %
 which shows that the difference in the number of zero modes and the self stress at a point $\bar{\bm{q}} \in \Sigma$ depends only on the dimension $n$ of the configuration space and the number of constraints $m$.
 Since we have assumed that $m \leq n$, we see that the presence of a self stress creates new zero modes.
-To illustrate these ideas, it is worthwhile to look a simple example.
+To illustrate these ideas, it is useful to look a simple example.%
+\footnote{Similar examples have been considered in Refs.~\cite{calladine1978,lengyel2002,zhang2016,woodhouse2018}.}
 
-\begin{example}[Tethered particle]
+\begin{example*}[A tethered particle in $\mathbb{R}^{2}$]
   Consider a particle with position $\bm{q} = (q_{1}, q_{2})$ tethered to two parallel walls using two bars as shown in Fig.~\ref{fig:tether}.
   We will analyze the setup in Fig.~\ref{fig:tether}(b) first and examine Fig.~\ref{fig:tether}(a)
   as a special case.
@@ -204,32 +235,35 @@ And as the rigid motions have all been eliminated by tethering the particle to t
   In Fig.~\ref{fig:tether}(b), the bars have a length of 1 unit and the inter-wall separation is $2(1 - \epsilon)$ units, so that following Eq.~\eqref{eq:consmap}, we can write down the constraint map as
 %
 \begin{equation}
-  f: \mathbb{R}^{2} \to \mathbb{R},
-  \quad\text{defined by}\quad
-  f(q_{1}, q_{2}) = \tfrac{1}{2}\left[(q_{1} + 1)^{2} + q_{2}^{2} - (1 - \epsilon)^{2}, (q_{1}-1)^{2} + q_{2}^{2} - (1 - \epsilon)^{2}\right].
+  f: \mathbb{R}^{2} \to \mathbb{R}^{2},
+  \quad
+  f(q_{1}, q_{2}) = \tfrac{1}{2}\left[(q_{1} + 1 - \epsilon)^{2} + q_{2}^{2} - 1, (q_{1}-1 + \epsilon)^{2} + q_{2}^{2} - 1\right].
 \end{equation}
 %
-When the parameter $\epsilon$, which controls the inter-wall separation, is positive, the configuration space $\Sigma$ is composed of two ground states, given by $\bar{\bm{q}} = (0, \pm\sqrt{2\epsilon - \epsilon^{2}})$.
+When the parameter $\epsilon$, which controls the inter-wall separation, satisfies $0 < \epsilon < 1$, the configuration space $\Sigma$ is composed of two ground states, given by $\bar{\bm{q}} = (0, \pm\sqrt{2\epsilon - \epsilon^{2}})$.
 %
 The compatibility matrices at the ground states are
 %
 \begin{equation}
   \mathsf{C}(\bar{\bm{q}}) = \nabla f = \begin{pmatrix}
-    \bar{q}_{1} + 1 & \bar{q}_{2}\\
-    \bar{q}_{1} - 1 & \bar{q}_{2}
+    \bar{q}_{1} + 1 - \epsilon & \bar{q}_{2}\\
+    \bar{q}_{1} - 1 + \epsilon & \bar{q}_{2}
   \end{pmatrix}
   =
   \begin{pmatrix}
-    1 & \pm\sqrt{2\epsilon - \epsilon^{2}}\\
-    -1 & \pm\sqrt{2\epsilon - \epsilon^{2}}.
-  \end{pmatrix}
+     1-\epsilon & \pm\sqrt{2\epsilon - \epsilon^{2}}\\
+    -1+\epsilon & \pm\sqrt{2\epsilon - \epsilon^{2}}
+  \end{pmatrix}.
 \end{equation}
 %
-As we have assumed that $\epsilon > 0$, the compatibility matrix has full rank at both ground states, and the framework does not support a state of self stress.
-If $\epsilon = 0$, then there is only one ground state, i.e., $\bm{\bar{q}} = (0, 0)$.
-
-\end{example}
-
+As we have assumed that $0 < \epsilon < 1$, the compatibility matrix has full rank at both ground states, and the framework does not support a state of self stress and does not have any zero modes.
+Clearly, in this case the configuration space is a zero-dimensional manifold.
+The framework failing to support a self stress is hardly surprising---if we were to put tensions in the bars, there would be a net vertical force that cannot be balanced.
+We can also analyze the situation geometrically.
+In Fig.~\ref{fig:tether}(b), we have depicted the level sets $\Sigma_{1}$ and $\Sigma_{2}$ (circles of unit radius) of the two constraints individually.
+As we see from this figure, the level sets $\Sigma_{1}$ and $\Sigma_{2}$ have a transversal intersection at the ground state.
+In other words, the two constraints are linearly independent at the ground state, resulting in a compatibility matrix of full rank.
+%
 \begin{figure}
   \begin{center}
     \includegraphics{frameworks/tethparticle.pdf}
@@ -241,6 +275,25 @@ If $\epsilon = 0$, then there is only one ground state, i.e., $\bm{\bar{q}} = (0
 }
   \label{fig:tether}
 \end{figure}
+
+If the parameter $\epsilon = 0$, then there is only one ground state, i.e., $\bm{\bar{q}} = (0, 0)$.
+In this case the compatibility matrix becomes
+%
+\begin{equation}
+  \mathsf{C}(\bar{\bm{q}}) =
+  \begin{pmatrix}
+    1 & 0\\
+    -1 & 0
+  \end{pmatrix}.
+\end{equation}
+%
+Clearly, the above matrix does not have full rank and we see that there is a self stress $\bm{\sigma} \in \ker \mathsf{C}\trans$ given by $\bm{\sigma} = \left(1, 1\right)$.
+The physical interpretation of this self stress is that the framework will remain in equilibrium if we put tensions of equal magnitude in the two bars.
+Also, the constraints in this case are not linearly independent at the singularity---geometrically, we infer this by noticing that the level sets $\Sigma_{1}$ and $\Sigma_{2}$ in Fig.~\ref{fig:tether}(a) have a nontransversal intersection and share a common tangent at the ground state.
+As the number of self stresses $s = 1$, the Maxwell--Calladine theorem tells us that there is a zero mode.
+From $\ker\mathsf{C}(\bar{\bm{q}})$ we see that the zero mode $\bm{u} = (0, 1)$ is the up/down displacement of the particle, which preserves constraints to linear order.%
+\footnote{Of course, the constraints are not preserved at higher orders, and it can be shown that the framework is rigid at second order.  Standard theorems in rigidity theory then guarantee that the framework is rigid to all orders~\cite{connelly2022}.}
+\end{example*}
 
 \section{Elastic energy of a framework}
 \label{sec:energy}
@@ -355,7 +408,7 @@ Then, the energy of the $i$th bar to the lowest order is
   \phi_i \approx \frac{1}{2}\kappa_i \left[\nabla f_i\cdot\bm{v} + \frac{1}{2}\bm{u}\trans(\hess f_i)\bm{u}\right]^2.
 \end{equation}
 %
-For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $\bm{w}(\bm{u})_{i} = \frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
+For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $[\bm{w}(\bm{u})_{i}] = \frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
 With this definition, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ is
 %
 \begin{equation}\boxed{%
@@ -365,7 +418,28 @@ With this definition, the total energy to the lowest order in $\bm{u}$ and $\bm{
 %
 This equation is a generalization of the energy of harmonic spring networks~\cite{zhang2016,woodhouse2018} and colloidal clusters~\cite{kallus2017} that have zero modes, for an arbitrary number of zero modes and degrees of freedom, as well as a general interaction energy $\phi_{i}$ between the particles (i.e., the joints).
 
-We now briefly remark on an interesting comparison between Eq.~\eqref{eq:energy_singular} and the nonlinear strain that is considered for large deflections of a thin plate.
+\begin{example*}[Tethered particle: energetics]
+  Let us consider again the tethered particle in Fig.~\ref{fig:tether}(a).
+  If the particle is now displaced from its ground state at $(0, 0)$ to a point $(q_{1},q_{2})$, we can break up the displacement into a fast mode $\bm{v} = (q_{1}, 0)$ along the horizontal axis and a zero mode $\bm{u} = (0, q_{2})$ along the vertical axis.
+  The Hessian matrices of the two constraints are $\hess f_{1} = \mathsf{I}_{2}$ and $\hess f_{2} = \mathsf{I}_{2}$, so that the vector $\bm{w}(\bm{u})$ is
+  %
+  \begin{equation}
+      \bm{w}(\bm{u}) = \left[\tfrac{1}{2}\bm{u}\left(\hess f_{1}\right)\bm{u}, \tfrac{1}{2}\bm{u}\left(\hess f_{1}\right)\bm{u}\right]
+                     = \left(\tfrac{1}{2}q_{2}^{2}, \tfrac{1}{2}q_{2}^{2}\right).
+  \end{equation}
+  %
+  As $\mathsf{C}\bm{q} = (q_{1}, -q_{1})$, and assuming that the bars have a constant stiffness $\kappa$, dusing Eq.~\eqref{eq:energy_singular}, we find the energy%
+  \footnote{The curious reader may wonder if this energy is dimensionally correct---after all $q_{1}$ and $q_{2}$ have the same dimensions.
+  The issue here is that we took the bars to have unit lengths, so that numerical factors in $\bm{w}(\bm{u})$ should be assumed to have units of inverse length.}
+  %
+  \begin{equation}
+    U \approx \tfrac{1}{2}\kappa\Abs{\mathsf{C}\bm{v} + \bm{w}(\bm{u})}^{2} = \kappa\left(q_{1}^{2} + \tfrac{1}{4}q_{2}^{4}\right).
+  \end{equation}
+  %
+  As we see from the energy expression, the zero mode $(0, q_{2})$ contributes to the energy only at the quartic order---physically speaking, one would say that the framework has become more soft due to the presence of the singularity.
+\end{example*}
+
+We now briefly remark on an interesting comparison between Eq.~\eqref{eq:energy_singular} and the nonlinear strain that is considered while analyzing large deflections of a thin elastic plate.
 In our notation, this strain can be written as%
 \footnote{See, e.g., Section 2.14 of Ref.~\cite{landau1986} or Section 6.2 of Ref.~\cite{nelson2004}.}
 %

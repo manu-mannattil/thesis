@@ -10,7 +10,7 @@
 \chapterprecishere{%
 This chapter provides background material for the first part of this dissertation.
 First, we discuss holonomic constraints and how they can sculpt the configuration space of a classical-mechanical system in a nontrivial manner.
-Next, we extend the general discussion on constraints to look at mechanical frameworks and their configuration spaces.
+Next, we extend the general discussion on constraints to look at the zero-temperature behavior of mechanical frameworks and their configuration spaces.
 Finally, we derive two expressions for the energy of a mechanical framework, to be used in the next chapter.
 \\
 }
@@ -80,7 +80,9 @@ The collective coordinates $\xi_i$ used to parameterize $\Omega$ could be any se
   \begin{center}
     \includegraphics{frameworks/crank-slider.pdf}
   \end{center}
-  \caption{(c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl}, the three-slider mechanism.}
+  \caption{(c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl} is the three-slider mechanism~\cite{bohigas2019}, which is composed of three particles (the ``sliders'') that can freely move on two mutually perpendicular axes (the ``rails'').  
+    The particles are connected by bars of length $a$ and $b$, which gives rise to the constraints in Eq.~\eqref{eq:cylcyl}.
+  }
   \label{fig:slider}
 \end{figure}
 
@@ -126,7 +128,7 @@ It is also clear that the length $\ell(\bm{r}_{i})$ can always be considered as 
 
 As before, the configuration space of the framework is the set $\Omega$ such that the length of the $i$th bar $\ell_{i}$ is equal to its rest length $\bar{\ell}_{i}$.
 Configurations in $\Omega$ are deformed states of the framework or the configurations obtained from such states after a rigid motion in $d$-dimensional space (i.e., after rotations, reflections, or translations).
-To separate the actual deformations of the framework from trivial rigid motions, it is more useful to consider the shape space $\Sigma$, is the set of all configurations with distinct shapes, and
+To separate the actual deformations of the framework from trivial rigid motions, it is more useful to consider the shape space $\Sigma$~\cite{kendall1989,mezey1993,kendall1999} is the set of all configurations with distinct shapes, and
 obtained after ``filtering out'' all the rigid motions from the configuration space.%
 \footnote{More technically, the shape space is the quotient space $\Sigma = \Omega/SE(d)$, where $SE(d)$ is the special Euclidean group in $d$ dimensions~\cite{littlejohn1995}.}
 
@@ -191,14 +193,54 @@ Eliminating $\rank{\mathsf{C}(\bar{\bm{q}})}$ from Eqs.~\eqref{eq:sscount} and \
 %
 which shows that the difference in the number of zero modes and the self stress at a point $\bar{\bm{q}} \in \Sigma$ depends only on the dimension $n$ of the configuration space and the number of constraints $m$.
 Since we have assumed that $m \leq n$, we see that the presence of a self stress creates new zero modes.
+To illustrate these ideas, it is worthwhile to look a simple example.
 
-% TODO: picture with constraint manifolds.
+\begin{example}[Tethered particle]
+  Consider a particle with position $\bm{q} = (q_{1}, q_{2})$ tethered to two parallel walls using two bars as shown in Fig.~\ref{fig:tether}.
+  We will analyze the setup in Fig.~\ref{fig:tether}(b) first and examine Fig.~\ref{fig:tether}(a)
+  as a special case.
+This framework clearly has zero \ac{dof}.
+And as the rigid motions have all been eliminated by tethering the particle to the walls, there is no need to transform to a body frame or distinguish between the shape space and configuration space.
+  In Fig.~\ref{fig:tether}(b), the bars have a length of 1 unit and the inter-wall separation is $2(1 - \epsilon)$ units, so that following Eq.~\eqref{eq:consmap}, we can write down the constraint map as
 %
-% \hl{TODO}
-% \begin{figure}
-%   \label{fig:tether}
-%   \caption{A particle at the $\bar{\bm{q}} = (0,0)$ tethered to two parallel walls using two springs---a system that can support a state of self stress.  The shape spaces $\Sigma_1$ and $\Sigma_2$ of the two constraint functions share a common tangent space as illustrated.}
-% \end{figure}
+\begin{equation}
+  f: \mathbb{R}^{2} \to \mathbb{R},
+  \quad\text{defined by}\quad
+  f(q_{1}, q_{2}) = \tfrac{1}{2}\left[(q_{1} + 1)^{2} + q_{2}^{2} - (1 - \epsilon)^{2}, (q_{1}-1)^{2} + q_{2}^{2} - (1 - \epsilon)^{2}\right].
+\end{equation}
+%
+When the parameter $\epsilon$, which controls the inter-wall separation, is positive, the configuration space $\Sigma$ is composed of two ground states, given by $\bar{\bm{q}} = (0, \pm\sqrt{2\epsilon - \epsilon^{2}})$.
+%
+The compatibility matrices at the ground states are
+%
+\begin{equation}
+  \mathsf{C}(\bar{\bm{q}}) = \nabla f = \begin{pmatrix}
+    \bar{q}_{1} + 1 & \bar{q}_{2}\\
+    \bar{q}_{1} - 1 & \bar{q}_{2}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1 & \pm\sqrt{2\epsilon - \epsilon^{2}}\\
+    -1 & \pm\sqrt{2\epsilon - \epsilon^{2}}.
+  \end{pmatrix}
+\end{equation}
+%
+As we have assumed that $\epsilon > 0$, the compatibility matrix has full rank at both ground states, and the framework does not support a state of self stress.
+If $\epsilon = 0$, then there is only one ground state, i.e., $\bm{\bar{q}} = (0, 0)$.
+
+\end{example}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{frameworks/tethparticle.pdf}
+  \end{center}
+  \caption{(a) Ground state configuration of a particle with coordinate $\bm{q}$ tethered to two parallel walls using two bars---a simple framework that can support a state of self stress.
+    Each bar has a length of 1 unit and the inter-wall separation is 2 units.
+  The zero level sets $\Sigma_1$ and $\Sigma_2$ of the two constraint functions have a nontransversal intersection as they share a common tangent at the point of intersection.
+  (b) When the wall separation is less than 2 units, the level sets $\Sigma_{1}$ and $\Sigma_{2}$ have a transversal intersection and the framework fails to support a state of self stress.
+}
+  \label{fig:tether}
+\end{figure}
 
 \section{Elastic energy of a framework}
 \label{sec:energy}
@@ -243,14 +285,17 @@ In such a situation, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, the poten
 %
 Above, the partial derivatives of $\ell(\bm{q})$ and the derivatives of $\phi(\ell)$ have been evaluated at $\bar{\bm{q}} \in \Sigma$ and $\ell = \bar{\ell}$, respectively.
 The repeated indices are summed over as usual.
-Reintroducing the free index $i$, and noting that the stiffness $\kappa_{i} = \phi_{i}''(\ell_{i})$ and $\partial_{j}\ell_{i}\,q_{j} = \partial_{j}f_{i}\,q_{j} = \nabla f_{i}\cdot\bm{q}$, the total energy becomes
+Defining the stiffness of the $i$th bar to be $\kappa_{i} = \phi_{i}''(\ell_{i})$ and noting that $\partial_{j}\ell_{i}\,q_{j} = \partial_{j}f_{i}\,q_{j} = \nabla f_{i}\cdot\bm{q}$, the total energy of the framework becomes (after reintroducing the free index $i$)
 %
-\begin{equation}
-  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \frac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.
+\begin{equation}\boxed{%
+  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \frac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.}
   \label{eq:regenergy}
 \end{equation}
 %
-Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix evaluated at $\bar{\bm{q}}$~\cite{lubensky2015} (assuming joints of unit mass) and $\mathsf{K}$ is the diagonal matrix of bar stiffnesses $\phi_{i}''(\bar{\ell}_{i})$, which we set equal to $\kappa$ for all bars for simplicity.
+Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix evaluated at $\bar{\bm{q}}$~\cite{lubensky2015} (assuming joints of unit mass) and $\mathsf{K}$ is the $n\times n$ diagonal matrix of bar stiffnesses $\kappa_{i}$.
+Since the potential functions $\phi_{i}$ all have a minimum at $\ell_{i} = \bar{\ell}_{i}$, the stiffnesses $\kappa_{i}$ are positive nonzero numbers and the matrix $\mathsf{K}$ is positive definite.
+However, the dynamical matrix $\mathsf{D}$ is, in general, only positive semidefinite since $\ker \mathsf{C}$ need not be empty.
+Indeed, it will not be empty for the example frameworks we consider in the next chapter, as they all have internal degrees of freedom.
 
 \subsection{Higher-order approximations}
 
@@ -313,8 +358,8 @@ Then, the energy of the $i$th bar to the lowest order is
 For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $\bm{w}(\bm{u})_{i} = \frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
 With this definition, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ is
 %
-\begin{equation}
-  U = \sum_{i=1}^m \phi_i \approx \frac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
+\begin{equation}\boxed{%
+  U = \sum_{i=1}^m \phi_i \approx \frac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].}
   \label{eq:energy_singular}
 \end{equation}
 %
@@ -334,7 +379,7 @@ If we were to consider the plate as being composed of a set of discrete points c
 Consequently, the fast vibrational modes would be composed of the in-plane displacements.
 In the discrete limit, the in-plane components of the displacement field, $v_{1}$ and $v_{2}$, would get replaced by a single vector $\bm{v} \in (\ker\mathsf{C})^{\perp}$.
 Meanwhile, the out-of-plane component $u$ of the displacement field would be replaced by a vector $\bm{u} \in \ker\mathsf{C}$.
-With this set up, the deformation energy can be obtained from Eq.~\eqref{eq:energy_singular}.
+With this setup, the deformation energy can be obtained from Eq.~\eqref{eq:energy_singular}.
 We then realize that the bracketed term in Eq.~\eqref{eq:energy_singular}, i.e., $\mathsf{C}\bm{v} + \bm{w}(\bm{u})$ is a discrete version of the continuum strain in Eq.~\eqref{eq:plate_strain}:
 the linear part $\mathsf{C}\bm{v}$ is roughly analogous to $(\partial_{i}v_{j} + \partial_{j}v_{i})$, whereas the nonlinear part $\bm{w}(\bm{u})_{i} \sim \bm{u}\trans(\hess f_{i})\bm{u}$ is analogous to $(\partial_{i} u)(\partial_{j} u)$.
 Thus, the energy in Eq.~\eqref{eq:energy_singular} can be thought of as the square of a discrete, nonlinear strain.

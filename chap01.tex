@@ -37,7 +37,7 @@ In the first part of the dissertation, we study the effect of thermal fluctuatio
 \subsection{Configuration spaces}
 
 Central to geometric mechanics is the idea that the configuration of a physical system, however complicated, can be fully described by a single point of a (usually high-dimensional) configuration space.
-To illustrate this in more familiar settings, consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}. 
+To illustrate this in more familiar settings, consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}.
 The pendulum's configuration at any given moment is fully specified by the angle $\theta_{1}$.
 Its configuration space is therefore equivalent to the circle $S^{1}$, which is a smooth manifold.
 To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}(b), on the other hand, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configuration space is the torus $S^{1}\times S^{1}$.
@@ -191,7 +191,7 @@ Central to understanding the trapping of waves in elastodynamic systems, such as
 %
 Above, $\widehat{\mathsf{D}}$ is a self-adjoint linear differential operator, $\psi$ is the wave field, and $\omega$ is the frequency of vibration.
 A trapped wave is a solution $\psi$ to Eq.~\eqref{intro:eq:waveeq} satisfying the prescribed boundary conditions and decaying exponentially as we approach the physical boundaries.
-In quantum-mechanical contexts, such solutions are called localized or bound states---vocabulary that we will continue to use.
+In physics, particularly in quantum-mechanical contexts, such solutions are called localized or bound states~\cite{ravendranadhan1989,ravendranadhan1993,ravendranadhan1994}---vocabulary that we will continue to use.
 
 In elastodynamic problems involving thin structures, the wave field $\psi$ is almost always composed of displacements---broken up into tangential and normal components---from the neutral, undeformed configuration of the structure.
 The operator $\widehat{\mathsf{D}}$, the exact nature of which is model dependent, is a square matrix of spatial derivatives that act on $\psi$.
@@ -267,8 +267,8 @@ The advantage provided by the semiclassical approximation cannot be overstated: 
 The semiclassical approximation also provides a direct route to extract the bound state frequencies by ``quantizing'' the ray trajectories in the phase space.
 As bound waves are bounded in the phase space as well, the rays corresponding to these waves appear in the form of closed orbits when visualized [see Fig.~\ref{fig:phasespace}(a)].
 Each bound orbit is associated with a wave of a specific frequency $\omega$.
-Additionally, the single valuedness of the wave field as we traverse the orbit requires the overall phase to be a half-integral multiple of $2\pi$.
-Additional complications arise when the wave field has more than one component, which leads to a corrected Bohr--Sommerfeld-type quantization condition of the form
+The single valuedness of the wave field as we traverse the orbit requires the overall phase to be a half-integral multiple of $2\pi$, which leads to the famous Bohr--Sommerfeld quantization rule.
+Additional complications and subtleties arise when the wave field has more than one component, which leads to a corrected quantization condition of the form
 %
 \begin{equation}
   \oint \dd{x}\,k(x) = 2\left(n + \frac{1}{2}\right)\pi - \left(\gamma_{\text{G}} + \gamma_{\text{NG}}\right).
@@ -289,7 +289,7 @@ The localization of flexural waves around the inflection point of a musical saw,
     \includegraphics{figures/intro/phasespace.pdf}
   \end{center}
   \caption{(a) Phase-space representation of waves as rays, showing bound and unbound waves. (b) A predominantly flexural bound state in a uniaxially curved shell with a curvature minimum at $x = 0$ obtained by solving Eq.~\eqref{intro:eq:waveeq} numerically.
-  Here $x$ is an arc-length coordinate, $\zeta$ and $u, v$ are the normal and tangential components of the displacement field, respectively; see Fig.~\ref{fig:saw} and Chapter~\ref{chap04} for more details.}
+  Here $x$ is an arc-length coordinate, $\zeta$ and $u, v$ are the normal and tangential components of the displacement field, respectively; see Fig.~\ref{fig:saw} and Chapter~\ref{chap05} for more details.}
   \label{fig:phasespace}
 \end{figure}
 %
@@ -298,13 +298,11 @@ The vast majority of these applications, however, require designer materials wit
 Being able to induce localization by a mere change of the material geometry is clearly advantageous.
 For this reason, the results presented here lay the groundwork for the design of even simpler instruments capable of inducing wave localization.
 
-\section{Organizational summary and other comments}
+\section{Organizational summary}
 
-In the interest of making this dissertation more readable and self contained, I have broken up and expanded the two papers I wrote.
-This dissertation is organized as follows:
 In Chapter~\ref{chap02} we review basic facts about frameworks, their configuration spaces, and derive asymptotic expressions for their elastic energies.
 Chapter~\ref{chap03} deals with the effect that thermal fluctuations have on these frameworks, and presents a detailed calculation of the free-energy profiles for three example frameworks.
 Chapters~\ref{chap04} and~\ref{chap05} are concerned with the second problem discussed in this dissertation.
-The semiclassical approximation, is reviewed in Chapter 4, with special attention paid to multicomponent wave equations.
+The semiclassical approximation, is reviewed in Chapter \ref{chap04}, with special attention paid to multicomponent wave equations.
 Chapter~\ref{chap05} makes use of the semiclassical approximation to understand the formation of bound states in thin, elastic structures.
 Finally, in Appendix~\ref{app:math}, we collect some helpful mathematical results that are used throughout the dissertation.

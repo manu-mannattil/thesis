@@ -6,13 +6,13 @@
 
 \chapterprecishere{%
 In this chapter we present a quick rundown of the semiclassical approximation as applied to multicomponent waves.
-Using a variational approach, we will derive the ray equations and describe the modification necessary to extract the bound-state spectrum of a multicomponent wave equation through quantization.
+Using a variational approach, we will derive the ray equations and describe the modifications necessary to extract the bound-state spectrum of a multicomponent wave operator through quantization.
 The general theory prescribed in this chapter will form a basis for our study of elastic waves in the next chapter.
 \\
 }
 
-The study of propagating waves is important to many disciplines.
-A widely employed asymptotic method to solve wave problem is the WKB/semiclassical approximation, which is sometimes also referred to as the eikonal approximation, geometrical optics, etc.
+The study of propagating waves is important to many disciplines across all branches of science and engineering.
+A widely employed asymptotic method to solve wave problems is the WKB/semiclassical approximation, which is sometimes also referred to as the eikonal approximation, geometrical optics, etc.
 Although the WKB approximation is discussed in almost all books on quantum mechanics, there are several subtle issues, especially when multicomponent waves are involved, that need to be addressed.
 Our primary goal in this chapter, therefore, is to review some existing results on the semiclassical approximation as applied to multicomponent wave fields.
 In particular, we will derive expressions for two extra phases that appear in the Bohr--Sommerfeld quantization rule for such wave fields.
@@ -20,6 +20,7 @@ To keep the exposition simple, we will restrict ourselves to wave equations in o
 For more detailed descriptions, we refer to the book by \citet{tracy2014} and references therein.
 
 \section{Introduction}
+\label{sec:varintro}
 
 We begin by considering a general wave equation of the form
 %
@@ -54,15 +55,15 @@ a wave equation like Eq.~\eqref{eq:ev_problem} can be derived from a wave action
 %
 \begin{equation}
   \begin{aligned}
-    \mathscr{U}\left[\psi^{*}, \psi\right] &= \frac{1}{2}\bra{\psi}\widehat{\mathsf{D}}\ket{\psi}
-  = \frac{1}{2}\int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\widehat{\mathsf{D}}\ket{x'}\braket{x'|\psi}\\
-                                           &= \frac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{\mu}(x)\,\widehat{\mathsf{D}}_{\mu\nu}(x, x')\,\psi_{\nu}(x').
+    \mathscr{U}\left[\psi^{*}, \psi\right] &= \tfrac{1}{2}\bra{\psi}\widehat{\mathsf{D}}\ket{\psi}
+  = \tfrac{1}{2}\int \dd{x}\,\dd{x'}\, \braket{\psi|x}\bra{x}\widehat{\mathsf{D}}\ket{x'}\braket{x'|\psi}\\
+                                           &= \tfrac{1}{2}\int \dd{x}\dd{x'}\, \psi^{*}_{\mu}(x)\,\widehat{\mathsf{D}}_{\mu\nu}(x, x')\,\psi_{\nu}(x').
   \label{eq:wave_action}
   \end{aligned}
 \end{equation}
 %
 Above we have inserted the resolution of identity $\int \dd{x}\,\ket{x}\bra{x} = 1$ in appropriate places to express $\mathscr{U}$ in terms of $\psi$ and its conjugate $\psi^{*}$.
-Also, we have made the product between the matrix operator $\widehat{\mathsf{D}}$ and the wave vector $\psi$ explicit, with $\braket{x|\widehat{\mathsf{D}}_{\mu\nu}|x'} = \widehat{\mathsf{D}}_{\mu\nu}(x, x')$ being the matrix element of $\widehat{\mathsf{D}}_{\mu\nu}$ in the position basis.
+Also, in the last step, we have made the matrix product between the matrix operator $\widehat{\mathsf{D}}$ and the wave vector $\psi$ explicit, with $\braket{x|\widehat{\mathsf{D}}_{\mu\nu}|x'} = \widehat{\mathsf{D}}_{\mu\nu}(x, x')$ being the matrix element of $\widehat{\mathsf{D}}_{\mu\nu}$ in the position basis.
 Varying $\mathscr{U}[\psi^{*}, \psi]$ with respect to $\psi^{*}$ gives the eigenvalue problem, Eq.~\eqref{eq:ev_problem}.
 For later use, we also note that $\mathscr{U}$ can also be written as
 %
@@ -102,7 +103,7 @@ The Wigner tensor $\mathsf{W}_{\nu\mu}$ is defined as the symbol of the density 
   \mathsf{W}_{\nu\mu}(x, k) = \int \dd{s}\, e^{-iks/\epsilon}\, \psi_{\nu}\left(x + \tfrac{1}{2}s\right)\psi^{*}_{\mu}\left(x - \tfrac{1}{2}s\right).
 \end{equation}
 %
-By inverting the above expression, and setting $x + \frac{1}{2}s \to x'$ and $x- \frac{1}{2}s \to x$, we can write the kernel of the density operator in terms of its Weyl symbol as
+By inverting the above expression, and setting $x + \tfrac{1}{2}s \to x'$ and $x- \tfrac{1}{2}s \to x$, we can write the kernel of the density operator in terms of its Weyl symbol as
 %
 %\begin{equation}
 %  \psi_{k}\left(x + \tfrac{1}{2}s\right) \psi^{*}_{j}\left(x - \tfrac{1}{2}s\right) = \frac{1}{2\pi \epsilon} \int \dd{k}\, e^{iks/\epsilon}\,\mathsf{W}_{\nu\mu}(x, k).
@@ -125,20 +126,20 @@ In a similar fashion, we find
 Putting Eq.~\eqref{eq:Dhat_integral} and \eqref{eq:density_operator} in Eq.~\eqref{eq:wave_action}, we arrive at
 %
 \begin{equation}
-  \mathscr{U} = \frac{1}{2(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)(x -x')/\epsilon}\,\mathsf{W}_{\nu\mu}\left[\tfrac{1}{2}(x' + x), k\right]\, \mathsf{D}_{\mu\nu}\left[\tfrac{1}{2}(x + x'), l\right].
+  \mathscr{U} = \frac{1}{2(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)(x -x')/\epsilon}\,\mathsf{D}_{\mu\nu}\left[\tfrac{1}{2}(x + x'), l\right]\, \mathsf{W}_{\nu\mu}\left[\tfrac{1}{2}(x' + x), k\right].
 \end{equation}
 %
-Performing the change of variables $x \to \frac{1}{2}(x + x')$ and $x' \to x - x'$, which carries a Jacobian factor of unity, we arrive at
+Performing the change of variables $x \to \tfrac{1}{2}(x + x')$ and $x' \to x - x'$, which carries a Jacobian factor of unity, we arrive at
 %
 \begin{equation}
   \begin{aligned}
-    \mathscr{U} &= \frac{1}{2(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)x'/\epsilon}\,\mathsf{W}_{\nu\mu}(x, k)\, \mathsf{D}_{\mu\nu}(x, l)\\
-                &= \frac{1}{4\pi\epsilon}\int \dd{x}\,\dd{k}\,\mathsf{W}_{\nu\mu}(x,k)\,\mathsf{D}_{\mu\nu}(x, k).
+    \mathscr{U} &= \frac{1}{2(2\pi\epsilon)^{2}}\int \dd{x}\,\dd{x'}\,\dd{k}\,\dd{l}\, e^{i(l-k)x'/\epsilon}\,\mathsf{D}_{\mu\nu}(x, l)\,\mathsf{W}_{\nu\mu}(x, k)\\
+                &= \frac{1}{4\pi\epsilon}\int \dd{x}\,\dd{k}\,\mathsf{D}_{\mu\nu}(x, k)\,\mathsf{W}_{\nu\mu}(x,k)\\
   \end{aligned}
   \label{eq:wave_action_symbol_form}
 \end{equation}
 
-So far there has been no approximations involved and Eq.~\eqref{eq:wave_action_symbol_form} is exact to all orders of the eikonal parameter.
+So far there has been no approximations involved and the wave action in Eq.~\eqref{eq:wave_action_symbol_form} is exact to all orders of the eikonal parameter.
 That said, the curious reader may wonder there is an inconsistency here, in light of Eq.~\eqref{eq:wave_action_trace_form}, where we have expressed $\mathscr{U}$ as the trace of the (scalar) operator $\widehat{O} = \widehat{\mathsf{D}}_{\mu\nu}\widehat{\mathsf{W}}_{\nu\mu}$.
 In terms of its symbol, the trace of an operator $\widehat{O}$ is
 %
@@ -149,30 +150,33 @@ In terms of its symbol, the trace of an operator $\widehat{O}$ is
 so that $\mathscr{U}$ must be
 %
 \begin{equation}
-  \mathscr{U} = \tr{\widehat{O}} = \frac{1}{4\pi\epsilon}\int \dd{x}\,\dd{k}\, D_{\mu\nu}(x,k)e^{i\widehat{\mathcal{L}}}W_{\nu\mu}(x, k),
+  \mathscr{U} = \tr{\widehat{O}} = \frac{1}{4\pi\epsilon}\int \dd{x}\,\dd{k}\, \mathsf{D}_{\mu\nu}(x,k)e^{i\widehat{\mathcal{L}}}\mathsf{W}_{\nu\mu}(x, k),
 \end{equation}
 %
 where we have used the Moyal formula to write the symbol $O$ in terms of the symbols of $\mathsf{D}_{\mu\nu}$ and $\mathsf{W}_{\nu\mu}$.
 The issue here is a bit subtle---the resolution is that each correction term in the Moyal series can be expressed as divergence of a vector field in the $(x, k)$ phase space~\cite[Problem 3.16]{tracy2014}.
-Hence, using the divergence theorem, the integrals over the correction terms vanish for all well behaved wave fields.
+Hence, using the divergence theorem, the integrals over the correction terms vanish for all well-behaved wave fields.
 Thus, only the first term in the Moyal series remains, and we get Eq.~\eqref{eq:wave_action_symbol_form} again.
 
 Returning to our main problem, i.e., to employ the semiclassical approximation to solve Eq.~\eqref{eq:ev_problem}, we will proceed as follows: (i) insert the eikonal ansatz into the wave action; (ii) expand the action to the lowest order in the eikonal parameter and form the \emph{reduced action} $\mathscr{U}_{\text{R}}$; (iii) extract the semiclassical equations of motions by varying the reduced action.
 
 \subsubsection*{Reduced wave action}
+\label{page:redaction}
 
-We look for \emph{eikonal} solutions to Eq.~\eqref{eq:ev_problem} of the form $\psi(x) = A(x)e^{iS(x)/\epsilon}$, where the amplitude $A(x)$ is an $N$-component spinor with complex components, and $S(x)$ is a rapidly varying phase, playing the role of an action.
-To this end we set $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$ in Eq.~\eqref{eq:wave_action_symbol_form} to obtain%
+As we have assumed that the coefficients of the differential operators in $\widehat{\mathsf{D}}$ are slowly varying, it makes sense to look for an almost plain-wave-like solution of the form
+$\psi(x) = A(x)e^{iS(x)/\epsilon}$, where the amplitude $A(x)$ is an $N$-component spinor with complex components, and $S(x)/\epsilon$ is a rapidly varying phase, playing the role of an action.
+This is the \emph{eikonal} ansatz, and the parameter $\epsilon$ that controls the slowness of the variation is the eikonal parameter.
+To employ the eikonal ansatz, we set $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$ in Eq.~\eqref{eq:wave_action_symbol_form} to obtain%
 %
 \begin{equation}
-    \mathsf{W}_{\nu\mu}(x, k) = \int \dd{r}\,e^{ikr/\epsilon} A_{\nu}\left(x + \tfrac{1}{2} r\right)A_{\mu}^{*}\left(x - \tfrac{1}{2} r\right)\exp\left\{\frac{i}{\epsilon}\left[S\left(x + \tfrac{1}{2} r\right) - S\left(x - \tfrac{1}{2} r\right)\right]\right\}.
+    \mathsf{W}_{\nu\mu}(x, k) = \int \dd{r}\,e^{-ikr/\epsilon} A_{\nu}\left(x + \tfrac{1}{2} r\right)A_{\mu}^{*}\left(x - \tfrac{1}{2} r\right)\exp\left\{\frac{i}{\epsilon}\left[S\left(x + \tfrac{1}{2} r\right) - S\left(x - \tfrac{1}{2} r\right)\right]\right\}.
 \end{equation}
 %
-Next, we set $r \to \epsilon r$ and expand the amplitude $A_{\nu}(x + \frac{1}{2}\epsilon r) = A_{\nu}(x) + \frac{1}{2}(\partial_{x}A_{\nu})\epsilon r + \mathcal{O}(\epsilon^{2})$ and the phase $S(x + \frac{1}{2}\epsilon r) = S(x) + \frac{1}{2}[\partial_{x}S(x)]\epsilon r + \mathcal{O}(\epsilon^{2})$ to obtain
+Next, we set $r \to \epsilon r$ and expand the amplitude $A_{\nu}(x + \tfrac{1}{2}\epsilon r) = A_{\nu}(x) + \tfrac{1}{2}(\partial_{x}A_{\nu})\epsilon r + \mathcal{O}(\epsilon^{2})$ and the phase $S(x + \tfrac{1}{2}\epsilon r) = S(x) + \tfrac{1}{2}[\partial_{x}S(x)]\epsilon r + \mathcal{O}(\epsilon^{2})$ to obtain
 %
 \begin{equation}
   \begin{aligned}
-    \mathsf{W}_{\nu\mu}(x, k) &= \epsilon\int \dd{r}\,e^{ikr} A_{\nu}(x)A_{\mu}^{*}(x)\exp\left\{ir\left[\partial_{x}S(x) - k\right]\right\} + \mathcal{O}(\epsilon^{2}) \\
+    \mathsf{W}_{\nu\mu}(x, k) &= \epsilon\int \dd{r}\,e^{-ikr} A_{\nu}(x)A_{\mu}^{*}(x)\exp\left\{ir\left[\partial_{x}S(x) - k\right]\right\} + \mathcal{O}(\epsilon^{2}) \\
                         &= 2\pi\epsilon A_{\nu}(x)A^{*}_{\mu}(x)\delta\left[k - \partial_{x}S(x)\right] + \mathcal{O}(\epsilon^{2}).
   \end{aligned}
 \end{equation}
@@ -195,7 +199,7 @@ Also, we have made the summation over the polarization index $a$ explicit---a co
   \label{eq:Dmat_polarization}
 \end{equation}
 %
-As we shall see, an eigenvector $\tau_{a}$ describes a specific wave type or ``polarization'' represented by the wave equation, Eq.~\eqref{eq:ev_problem}.
+An eigenvector $\tau_{a}$ describes a specific wave type or ``polarization'' represented by the wave equation, Eq.~\eqref{eq:ev_problem}.
 And by polarization, we mean a linear subspace of the total wave field that is usually of a distinct physical nature, e.g., flexural waves on a rod.
 
 We put Eq.~\eqref{eq:Dmat_polarization} into Eq.~\eqref{eq:wave_action_reduced_1}, and define $B_{a} = \tau_{a, \nu}^{*}A_{\nu} = \braket{\tau_{a}|A}$, which is the projection of the amplitude $A_{\nu}$ along the direction of the polarization vector $\tau_{a}$.
@@ -218,7 +222,7 @@ Variation of the reduced action, Eq.~\eqref{eq:reduced_action}, with respect to 
   \quad\text{for all $a$}.
 \end{equation}
 %
-Assume that the amplitudes $B_{a}$ is nonzero only for one polarization, say, $a = I$, which means that the corresponding eigenvalue must vanish:
+Assume that the amplitudes $B_{a}$ is nonzero only for one polarization, say, $a = I$, which means that the corresponding eigenvalue must vanish, yielding
 %
 \begin{equation}
   \lambda_{I}\left[x, k(x)\right] = \lambda_{I}\left[x, \partial_{x}S(x)\right] = 0.
@@ -342,7 +346,7 @@ To this end, rather than repeat the original, but cumbersome derivations scatter
 
 \section{Intermission: diagonalizing multicomponent operators}
 
-Consider a Hermitian linear differential operator $\widehat{\mathsf{D}}$ satisfying the wave equation
+We start again, with a Hermitian linear differential operator $\widehat{\mathsf{D}}$ in the form of an $N\times N$ matrix satisfying a wave equation
 %
 \begin{equation}
   \widehat{\mathsf{D}}\Psi = 0,
@@ -350,10 +354,7 @@ Consider a Hermitian linear differential operator $\widehat{\mathsf{D}}$ satisfy
 %
 where $\Psi$ is an $N$-component wave field.
 %
-We want to find a unitary operator ${\mathsf{U}}$ such that%
-\footnote{It should be emphasized that diagonalizability and unitarity are independent. For instance, let $\mathsf{U}$ be the usual unitary matrix that diagonalizes a matrix $\mathsf{D}$.
-  If $\Sigma$ is some nonzero diagonal matrix, not necessarily unitary, then $(\Sigma^{\dagger}\mathsf{U}^{\dagger})\mathsf{D}(\mathsf{U}\Sigma)$ is a diagonal matrix, which follows from the fact that the product of diagonal matrices is diagonal.
-  In this sense $\mathsf{U}\Sigma$ can diagonalize $\mathsf{D}$ without being unitary.}
+We want to find a unitary operator $\widehat{\mathsf{U}}$ such that
 %
 \begin{equation}
   \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{D}}\widehat{\mathsf{U}} = \widehat{\Lambda}\label{eq:diagonalization}
@@ -363,13 +364,13 @@ is a diagonal operator.
 Clearly, this equivalent to demanding that $\widehat{\mathsf{D}}\widehat{\mathsf{U}} = \widehat{\mathsf{U}}\widehat{\Lambda}$.
 If we can find such an operator and solve the decoupled set of equations given by $\widehat{\Lambda}\Phi = 0$ somehow,
 the solutions to the original equation can then be recovered from $\Phi$ using $\Psi = \widehat{\mathsf{U}}\Phi$.
-However, Eq.~\eqref{eq:diagonalization} is an equation involving operators and standard linear algebra methods do not (directly) help in finding the unitary operator $\widehat{\mathsf{U}}$.
+However, Eq.~\eqref{eq:diagonalization} is an equation involving operator products and standard linear algebra methods do not (directly) help in finding the unitary operator $\widehat{\mathsf{U}}$.
 Instead, we start by finding the symbol form of the following two equations:
 %
 \begin{equation}
   \begin{aligned}
     \widehat{\mathsf{D}}\widehat{\mathsf{U}} &= \widehat{\mathsf{U}}\widehat{\Lambda}\\
-    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \widehat{\mathsf{I}}_{N}.
+    \widehat{\mathsf{U}}^{\dagger}\widehat{\mathsf{U}} &= \hat{\mathsf{I}}_{N}.
   \end{aligned}
   \label{eq:diagonal2}
 \end{equation}
@@ -396,32 +397,33 @@ the operators (and their symbols) in terms of $\epsilon$ as follows:
   \end{aligned}
 \end{equation}
 %
-Because the Weyl correspondence preserves Hermiticity, $\mathsf{D}$ is a Hermitian matrix to all orders.
-We demand that $\Lambda$ remains diagonal at all orders of $\epsilon$.
-We then use the Moyal star product to find the symbol form of Eq.~\eqref{eq:diagonal2} at different orders of $\epsilon$.
-At $\mathcal{O}(\epsilon^0)$ we find $\mathsf{D}^{(0)}\mathsf{U}^{(0)} = \mathsf{U}^{(0)}\Lambda^{(0)}$ and $\mathsf{U}^{(0)\dagger}\mathsf{U}^{(0)} = \mathsf{I}_{n}$, which is equivalent to
+Because the Weyl transform preserves Hermiticity, $\mathsf{D}$ is a Hermitian matrix to all orders.
+Our requirement is that $\Lambda$ remains diagonal at all orders of $\epsilon$.
+To proceed, we use the Moyal star product to find the symbol form of Eq.~\eqref{eq:diagonal2} at different orders of $\epsilon$.
+At $\mathcal{O}(\epsilon^0)$ we find $\mathsf{D}^{(0)}\mathsf{U}^{(0)} = \mathsf{U}^{(0)}\Lambda^{(0)}$ and $\mathsf{U}^{(0)\dagger}\mathsf{U}^{(0)} = \mathsf{I}_{n}$, with the first equation being equivalent to
 %
 \begin{equation}
   \mathsf{U}^{(0)\dagger}\mathsf{D}^{(0)}\mathsf{U}^{(0)} = \Lambda^{(0)}.\label{eq:omega0}
 \end{equation}
 %
-Since we demand $\Lambda^{(0)}$ to be diagonal, this is the usual linear-algebra problem of diagonalizing the matrix $\mathsf{D}^{(0)}$.
-We thus deduce that the columns of the lowest order symbol $\mathsf{U}^{(0)}$ is composed of eigenvectors $\tau_{a}$ with eigenvalues $\lambda^{(0)}_{a}$ satisfying $\mathsf{D}^{(0)}\tau_{a} = \lambda^{(0)}_{a}\tau_{a}$, with $a = 1,2,\ldots,N$, i.e.,
+Since we demand $\Lambda^{(0)}$ to be diagonal, this is the usual linear algebra problem of diagonalizing the matrix $\mathsf{D}^{(0)}$.
+We thus deduce that the columns of the matrix $\mathsf{U}^{(0)}$ are composed of eigenvectors $\tau_{a}$ with eigenvalues $\lambda^{(0)}_{a}$ satisfying $\mathsf{D}^{(0)}\tau_{a} = \lambda^{(0)}_{a}\tau_{a}$, with $a = 1,2,\ldots,N$.
+More explicitly,
 %
 \begin{equation}
   \mathsf{U}^{(0)} =
   \begin{pmatrix}
     \tau_{1} & \tau_{2} & \cdots & \tau_{n}
-  \end{pmatrix},
+  \end{pmatrix}.
 \end{equation}
 %
-and $\Lambda^{(0)}$ is the diagonal matrix composed of the eigenvalues $\lambda_{a}^{(0)}$.
+The matrix $\Lambda^{(0)} = \diag(\lambda_{1}^{(0)}, \lambda_{2}^{(0)}, \ldots, \lambda_{N}^{(0)})$ is composed of the eigenvalues $\lambda_{a}^{(0)}$.
 
 At $\mathcal{O}(\epsilon^{1})$, demanding $\mathsf{D}\mathsf{U} = \mathsf{U}\Lambda$ gives us
 %
 \begin{equation}
-\mathsf{D}^{(1)}\mathsf{U}^{(0)} + \mathsf{D}^{(0)}\mathsf{U}^{(1)} + \frac{i}{2}\left\{\mathsf{D}^{(0)}, \mathsf{U}^{(0)}\right\} =
-  \mathsf{U}^{(1)}\Lambda^{(0)} + \mathsf{U}^{(0)}\Lambda^{(1)} + \frac{i}{2}\left\{\mathsf{U}^{(0)}, \Lambda^{(0)}\right\}.
+\mathsf{D}^{(1)}\mathsf{U}^{(0)} + \mathsf{D}^{(0)}\mathsf{U}^{(1)} + (i/2)\left\{\mathsf{D}^{(0)}, \mathsf{U}^{(0)}\right\} =
+  \mathsf{U}^{(1)}\Lambda^{(0)} + \mathsf{U}^{(0)}\Lambda^{(1)} + (i/2)\left\{\mathsf{U}^{(0)}, \Lambda^{(0)}\right\}.
 \end{equation}
 %
 Multiplying from the left by $\mathsf{U}^{(0)\dagger}$ and making use of $\mathsf{U}^{(0)\dagger}\mathsf{D}^{(0)} = \Lambda^{(0)}\mathsf{U}^{(0)\dagger}$, we get the $\mathcal{O}(\epsilon)$ correction%
@@ -429,7 +431,7 @@ Multiplying from the left by $\mathsf{U}^{(0)\dagger}$ and making use of $\maths
 %
 \begin{equation}
   \Lambda^{(1)} = \left(\mathsf{U}^{(0)\dagger}\mathsf{D}^{(1)}\mathsf{U}^{(0)} +
-  \frac{i}{2}\mathsf{U}^{(0)\dagger}\left\{\mathsf{D}^{(0)},\mathsf{U}^{(0)}\right\} - \frac{i}{2}\mathsf{U}^{(0)\dagger}\left\{\mathsf{U}^{(0)},\Lambda^{(0)}\right\}\right) + \left[\Lambda^{(0)},\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right].
+  (i/2)\mathsf{U}^{(0)\dagger}\left\{\mathsf{D}^{(0)},\mathsf{U}^{(0)}\right\} - (i/2)\mathsf{U}^{(0)\dagger}\left\{\mathsf{U}^{(0)},\Lambda^{(0)}\right\}\right) + \left[\Lambda^{(0)},\mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}\right].
   \label{eq:Lambda1}
 \end{equation}
 %
@@ -453,7 +455,7 @@ The $ab$th entry of the commutator term evalutes to
 %
 where we have made use of the fact that $\Lambda^{(0)}$ is diagonal so that $\Lambda^{(0)}_{ab} = \lambda^{(0)}_{a}\delta_{ab}$.
 And we see that the diagonal entries (with $a=b$) of the commutator vanish.
-So the commutator term does not contribute towards the diagonal entries of $\Lambda^{(1)}$ and we can find the $\mathcal{O}(\epsilon^{1})$ correction $\lambda^{(1)}$ by carefully evaluating diagonal entries of the remaining terms in the RHS of Eq.~\eqref{eq:Lambda1}.
+So the commutator term does not contribute towards the diagonal entries of $\Lambda^{(1)}$ and we can find the $\mathcal{O}(\epsilon^{1})$ correction $\lambda^{(1)}_{a}$ to the eigenvalues by carefully evaluating diagonal entries of the remaining terms in the RHS of Eq.~\eqref{eq:Lambda1}.
 Before we do that, we need to discuss the role of the commutator term further.
 In fact, without this crucial term, the expansion will break down.
 
@@ -467,15 +469,15 @@ However, the commutator term involves the matrix $\mathsf{U}^{(1)}$, which is so
 At the same time, $\mathsf{U}^{(1)}$ is not a completely arbitrary matrix, because on demanding unitarity of $\mathsf{U}$ at $\mathcal{O}(\epsilon)$ we get an additional equation that puts constraints on $\mathsf{U}^{(1)}$:
 %
 \begin{equation}
-  \mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)} + \mathsf{U}^{(1)\dagger}\mathsf{U}^{(0)} + \frac{i}{2}\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}= 0.
+  \mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)} + \mathsf{U}^{(1)\dagger}\mathsf{U}^{(0)} + (i/2)\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}= 0.
   \label{eq:unitarity}
 \end{equation}
 %
 As we show below, this equation is not good enough to determine $\mathsf{U}^{(1)}$ completely, which is good for us since that gives us some freedom in choosing the off-diagonal elements of the commutator term in the way we want.
-To simplify the commutator term we first define $\mathsf{X} = \mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}$, and from the previous equation we have
+To simplify the commutator term we first define $\mathsf{X} = \mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}$, so that the previous equation becomes
 %
 \begin{equation}
-  \mathsf{X} + \mathsf{X}^{\dagger} = -\frac{i}{2}\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}.
+  \mathsf{X} + \mathsf{X}^{\dagger} = -(i/2)\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}.
 \end{equation}
 %
 We see that Hermitian part of $\mathsf{X}$, given by $\mathsf{A} = (\mathsf{X} + \mathsf{X}^{\dagger})/2$, is fixed by the above equation, so that $\mathsf{A} = (-i/4)\{\mathsf{U}^{(0)\dagger},\mathsf{U}^{(0)}\}$, which is clearly a Hermitian matrix.
@@ -500,9 +502,11 @@ After replacing $\mathsf{X} = \mathsf{U}^{(0)\dagger}\mathsf{U}^{(1)}$ in the co
 where
 %
 \begin{equation}
-  \mathsf{Q} = \mathsf{U}^{(0)\dagger}\mathsf{D}_{1}\mathsf{U}^{(0)} + \frac{i}{2}\mathsf{U}^{(0)\dagger}\left\{\mathsf{D}^{(0)},\mathsf{U}^{(0)}\right\} - \frac{i}{2}\mathsf{U}^{(0)\dagger}\left\{\mathsf{U}^{(0)},\Lambda^{(0)}\right\}
-  -\frac{i}{4}\Lambda\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\} +
-  \frac{i}{4}\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}\Lambda.
+  \begin{aligned}
+    \mathsf{Q} &= \mathsf{U}^{(0)\dagger}\mathsf{D}^{(1)}\mathsf{U}^{(0)} + (i/2)\mathsf{U}^{(0)\dagger}\left\{\mathsf{D}^{(0)},\mathsf{U}^{(0)}\right\} - (i/2)\mathsf{U}^{(0)\dagger}\left\{\mathsf{U}^{(0)},\Lambda^{(0)}\right\}\\
+               &\phantom{}\qquad -(i/4)\Lambda\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\} +
+  (i/4)\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}\Lambda.
+  \end{aligned}
 \end{equation}
 %
 Although we have found an expression that gives the off-diagonal elements of $\mathsf{B}$, nothing in our arguments so far guaratees the Hermiticity of $\mathsf{B}$ and we have to explicitly check this.%
@@ -517,9 +521,12 @@ For two general matrices $\mathsf{F}$ and $\mathsf{G}$ we have $\{\mathsf{F},\ma
 Along with the assumption that $\mathsf{D}^{(1)}$ is Hermitian, we then find,
 %
 \begin{equation}
-  \mathsf{Q}^{\dagger} =  \mathsf{U}^{(0)\dagger}\mathsf{D}^{(1)}\mathsf{U}^{(0)} + \frac{i}{2}\left\{\mathsf{U}^{(0)\dagger},   \mathsf{D}^{(0)}\right\}\mathsf{U}^{(0)} - \frac{i}{2}\left\{\Lambda^{(0)}, \mathsf{U}^{(0)\dagger}\right\}\mathsf{U}^{(0)}
-  - \frac{i}{4}\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}\Lambda
-  + \frac{i}{4}\Lambda\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\},
+  \begin{aligned}
+    \mathsf{Q}^{\dagger} &=  \mathsf{U}^{(0)\dagger}\mathsf{D}^{(1)}\mathsf{U}^{(0)} + (i/2)\left\{\mathsf{U}^{(0)\dagger},   \mathsf{D}^{(0)}\right\}\mathsf{U}^{(0)} - (i/2)\left\{\Lambda^{(0)}, \mathsf{U}^{(0)\dagger}\right\}\mathsf{U}^{(0)}\\
+                         &\phantom{}\qquad - (i/4)\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\}\Lambda
+  + (i/4)\Lambda\left\{\mathsf{U}^{(0)\dagger}, \mathsf{U}^{(0)}\right\},
+  \end{aligned}
+  \label{eq:Qmat}
 \end{equation}
 %
 which can be further simplified%
@@ -528,11 +535,11 @@ which can be further simplified%
   and
   $\{\Lambda^{(0)}, \mathsf{U}^{(0)\dagger}\} = \Lambda^{(0)}\{\mathsf{U}^{(0)\dagger},\mathsf{U}^{(0)}\} - \mathsf{U}^{(0)\dagger}\{\mathsf{D}^{(0)},\mathsf{U}^{(0)}\} - \{^{1}\mathsf{U}^{(0)\dagger},^{3}\mathsf{U}^{(0)}\}^{2}\mathsf{D}^{(0)}$.
   Here the superscripts 1, 2, and 3 appearing before the matrices denote the order in which they are to be multiplied; see Ref.~\cite{littlejohn1991a} for further details on this convention.
-  Upon using these results in the RHS of Eq.~\fixme, we see that $\mathsf{Q}=\mathsf{Q}^{\dagger}$.
+  Upon using these results in the RHS of Eq.~\eqref{eq:Qmat}, we see that $\mathsf{Q}=\mathsf{Q}^{\dagger}$.
 }
 to show that $\mathsf{Q}^{\dagger} = \mathsf{Q}$, from which the Hermiticity of $\mathsf{B}$ follows.
 
-Clearly, from Eq.~\eqref{eq:BantiHermitian} we see that our scheme would break down if the symbol matrix $\mathsf{D}$ has an $\mathcal{O}(\epsilon^{0})$ degeneracy, i.e., if $\mathsf{D}^{(0)}$ is degenerate with $\lambda^{(0)}_{a} = \lambda^{(0)}_{b}$ for some $a \neq b$.
+Clearly, from Eq.~\eqref{eq:BantiHermitian} we see that our scheme would break down if the lowest-order symbol matrix $\mathsf{D}^{(0)}$ has an $\mathcal{O}(\epsilon^{0})$ degeneracy, i.e., if $\mathsf{D}^{(0)}$ is degenerate with $\lambda^{(0)}_{a} = \lambda^{(0)}_{b}$ for some $a \neq b$.
 For similar reasons, we cannot also determine the diagonal entries $\mathsf{B}_{aa}$ from Eq.~\eqref{eq:BantiHermitian}.
 However, as we show below, we can always take them to be zero, since they do not affect the unitarity of $\mathsf{U}$ to $\mathcal{O}(\epsilon)$.
 The symbol matrix $\mathsf{U}$ to $\mathcal{O}(\epsilon)$ is
@@ -558,7 +565,7 @@ Rephasing the $a$th column by $e^{-i\epsilon\mathsf{B}'_{aa}}$ turns
       = \mathsf{U}^{(0)}(\mathsf{I}_{n} - i\epsilon\mathsf{B}') + \mathcal{O}(\epsilon^{2})
 \end{equation}
 %
-Under the gauge transformation, the matrices $\mathsf{A} \to \mathsf{A} + \mathcal{O}(\epsilon)$ and $\mathsf{B}'' \to \mathsf{B}'' + \mathcal{O}(\epsilon)$.
+At the same time, the matrices $\mathsf{A} \to \mathsf{A} + \mathcal{O}(\epsilon)$ and $\mathsf{B}'' \to \mathsf{B}'' + \mathcal{O}(\epsilon)$.
 Thus, the RHS of Eq.~\eqref{eq:U_with_A_and_B} becomes
 %
 \begin{equation}
@@ -572,7 +579,7 @@ Thus, without loss of generality we take the diagonal part $\mathsf{B}'$ to be z
 
 \subsection{First-order correction}
 
-The matrix $\Lambda^{(1)}$, whose entries can be evaluated using the parenthetical terms in the RHS of Eq.~\eqref{eq:Lambda1}, is now fully diagonal.
+The matrix $\Lambda^{(1)}$, whose entries can be found from the parenthetical terms in the RHS of Eq.~\eqref{eq:Lambda1}, is now diagonal to $\mathcal{O}(\epsilon)$.
 The diagonal entries of $\Lambda^{(1)}$ give the first-order correction $\lambda_{a}^{(1)}$ to the eigenvalue $\lambda_{a}$ for a specific polarization, i.e., $\lambda_{a}^{(1)} = \Lambda^{(1)}_{aa}$.
 We proceed by further simplifying the second and third parenthetical terms in Eq.~\eqref{eq:Lambda1} by noting that
 %
@@ -598,10 +605,11 @@ Next, we simplify the diagonal entries of the second parenthetical term of Eq.~\
 %
 \begin{equation}
   \begin{aligned}
-    \frac{i}{2}\left(\mathsf{U}^{(0)\dagger}  \left\{\mathsf{D}^{(0)}, \mathsf{U}^{(0)}\right\}\right)_{aa} &= \frac{i}{2}\mathsf{U}^{(0)\dagger}_{a\mu}\left(\partial_{x}\mathsf{D}^{(0)}_{\mu\nu}\partial_{k}\mathsf{U}^{(0)}_{\nu a} - \partial_{k}\mathsf{D}^{(0)}_{\mu\nu}\partial_{x}\mathsf{U}_{\nu a}^{(0)}\right)\\
-                                                                                                                  &=  \frac{i}{2}\left[\partial_{x}\left(\Lambda^{(0)}_{a\mu}\mathsf{U}^{(0)\dagger}_{\mu\nu}\right) - \partial_{x}\mathsf{U}^{(0)\dagger}_{a\mu}\mathsf{D}^{(0)}_{\mu\nu}\right]\partial_{k}\mathsf{U}_{\nu a}^{(0)}\\
-                                                                                                                    &\phantom{}\qquad - \frac{i}{2}\left[\partial_{k}\left(\Lambda^{(0)}_{a\mu}\mathsf{U}^{(0)\dagger}_{\mu\nu}\right) - \partial_{k}\mathsf{U}^{(0)\dagger}_{a\mu}\mathsf{D}^{(0)}_{\mu\nu}\right]\partial_{x}\mathsf{U}_{\nu a}^{(0)}\\
-                                                                                                                      &= \frac{i}{2}\lambda^{(0)}_{a}\left\{\tau_{a,\mu}^{*}, \tau_{a,\mu}\right\} - \frac{i}{2}\tau_{a,\mu}^{*}\left\{\tau_{a,\mu},\lambda^{(0)}_{a}\right\} - \frac{i}{2}\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{a,\mu}^{*}, \tau_{a,\nu}\right\}.
+    (i/2)\left(\mathsf{U}^{(0)\dagger}  \left\{\mathsf{D}^{(0)}, \mathsf{U}^{(0)}\right\}\right)_{aa} &= (i/2)\mathsf{U}^{(0)\dagger}_{a\mu}\left(\partial_{x}\mathsf{D}^{(0)}_{\mu\nu}\partial_{k}\mathsf{U}^{(0)}_{\nu a} - \partial_{k}\mathsf{D}^{(0)}_{\mu\nu}\partial_{x}\mathsf{U}_{\nu a}^{(0)}\right)\\
+                                                                                                                  &=  (i/2)\left[\partial_{x}\left(\Lambda^{(0)}_{a\mu}\mathsf{U}^{(0)\dagger}_{\mu\nu}\right) - \partial_{x}\mathsf{U}^{(0)\dagger}_{a\mu}\mathsf{D}^{(0)}_{\mu\nu}\right]\partial_{k}\mathsf{U}_{\nu a}^{(0)}\\
+                                                                                                                    &\phantom{}\qquad - (i/2)\left[\partial_{k}\left(\Lambda^{(0)}_{a\mu}\mathsf{U}^{(0)\dagger}_{\mu\nu}\right) - \partial_{k}\mathsf{U}^{(0)\dagger}_{a\mu}\mathsf{D}^{(0)}_{\mu\nu}\right]\partial_{x}\mathsf{U}_{\nu a}^{(0)}\\
+                                                                                                                      &= (i/2)\lambda^{(0)}_{a}\left\{\tau_{a,\mu}^{*}, \tau_{a,\mu}\right\} - (i/2)\tau_{a,\mu}^{*}\left\{\tau_{a,\mu},\lambda^{(0)}_{a}\right\}\\
+                                                                                                                        &\phantom{}\qquad - (i/2)\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{a,\mu}^{*}, \tau_{a,\nu}\right\}.
   \end{aligned}
   \label{eq:2nd_term}
 \end{equation}
@@ -610,7 +618,7 @@ In the second step above, we have also made use of $\mathsf{U}^{(0)\dagger}\math
 Finally, we can write the diagonal entries of the third parenthetical term in Eq.~\eqref{eq:Lambda1} as
 %
 \begin{equation}
-  -\frac{i}{2}\left(\mathsf{U}^{(0)\dagger}\left\{\mathsf{U}^{(0)}, \Lambda^{(0)}\right\}\right)_{aa} = -\frac{i}{2}\tau_{a,\mu}^{*}\left\{\tau_{a,\mu},\lambda_{a}^{(0)}\right\}.
+  -(i/2)\left(\mathsf{U}^{(0)\dagger}\left\{\mathsf{U}^{(0)}, \Lambda^{(0)}\right\}\right)_{aa} = -(i/2)\tau_{a,\mu}^{*}\left\{\tau_{a,\mu},\lambda_{a}^{(0)}\right\}.
   \label{eq:3rd_term}
 \end{equation}
 %
@@ -619,7 +627,7 @@ Putting the simplified expressions from Eqs.~\eqref{eq:1st_term}--\eqref{eq:3rd_
 %
 \begin{equation}
   \boxed{
-  \lambda^{(1)}_{a} = \tau_{a,\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{a,\nu} - i\tau_{a,\mu}^{*}\left\{\tau_{a,\mu}, \lambda^{(0)}_{a}\right\} - \frac{i}{2}\left(\mathsf{D}^{(0)}_{\mu\nu} - \lambda^{(0)}_{a}\delta_{\mu\nu}\right)\left\{\tau_{a,\mu}^{*}, \tau_{a,\nu}\right\}}
+  \lambda^{(1)}_{a} = \tau_{a,\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{a,\nu} - i\tau_{a,\mu}^{*}\left\{\tau_{a,\mu}, \lambda^{(0)}_{a}\right\} - (i/2)\left(\mathsf{D}^{(0)}_{\mu\nu} - \lambda^{(0)}_{a}\delta_{\mu\nu}\right)\left\{\tau_{a,\mu}^{*}, \tau_{a,\nu}\right\}}
   \label{eq:lambda1}
 \end{equation}
 %
@@ -627,7 +635,7 @@ Note that in the above equation there is no sum over the polarization index $a$,
 
 \section{Evolution of the polarization phase}
 
-To make the transition between the variational theory presented in Section~XXX and the results in the previous section easier, we first note that
+To make the transition between the variational theory presented in Section~\ref{sec:varintro} and the results in the previous section easier, we first note that
 %
 \begin{equation}
   \widehat{\mathsf{D}} = \widehat{\mathsf{U}}\widehat{\Lambda}\widehat{\mathsf{U}}^{\dagger}.
@@ -641,76 +649,84 @@ Putting this in Eq.~\eqref{eq:wave_action_trace_form}, the wave action can be wr
 \end{equation}
 %
 where we have used standard results pertaining to the trace of matrix products and have defined $\ket{\widetilde{\psi}_{a}} = \widehat{\mathsf{U}}_{a\mu}\ket{\psi_{\mu}}$.
-Proceeding by similar arguments as in Section~XXX, we express the wave action in terms of the Weyl symbol of the operator $\hat{\lambda}_{a}$, given by $\lambda_{a}$,  and the Wigner tensor $W_{a}$ corresponding to the density matrix $\ket{\psi}_{a}\bra{\psi}_{a}$ to find
+Proceeding by similar arguments as in Section~\ref{sec:varintro}, we express the wave action in terms of the Weyl symbol of the operator $\hat{\lambda}_{a}$, given by $\lambda_{a}$,  and the Wigner function $W_{a}$ corresponding to the density matrix $\ket{\psi_{a}}\bra{\psi_{a}}$ to find [cf.~\eqref{eq:wave_action_symbol_form}]
 %
 \begin{equation}
-  \mathscr{U} = \frac{1}{4\pi\epsilon}\sum_{a}\int \dd{x}\,\dd{k}\, \lambda_{a} W_{a}.
+  \mathscr{U} = \frac{1}{4\pi\epsilon}\sum_{a}\int \dd{x}\,\dd{k}\, \lambda_{a}(x, k) W_{a}(x, k).
 \end{equation}
 %
-The Wigner tensor $W_{a}$ to the lowest is
+The Wigner function $W_{a}$ to the lowest is
 %
 \begin{equation}
-  W_{a} = \mathsf{U}^{(0)\dagger}_{a\mu}\mathsf{W}_{\mu\nu}\mathsf{U}^{(0)}_{\nu a} + \mathcal{O}(\epsilon),
+  W_{a} = \mathsf{U}^{(0)\dagger}_{a\nu}\mathsf{W}_{\nu\mu}\mathsf{U}^{(0)}_{\mu a} + \epsilon(\square) + \mathcal{O}(\epsilon^{2})
 \end{equation}
 %
-where $\mathcal{O}(\epsilon)$ represent the terms arising during the application of the Moyal formula as well as terms involving $\mathsf{U}^{(1)}$ and higher-order corrections.
+where $\epsilon(\square)$ represents all $\mathcal{O}(\epsilon)$ correction terms, e.g., those that appear during the application of the Moyal formula to compute $W_{a}$, terms involving $\mathsf{U}^{(1)}$, etc.
 One might think that it is important to find these terms, which is of the same order as the phase correction term we are after.
 However, as we shall see, these terms drop out once we work out the equations of motion, and for this reason, we leave them unevaluated.
-Next, we insert the eikonal ansatz for the wave fields, $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$, and using the steps we followed in p.~XXX, find the reduced Wigner tensor to be
+Next, we insert the eikonal ansatz for the wave fields, $\psi_{\mu} = A_{\mu}e^{iS(x)/\epsilon}$, and using the steps we followed in p.~\pageref{page:redaction}, find the reduced Wigner function to be
 %
 \begin{equation}
   \begin{aligned}
     W_{a,\text{R}} &= 2\pi \epsilon\big[\tau_{a,\nu}^{*} A_{\nu}(x)\big]\big[A^{*}_{\mu}(x)\tau_{a,\mu}\big]\delta\big[k - \partial_{x}S(x)\big] + \mathcal{O}(\epsilon^{2})\\
-                   &= 2\pi\epsilon {B^{2}_{a}}(x, k)\delta\big[k - \partial_{x}S(x)\big] + \mathcal{O}(\epsilon^{2}).
+                   &= 2\pi\epsilon {B^{2}_{a}}(x, k)\delta\big[k - \partial_{x}S(x)\big] + \epsilon(\square) + \mathcal{O}(\epsilon^{2}).
   \end{aligned}
 \end{equation}
 %
-The $\mathcal{O}(\epsilon^{2})$ above correction term now includes corrections in Eq.~XXX from the Moyal formula as well as the lowest-order expansion of the eikonal phase $S(x)$.
-To $\mathcal{O}(\epsilon^{2})$, we have $\lambda_{a} = \lambda_{a}^{(0)} + \epsilon\lambda_{a}^{(1)} + \mathcal{O}(\epsilon)$, so that using Eq.~\eqref{eq:lambda1},
+Above, the correction $\epsilon(\square)$ now includes previous correction terms as well as those arising from higher-order expansions of the eikonal phase $S(x)$.
+To $\mathcal{O}(\epsilon^{2})$, the eigenvalue $\lambda_{a} = \lambda_{a}^{(0)} + \epsilon\lambda_{a}^{(1)} + \mathcal{O}(\epsilon)$, so that
 %
 \begin{equation}
   \begin{aligned}
     \mathscr{U}\big[B_{a}, S\big] &= \mathscr{U}^{(0)}\left[B_{a}, S\right] + \epsilon\mathscr{U}^{(1)}\left[B_{a}, S\right] + \mathcal{O}(\epsilon^{2})\\
-                                  &= \tfrac{1}{2} \sum_{a} \int \dd{x}\, \lambda_{a}^{(0)}(x)B^{2}_{a}(x) + \tfrac{1}{2}\epsilon\sum_{a}\int\dd{x}\,\lambda_{a}^{(1)}(x)B^{2}_{a}(x) + \mathcal{O}(\epsilon^{2}).
+                                  &= \tfrac{1}{2} \sum_{a} \int \dd{x}\, \lambda_{a}^{(0)}(x)B^{2}_{a}(x) + \epsilon\lambda_{a}^{(0)}(x)\times(\square) + \tfrac{1}{2}\epsilon\sum_{a}\int\dd{x}\,\lambda_{a}^{(1)}(x)B^{2}_{a}(x) + \mathcal{O}(\epsilon^{2}).
   \end{aligned}
+  \label{eq:action_ho}
 \end{equation}
 %
-To the lowest order, the action above is equivalent to the reduced action we saw previously.
-Varying the lowest-order action with respect to $B_{a}$ and $S(x)$, we find, as before, the eikonal and amplitude transport equations
+To the lowest order, the action above is equivalent to the reduced action, Eq.~\eqref{eq:reduced_action}, we saw previously.
+Varying the lowest-order action $\mathscr{U}[B_{a}, S]$ with respect to $B_{a}$ and $S(x)$, we find, as before, the eikonal and amplitude transport equations
 %
 \begin{equation}
   \begin{gathered}
     \lambda_{I}^{(0)}\big[x, k=\partial_{x}S(x)\big] = 0,\\
-\frac{\dd}{\dd{x}}\left(\partial_{k}\left\{\lambda_{I}^{(0)}\big[x, k=\partial_{x}S(x)\big]B^{2}_{I}\big[x, k=\partial_{x}S(x)\big]\right\}\right) = 0.
+\frac{\dd}{\dd{x}}\left(\partial_{k}\left\{\lambda_{I}^{(0)}\big[x, k=\partial_{x}S(x)\big]B^{2}_{I}\big[x, k=\partial_{x}S(x)\big]\right\}\right) = 0,
   \end{gathered}
 \end{equation}
 %
+where we have assumed again that only one eigenvalue, with polarization index $a = I$, vanishes.
 
-Using the higher-order terms in Eq.~XXX and varying with respect to $B_{a}$, we find
+Varying the higher-order action $\mathscr{U}^{(1)}[B_{a}, S]$ in Eq.~\eqref{eq:action_ho} and varying with respect to $B_{a}$, we find
 %
 \begin{equation}
-  \lambda_{I}^{(1)}\left[x, k=\partial_{x}S(x)\right] = 0.
+  \lambda_{I}^{(0)}\delta(\square) + \lambda_{I}^{(1)}\left[x, k=\partial_{x}S(x)\right] = 0,
 \end{equation}
 %
-Using Eq.~XXX in the above equation and noting that $\lambda_{I}^{(0)} = 0$, we find
+where $\delta(\square)$ represents the variation of the correction terms $(\square)$ that we chose to not determine.
+However, from the eikonal equation we know that $\lambda_{I}^{(0)} = 0$ so that once we insert Eq.~\eqref{eq:lambda1} into the above equation, we get
 %
 \begin{equation}
-\tau_{I,\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{I,\nu} - \frac{i}{2}\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{I,\mu}^{*}, \tau_{I,\nu}\right\}
+\tau_{I,\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{I,\nu} - (i/2)\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{I,\mu}^{*}, \tau_{I,\nu}\right\}
   - i\tau_{I,\mu}\left\{\tau_{I,\mu}, \lambda^{(0)}_{a}\right\} = 0
 \end{equation}
 %
-Upon explicitly introducing the phase dependence on $\gamma$ by setting $\tau \to \tau e^{i\gamma}$, we find that the first two term
+Upon explicitly introducing the phase dependence on $\gamma$ by setting $\tau \to \tau e^{i\gamma}$, we find an evolution equation for the phase, which can be written down as
 %
-\begin{equation}\boxed{%
+\begin{equation}
   \dot{\gamma} = \dot{\gamma}_{\text{G}} + \dot{\gamma}_{\text{NG}},
-  \quad\text{where}\quad
-  \dot{\gamma}_{\text{G}} = i\tau_{\mu}^{*}\left\{\tau_{\mu}, \lambda^{(0)}_{a}\right\}
-  \quad\text{and}\quad
-\dot{\gamma}_{\text{NG}} = \frac{i}{2}\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{\mu}^{*}, \tau_{\nu}\right\} - \tau_{\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{\nu}.}
 \end{equation}
 %
-
-The first of the extra phases $\gamma_{\text{G}}$ has a general form of a geometric phase upon treating the phase space as the parameter space.
+where
+%
+\begin{equation}\boxed{%
+  \dot{\gamma}_{\text{G}} = i\tau_{\mu}^{*}\left\{\tau_{\mu}, \lambda^{(0)}\right\}
+  \quad\text{and}\quad
+\dot{\gamma}_{\text{NG}} = (i/2)\mathsf{D}^{(0)}_{\mu\nu}\left\{\tau_{\mu}^{*}, \tau_{\nu}\right\} - \tau_{\mu}^{*}\mathsf{D}_{\mu\nu}^{(1)}\tau_{\nu}.}
+\label{eq:extra_phases}
+\end{equation}
+%
+Above, we have suppressed the polarization index $I$ for simplicity.
+The first of the extra phases $\gamma_{\text{G}}$ has a general form of a geometric phase upon treating the $x$-$k$ phase space as a parameter space.
 To see this, note that $\dot{\gamma}_{\text{G}} = i\tau^{*}_{\mu}\left\{\tau_{\mu},\lambda^{(0)}\right\} = i\tau^{\dagger}\cdot\dot{\tau}$, so that around a closed orbit $\mathcal{C}$ in phase space, the accumulated phase is
 %
 \begin{equation}
@@ -723,101 +739,28 @@ To see this, note that $\dot{\gamma}_{\text{G}} = i\tau^{*}_{\mu}\left\{\tau_{\m
 %
 where $\vartheta = (x, k)$ denotes the ``parameters'' that are being varied along the orbit.
 The phase $\gamma_{\text{G}}$, which is the integral of a differential 1-form, depends only on the path $\mathcal{C}$ and not how it is parameterized (like all geometric phases).
-
-\begin{example}[A simple ``coupled'' differential operator]
-Consider an operator $\widehat{\mathsf{D}}$ (with symbol $\mathsf{D}$) defined by
-%
-\begin{equation}
-  \widehat{\mathsf{D}} =
-  \begin{pmatrix}
-    \hat{p} & -\lambda\\
-    -\lambda & \hat{p}
-  \end{pmatrix}
-  \qquad\text{and}\qquad
-  \mathsf{D} =
-  \begin{pmatrix}
-    p & -\lambda\\
-    -\lambda & p
-  \end{pmatrix}.
-\end{equation}
-%
-The wave equation $\widehat{\mathsf{D}}\Psi = 0$ defined by this operator can be trivially shown to be equivalent to the uncoupled ODEs $\partial_{x}^{2}\Psi_{a} + \lambda^{2}\Psi_{\alpha} = 0$ in components $\Psi_{\alpha}$ of $\Psi$.
-Solving this ODE, we find $\Psi_{1} = A_{+}e^{i \lambda x} + A_{-}e^{-i\lambda x}$ and $\Psi_{2} = A_{+}e^{i \lambda x} - A_{-}e^{-i\lambda x}$.
-%
-By diagonalizing the symbol matrix $\mathsf{D}$, we find $\mathsf{U}$ and $\Lambda$, which can be transformed back to find the diagonalized operator $\widehat{\Lambda}$:
-%
-\begin{equation}
-  \mathsf{U} = \frac{1}{\sqrt{2}}
-  \begin{pmatrix}
-    1 & 1\\
-    1 & -1
-  \end{pmatrix},\enspace
-  \Lambda =
-  \begin{pmatrix}
-    p - \lambda & 0\\
-    0 & p + \lambda
-  \end{pmatrix},\enspace
-  \text{and}\enspace
-  \widehat{\Lambda} =
-  \begin{pmatrix}
-    \hat{p} - \lambda & 0\\
-    0 & \hat{p} + \lambda
-  \end{pmatrix}.
-\end{equation}
-%
-The uncoupled system given by $\widehat{\Lambda}\Phi = 0 $ has solutions $\Phi_{1} = B_{+}e^{i\lambda x}$ and $\Phi_{2} = B_{-}e^{-i\lambda x}$.
-The solution to the original system can be recovered by $\Psi = \widehat{\mathsf{U}}\Phi$, which gives us\footnote{The operator $\widehat{\mathsf{U}}$ is equal to its symbol $\mathsf{U}$ since its matrix entries are constants.}
-%
-\begin{equation}
-  \Psi = \frac{1}{\sqrt{2}}
-  \begin{pmatrix}
-    1 & 1\\
-    1 & -1
-  \end{pmatrix}
-  \begin{pmatrix}
-    B_{+}e^{i\lambda x}\\
-    B_{-}e^{-i\lambda x}
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    A_{+}e^{i\lambda x} + A_{-}e^{-i\lambda x}\\
-    A_{+}e^{i\lambda x} - A_{-}e^{-i\lambda x}
-  \end{pmatrix},
-\end{equation}
-%
-where we have set $A_{\pm} = B_{\pm}/\sqrt{2}$, and have found the expected solution.
-\end{example}
+The second phase $\gamma_{\text{NG}}$ has no such interpretation and is not a geometric phase.
 
 \section{Bound waves in phase space}
 \label{sec:bound}
 
 We expect the rays of bound waves to be bounded in phase space as well, with these rays being topologically equivalent to a circle~\cite{keller1958,mcdonald1988}.
 Such rays oscillate between two classical turning points where $k = 0$ and $\dot{x} = 0$ [Fig.~\ref{fig:caustic}(a)].
-Turning points are examples of caustics, i.e., points on the ray where $\dot{x} = 0$, and in a bound ray, apart from the classical turning points, there could be other caustics as well [see Fig.~\ref{fig:caustic}(b)].
-Even though the semiclassical approximation breaks down near the caustics, we can recover the phase $S(x)$ by integrating $k(x)$ along a ray.
-Furthermore, for bound rays, single valuedness of $\psi(x)$ results in the modified Bohr--Sommerfeld quantization condition
+From our previous discussion, we see that turning points are examples of caustics, i.e., points on the ray where $\dot{x} = 0$.
+Of course, on a bound ray, apart from the classical turning points, there could be other caustics as well [see Fig.~\ref{fig:caustic}(b)].
+
+The eikonal solution for the wave field is of the form $\psi(x) = B(x)\tau(x) e^{i\gamma(x)} e^{iS(x)/\epsilon}$, where $\gamma$ is the adiabatic phase that evolves according to Eq.~\eqref{eq:extra_phases}.
+The eikonal phase $S(x)$ can be recovered by integrating $k(x)$ along a ray.
+As $\psi(x)$ must be single valued, the overall phase must be an integer multipe of $2\pi$, which leads to a modified Bohr--Sommerfeld quantization condition of the form
 %
 \begin{equation}
-  \epsilon^{-1}\oint \dd{x}\,k(x;\, \omega) = 2\left(n + \frac{a}{4}\right)\pi - \gamma,
+  \epsilon^{-1}\oint \dd{x}\,k(x;\, \omega) = 2\left(n + \frac{\alpha}{4}\right)\pi - \gamma,
   \label{eq:quantization}
 \end{equation}
 %
-from which bound-state frequencies can be obtained.
-Above, the quantum number $n \in \mathbb{N}_{0}$ and $a$ is the Keller--Maslov index~\cite{keller1958,maslov1981}.
-Closed orbits in a two-dimensional phase space that can be smoothly deformed to a small circle always have $a = 2$~\cite{percival1977}.
-The additional phase $\gamma$ only appears when the wave field has more than one component, and is a consequence of the fact that the polarization vector $\tau$ is uniquely determined only up to an overall phase.
-Its rate of change $\dot{\gamma}$ as we move along a ray can be written as $\dot{\gamma} = \dot{\gamma}_{\text{G}} + \dot{\gamma}_{\text{NG}}$, with~\cite{yabana1986,kaufman1987,venaille2023}
-%
-\begin{equation}
-\dot{\gamma}_{\text{G}} = i\tau_{j}^{*}\left\{\tau_{j}, \lambda\right\} %= i{\tau_{j}}^{*}\dot{\tau}_{j}
-  \quad\text{and}\quad
-  \dot{\gamma}_{\text{NG}} = \frac{i}{2}\mathsf{D}^{(0)}_{jk}\left\{\tau^{*}_{j}, \tau_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k},
-  \label{eq:extra_phases}
-\end{equation}
-%
-where the asterisk represents complex conjugation and the subscripts $j, k$ represent the entries and components of $\mathsf{D}^{(0)}$ and $\tau$, respectively.
-It can be shown that the first phase $\gamma_{\text{G}}$ has the general form of a geometric phase~\cite{pancharatnam1956,berry1984} upon treating the $x$-$k$ phase space as a parameter space~\cite{yabana1986}.
-The second (non-geometric) phase $\gamma_{\text{NG}}$ has no such interpretation.
+from which bound-state frequencies $\omega$ can be obtained.
+Above, the quantum number $n \in \mathbb{N}_{0}$ and $\alpha$ is the Keller--Maslov index~\cite{keller1958,maslov1981}, which accounts for phase jumps at the turning points.
+Closed orbits in a two-dimensional phase space that can be smoothly deformed to a small circle always have $\alpha = 2$~\cite{percival1977}.
 %
 \begin{figure}
   \begin{center}

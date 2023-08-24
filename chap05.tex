@@ -197,7 +197,7 @@ Here $\bm{t} = \dd\bm{\sigma}/\dd{x}$ is the unit tangent of the undeformed rod 
 Using $\zeta$ and $u$ as the components of the wave field, and assuming the absence of external forces, the rod equations we are after is derived from the following energy functional~\cite{kernes2021}:
 %
 \begin{equation}
-  \mathscr{U}[\zeta, u] = \int \dd{t}\,\dd{x}\,\frac{1}{2}\left\{\rho\left(\dot{u}^{2} + \dot{\zeta}^{2}\right) - E\left[\partial_{x}u - m(x)\zeta\right]^{2} - B\left(\partial_{x}^{2}\zeta\right)^{2}\right\}.
+  \mathscr{U}[\zeta, u] = \int \dd{t}\,\dd{x}\,\tfrac{1}{2}\left\{\rho\left(\dot{u}^{2} + \dot{\zeta}^{2}\right) - E\left[\partial_{x}u - m(x)\zeta\right]^{2} - B\left(\partial_{x}^{2}\zeta\right)^{2}\right\}.
   \label{eq:rod_energy}
 \end{equation}
 %
@@ -286,7 +286,7 @@ $\mathsf{D} = \mathsf{D}^{(0)} + \epsilon\mathsf{D}^{(1)}$, where
 \end{pmatrix}
 \enspace \text{and} \enspace
 \mathsf{D}^{(1)} =
-\frac{1}{2}
+\tfrac{1}{2}
 \begin{pmatrix}
     0 & m'(x)\\
     m'(x) & 0
@@ -297,7 +297,7 @@ $\mathsf{D} = \mathsf{D}^{(0)} + \epsilon\mathsf{D}^{(1)}$, where
 The two eigenvalues of the dispersion matrix $\mathsf{D}^{(0)}$, representing waves of two different polarizations, are
 %
 \begin{equation}
-  \lambda_{\pm} = \frac{1}{2}\left\{k^{2} + k^{4} + m^{2}(x) \pm \sqrt{\left[k^{2} - k^{4} - m^{2}(x)\right]^{2} + 4k^{2}m^{2}(x)}\right\} - \omega^{2}.
+  \lambda_{\pm} = \tfrac{1}{2}\left\{k^{2} + k^{4} + m^{2}(x) \pm \sqrt{\left[k^{2} - k^{4} - m^{2}(x)\right]^{2} + 4k^{2}m^{2}(x)}\right\} - \omega^{2}.
   \label{eq:rod_ham}
 \end{equation}
 %
@@ -402,7 +402,7 @@ For a varying curvature profile, we find the rays for both polarizations by inte
 \begin{equation}
   \begin{alignedat}{2}
       \dot{x} &= \frac{\partial \lambda_{\pm}}{\partial k} &&= k\left\{2k^{2} + 1 \pm \frac{(2k^{2} + 1)\left[k^{2} + k^{4} + m^{2}(x)\right] - 6k^{4}}{\sqrt{\left[k^{2}-k^{4}-m^{2}(x)\right]^{2} + 4k^{2}m^{2}(x)}}\right\};\\
-      \dot{k} &= -\frac{\partial \lambda_{\pm}}{\partial x} &&= -\frac{1}{2}\left[m^{2}(x)\right]'\left\{1 \pm \frac{k^{2} + k^{4} + m^{2}(x)}{\sqrt{\left[k^{2}-k^{4}-m^{2}(x)\right]^{2} + 4k^{2}m^{2}(x)}}\right\}.
+      \dot{k} &= -\frac{\partial \lambda_{\pm}}{\partial x} &&= -\tfrac{1}{2}\left[m^{2}(x)\right]'\left\{1 \pm \frac{k^{2} + k^{4} + m^{2}(x)}{\sqrt{\left[k^{2}-k^{4}-m^{2}(x)\right]^{2} + 4k^{2}m^{2}(x)}}\right\}.
   \end{alignedat}
   \label{eq:rod_hamiltonian}
 \end{equation}
@@ -636,7 +636,7 @@ On defining
 \begin{equation}
   \kappa(x) = \tanh(\epsilon x),
   \quad
-  \nu = \frac{1}{2}\left[\sqrt{1 + 4b^{2}/\epsilon^{2}} - 1\right],
+  \nu = \tfrac{1}{2}\left[\sqrt{1 + 4b^{2}/\epsilon^{2}} - 1\right],
   \quad\text{and}\quad
   \mu = n - \nu \leq 0
   \quad(n \in \mathbb{N}_{0}),
@@ -671,8 +671,8 @@ We fix the deformation parameter $\chi$ by demanding that the full widths at hal
   \chi = \sech^{-1}\sqrt{\frac{b^{2} + a^{2}}{2(b^{2} - a^{2})}}\Bigg/\sech^{-1}\left[\frac{b - \sqrt{(b^{2} - a^{2})/2}}{b - a}\right].
 \end{equation}
 %
-When $b = 0.1$, $a=0.01$, the deformation parameter $\chi \approx 0.49$ and $m_{\chi}(x)$ approximates $m(x)$ to around 97\% accuracy when $\abs{x} > \frac{1}{2}\Delta$, where $\Delta$ is the full width at half maximum.
-The approximation becomes significantly worse for $\abs{x} < \frac{1}{2}\Delta$, with a maximum relative error of 68\%.
+When $b = 0.1$, $a=0.01$, the deformation parameter $\chi \approx 0.49$ and $m_{\chi}(x)$ approximates $m(x)$ to around 97\% accuracy when $\abs{x} > \tfrac{1}{2}\Delta$, where $\Delta$ is the full width at half maximum.
+The approximation becomes significantly worse for $\abs{x} < \tfrac{1}{2}\Delta$, with a maximum relative error of 68\%.
 Therefore, we only expect the higher-frequency bound states of $m_{\chi}(x)$ to represent states of $m(x)$ reasonably well, which is exactly what we see from the results in Fig.~\ref{fig:poschl_sech}.
 %
 \begin{figure}
@@ -774,7 +774,7 @@ Doing so would lead us back to the dispersion matrices in Eq.~\eqref{eq:rod_D}.
 The ray Hamiltonian for extensional and flexural waves ($\lambda_{+}$ and $\lambda_{-}$, respectively) are the two eigenvalues of $\mathsf{D}^{(0)}$, given by
 %
 \begin{equation}
-  \lambda_{\pm}(x, k) = \frac{1}{2} \left\{\left[1 + k^2\right] \left[k^2+m^{2}(x)\right]+\sqrt{\left[k^2+1\right]^2 \left[k^2+m^{2}(x)\right]^2-4 \left[k^3-k m^{2}(x)\right]^2}\right\} - \omega^{2}.
+  \lambda_{\pm}(x, k) = \tfrac{1}{2} \left\{\left[1 + k^2\right] \left[k^2+m^{2}(x)\right]+\sqrt{\left[k^2+1\right]^2 \left[k^2+m^{2}(x)\right]^2-4 \left[k^3-k m^{2}(x)\right]^2}\right\} - \omega^{2}.
 \end{equation}
 %
 A simple analysis, either by plotting the rays or writing down the corresponding Hamilton's equations, reveals that even when higher-order, curvature-dependent corrections are included, flexural waves fail to form bound states, and so we focus on extensional waves instead.
@@ -841,8 +841,8 @@ where the operator $\widehat{\mathsf{H}}$ is defined by
   \widehat{\mathsf{H}} =
   \begin{pmatrix}
     \Delta^{2} + m^{2}(x) & -m(x)\partial_x & -\eta m(x) \partial_{y}\\
-    m(x)\partial_{x} + m'(x) & -\partial_{x}^{2} - \frac{1}{2}(1-\eta)\partial^{2}_{y} & -\frac{1}{2}(1+\eta)\partial_{x}\partial_{y}\\
-    \eta m(x)\partial_{y} & -\frac{1}{2}(1+\eta)\partial_{x}\partial_{y} & -\frac{1}{2}(1-\eta)\partial_{x}^{2} - \partial_{y}^{2}
+    m(x)\partial_{x} + m'(x) & -\partial_{x}^{2} - \tfrac{1}{2}(1-\eta)\partial^{2}_{y} & -\tfrac{1}{2}(1+\eta)\partial_{x}\partial_{y}\\
+    \eta m(x)\partial_{y} & -\tfrac{1}{2}(1+\eta)\partial_{x}\partial_{y} & -\tfrac{1}{2}(1-\eta)\partial_{x}^{2} - \partial_{y}^{2}
   \end{pmatrix}.
   \label{eq:shell_wave_eq}
 \end{equation}
@@ -861,14 +861,14 @@ Finally, we find the dispersion matrix $\mathsf{D}^{(0)}$ as
 \mathsf{D}^{(0)} =
 \begin{pmatrix}
   (k^{2} + l^{2})^{2} + m^{2}(x) - \omega^{2} & -i k m(x) & -i\eta l m(x)\\
-  ik m(x) & k^{2} + \frac{1}{2}(1-\eta)l^{2} - \omega^{2} & \frac{1}{2}(1+\eta)kl\\
-  i\eta l m(x) & \frac{1}{2}(1 + \eta)kl & \frac{1}{2}(1-\eta)k^{2} + l^{2} - \omega^{2}
+  ik m(x) & k^{2} + \tfrac{1}{2}(1-\eta)l^{2} - \omega^{2} & \tfrac{1}{2}(1+\eta)kl\\
+  i\eta l m(x) & \tfrac{1}{2}(1 + \eta)kl & \tfrac{1}{2}(1-\eta)k^{2} + l^{2} - \omega^{2}
 \end{pmatrix},\\
 \end{equation}
 and find its first-order correction $\mathsf{D}^{(1)}$ to be
 \begin{equation}
 \mathsf{D}^{(1)} =
-\frac{1}{2}
+\tfrac{1}{2}
 \begin{pmatrix}
   0 & m'(x) & 0\\
   m'(x) & 0 & 0\\
@@ -903,7 +903,7 @@ Setting $m = 0$ in Eq.~\eqref{eq:shell_det}, we find the following flat-plate di
 %
 \begin{equation}
   \omega_{0}^{2} = \left(k^{2} + l^{2}\right)^{2},\quad
-  \omega_{0}^{2} = \frac{1}{2}\left(1-\eta\right)\left(k^{2} + l^{2}\right),
+  \omega_{0}^{2} = \tfrac{1}{2}\left(1-\eta\right)\left(k^{2} + l^{2}\right),
   \quad\text{and}\quad
   \omega_{0}^{2} = \left(k^{2} + l^{2}\right),
   \label{eq:shell_disp_zero}
@@ -943,9 +943,9 @@ where the coefficients
 %
 \begin{equation}
   \begin{aligned}
-    a &= \frac{1}{2}q^{2}\left[(3 - \eta) + 2q^{2}\right],\\
-    b &= -\frac{1}{2}q^{4}\left[(3 - \eta)q^{2} + (1 - \eta)\right] - \frac{1}{2}m^{2}(1 - \eta)\left[q^{2} + 2(1 + \eta)l^{2}\right],\\
-    c &= \frac{1}{2}(1-\eta)\left[q^{8} + m^{2}l^{4}\left(1 - \eta^{2}\right)\right],
+    a &= \tfrac{1}{2}q^{2}\left[(3 - \eta) + 2q^{2}\right],\\
+    b &= -\tfrac{1}{2}q^{4}\left[(3 - \eta)q^{2} + (1 - \eta)\right] - \tfrac{1}{2}m^{2}(1 - \eta)\left[q^{2} + 2(1 + \eta)l^{2}\right],\\
+    c &= \tfrac{1}{2}(1-\eta)\left[q^{8} + m^{2}l^{4}\left(1 - \eta^{2}\right)\right],
   \end{aligned}
 \end{equation}
 %
@@ -955,9 +955,9 @@ The above cubic has the solution
 \begin{equation}
   \omega^{2} =
   \begin{dcases}
-    \frac{1}{3}a + \frac{2^{1/3}\left(a^{2} + 3b\right)}{3d} + \frac{d}{3\times2^{1/3}} & \text{(extensional)},\\
-    \frac{1}{3}a - \frac{\left(1 - i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 + i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(shear)},\\
-    \frac{1}{3}a - \frac{\left(1 + i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 - i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(flexural)}.\\
+    \tfrac{1}{3}a + \frac{2^{1/3}\left(a^{2} + 3b\right)}{3d} + \frac{d}{3\times2^{1/3}} & \text{(extensional)},\\
+    \tfrac{1}{3}a - \frac{\left(1 - i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 + i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(shear)},\\
+    \tfrac{1}{3}a - \frac{\left(1 + i\sqrt{3}\right)\left(a^{2} + 3b\right)}{3\times2^{2/3}d} - \frac{\left(1 - i\sqrt{3}\right)d}{6\times2^{1/3}} & \text{(flexural)}.\\
   \end{dcases}
   \label{eq:shell_cubic_sol}
 \end{equation}
@@ -979,9 +979,9 @@ The cut-on frequencies at nonzero $m$ can be computed from Eq.~\eqref{eq:shell_d
 %
 \begin{equation}
   \omega^{2}_{\text{cut-on}} =
-    \frac{1}{2}\left(l^{2} + l^{4} + m^{2} \pm \sqrt{\left(l^{2} - l^{4} - m^{2}\right)^{2} + 4\eta^{2}l^{2}m^{2}}\right)
+    \tfrac{1}{2}\left(l^{2} + l^{4} + m^{2} \pm \sqrt{\left(l^{2} - l^{4} - m^{2}\right)^{2} + 4\eta^{2}l^{2}m^{2}}\right)
     \quad\text{and}\quad
-    \frac{1}{2}(1-\eta)l^{2}.
+    \tfrac{1}{2}(1-\eta)l^{2}.
     \label{eq:shell_cuton}
 \end{equation}
 %
@@ -1008,7 +1008,7 @@ Putting Eq.~\eqref{eq:shell_perturb} in Eq.~\eqref{eq:shell_det}, and dropping p
   \omega^{2} =
   \begin{dcases}
     \left(k^{2} + l^{2}\right)^{2} + \left(1 - \eta^{2}\right)m^{2}\frac{l^{4}}{\left(k^{2} + l^{2}\right)^{2}} + \mathcal{O}(m^{4}) & \text{(flexural)}, \\
-    \frac{1}{2}\left(1-\eta\right)\left(k^{2} + l^{2}\right) + 2\left(1 - \eta\right)m^{2}\frac{k^{2}l^{2}}{\left(k^{2} + l^{2}\right)^{2}} + \mathcal{O}(m^{4}) & \text{(shear)},\\
+    \tfrac{1}{2}\left(1-\eta\right)\left(k^{2} + l^{2}\right) + 2\left(1 - \eta\right)m^{2}\frac{k^{2}l^{2}}{\left(k^{2} + l^{2}\right)^{2}} + \mathcal{O}(m^{4}) & \text{(shear)},\\
     (k^{2} + l^{2}) + m^{2}\frac{\left(k^{2} + \eta l^{2}\right)^{2}}{\left(k^{2} + l^{2}\right)^{2}} + \mathcal{O}(m^{4}) & \text{(extensional)}.
   \end{dcases}
   \label{eq:shell_disp_approx}
@@ -1025,15 +1025,15 @@ In fact, for small $k$ and $l$, Eq.~\eqref{eq:shell_disp_approx} completely brea
 For nonzero $l$, from Eq.~\eqref{eq:shell_cuton}, we see that this happens at a curvature value
 %
 \begin{equation}
-  m_{\ddag}^{2} = \frac{(1 + \eta)l^{2}\left[\frac{1}{2}(1 - \eta) - l^{2}\right]}{\left(1 + 2\eta\right)\left(1 - \eta\right)}
-  = \frac{1}{2}\left(\frac{1+\eta}{1 + 2\eta}\right)l^{2} + \mathcal{O}(l^{4}).
+  m_{\ddag}^{2} = \frac{(1 + \eta)l^{2}\left[\tfrac{1}{2}(1 - \eta) - l^{2}\right]}{\left(1 + 2\eta\right)\left(1 - \eta\right)}
+  = \tfrac{1}{2}\left(\frac{1+\eta}{1 + 2\eta}\right)l^{2} + \mathcal{O}(l^{4}).
   \label{eq:shell_mdag}
 \end{equation}
 %
 We graphically demonstrate this in Fig.~\ref{fig:shell_gap}, from which we can see that the expressions for the cut-on frequencies for shear and flexural waves get interchanged at large $m$.
 Hence, for $m > m_{\ddag}$, the lowest of the first two cut-on frequencies in Eq.~\eqref{eq:shell_cuton}, should be associated with shear waves, whose dispersion curves would now have a curvature-dependent gap.
-The cut-on frequency for flexural waves, however, would now be equal to $\frac{1}{2}(1-\eta)l^{2}$.
-We remark that this switching of the cut-on frequencies does not happen if $l^{2} > \frac{1}{2}(1-\eta)$ as Eq.~\eqref{eq:shell_mdag} fails to have a real root.
+The cut-on frequency for flexural waves, however, would now be equal to $\tfrac{1}{2}(1-\eta)l^{2}$.
+We remark that this switching of the cut-on frequencies does not happen if $l^{2} > \tfrac{1}{2}(1-\eta)$ as Eq.~\eqref{eq:shell_mdag} fails to have a real root.
 Also, as the cut-on frequencies of flexural and shear waves are equal for $m = m_{\ddag}$, in principle, mode conversion can occur close to the entire $k$ axis on the phase plane.
 Despite such a possibility, we did not observe any discernible effects of mode conversion in our numerical experiments, and we shall it ignore in our analysis.
 %
@@ -1343,7 +1343,7 @@ Putting Eq.~\eqref{eq:tau} in Eq.~\eqref{eq:extra_phases}, we see that the rate 
   \begin{aligned}
     \dot{\gamma}_{\text{G}} = i\tau^{*}_{j}\left\{\tau_{j}, \lambda\right\}
                   &= ir_{j}\left\{r_{j}, \lambda\right\} - r_{j}^{2}\left\{\varphi_{j}, \lambda\right\}\\
-                 &= \frac{i}{2}\left\{\Abs{\tau}^{2}, \lambda\right\} - r_{j}^{2}\left\{\varphi_{j}, \lambda\right\}\\
+                 &= (i/2)\left\{\Abs{\tau}^{2}, \lambda\right\} - r_{j}^{2}\left\{\varphi_{j}, \lambda\right\}\\
                  &= -r_{j}^{2}\left\{\varphi_{j}, \lambda\right\}.
   \end{aligned}
 \end{equation}
@@ -1360,8 +1360,8 @@ From Eq.~\eqref{eq:extra_phases} we see that the rate of change of $\gamma_{\tex
 %
 \begin{equation}
   \begin{aligned}
-  \dot{\gamma}_{\text{NG}} &= \frac{i}{2} \mathsf{D}^{(0)}_{jk}\left\{\tau_{j}^{*}, \tau_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k}\\
-                           &= \frac{i}{2}\sum_{j < k} \left(\mathsf{D}^{(0)}_{jk}e^{-i\varphi_{jk}} - \mathsf{D}_{jk}^{(0)^{*}}e^{i\varphi_{jk}}\right)\left\{r_{j},r_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k}.
+  \dot{\gamma}_{\text{NG}} &= (i/2) \mathsf{D}^{(0)}_{jk}\left\{\tau_{j}^{*}, \tau_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k}\\
+                           &= (i/2)\sum_{j < k} \left(\mathsf{D}^{(0)}_{jk}e^{-i\varphi_{jk}} - \mathsf{D}_{jk}^{(0)^{*}}e^{i\varphi_{jk}}\right)\left\{r_{j},r_{k}\right\} - \tau_{j}^{*}\mathsf{D}^{(1)}_{jk}\tau_{k}.
   \label{eq:gamma_NG}
   \end{aligned}
 \end{equation}
@@ -1399,7 +1399,7 @@ Above, the entries of $\widehat{\mathsf{H}}$ are linear differential operators c
 Also, the diagonal entries $\widehat{Z}$, $\widehat{U}$, and $\widehat{V}$ are Hermitian operators and $\widehat{A}^{\dagger}$ is the Hermitian adjoint of $\widehat{A}$.
 Additionally, since Eq.~\eqref{eq:wave_eq} represents an elastodynamic system, we assume that the coefficients of all the derivatives in $\widehat{\mathsf{H}}$ are real so that $\Psi$ can be taken to be real as well.
 
-Any invariance possessed by Eq.~\eqref{eq:wave_eq} must be shared by the (potential) energy density $\mathscr{J} = \frac{1}{2}\Psi\trans\widehat{\mathsf{H}}\Psi$ used to derive it from Hamilton's principle.
+Any invariance possessed by Eq.~\eqref{eq:wave_eq} must be shared by the (potential) energy density $\mathscr{J} = \tfrac{1}{2}\Psi\trans\widehat{\mathsf{H}}\Psi$ used to derive it from Hamilton's principle.
 If $\mathscr{J}$ is to be invariant under $(\partial_{x}, \partial_{y}) \to (-\partial_{x}, -\partial_{y})$ and $(\zeta, u, v) \to (\zeta, -u, -v)$ for an arbitrary $\Psi$, the off-diagonal operators $\widehat{A}$ and $\widehat{B}$ must be odd under $(\partial_{x}, \partial_{y}) \to (-\partial_{x}, -\partial_{y})$.
 In other words, they can only have terms involving exactly one odd power of $\partial_{x}$ (or $\partial_{y}$).
 Odd powers of $\partial_{x},\, \partial_{y}$ acquire complex coefficients when expressed in terms of the momentum operator: $\partial_{x}^{2n+1} = (-1)^{n}i\hat{k}^{2n+1}$.
@@ -1496,7 +1496,7 @@ We then numerically integrate the ray equations starting at one of the classical
 Next, we compute
 %
 \begin{equation}
-  n(\omega) = (\pi\epsilon)^{-1} \int_{-x^{\star}}^{x^{\star}} \dd{x}\,k(x) - \frac{1}{2}
+  n(\omega) = (\pi\epsilon)^{-1} \int_{-x^{\star}}^{x^{\star}} \dd{x}\,k(x) - \tfrac{1}{2}
 \end{equation}
 %
 using points $\left[x, k(x)\right]$ from the ray trajectory, with the integral evaluated by quadrature.

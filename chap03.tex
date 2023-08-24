@@ -141,7 +141,7 @@ As we remarked previously, using Eq.~\eqref{eq:coarea} to find the marginal dens
 Hence, we will use a Gaussian representation of the delta function to write the marginal density as~\cite{hartmann2007a,hartmann2011}
 %
 \begin{equation}
-  \mathscr{P}(\xi) = \lim_{\alpha\to\infty} \left(\frac{\alpha}{2\pi}\right)^{(n-m)/2} \int_{\mathbb{R}^n} \dd \bm{q}\, I(\bm{q}) \exp{\left[-\frac{1}{2}\alpha\Abs{\hat{\xi}(\bm{q}) - \xi}^2 - \beta U(\bm{q})\right]},
+  \mathscr{P}(\xi) = \lim_{\alpha\to\infty} \left(\frac{\alpha}{2\pi}\right)^{(n-m)/2} \int_{\mathbb{R}^n} \dd \bm{q}\, I(\bm{q}) \exp{\left[-\tfrac{1}{2}\alpha\Abs{\hat{\xi}(\bm{q}) - \xi}^2 - \beta U(\bm{q})\right]},
   \label{eq:prob_delta}
 \end{equation}
 %
@@ -150,14 +150,14 @@ For $\bm{q} \in \hat{\xi}^{-1}(\xi)$, the norm $\Abs{\hat{\xi}(\bm{q}) - \xi}$ v
 Similarly, for $\bm{q} \in \Sigma$, the energy $U(\bm{q})$ vanishes.
 This means that in the limit $\alpha, \beta \to \infty$, contributions to the above integral would mainly come from the neighborhood of the ground state $\bar{\bm{q}} = \Sigma \cap \hat{\xi}^{-1}(\xi)$.
 Hence, we can evaluate the above integral using Laplace's method after expanding the two terms in the exponent of Eq.~\eqref{eq:prob_delta} to the lowest order around $\bar{\bm{q}}$.
-To this end, we set $\bm{q} \to \bar{\bm{q}} + \bm{q}$, and expand the energy $U(\bm{q})$ using the harmonic approximation: $U \approx \frac{1}{2}\bm{q}\trans \mathsf{D}\bm{q}$ [see Eq.~\eqref{eq:regenergy}], where $\mathsf{D}$ is the $n\times n$ dynamical matrix.
+To this end, we set $\bm{q} \to \bar{\bm{q}} + \bm{q}$, and expand the energy $U(\bm{q})$ using the harmonic approximation: $U \approx \tfrac{1}{2}\bm{q}\trans \mathsf{D}\bm{q}$ [see Eq.~\eqref{eq:regenergy}], where $\mathsf{D}$ is the $n\times n$ dynamical matrix.
 Since $\bar{\bm{q}}$ is a regular point of $\Sigma$, the compatibility matrix $\mathsf{C}$ has full rank, and $\mathsf{D}$ has $n-m$ independent zero modes that belong to $\ker\mathsf{C}$~\cite{lubensky2015}.
 These zero modes are all tangent to $\Sigma$ and represent a degree of freedom~\cite{leimkuhler2005}.
 Hence, to asymptotically evaluate Eq.~\eqref{eq:mpd} in the neighborhood of a regular point, we can safely use the harmonic approximation since any divergence~\cite{schwarz1979,ellis1981,rocklin2018} due to these zero modes is regularized by the delta function [or in the case of Eq.~\eqref{eq:prob_delta}, its Gaussian approximation], which suppresses all contributions to the integral that are tangent to $\Sigma$~\cite{ramond1997}.
 This gives us
 %
 \begin{equation}
-  \mathscr{P}(\xi) \sim \lim_{\alpha\to\infty} \frac{\alpha^{-m/2}}{(2\pi)^{(n-m)/2}}I(\bar{\bm{q}})\int_{\mathbb{R}^n} \dd{\bm{q}}\, \exp\left\{-\frac{1}{2}\bm{q}\trans\left[(\nabla\hat{\xi})\trans\nabla\hat{\xi} + \alpha^{-1}\beta \mathsf{D}\right]\bm{q}\right\},
+  \mathscr{P}(\xi) \sim \lim_{\alpha\to\infty} \frac{\alpha^{-m/2}}{(2\pi)^{(n-m)/2}}I(\bar{\bm{q}})\int_{\mathbb{R}^n} \dd{\bm{q}}\, \exp\left\{-\tfrac{1}{2}\bm{q}\trans\left[(\nabla\hat{\xi})\trans\nabla\hat{\xi} + \alpha^{-1}\beta \mathsf{D}\right]\bm{q}\right\},
   \label{eq:prob_gaussian}
 \end{equation}
 %
@@ -197,7 +197,7 @@ Eq.~\eqref{eq:coord_change} suggests the coordinate change $\bm{q} \to (\bm{x}, 
 The quadratic form in the integral of Eq.~\eqref{eq:prob_gaussian} after such a coordinate change can be decomposed into blocks as
 %
 \begin{equation}
-  \frac{1}{2}
+  \tfrac{1}{2}
   \begin{pmatrix}
     \bm{x}\trans & \bm{y}\trans
   \end{pmatrix}
@@ -332,7 +332,7 @@ This enables us to write $\bm{q} = \bm{u} + \bm{v}$, with $\bm{u} \in \ker\maths
   \hspace{-0.5em}
   \begin{aligned}
     \mathscr{P}(\xi) &= \int \dd\bm{q}\, I(\bm{q})\,\delta\left[\hat{\xi}(\bm{q}) - \xi\right] \exp\left[-\beta U(\bm{q})\right]\\
-                                 &\sim I(\xi^{*}) \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \int_{(\ker\mathsf{C})^{\perp}} \dd\bm{v}\,  \exp\left\{-\frac{1}{2}\beta\kappa[\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans[\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\right\},
+                                 &\sim I(\xi^{*}) \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \int_{(\ker\mathsf{C})^{\perp}} \dd\bm{v}\,  \exp\left\{-\tfrac{1}{2}\beta\kappa[\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans[\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\right\},
   \end{aligned}
 \end{equation}
 %
@@ -344,8 +344,8 @@ This turns the integral over $(\ker\mathsf{C})^{\perp}$ into an $(m-s)$-dimensio
 \begin{equation}
   \hspace{-0.5em}
   \begin{aligned}
-    \mathscr{P}(\xi) &\sim I(\xi^{*}) \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \int_{\mathbb{R}^{m-s}} \dd\bm{y}\, \exp\left\{-\frac{1}{2}\beta\kappa[\mathsf{C}\mathsf{B}\bm{y} + \bm{w}(\bm{u})]\trans[\mathsf{C}\mathsf{B}\bm{y} + \bm{w}(\bm{u})]\right\}\\
-                                             &= \frac{I(\xi^{*})}{\left|\det\, \mathsf{D}^\perp\right|^{1/2}} \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \exp\left[-\frac{1}{2}\beta\kappa \bm{w}(\bm{u})\trans\Pi \bm{w}(\bm{u})\right],
+    \mathscr{P}(\xi) &\sim I(\xi^{*}) \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \int_{\mathbb{R}^{m-s}} \dd\bm{y}\, \exp\left\{-\tfrac{1}{2}\beta\kappa[\mathsf{C}\mathsf{B}\bm{y} + \bm{w}(\bm{u})]\trans[\mathsf{C}\mathsf{B}\bm{y} + \bm{w}(\bm{u})]\right\}\\
+                                             &= \frac{I(\xi^{*})}{\left|\det\, \mathsf{D}^\perp\right|^{1/2}} \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \exp\left[-\tfrac{1}{2}\beta\kappa \bm{w}(\bm{u})\trans\Pi \bm{w}(\bm{u})\right],
   \end{aligned}
   \label{eq:mpd_gaussian}
 \end{equation}
@@ -371,8 +371,8 @@ Using this in Eq.~\eqref{eq:mpd_gaussian} and after a straightforward applicatio
 %
 \begin{equation}
   \begin{aligned}
-    \mathscr{P}(\xi) &\sim \frac{I(\xi^{*})}{\left|\det\, \mathsf{D}^\perp\right|^{1/2}} \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \exp\left\{-\frac{1}{2}\beta\kappa\sum_{\bm{\sigma}}[\bm{\sigma}\cdot \bm{w}(\bm{u})]^2\right\}\\
-                                 &= \frac{I({\xi}^{*})}{\left|\det\, \mathsf{D}^\perp \det\, \nabla\hat{\xi}(\nabla\hat{\xi})\trans\right|^{1/2}}  \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \int_{\Xi_{\xi}} \dd\Theta(\bm{u})\, \exp\left\{-\frac{1}{2}\beta\kappa\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{u})]^2\right\}.
+    \mathscr{P}(\xi) &\sim \frac{I(\xi^{*})}{\left|\det\, \mathsf{D}^\perp\right|^{1/2}} \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \int_{\ker\mathsf{C}} \dd\bm{u}\, \delta\left[(\nabla\hat{\xi})\bm{u} - (\xi - \xi^{*})\right] \exp\left\{-\tfrac{1}{2}\beta\kappa\sum_{\bm{\sigma}}[\bm{\sigma}\cdot \bm{w}(\bm{u})]^2\right\}\\
+                                 &= \frac{I({\xi}^{*})}{\left|\det\, \mathsf{D}^\perp \det\, \nabla\hat{\xi}(\nabla\hat{\xi})\trans\right|^{1/2}}  \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \int_{\Xi_{\xi}} \dd\Theta(\bm{u})\, \exp\left\{-\tfrac{1}{2}\beta\kappa\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{u})]^2\right\}.
   \end{aligned}
   \label{eq:mpd_singular}
 \end{equation}
@@ -445,7 +445,7 @@ As each component of the vector $\bm{w}(\bm{u})$ is a quadratic form in $\bm{x}$
 A rescaling of the components $\tilde{\bm{x}} \to (\beta\kappa)^{-1/4}\tilde{\bm{x}}$, changes the surface measure from $\dd\Theta(\tilde{\bm{x}}) \to (\beta\kappa)^{-s/4}\dd\Omega(\tilde{\bm{x}})$ and turns $\widetilde{U}(\tilde{\bm{x}}) \to (\beta\kappa)^{-1}\widetilde{U}(\tilde{\bm{x}})$, yielding
 %
 \begin{equation}
-  \mathscr{P}(\xi^{*}) \sim \frac{I({\xi}^{*})}{\left|\kappa^{s/2}\det\,\mathsf{D}^\perp \det\, \nabla\hat{\xi}(\nabla\hat{\xi})\trans\right|^{1/2}}  \left(\frac{2\pi}{\beta}\right)^{m/2 - s/4} \int_{\Xi_{\xi}} \dd\Theta(\tilde{\bm{x}})\, \exp\left[-\frac{1}{2}\widetilde{U}(\tilde{\bm{x}})\right].
+  \mathscr{P}(\xi^{*}) \sim \frac{I({\xi}^{*})}{\left|\kappa^{s/2}\det\,\mathsf{D}^\perp \det\, \nabla\hat{\xi}(\nabla\hat{\xi})\trans\right|^{1/2}}  \left(\frac{2\pi}{\beta}\right)^{m/2 - s/4} \int_{\Xi_{\xi}} \dd\Theta(\tilde{\bm{x}})\, \exp\left[-\tfrac{1}{2}\widetilde{U}(\tilde{\bm{x}})\right].
   \label{eq:scaling}
 \end{equation}
 %
@@ -474,7 +474,7 @@ We will also use our formalism to analyze the five-bar linkage, a framework with
 Motivated by typical DNA origami structures that have lengths in the range of a few hundred nanometers with stiffness in the range 0.1--1~pN$/$nm~\cite{jung2020}, we choose a nondimensional inverse temperature of $\beta = 10^{4}$ and use a potential of the form $\phi_{i}(\ell_{i}) = (\ell_{i}^{2} - \bar{\ell}_{i}^{2})^{2}/(8\bar{\ell}_{i}^{2})$ so that $\phi_{i}''(\bar{\ell}_{i}) = \kappa = 1$.
 Further details on the simulations are given in Appendix~\ref{sec:numerics}.
 
-%If $\bm{q}$ is a point near $\bar{\bm{q}}$, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, we expand the energy to the lowest order around $\bar{\bm{q}}$ and find the harmonic energy $U \approx \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}$.
+%If $\bm{q}$ is a point near $\bar{\bm{q}}$, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, we expand the energy to the lowest order around $\bar{\bm{q}}$ and find the harmonic energy $U \approx \tfrac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \tfrac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}$.
 %Here $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ is the dynamical matrix evaluated at $\bar{\bm{q}}$~\cite{lubensky2015} (assuming joints of unit mass) and $\mathsf{K}$ is the diagonal matrix of bar stiffnesses $\phi_{i}''(\bar{\ell}_{i})$, which we set equal to $\kappa$ for all bars for simplicity.
 %See the Supplemental Material (SM) for details.
 %Since $\bar{\bm{q}}$ is a regular point of $\Sigma$, $\mathsf{C}$ has full rank, and $\mathsf{D}$ has $n-m$ independent zero modes that belong to $\ker\mathsf{C} = \left\{\bm{u} \in \mathbb{R}^{n}: \mathsf{C}\bm{u} = \bm{0}\right\}$~\cite{lubensky2015}.
@@ -506,11 +506,11 @@ Further details on the simulations are given in Appendix~\ref{sec:numerics}.
 %Systematically expanding the energy to the lowest order in $\bm{u}$ and $\bm{v}$ around $\bar{\bm{q}}^{*}$~\cite{zhang2016,kallus2017,woodhouse2018} we find (SM)
 %%
 %\begin{equation}
-%  U \approx \frac{1}{2}[\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\mathsf{K}[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
+%  U \approx \tfrac{1}{2}[\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\mathsf{K}[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
 %  \label{eq:energy_singular}
 %\end{equation}
 %%
-%Here $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ is a vector such that its $i$th component is $\frac{1}{2}\bm{u}\trans\hess f_{i}\bm{u}$, with $\hess f_{i}$ being the Hessian matrix of the $i$th constraint function $f_{i}$, evaluated at $\bar{\bm{q}}^{*}$.
+%Here $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ is a vector such that its $i$th component is $\tfrac{1}{2}\bm{u}\trans\hess f_{i}\bm{u}$, with $\hess f_{i}$ being the Hessian matrix of the $i$th constraint function $f_{i}$, evaluated at $\bar{\bm{q}}^{*}$.
 %This makes the above energy expansion quartic in the zero modes $\bm{u}$.
 
 %Equation~\eqref{eq:energy_singular} is only valid when the expansion is around the singularity $\bar{\bm{q}}^{*}$, and a similar expansion does not exist for ground states in $\hat{\xi}^{-1}(\xi)$ for $\xi$ close to $\xi^{*}$, where the harmonic approximation is not applicable either.
@@ -526,7 +526,7 @@ Further details on the simulations are given in Appendix~\ref{sec:numerics}.
 %\begin{equation}
 %  \begin{aligned}
 %    \mathscr{P}(\xi) &\sim \frac{I({\xi}^{*})}{\left|\det\,\mathsf{D}^\perp \det\,\nabla\hat{\xi}(\nabla\hat{\xi})\trans\right|^{1/2}}  \left(\frac{2\pi}{\beta}\right)^{(m-s)/2} \\
-%                                 &\qquad \times \int_{\Xi_{\xi}}\dd\Theta(\bm{u})\, \exp\left\{-\frac{1}{2}\beta\kappa\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{u})]^2\right\},\enspace \xi \to {\xi}^{*},
+%                                 &\qquad \times \int_{\Xi_{\xi}}\dd\Theta(\bm{u})\, \exp\left\{-\tfrac{1}{2}\beta\kappa\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{u})]^2\right\},\enspace \xi \to {\xi}^{*},
 %  \end{aligned}
 %  \label{eq:mpd_singular}
 %\end{equation}
@@ -778,7 +778,7 @@ Continuing with $\theta_{1}$ as our \ac{cv}, to evaluate the integral in Eq.~\eq
 %
 \begin{equation}
   \begin{aligned}
-    \bm{w}(\bm{u}) &= \left(\frac{1}{2}\bm{u}\trans \hess f_1 \bm{u},\, \frac{1}{2}\bm{u}\trans\hess f_2\bm{u},\, \frac{1}{2}\bm{u}\trans\hess f_3\bm{u},\, \frac{1}{2}\bm{u}\trans\hess f_4\bm{u} \right)\\
+    \bm{w}(\bm{u}) &= \left(\tfrac{1}{2}\bm{u}\trans \hess f_1 \bm{u},\, \tfrac{1}{2}\bm{u}\trans\hess f_2\bm{u},\, \tfrac{1}{2}\bm{u}\trans\hess f_3\bm{u},\, \tfrac{1}{2}\bm{u}\trans\hess f_4\bm{u} \right)\\
       &= \left[0,\,q_3^2/(2a),\,(q_3-q_5)^2/(2\lambda a),\,q_5^2/(2a)\right].
   \end{aligned}
   \label{eq:4bar_w}
@@ -790,7 +790,7 @@ Using this in Eq.~\eqref{eq:mpd_singular} along with $(\nabla\hat{\theta}_{1})\b
 %
 \begin{equation}
   \begin{aligned}
-    \mathscr{P}(\theta_1) %&\sim \frac{\lambda a}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}\int \dd{q}_3\, \dd{q}_5\, \delta\left[(\nabla\hat{\theta}_{1})\bm{u} - \theta_1\right]\exp\left[-\frac{1}{2}\beta\kappa(\bm{\sigma}\cdot\bm{w})^2\right]\\
+    \mathscr{P}(\theta_1) %&\sim \frac{\lambda a}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}\int \dd{q}_3\, \dd{q}_5\, \delta\left[(\nabla\hat{\theta}_{1})\bm{u} - \theta_1\right]\exp\left[-\tfrac{1}{2}\beta\kappa(\bm{\sigma}\cdot\bm{w})^2\right]\\
                                            &\sim \frac{\lambda a}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}\Biggl(\int_{-\infty}^{\infty} \dd{q}_3\, \dd{q}_{5}\, \delta(a^{-1}q_{5} - \theta_{1})\\
                                            &\phantom{\sim \frac{\lambda a}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}}\quad\times\exp\left\{-\frac{\beta\kappa}{32\lambda^2a^2}\left[q_3 - q_5\right]^2\left[(\lambda-1)q_3 + (\lambda+1)q_5\right]^2\right\}\Biggr)\\
                                            &= \frac{\lambda a^2}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}\int_{-\infty}^{\infty} \dd{q}_3\, \exp\left\{-\frac{\beta\kappa}{32\lambda^2a^2}\left[q_3 - a\theta_{1}\right]^2\left[(\lambda-1)q_3 + (\lambda+1)a\theta_{1}\right]^2\right\}.
@@ -805,7 +805,7 @@ To evaluate the integral in Eq.~\eqref{eq:4bar_mpd_int}, we symmetrize the expre
 \begin{equation}
   \begin{aligned}
     \mathscr{P}(\theta_1) &\sim \frac{\lambda a^2}{2}\left(\frac{2\pi}{\beta\kappa}\right)^{3/2}\int_{-\infty}^{\infty} \dd q_3\, \exp\left\{-\frac{\beta\kappa(\lambda-1)^2}{32\lambda^2 a^2}\left[q_3^2 - \frac{\lambda^2 a^2\theta_1^2}{(\lambda-1)^2}\right]^2\right\}\\
-                                           &= \lambda a^2\frac{(2\pi)^{3/2}}{(\beta\kappa)^{7/4}}\sqrt{\frac{\lambda{a}}{\abs{\lambda-1}}}\exp\left[-\frac{\beta\kappa\lambda^2a^2\theta_1^4}{32(\lambda-1)^2}\right]\int_{0}^{\infty} \dd x\, x^{-1/2}\exp\left(-\frac{1}{2}x^2 + \frac{\sqrt{\beta\kappa}\lambda a\theta_1^2}{4\abs{\lambda-1}}x\right)\\
+                                           &= \lambda a^2\frac{(2\pi)^{3/2}}{(\beta\kappa)^{7/4}}\sqrt{\frac{\lambda{a}}{\abs{\lambda-1}}}\exp\left[-\frac{\beta\kappa\lambda^2a^2\theta_1^4}{32(\lambda-1)^2}\right]\int_{0}^{\infty} \dd x\, x^{-1/2}\exp\left(-\tfrac{1}{2}x^2 + \frac{\sqrt{\beta\kappa}\lambda a\theta_1^2}{4\abs{\lambda-1}}x\right)\\
                                            &= \lambda a^2\frac{(2\pi)^{3/2}}{(\beta\kappa)^{7/4}}\sqrt{\frac{\pi\lambda{a}}{\abs{\lambda-1}}}\exp\left[-\frac{\beta\kappa\lambda^2a^2\theta_1^4}{64(\lambda-1)^2}\right]D_{-1/2}\left(-\frac{\sqrt{\beta\kappa}\lambda a\theta_1^2}{4\abs{\lambda-1}}\right),
   \end{aligned}
   \label{eq:4bar_0}
@@ -855,7 +855,7 @@ where $X$ and $Y$ are positive dimensionless terms independent of $\theta_1$ and
 From Eq.~\eqref{eq:4bar_free}, we also find the free-energy difference between the singular values $\theta_{1} = 0$ and $\theta_{1} = \pm\pi$ to be
 %
 \begin{equation}
-  \mathscr{A}(\pm\pi) - \mathscr{A}(0) \sim -\beta^{-1}\log{Y^{1/2}} = \frac{1}{2}\beta^{-1}\ln\left|\frac{\lambda + 1}{\lambda - 1}\right|,
+  \mathscr{A}(\pm\pi) - \mathscr{A}(0) \sim -\beta^{-1}\log{Y^{1/2}} = \tfrac{1}{2}\beta^{-1}\ln\left|\frac{\lambda + 1}{\lambda - 1}\right|,
 \end{equation}
 %
 which is a purely geometric quantity.
@@ -913,7 +913,7 @@ which is the equation for a double well, with $\Gamma(\cdot)$ being the gamma fu
 Expanding $\Delta\mathscr{A}(\theta_{1})$ to $\mathcal{O}(\abs{\theta_{1}}^{6})$ we see that the two double-well minima are approximately at\footnote{We expand $\Delta\mathscr{A}(\theta_{1})$ to $\mathcal{O}(\abs{\theta_{1}}^{6})$ instead of $\mathcal{O}(\abs{\theta_{1}}^{4})$ since there are higher-order corrections to Eq.~\eqref{eq:4barwell} that make an $\mathcal{O}(\abs{\theta_{1}}^{4})$ estimation less accurate.}
 %
 \begin{equation}
-  \theta_{1}^{\text{min}} \approx \pm \sqrt{\frac{\Gamma^{2}\left(\frac{1}{4}\right)\left\{8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right) - \sqrt{\left[8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right)\right]^{2} - (16\pi^{2})^{2}}\right\}}{64\pi^{3}X}}.
+  \theta_{1}^{\text{min}} \approx \pm \sqrt{\frac{\Gamma^{2}\left(\tfrac{1}{4}\right)\left\{8\pi^{2} + \Gamma^{4}\left(\tfrac{1}{4}\right) - \sqrt{\left[8\pi^{2} + \Gamma^{4}\left(\tfrac{1}{4}\right)\right]^{2} - (16\pi^{2})^{2}}\right\}}{64\pi^{3}X}}.
   \label{eq:thetamin}
 \end{equation}
 %
@@ -1010,7 +1010,7 @@ To find the components of $\bm{t}_{0}$, we then solve the $(N - 4)$ coupled quad
 \end{equation}
 %
 along with the normalization condition $\Abs{\bm{t}_{0}} = 1$.
-Here the $i$th component of the vector $\bm{w}(\bm{t}_{0}) \in \mathbb{R}^{m}$ is $\frac{1}{2}\bm{t}_{0}\trans \hess f_{i} \bm{t}_{0}$, as in Eq.~\eqref{eq:tangentcone}. % TODO: fix eq number; this is wrong.
+Here the $i$th component of the vector $\bm{w}(\bm{t}_{0}) \in \mathbb{R}^{m}$ is $\tfrac{1}{2}\bm{t}_{0}\trans \hess f_{i} \bm{t}_{0}$, as in Eq.~\eqref{eq:tangentcone}. % TODO: fix eq number; this is wrong.
 
 Numerical evidence~\cite{chen2018} suggests that one would get $2^{N-4}$ unique tangent vectors---each corresponding to a particular branch---by solving the above quadratic equations.
 (Also see the related discussion regarding the solution space of these equations in Section~\ref{sec:convergence}.)
@@ -1125,7 +1125,7 @@ Similar to the four-bar linkage and the triangulated origami, the effective free
 Expanding $\Delta\mathscr{A}(\zeta)$ to $\mathcal{O}(\zeta_{1}^{3}\zeta_{2}^{3})$ around $\zeta^{*}$ we see that the bottom of the free-energy valley near the singular value [white dashed curves in Figs.~\ref{fig:5bar}(c) and \ref{fig:5bar}(d)] is approximately defined by the equation
 %
 \begin{equation}
-  \zeta_{1}\zeta_{2} = \frac{\Gamma^{2}\left(\frac{1}{4}\right)\left\{8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right) - \sqrt{\left[8\pi^{2} + \Gamma^{4}\left(\frac{1}{4}\right)\right]^{2} - (16\pi^{2})^{2}}\right\}}{64\pi^{3}Z},
+  \zeta_{1}\zeta_{2} = \frac{\Gamma^{2}\left(\tfrac{1}{4}\right)\left\{8\pi^{2} + \Gamma^{4}\left(\tfrac{1}{4}\right) - \sqrt{\left[8\pi^{2} + \Gamma^{4}\left(\tfrac{1}{4}\right)\right]^{2} - (16\pi^{2})^{2}}\right\}}{64\pi^{3}Z},
   \label{eq:5barvalley}
 \end{equation}
 %
@@ -1138,7 +1138,7 @@ Our discussion so far has been concerned with frameworks with isolated singulari
 In such frameworks, the constraint map $f$ drops rank only at the singularities and has full rank everywhere else.
 Now consider the framework shown in Fig.~\ref{fig:trimer}(a).
 The bars connecting joints~1, 2, and 3 of this framework are in a permanent state of self stress, irrespective of the value of the angle $\theta$.
-By direct inspection we see that the one-dimensional shape space $\Sigma$ of this framework can be parameterized in terms of the internal angle $\theta$ using $\psi(\theta) = (a, \frac{1}{2}a, 0, a\cos{\theta}, a\sin{\theta})$.
+By direct inspection we see that the one-dimensional shape space $\Sigma$ of this framework can be parameterized in terms of the internal angle $\theta$ using $\psi(\theta) = (a, \tfrac{1}{2}a, 0, a\cos{\theta}, a\sin{\theta})$.
 This equation defines a smooth circle in $\mathbb{R}^{5}$, which does not have any ``visible'' singularities.
 However, on inserting this parameterization into the compatibility matrix $\mathsf{C} = \nabla f$ and the dynamical matrix $\mathsf{D} = \mathsf{C}\trans\mathsf{K}\mathsf{C}$ we find (assuming that all bars have stiffness $\kappa$)
 %
@@ -1179,7 +1179,7 @@ Note that such a decomposition of $\ker\mathsf{C}$ into two vector subspaces is 
   \begin{center}
     \includegraphics{frameworks/trimer.pdf}
   \end{center}
-  \caption{(a) A planar framework with four joints and four bars in a body frame attached to the framework.  A bar of length $a$ connects joints~1 and~2, and two other bars of length $\frac{1}{2}a$ connect joint~3 with joints~1 and~2, which results in a state of self stress between joints 1, 2, and 3~\cite{calladine1978} for all values of $\theta$. Here $\bm{t}$ is the zero mode corresponding to tangential motion on the shape space $\Sigma$, $\bm{u}$ is a singular zero mode associated with the self stress, and $\bm{v}$ is one of the three vibrational modes.  (b) Free-energy difference $\Delta\mathscr{A}(\theta)$ [Eq.~\eqref{eq:trimer_free}] in units of $\beta^{-1}$ for a hypothetical $\theta$-dependent stiffness $\kappa(\theta) = \kappa_{0}(1 + \cos^{2}{\theta})$, chosen to verifying scaling. For constant stiffness, $\Delta\mathscr{A}(\theta)$ is zero and the free-energy landscape is flat (unlike in the case of isolated singularities).}
+  \caption{(a) A planar framework with four joints and four bars in a body frame attached to the framework.  A bar of length $a$ connects joints~1 and~2, and two other bars of length $\tfrac{1}{2}a$ connect joint~3 with joints~1 and~2, which results in a state of self stress between joints 1, 2, and 3~\cite{calladine1978} for all values of $\theta$. Here $\bm{t}$ is the zero mode corresponding to tangential motion on the shape space $\Sigma$, $\bm{u}$ is a singular zero mode associated with the self stress, and $\bm{v}$ is one of the three vibrational modes.  (b) Free-energy difference $\Delta\mathscr{A}(\theta)$ [Eq.~\eqref{eq:trimer_free}] in units of $\beta^{-1}$ for a hypothetical $\theta$-dependent stiffness $\kappa(\theta) = \kappa_{0}(1 + \cos^{2}{\theta})$, chosen to verifying scaling. For constant stiffness, $\Delta\mathscr{A}(\theta)$ is zero and the free-energy landscape is flat (unlike in the case of isolated singularities).}
   \label{fig:trimer}
 \end{figure}
 
@@ -1193,8 +1193,8 @@ Integrating over the components of $\bm{t}$ yields
 %
 \begin{equation}
   \begin{aligned}
-    \mathscr{P}(\xi) &\sim I(\xi)\left(\frac{2\pi}{\beta}\right)^{(m - s)/2} \left|\det\,[\nabla\psi(\xi)]\trans\nabla\psi(\xi)\right|^{1/2} \int_{\mathscr{S}} \dd\bm{u} \int_{(\ker\mathsf{C})^{\perp}} \dd\bm{v}\, \exp\left[-\frac{1}{2}\beta\kappa\Abs{\mathsf{C}\bm{v} + \bm{w}(\bm{u})}^{2}\right]\\
-                                 &= I(\xi)\left(\frac{2\pi}{\beta}\right)^{(m - s)/2}(\beta\kappa)^{-s/4} \left|\frac{\det\,[\nabla\psi(\xi)]\trans\nabla\psi(\xi)}{\det\,\mathsf{D}^{\perp}(\xi)}\right|^{1/2} \int_{\mathbb{R}^{s}} \dd\bm{x}\, \exp\left\{-\frac{1}{2}\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{x})]^{2}\right\}.
+    \mathscr{P}(\xi) &\sim I(\xi)\left(\frac{2\pi}{\beta}\right)^{(m - s)/2} \left|\det\,[\nabla\psi(\xi)]\trans\nabla\psi(\xi)\right|^{1/2} \int_{\mathscr{S}} \dd\bm{u} \int_{(\ker\mathsf{C})^{\perp}} \dd\bm{v}\, \exp\left[-\tfrac{1}{2}\beta\kappa\Abs{\mathsf{C}\bm{v} + \bm{w}(\bm{u})}^{2}\right]\\
+                                 &= I(\xi)\left(\frac{2\pi}{\beta}\right)^{(m - s)/2}(\beta\kappa)^{-s/4} \left|\frac{\det\,[\nabla\psi(\xi)]\trans\nabla\psi(\xi)}{\det\,\mathsf{D}^{\perp}(\xi)}\right|^{1/2} \int_{\mathbb{R}^{s}} \dd\bm{x}\, \exp\left\{-\tfrac{1}{2}\sum_{\bm{\sigma}}[\bm{\sigma}\cdot\bm{w}(\bm{x})]^{2}\right\}.
   \end{aligned}
   \label{eq:mpd_perm}
 \end{equation}
@@ -1235,7 +1235,7 @@ Returning to the example framework in Fig.~\ref{fig:trimer}(a), using Eq.~\eqref
 \begin{equation}
   \mathscr{P}(\theta) = \Gamma\left(\tfrac{1}{4}\right)\left|\frac{2\pi^{6}a^{10}}{3(\beta\kappa)^{7}}\right|^{1/4},
   \quad
-  \Delta\mathscr{A}(\theta) = \frac{7}{4}\beta^{-1}\ln\left[\frac{\kappa(\theta)}{\kappa(0)}\right].
+  \Delta\mathscr{A}(\theta) = \tfrac{7}{4}\beta^{-1}\ln\left[\frac{\kappa(\theta)}{\kappa(0)}\right].
   \label{eq:trimer_free}
 \end{equation}
 %
@@ -1328,7 +1328,7 @@ Consequently, $\mathscr{A}(\xi)$ may have an entirely different set of extremas 
 This is best illustrated with an example.
 Consider a rotor of unit natural length in two dimensions centered around the origin with a rotationally symmetric potential energy%
 \footnote{We could have also chosen the more conventional energy function $U(x, y) = \kappa(\smash[b]{\sqrt{x^2 + y^2}} - 1)^2$, but that makes the integrals that follow difficult to evaluate exactly.}
-$U(x, y) = \frac{1}{2}\kappa(x^2 + y^2 - 1)^2$, with $\kappa$ being a ``spring constant'' to set the units [see Fig.~\ref{fig:rotor}(b)].
+$U(x, y) = \tfrac{1}{2}\kappa(x^2 + y^2 - 1)^2$, with $\kappa$ being a ``spring constant'' to set the units [see Fig.~\ref{fig:rotor}(b)].
 This potential energy function achieves its minimum on the unit circle $\Omega$ defined by $x^2 + y^2 = 1$, which we treat as the ``configuration space'' $\Omega$ of the rotor.
 If we choose the $x$ coordinate of the rotor as our \ac{cv}, the \ac{cv} map is $\hat{x}: (x,y) \mapsto x$.
 The marginal density $\mathscr{P}(x)$ of the \ac{cv} is then

@@ -118,7 +118,7 @@ Geometrically, this corresponds to nontransversal intersection of the zero level
 \section{Frameworks}
 \label{sec:frameworks}
 
-Let us now turn our attention to bar-joint frameworks made of $N \geq 3$ point-like joints in $d$ dimensions connected by $m < Nd - \frac{1}{2}d(d+1)$ freely-rotating, massless bars.
+Let us now turn our attention to bar-joint frameworks made of $N \geq 3$ point-like joints in $d$ dimensions connected by $m < Nd - \tfrac{1}{2}d(d+1)$ freely-rotating, massless bars.
 If the joints have position vectors $\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N} \in \mathbb{R}^d$ in the lab frame, the framework's configuration can be fully described at any given moment using a configuration vector $\bm{r}\in\mathbb{R}^{N d}$ defined by $\bm{r} = (\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N})$.
 Let the $i$th bar in the framework have a length $\ell_{i}$.
 It is also clear that the length $\ell(\bm{r}_{i})$ can always be considered as a function of the coordinate $\bm{r}$ describing the entire network.
@@ -129,8 +129,8 @@ To separate the actual deformations of the framework from trivial rigid motions,
 obtained after ``filtering out'' all the rigid motions from the configuration space.%
 \footnote{More technically, the shape space is the quotient space $\Sigma = \Omega/SE(d)$, where $SE(d)$ is the special Euclidean group in $d$ dimensions~\cite{littlejohn1995}.}
 
-To practically identify $\Sigma$, we first switch to a Cartesian body frame attached to the framework so that all $\frac{1}{2}d(d+1)$ rigid motions are eliminated~\cite{herschbach1959,echenique2011}.
-We require $n = Nd - \frac{1}{2}d(d+1)$ coordinates to specify the state of the framework in the body frame and let $\bm{q} \in \mathbb{R}^{n}$ be its configuration vector in this frame.
+To practically identify $\Sigma$, we first switch to a Cartesian body frame attached to the framework so that all $\tfrac{1}{2}d(d+1)$ rigid motions are eliminated~\cite{herschbach1959,echenique2011}.
+We require $n = Nd - \tfrac{1}{2}d(d+1)$ coordinates to specify the state of the framework in the body frame and let $\bm{q} \in \mathbb{R}^{n}$ be its configuration vector in this frame.
 Now consider $m$ holonomic constraint functions $f_i: \mathbb{R}^{n} \to \mathbb{R},\,i=1,2,\ldots,m$, each associated with a single bar, and defined by
 %
 \begin{equation}
@@ -144,7 +144,7 @@ Then, the shape space is the zero level set $\Sigma = \{\bm{q} \in \mathbb{R}^{n
 In the absence of external forces, each point in $\Sigma$ is a ground-state configuration of the framework with a distinct shape.
 
 The compatibility matrix $\mathsf{C}(\bar{\bm{q}})$~\cite{pellegrino1986,lubensky2015} at a configuration $\bar{\bm{q}} \in \Sigma$ is the $m \times n$ Jacobian matrix $\nabla f$ of the constraint map $f$.%
-\footnote{In Eq.~\eqref{eq:consmap} it might have been more natural to use the constraint function $f_{i} = \frac{1}{2}[\ell_{i}^{2}(\bm{q}) - \bar{\ell}_{i}^{2}]$, without the $\bar{\ell}_{i}^{-1}$ factor.  This would have made $\nabla f$ the rigidity matrix instead of the compatibility matrix.  For our purposes, however, it is more convenient to work with the compatibility matrix as its entries are dimensionless.}
+\footnote{In Eq.~\eqref{eq:consmap} it might have been more natural to use the constraint function $f_{i} = \tfrac{1}{2}[\ell_{i}^{2}(\bm{q}) - \bar{\ell}_{i}^{2}]$, without the $\bar{\ell}_{i}^{-1}$ factor.  This would have made $\nabla f$ the rigidity matrix instead of the compatibility matrix.  For our purposes, however, it is more convenient to work with the compatibility matrix as its entries are dimensionless.}
 If $\mathsf{C}$ has full rank for all points in $\Sigma$, then $\Sigma$ is an $(n - m)$-dimensional submanifold of $\mathbb{R}^{n}$~\cite{leimkuhler2005,lee2013}.
 But frameworks, like general constrained-systems, can have shape spaces that are not smooth manifolds.
 Consider, for example, the four-bar linkage depicted in Fig.~\ref{fig:4bar_cs}.
@@ -331,7 +331,7 @@ First, let us consider the case where $\bar{\bm{q}}$ is not a point of self stre
 In such a situation, after setting $\bm{q} \to \bar{\bm{q}} + \bm{q}$, the potential energy of a single bar to $\mathcal{O}(\Abs{\bm{q}}^2)$ is the familiar Hookean potential
 %
 \begin{equation}
-  \phi[\ell(\bar{\bm{q}} + \bm{q})] =  \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 + \mathcal{O}(\Abs{\bm{q}}^3).
+  \phi[\ell(\bar{\bm{q}} + \bm{q})] =  \tfrac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 + \mathcal{O}(\Abs{\bm{q}}^3).
 \end{equation}
 %
 Above, the partial derivatives of $\ell(\bm{q})$ and the derivatives of $\phi(\ell)$ have been evaluated at $\bar{\bm{q}} \in \Sigma$ and $\ell = \bar{\ell}$, respectively.
@@ -339,7 +339,7 @@ The repeated indices are summed over as usual.
 Defining the stiffness of the $i$th bar to be $\kappa_{i} = \phi_{i}''(\ell_{i})$ and noting that $\partial_{j}\ell_{i}\,q_{j} = \partial_{j}f_{i}\,q_{j} = \nabla f_{i}\cdot\bm{q}$, the total energy of the framework becomes (after reintroducing the free index $i$)
 %
 \begin{equation}\boxed{%
-  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \frac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \frac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \frac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.}
+  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \tfrac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \tfrac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \tfrac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.}
   \label{eq:regenergy}
 \end{equation}
 %
@@ -356,13 +356,13 @@ Dropping the index $i$ again, we first expand the energy of a bar to $\mathcal{O
 \begin{equation}
   \begin{aligned}
     \phi[\ell(\bar{\bm{q}} + \bm{q})] &=
-    \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 +
-    \frac{1}{6}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^3 +
-    \frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)\partial_k\partial_l \ell\, q_k q_l\\ &\qquad+
+    \tfrac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)^2 +
+    \tfrac{1}{6}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^3 +
+    \tfrac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\,q_j)\partial_k\partial_l \ell\, q_k q_l\\ &\qquad+
     \frac{1}{24}\phi''''(\bar{\ell})(\partial_j \ell\,q_j)^4 +
-    \frac{1}{4}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^2 \partial_k \partial_l \ell\, q_k q_l\\ &\qquad+
-    \frac{1}{8}\phi''(\bar{\ell})(\partial_j\partial_k \ell\, q_j q_k)^2 +
-    \frac{1}{6}\phi''(\bar{\ell})(\partial_j \ell\, q_j)\partial_k\partial_l\partial_m \ell\, q_k q_l q_m + \mathcal{O}(\Abs{\bm{q}}^5).
+    \tfrac{1}{4}\phi'''(\bar{\ell})(\partial_j \ell\,q_j)^2 \partial_k \partial_l \ell\, q_k q_l\\ &\qquad+
+    \tfrac{1}{8}\phi''(\bar{\ell})(\partial_j\partial_k \ell\, q_j q_k)^2 +
+    \tfrac{1}{6}\phi''(\bar{\ell})(\partial_j \ell\, q_j)\partial_k\partial_l\partial_m \ell\, q_k q_l q_m + \mathcal{O}(\Abs{\bm{q}}^5).
   \end{aligned}
   \label{sm:eq:energyexp}
 \end{equation}
@@ -383,17 +383,17 @@ Using this in Eq.~\eqref{sm:eq:lentomap} we get
   \end{aligned}
 \end{equation}
 %
-Setting $\bm{v} = \bm{0}$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathcal{O}(\Abs{\bm{u}}^4)$ term $\frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \frac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
+Setting $\bm{v} = \bm{0}$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathcal{O}(\Abs{\bm{u}}^4)$ term $\tfrac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \tfrac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
 
 To understand how a fast mode $\bm{v}$ contributes to the energy, we similarly set $\bm{u} = \bm{0}$ in the energy expansion.
 Since $\bm{v}$ belongs to the orthogonal compliment of the subspace of zero modes, by definition, $\partial_j \ell v_j = \partial_j f v_j \ne 0$.
-Hence, we see that the first nonvanishing contribution comes from the $\mathcal{O}(\Abs{\bm{v}}^2)$ term $\frac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\, v_j)^2 = \frac{1}{2}\phi''(\bar{\ell})(\partial_j f\, v_j)^2$.
+Hence, we see that the first nonvanishing contribution comes from the $\mathcal{O}(\Abs{\bm{v}}^2)$ term $\tfrac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\, v_j)^2 = \tfrac{1}{2}\phi''(\bar{\ell})(\partial_j f\, v_j)^2$.
 This shows that the energy scales as $\mathcal{O}(\Abs{\bm{u}}^4) \sim \mathcal{O}(\Abs{\bm{v}}^2)$, i.e., zero and fast modes respectively make quartic- and harmonic-order contributions to the energy.
 Finally, we set $\bm{q} = \bm{u} + \bm{v}$ in Eq.~\eqref{sm:eq:energyexp}, and find the energy of the $i$th bar to the lowest order in $\bm{u}$ and $\bm{v}$ as
 %
 \begin{equation}
   \begin{aligned}
-    \phi_i &= \frac{1}{2}\phi_i''(\bar{\ell}_i)(\partial_j\, f_i\, v_j)^2 + \frac{1}{2}\phi''_i(\bar{\ell}_i)(\partial_j f_i\, v_j)(\partial_k \partial_l f_i\, u_k u_l) + \frac{1}{8}\phi''_i(\bar{\ell}_i)(\partial_k \partial_l f_i\, u_k u_l)^2\\
+    \phi_i &= \tfrac{1}{2}\phi_i''(\bar{\ell}_i)(\partial_j\, f_i\, v_j)^2 + \tfrac{1}{2}\phi''_i(\bar{\ell}_i)(\partial_j f_i\, v_j)(\partial_k \partial_l f_i\, u_k u_l) + \tfrac{1}{8}\phi''_i(\bar{\ell}_i)(\partial_k \partial_l f_i\, u_k u_l)^2\\
            &\qquad+ \mathcal{O}(\Abs{\bm{u}}^5) + \mathcal{O}(\Abs{\bm{u}}^{3}\Abs{\bm{v}}) +\mathcal{O}(\Abs{\bm{u}}\Abs{\bm{v}}^{2}),
   \end{aligned}
 \end{equation}
@@ -403,14 +403,14 @@ In the above equation, $\phi_{i}''(\bar{\ell}_i) = \kappa_i$, the stiffness of t
 Then, the energy of the $i$th bar to the lowest order is
 %
 \begin{equation}
-  \phi_i \approx \frac{1}{2}\kappa_i \left[\nabla f_i\cdot\bm{v} + \frac{1}{2}\bm{u}\trans(\hess f_i)\bm{u}\right]^2.
+  \phi_i \approx \tfrac{1}{2}\kappa_i \left[\nabla f_i\cdot\bm{v} + \tfrac{1}{2}\bm{u}\trans(\hess f_i)\bm{u}\right]^2.
 \end{equation}
 %
-For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $[\bm{w}(\bm{u})]_{i} = \frac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
+For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $[\bm{w}(\bm{u})]_{i} = \tfrac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
 With this definition, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ is
 %
 \begin{equation}\boxed{%
-  U = \sum_{i=1}^m \phi_i \approx \frac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].}
+  U = \sum_{i=1}^m \phi_i \approx \tfrac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].}
   \label{eq:energy_singular}
 \end{equation}
 %

@@ -123,7 +123,7 @@ In this context, the ordinary function is called the symbol of the operator~\cit
 In physics, this usually entails replacing the momentum $k$ with the operator $\hat{k} = -i\epsilon\partial_{x}$, where $\epsilon$ is a small parameter, which in quantum mechanics is the Planck's constant.
 Ambiguities arise when we encounter functions that depend on both $x$ and $k$, e.g., $f(x, k) = xk$.
 As $x$ and $k$ are ordinary variables that commute, $f(x, k) = kx$.
-But should the quantized operator be $\hat{f} = x\hat{k}$, or $\hat{f} = \hat{k}x$, or the symmetrized version $\hat{f} = \frac{1}{2}\left(\hat{x}\hat{k} + \hat{k}\hat{x}\right)$?
+But should the quantized operator be $\hat{f} = x\hat{k}$, or $\hat{f} = \hat{k}x$, or the symmetrized version $\hat{f} = \tfrac{1}{2}\left(\hat{x}\hat{k} + \hat{k}\hat{x}\right)$?
 This is the operator ordering problem.%
 \footnote{This problem only exists between $\hat{x}$ and $\hat{k}$ }
 
@@ -175,7 +175,7 @@ A consequence of the above definition is that if operator $\widehat{A}$ is Hermi
 showing that the symbol $A(x, k)$ is a real function of $x$ and $k$.
 
 \begin{example}
-  For a one-dimensional operator $\widehat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \frac{1}{2}s}a\hat{x}^{n}\ket{x - \frac{1}{2}s} = a \left(x - \frac{1}{2}s\right)^{n}\braket{x + \frac{1}{2}s | x - \frac{1}{2}s} = a\left(x - \frac{1}{2}s\right)^{n} \delta(s)$ in Eq.~\eqref{eq:weylsym}, we find $A = a x^{n}$.
+  For a one-dimensional operator $\widehat{A} = a\hat{x}^{n}$, with $a \in \mathbb{C}$ and $n \in \mathbb{Z}$, on making use of $\bra{x + \tfrac{1}{2}s}a\hat{x}^{n}\ket{x - \tfrac{1}{2}s} = a \left(x - \tfrac{1}{2}s\right)^{n}\braket{x + \tfrac{1}{2}s | x - \tfrac{1}{2}s} = a\left(x - \tfrac{1}{2}s\right)^{n} \delta(s)$ in Eq.~\eqref{eq:weylsym}, we find $A = a x^{n}$.
   This also means that the operator $\widehat{A} = \sum_{n} a_{n}\hat{x}^{n}$, which is a polynomial in $\hat{x}$, with $a_{n}$ being the coefficients, has the symbol
   $A = \sum_{n} a_{n}{x}^{n}$, an ordinary polynomial in $x$.
   More generally, in $d$ dimensions, if $\widehat{A}$ is a multivariate polynomial in the components of $\hat{\bm{x}}$, i.e., $\widehat{A} = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} \hat{x}_{1}^{n_{1}}\hat{x}_{2}^{n_{2}}\cdots \hat{x}_{d}^{n_{d}}$, then the corresponding Weyl symbol is $A = \sum_{n_{i}} a_{n_{1}n_{2}\cdots n_{d}} {x}_{1}^{n_{1}}{x}_{2}^{n_{2}}\cdots {x}_{d}^{n_{d}}$.%
@@ -195,7 +195,7 @@ As $\widehat{A}$ and $\widehat{B}$ are general noncommuting operators, there is 
 \end{equation}
 %
 Above we have set $x' \to 2x'$ in the usual Wigner transform expression.
-Using the Weyl transform to express the matrix elements $\bra{x + \frac{1}{2}x'}\widehat{A}\ket{x''}$ and $\bra{x''}\widehat{B}\ket{x - \frac{1}{2}x'}$ in terms of the symbols $A$ and $B$, we find
+Using the Weyl transform to express the matrix elements $\bra{x + \tfrac{1}{2}x'}\widehat{A}\ket{x''}$ and $\bra{x''}\widehat{B}\ket{x - \tfrac{1}{2}x'}$ in terms of the symbols $A$ and $B$, we find
 %
 \begin{equation}
   \begin{aligned}
@@ -204,7 +204,7 @@ Using the Weyl transform to express the matrix elements $\bra{x + \frac{1}{2}x'}
   \end{aligned}
 \end{equation}
 %
-Setting $x_{1} = \frac{1}{2}(x + x' + x'')$ and $x_{2} = \frac{1}{2}(x - x' + x'')$ and changing variables, we find\footnote{An extra Jacobian factor equal to 2 appears while transforming $(x', x'') \to (x_{1}, x_{2})$~\cite[Eq.~(2.3.23) and Problem~2.3.8]{chaichian2001}}
+Setting $x_{1} = \tfrac{1}{2}(x + x' + x'')$ and $x_{2} = \tfrac{1}{2}(x - x' + x'')$ and changing variables, we find\footnote{An extra Jacobian factor equal to 2 appears while transforming $(x', x'') \to (x_{1}, x_{2})$~\cite[Eq.~(2.3.23) and Problem~2.3.8]{chaichian2001}}
 %
 \begin{equation}
   \begin{aligned}
@@ -232,7 +232,7 @@ Then,
 %
 \begin{equation}
   \begin{aligned}
-    e^{-2ik_{2}x} e^{\frac{i}{2}\ogets{\partial_{x}}\oto{\partial_{k}}} &= e^{-2ik_{2}x} \left[1 +  \tfrac{i}{2}\ogets{\partial_{x}}\oto{\partial_{k}} - \tfrac{1}{8}\ogets{\partial^{2}_{x}}\oto{\partial^{2}_{k}} + \cdots \right]\\
+    e^{-2ik_{2}x} e^{(i/2)\ogets{\partial_{x}}\oto{\partial_{k}}} &= e^{-2ik_{2}x} \left[1 +  \tfrac{i}{2}\ogets{\partial_{x}}\oto{\partial_{k}} - \tfrac{1}{8}\ogets{\partial^{2}_{x}}\oto{\partial^{2}_{k}} + \cdots \right]\\
                                                             &= e^{-2ik_{2}x} \left[1 +  k_{2}\oto{\partial_{k}} + \tfrac{1}{2}k_{2}^{2}\oto{\partial^{2}_{k}} + \cdots \right]\\
                                                             &= e^{-2ik_{2}x}e^{k_{2}\partial_{k}}
   \end{aligned}\label{eq:moyal3}
@@ -241,16 +241,16 @@ Then,
 Similarly, we see that
 %
 \begin{equation}
-  e^{2ikx_{2}}e^{-\frac{i}{2}\ogets{\partial_{k}}\oto{\partial_{x}}} = e^{2ikx_{2}}e^{x_{2}\partial_{x}}.\label{eq:moyal4}
+  e^{2ikx_{2}}e^{-(i/2)\ogets{\partial_{k}}\oto{\partial_{x}}} = e^{2ikx_{2}}e^{x_{2}\partial_{x}}.\label{eq:moyal4}
 \end{equation}
 %
 Using Eqs.~\eqref{eq:moyal2}--\eqref{eq:moyal4}, and defining the Janus operator $\widehat{\mathcal{L}} = \ogets{\partial_{x}} \oto{\partial_{k}} - \ogets{\partial_{k}}\oto{\partial_{x}}$, we can turn Eq.~\eqref{eq:moyal1} into
 %
 \begin{equation}
   \begin{aligned}
-    C(x, k) &= \frac{1}{\pi^{2}} \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \dd{x_{2}}\, \dd{k_{2}}\,e^{2i[k_{2}(x_{1} - x) - x_{2}(k_{1} - k)]} A(x_{1}, k_{1})\, e^{\frac{i}{2}\widehat{\mathcal{L}}}\right] B(x, k)\\
-                     &= \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \delta(x_{1} - x)\,\delta(k_{1} - k) A(x_{1}, k_{1})\, e^{\frac{i}{2}\widehat{\mathcal{L}}}\right] B(x, k)\\
-                     &= A(x, k)e^{\frac{i}{2}\widehat{\mathcal{L}}} B(x, k).
+    C(x, k) &= \frac{1}{\pi^{2}} \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \dd{x_{2}}\, \dd{k_{2}}\,e^{2i[k_{2}(x_{1} - x) - x_{2}(k_{1} - k)]} A(x_{1}, k_{1})\, e^{(i/2)\widehat{\mathcal{L}}}\right] B(x, k)\\
+                     &= \left[\int \dd{x_{1}}\, \dd{k_{1}}\, \delta(x_{1} - x)\,\delta(k_{1} - k) A(x_{1}, k_{1})\, e^{(i/2)\widehat{\mathcal{L}}}\right] B(x, k)\\
+                     &= A(x, k)e^{(i/2)\widehat{\mathcal{L}}} B(x, k).
   \end{aligned}
 \end{equation}
 %

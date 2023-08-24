@@ -6,6 +6,8 @@ s/\\hat{\\\(Delta\|Gamma\|Lambda\|Omega\|Pi\|Psi\|Sigma\|Upsilon\|Phi\|Theta\|Xi
 s|\\hat{\\mathsf{\([A-Z]\)}}|\\widehat{\\mathsf{\1}}|g
 s|\\hat{\\mathcal{\([A-Z]\)}}|\\widehat{\\mathcal{\1}}|g
 
+s|\\widehat{\\mathsf{I}}|\\hat{\\mathsf{I}}|g
+
 s|\\subsubsection{|\\subsubsection*{|g
 
 s|Thin elastic|Thin, elastic|g
@@ -23,3 +25,4 @@ s|\\kappa\\beta|\\beta\\kappa|g
 s|\\ln{|\\log{|g
 
 s|\\frac{\([0-9]\)}{\([0-9]\)}|\\tfrac{\1}{\2}|g
+s|\\frac{i}{\([0-9]\)}|(i/\1)|g

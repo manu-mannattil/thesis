@@ -8,10 +8,11 @@
 }}
 \label{chap05}
 
-% This chapter is organized as follows.
-% In Section~\ref{sec:wkb}, we review the semiclassical theory of wave propagation.
-% We discuss wave propagation on curved rods and shells in Sections~\ref{sec:rods} and \ref{sec:shell}, respectively.
-% We conclude in Section~\ref{sec:conclusion}.\\[-0.5em]
+\chapterprecishere{%
+In this final chapter we consider the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a singly-curved shell as concrete examples.
+Making use of the semiclassical/WKB approximation developed in the previous chapter, we show that elastic waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
+\\
+}
 
 \section{Introduction}
 \label{sec:introduction}
@@ -66,7 +67,7 @@ Indeed, for this reason, in their theoretical analyses of the musical saw, both 
   \label{fig:waves}
 \end{figure}
 
-As we discussed in the previous chapter, the semiclassical/WKB approximation is a widely used technique to obtain asymptotic solutions to wave problems, including those describing the elastodynamics of thin structures~\cite{pierce1970,nielsen2014,sndergaard2016,mohammed2021}.
+As we discussed in Chapter~\ref{chap04}, the semiclassical/WKB approximation is a widely used technique to obtain asymptotic solutions to wave problems, including those describing the elastodynamics of thin structures~\cite{pierce1970,nielsen2014,sndergaard2016,mohammed2021}.
 We also saw that in wave equations supporting bound-state solutions, the semiclassical approximation allows one to extract the corresponding frequencies through quantization.
 In multicomponent equations, however, subtleties can arise owing to the presence of an extra phase in the quantization rule~\cite{yabana1986,kaufman1987,littlejohn1991,littlejohn1991a}.
 Recently, this phase has been shown~\cite{venaille2023} to be responsible for a spectral flow in the rotating shallow-water equations that describe oceanic waves on the Earth's surface, leading to the topological protection of equatorial waves~\cite{delplace2017}.
@@ -658,7 +659,7 @@ Figure~\ref{fig:poschl} presents a comparison of the bound states described by E
 The agreement is remarkable given the fact that the numerical results were obtained by solving the full wave equations, Eq.~\eqref{eq:rod}, without employing any additional approximations.
 From Eq.~\eqref{eq:poschl_params} we also see that maximum number of bound states is $n_{\text{max}} \approx \nu = b/\epsilon + \mathcal{O}(b^{2}/\epsilon^{2})$, which agrees with the semiclassical prediction in Eq.~\eqref{eq:rod_maxb}.
 
-We are currently unaware of an exact solution of Eq.~\eqref{eq:schrodinger} for the potential $\smash{m^{2}_{2}(x)\allowbreak = \left[b - (b - a)\sech(\epsilon x)\right]^{2}}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
+\sloppy We are currently unaware of an exact solution of Eq.~\eqref{eq:schrodinger} for the potential $m^{2}_{2}(x)\allowbreak = \left[b - (b - a)\sech(\epsilon x)\right]^{2}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
 However, we can crudely approximate $m^{2}_{2}(x)$ as a deformed P\"{o}schl--Teller potential of the form
 %
 \begin{equation}
@@ -688,7 +689,7 @@ Therefore, we only expect the higher-frequency bound states of $m_{\chi}(x)$ to 
 \end{figure}
 
 At this juncture, let us remark that Eq.~\eqref{eq:schrodinger} can also be derived by diagonalizing the full wave equation in Eq.~\eqref{eq:rod} using the asymptotic method outlined by Littlejohn and coworkers~\cite{littlejohn1991,littlejohn1991a,weigert1993}, without appealing to any physical arguments.
-In this method, the operators of the diagonalized equations in symbol form are the two eigenvalues $\lambda_{\pm}$ of the dispersion matrix $\mathsf{D}^{(0)}$.
+In this method, aspects of which has been reviewed in Section~\ref{sec:diagonalize}, the operators of the diagonalized equations in symbol form are the two eigenvalues $\lambda_{\pm}$ of the dispersion matrix $\mathsf{D}^{(0)}$.
 To find the extensional bound states, we focus on $\lambda_{+}$, the ray Hamiltonian for extensional waves.
 Instead of using $\lambda_{+}$ from Eq.~\eqref{eq:rod_ham}, which involves a radical expression, we use the approximate version $\lambda_{+} \approx k^{2} - m^{2} - \omega^{2}$ [see Eqs.~\eqref{eq:rod_kgm} and \eqref{eq:rod_klm}].
 Next, we promote $k \to \hat{k} = -i\partial_{x}$, which ``quantizes'' the ray Hamiltonian $\lambda_{+}$ and we obtain Eq.~\eqref{eq:schrodinger} for an unknown wave function $\phi(x)$.

@@ -92,7 +92,12 @@ Finally, I would like to thank my parents for their compassion and encouragement
 
 % TOC ------------------------------------------------------------------
 
-\newpage\pagestyle{headings}
+\ifsustyle
+  % SU requires page number at the bottom for all prefatory pages.
+  \newpage\pagestyle{plain}
+\else
+  \newpage\pagestyle{headings}
+\fi
 
 % More compact TOC if we're not using SU style.
 % https:/tex.stackexchange.com/a/60322
@@ -127,9 +132,6 @@ Finally, I would like to thank my parents for their compassion and encouragement
 \include{chap03}
 \include{chap04}
 \include{chap05}
-\ifsustyle
-  \include{chapcv}
-\fi
 
 % Bibliography ---------------------------------------------------------
 
@@ -161,7 +163,7 @@ Finally, I would like to thank my parents for their compassion and encouragement
 % Colophon -------------------------------------------------------------
 
 \ifsustyle
-  \relax
+  \include{chapcv}
 \else
   \ifdeadtree
     \cleardoublepage

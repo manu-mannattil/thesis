@@ -11,25 +11,24 @@
 This chapter provides background material for the first part of this dissertation.
 First, we discuss holonomic constraints and how they can sculpt the configuration space of a classical-mechanical system in a nontrivial manner.
 Next, we extend the general discussion on constraints to look at the zero-temperature behavior of mechanical frameworks and their configuration spaces.
-Finally, we derive two expressions for the energy of a mechanical framework, to be used in the next chapter.
+Finally, we derive two expressions for the energy of a mechanical framework to be used in the next chapter.
 \\
 }
 
 In classical mechanics, the concept of a configuration space makes it possible for us to abstract away a physical system as a single point, no matter how complicated the system is (see Fig.~\ref{fig:confblob}).
-The elegance behind the notion of a configuration space can be seen by considering the simple example of a rigid body, which is composed of an infinite number of particles.
+The elegance behind the notion of a configuration space can be seen by considering the simple example of a rigid body, composed of an infinite number of particles.
 Yet, its configuration space is just a 6-dimensional space whose points have a one-to-one correspondence with the location and the spatial orientation of the rigid body in Euclidean 3-space.
-In many situations, such as the rigid body, the nature of a system's configuration space is entirely dictated by the (holonomic) constraints imposed on it, so we discuss them first.
+In many example systems, such as the rigid body, the nature of a system's configuration space is entirely dictated by the (holonomic) constraints imposed on it, so we discuss them first.
 
 \section{Geometry of constraints}
 \label{sec:constraints}
 
-Consider a system of $N$ classical particles in $d$ dimensions.  If the position of the $i$th particle is given by the position vector $\bm{r}_{i} \in \mathbb{R}^{d}$, then the entire configuration of the system can be fully described at any moment using a configuration vector $\bm{r} \in \mathscr{R} \subseteq \mathbb{R}^{Nd}$ defined by $\bm{r} = (\bm{r}_{1}, \bm{r}_{2}, \ldots, \bm{r}_{N})$.
+Consider a system of $N$ classical particles in $d$ dimensions.  If the position of the $i$th particle is given by the position vector $\bm{r}_{i} \in \mathbb{R}^{d}$, then the entire configuration of the system can be fully described at any moment using a configuration vector $\bm{r} \in \mathscr{R} \subseteq \mathbb{R}^{n}$ defined by $\bm{r} = (\bm{r}_{1}, \bm{r}_{2}, \ldots, \bm{r}_{N})$, with $n = Nd$.
   We shall call the set $\mathscr{R}$ as the ambient space.%
   \footnote{Many authors~\cite{littlejohn1997,lelievre2010} call $\mathscr{R}$ as the configuration space.  However, when constraints are imposed on the system, the actual configuration space is usually a lower-dimensional subset of $\mathscr{R}$.  To make this distinction, we will call $\mathscr{R}$ as the ambient space.}
-Let us now impose $m \leq n$ holonomic constraints on the coordinates $\bm{r}_1, \bm{r}_2, \dots, \bm{r}_n$ by defining smooth functions $f_i: \mathscr{R} \subseteq \mathbb{R}^n \to \mathbb{R},\, i=1, 2, \dots, m$ that vanish when the constraints are satisfied.
+Let us now impose $m \leq n$ holonomic constraints on the coordinates $\bm{r}_1, \bm{r}_2, \dots, \bm{r}_N$ by defining smooth functions $f_i: \mathscr{R} \subseteq \mathbb{R}^n \to \mathbb{R},\, i=1, 2, \dots, m$ that vanish when the constraints are satisfied.
 As an example, consider a system composed of a single particle with the coordinate $\bm{r} = (r_{1}, r_{2}, r_{3})$ in $\mathbb{R}^3$.
 In this case $n=3$ and the ambient space is equivalent to the physical space the particle moves in, i.e., $\mathscr{R} = \mathbb{R}^3$.
-% TODO: improve introduction.
 Now, consider the constraints
 %
 \begin{equation}
@@ -46,10 +45,9 @@ Geometrically, this corresponds to constraining a particle to move on two mutual
 For the general case, we will first look at the constraints individually.
 Each constraint function $f_i$ has an associated zero level set $\Omega_i = f_i^{-1}(0) = \{\bm{r} \in \mathscr{R}: f_i(\bm{r}) = 0\}$ whose elements satisfy the $i$th constraint exactly.
 If for all points $\bm{r} \in \Omega_{i}$, the gradient $\nabla f_i(\bm{r})$ is nonzero, then by the preimage theorem, $\Omega_i$ is an $(n-1)$-dimensional submanifold of the ambient space $\mathscr{R}$~\cite{guillemin1974,lee2013}.
-For the example system in Eq.~\eqref{eq:cylcyl}, the level set $\Omega_1$ corresponding to the first constraint function $f_1$ is a cylinder of diameter $a$ lying along the $r_{1}$ axis.
+For the example system in Eq.~\eqref{eq:cylcyl}, the level set $\Omega_1$ corresponding to the first constraint function $f_1$ is a cylinder of radius $a$ lying along the $r_{1}$ axis.
 Meanwhile, the level set $\Omega_2$ is a cylinder of radius $b$ lying along the $r_{2}$ axis.
-Although these constraints may seem artificial, they are in fact the ones seen in a crank-slider framework, which is illustrated in Fig.~\ref{fig:slider}(c).
-% TODO: more on the crank-slider framework.
+Although these constraints may seem artificial, they are in fact the ones seen in a three-slider mechanism, which is illustrated in Fig.~\ref{fig:slider}(c).
 Since the gradients $\nabla f_1$ and $\nabla f_2$ never vanish for any point in $\Omega_1$ and $\Omega_2$, they are both smooth submanifolds of $\mathscr{R}$.
 At each point $\bm{r} \in \Omega_i$ we can identify two vector spaces, namely the tangent space $T_{\bm{r}}\Omega_i = \{\bm{v} \in \mathbb{R}^n: \nabla f_i(\bm{r})\cdot \bm{v} = 0\}$ and the normal space\footnote{Here it is the rather trivial one-dimensional space spanned by $\{\nabla f_i\}$.} $N_{\bm{r}}\Omega_i = (T_{\bm{r}}\Omega_i)^\perp$, the orthogonal complement of the tangent space in $\mathbb{R}^n$ under the standard Euclidean dot product.
 From these definitions, we see that the direct sum $T_{\bm{r}}\Omega_i\oplus N_{\bm{r}}\Omega_i = \mathbb{R}^n$.
@@ -70,7 +68,7 @@ Like we have used here, from here on, an overbar on a point denotes that it belo
 In the case of maps, the preimage theorem~\cite{lee2013} states that if each $\bar{\bm{r}} \in \Omega$ is regular, then $\Omega$ is a smooth submanifold of $\mathscr{R}$ of dimension $n - m$ and codimension $m$.\footnote{This is equivalent to the familiar notion that imposing $m$ well-behaved constraints on a system with $n$ degrees of freedom reduces its number of degrees of freedom to $n-m$.}
 Since $\Omega$ is the set of points where all the constraints are obeyed, it forms the configuration space of the system.
 
-Given a configuration space $\Omega$, we identify the tangent space $T_{\bar{\bm{r}}}\Omega = \ker{\mathsf{J}(\bar{\bm{r}})} = \{\bm{v} \in \mathbb{R}^n: \mathsf{J}(\bar{\bm{r}})\bm{v} = 0\}$ and the normal space $N_{\bar{\bm{r}}}\Omega = T_{\bar{\bm{r}}}\Omega^\perp$, the orthogonal complement of the tangent space in $\mathbb{R}^n$ under the standard Euclidean dot product.
+Given a configuration space $\Omega$, we identify the tangent space $T_{\bar{\bm{r}}}\Omega = \ker{\mathsf{J}(\bar{\bm{r}})} = \{\bm{v} \in \mathbb{R}^n: \mathsf{J}(\bar{\bm{r}})\bm{v} = 0\}$ and the normal space $N_{\bar{\bm{r}}}\Omega = (T_{\bar{\bm{r}}}\Omega)^\perp$, the orthogonal complement of the tangent space in $\mathbb{R}^n$ under the standard Euclidean dot product.
 Using the rank-nullity theorem, we see that $\dim T_{\bar{\bm{r}}}\Omega = n-m$.
 As $\Omega$ is an $(n-m)$-dimensional submanifold of $\mathbb{R}^n$, it is theoretically possible to find a smooth parameterization $\psi$ such that all points $\bar{\bm{r}} \in \Omega$ can be written as $\bar{\bm{r}} = \psi(\xi)$, where $\xi = (\xi_1, \xi_2, \ldots, \xi_{n-m}) \in \mathbb{R}^{n-m}$.
 We also remark that one generally needs multiple such parameterizations to cover all points in $\Omega$.
@@ -80,8 +78,8 @@ The collective coordinates $\xi_i$ used to parameterize $\Omega$ could be any se
   \begin{center}
     \includegraphics{frameworks/crank-slider.pdf}
   \end{center}
-  \caption{The intersection curves of two cylinders with mutually perpendicular axes can be (a) smooth manifolds and (b) a curve with a self intersection, i.e., a singularity. (c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl} is the three-slider mechanism~\cite{bohigas2019}, which is composed of three particles (the ``sliders'') that can freely move on two mutually perpendicular axes (the ``rails'').
-    The particles are connected by bars of length $a$ and $b$, which gives rise to the constraints in Eq.~\eqref{eq:cylcyl}.
+  \caption{The intersection curves of two cylinders with mutually perpendicular axes can be (a) curves that are smooth manifolds; or (b) a curve with a self intersection, i.e., a singularity. (c) A physical realization of the constraints in Eq.~\eqref{eq:cylcyl} is the three-slider mechanism~\cite{bohigas2019}, which is composed of three particles (the ``sliders'') that can freely move on two mutually perpendicular axes (the ``rails'').
+    The particles are connected by rigid bars of length $a$ and $b$, which gives rise to the constraints in Eq.~\eqref{eq:cylcyl}.
   }
   \label{fig:slider}
 \end{figure}
@@ -90,12 +88,12 @@ It is also useful to analyze the intersection of level sets, say $\Omega_i$ and 
 If the Jacobian $\mathsf{J}$ is full rank, then its rows, i.e., the gradients $\nabla f_i$ of the constraint functions $f_i$, are independent.
 Consequently, the tangent spaces $T_{\bar{\bm{r}}}{\Omega_i}$ and $T_{\bar{\bm{r}}}{\Omega_j}$---defined as sets of vectors perpendicular to $\nabla f_i$ and $\nabla f_j$---are different subspaces.
 Since both tangent spaces are $(n-1)$-dimensional subspaces of $\mathbb{R}^n$, the fact they are different implies that (by dimension counting) $T_{\bar{\bm{r}}}{\Omega_i} + T_{\bar{\bm{r}}}{\Omega_j} = \mathbb{R}^n$.
-In other words, $T_{\bar{\bm{r}}}{\Omega_i}$ and $T_{\bar{\bm{r}}}{\Omega_j}$ together generate (span) $\mathbb{R}^n$, and we say that the manifolds $\Omega_i$ and $\Omega_j$ are transverse to each other~\cite{guillemin1974}.
+In other words, we say that the manifolds $\Omega_i$ and $\Omega_j$ are transverse to each other~\cite{guillemin1974}.
 Hence, the Jacobian being full rank ensures that the level sets $\Omega_i$ of \emph{all} constraints are pairwise transverse.
 
 Going back to our example, the configuration space $\Omega$ is composed of the curves obtained by the intersection of the cylinders $\Omega_1$ and $\Omega_2$.
-When the cylinder radii satisfy $a < b$, then $\Omega$ is made up of two disconnected closed curves as illustrated in Fig.~\ref{fig:slider}(a).
-Since $n = 3$ and $m=2$, $\Omega$ has a dimension equal to $n-m=1$, consistent with the fact that the curves are one dimensional.
+When the cylinder radii satisfy $a \neq b$, then $\Omega$ is made up of two disconnected closed curves as illustrated in Fig.~\ref{fig:slider}(a).
+Since $n = 3$ and $m=2$, the configuration space $\Omega$ has a dimension equal to $n-m=1$, consistent with the fact that the curves are one dimensional.
 The tangent spaces $T_{\bar{\bm{r}}}\Omega_1$ and $T_{\bar{\bm{r}}}\Omega_2$ for a point $\bar{\bm{r}} \in \Omega$ can be identified with the tangent planes of the two cylinders at that point.
 It is clear that there is no point in $\Omega$ where the two cylinders share a common tangent plane and it can be shown (by direct computation) that Jacobian of the constraint map never drops rank.
 Hence, the intersection shown in Fig.~\ref{fig:slider}(a) is indeed a transverse intersection.
@@ -108,9 +106,9 @@ Such a situation can be seen in our example when the two cylinders have the same
 \footnote{An analogous situation arises while considering the intersection of a sphere and a cylinder.
 If the sphere radius is equal to the cylinder diameter, the intersection curve $\Omega$ has a double point, and is called Viviani's curve~\cite{struik1988}.}
 It is clear that the two cylinders share a common tangent plane at the point of self intersection.
-Since the tangent spaces are not mutually independent at this point, they cannot possibly generate $\mathbb{R}^3$.
+Since the tangent spaces are not mutually independent at this point, their sum cannot possibly be equal to $\mathbb{R}^3$.
 
-To summarize, when a set of constraints are imposed on a mechanical system, its configuration space becomes nontrivial.
+To summarize, when a set of constraints are imposed on a mechanical system, its configuration space can become nontrivial.
 Singularities may occur in the configuration space at points where the Jacobian of the constraint map drops rank.
 This means that, at these singular points, some of the constraints are equivalent to linear order.
 Geometrically, this corresponds to nontransversal intersection of the zero level sets of the constraint functions at that point.
@@ -121,11 +119,11 @@ Geometrically, this corresponds to nontransversal intersection of the zero level
 Let us now turn our attention to bar-joint frameworks made of $N \geq 3$ point-like joints in $d$ dimensions connected by $m < Nd - \tfrac{1}{2}d(d+1)$ freely-rotating, massless bars.
 If the joints have position vectors $\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N} \in \mathbb{R}^d$ in the lab frame, the framework's configuration can be fully described at any given moment using a configuration vector $\bm{r}\in\mathbb{R}^{N d}$ defined by $\bm{r} = (\bm{r}_1, \bm{r}_2, \ldots, \bm{r}_{N})$.
 Let the $i$th bar in the framework have a length $\ell_{i}$.
-It is also clear that the length $\ell(\bm{r}_{i})$ can always be considered as a function of the coordinate $\bm{r}$ describing the entire network.
+It is also clear that the length $\ell(\bm{r}_{i})$ can always be considered as a function of the configuration vector $\bm{r}$ describing the entire framework.
 
 As before, the configuration space of the framework is the set $\Omega$ such that the length of the $i$th bar $\ell_{i}$ is equal to its rest length $\bar{\ell}_{i}$.
 Configurations in $\Omega$ are deformed states of the framework or the configurations obtained from such states after a rigid motion in $d$-dimensional space (i.e., after rotations, reflections, or translations).
-To separate the actual deformations of the framework from trivial rigid motions, it is more useful to consider the shape space $\Sigma$~\cite{kendall1989,mezey1993,kendall1999} is the set of all configurations with distinct shapes, and
+To separate the actual deformations of the framework from trivial rigid motions, it is more useful to consider the shape space $\Sigma$~\cite{kendall1989,mezey1993,kendall1999}, which is the set of all configurations with distinct shapes, and
 obtained after ``filtering out'' all the rigid motions from the configuration space.%
 \footnote{More technically, the shape space is the quotient space $\Sigma = \Omega/SE(d)$, where $SE(d)$ is the special Euclidean group in $d$ dimensions~\cite{littlejohn1995}.}
 
@@ -140,16 +138,16 @@ Now consider $m$ holonomic constraint functions $f_i: \mathbb{R}^{n} \to \mathbb
 %
 where the factor of $1/(2\bar{\ell}_i)$ is for later convenience.
 As before, the $m$ scalar constraint functions can also be considered together as a single constraint map $f: \mathbb{R}^{n} \to \mathbb{R}^m$ defined by $f(\bm{q}) = [f_1(\bm{q}), f_2(\bm{q}), \ldots, f_m(\bm{q})]$.
-Then, the shape space is the zero level set $\Sigma = \{\bm{q} \in \mathbb{R}^{n}: f(\bm{q}) = \bm{0}\}$.
+Then, the shape space is the zero level set $\Sigma = \{\bm{q} \in \mathbb{R}^{n}: f(\bm{q}) = 0\}$.
 In the absence of external forces, each point in $\Sigma$ is a ground-state configuration of the framework with a distinct shape.
 
 The compatibility matrix $\mathsf{C}(\bar{\bm{q}})$~\cite{pellegrino1986,lubensky2015} at a configuration $\bar{\bm{q}} \in \Sigma$ is the $m \times n$ Jacobian matrix $\nabla f$ of the constraint map $f$.%
 \footnote{In Eq.~\eqref{eq:consmap} it might have been more natural to use the constraint function $f_{i} = \tfrac{1}{2}[\ell_{i}^{2}(\bm{q}) - \bar{\ell}_{i}^{2}]$, without the $\bar{\ell}_{i}^{-1}$ factor.  This would have made $\nabla f$ the rigidity matrix instead of the compatibility matrix.  For our purposes, however, it is more convenient to work with the compatibility matrix as its entries are dimensionless.}
 If $\mathsf{C}$ has full rank for all points in $\Sigma$, then $\Sigma$ is an $(n - m)$-dimensional submanifold of $\mathbb{R}^{n}$~\cite{leimkuhler2005,lee2013}.
-But frameworks, like general constrained-systems, can have shape spaces that are not smooth manifolds.
+But frameworks, like other holonomically constrained systems, can have shape spaces that are not smooth manifolds.
 Consider, for example, the four-bar linkage depicted in Fig.~\ref{fig:4bar_cs}.
 The four-bar linkage is a simple framework made out of four bars with freely rotating joints~\cite{grashof1883,hartenberg1964,shimamoto2005}.
-Although the linkage has one \ac{dof} up to Eu Euclidean motions,
+Although the linkage has one \ac{dof} up to Euclidean motions,
 it has two modes of deformation: one where the angle $\theta_1 = \theta_2$ and another where $\theta_1 \ne \theta_2$.
 To visualize these two modes of deformation it is most natural to plot the angles $\theta_{1}$ and $\theta_{2}$ on a torus as in Fig.~\ref{fig:4bar_cs}.
 From this figure we see that the deformation modes appear as two branches meeting at two isolated singular points $(\theta_1,\theta_2) = (0,0)$ and $(\pi,\pi)$.
@@ -165,19 +163,19 @@ The two curves put together form the shape space $\Sigma$ of the four-bar linkag
 \end{figure}
 \label{page:4bar}
 
-When the shape space of a framework has a ``branched'' structure, like in the case of the four-bar linkage, it is no longer a smooth manifold
+When the shape space of a framework has a ``branched'' structure, like in the case of the four-bar linkage, it is no longer a smooth manifold.
 In such a situation, the compatibility matrix $\mathsf{C}(\bm{q})$ drops rank at the singularity where the branches meet~\cite{lopez-custodio2020,muller2019}, and the constraints cease to be linearly independent.
 Such singularities are the most common singularities~\cite{lopez-custodio2019,lopez-custodio2020} found in a framework and here we consider the situation where they occur only at isolated points of $\Sigma$.\footnote{In engineering literature they are usually called $c$-space singularities. For other, less common singularities that can occur in a framework, see Refs.~\cite{lopez-custodio2020,muller2019,muller2017}, and references therein.}
 The branches of $\Sigma$, being $(n-m)$-dimensional submanifolds of $\mathbb{R}^{n}$, can be individually parameterized using a set of coordinates $\xi \in \mathbb{R}^{n-m}$, analogous to generalized coordinates, called shape coordinates~\cite{littlejohn1995} as they capture the shape changes of the framework as it moves on $\Sigma$.
 We also assume that $n$ is small enough that such parameterizations can be found without much difficulty and that
 the branches are linearly independent at the singularity~\cite{lopez-custodio2020}.
-Before moving on, we need to familiarize ourselves with a few other concepts, which have their origin in rigidity theory~\cite{connelly2022}.
+Before moving on, we need to familiarize ourselves with a few other concepts that originate in rigidity theory and structural mechanics~\cite{williams2003,connelly2022}.
 
 \subsection{Zero modes and self stresses}
 
 Irrespective of whether or not $\mathsf{C}$ is full rank, we define a \emph{zero mode}%
 \footnote{Also called a soft mode, flex, etc.
-Sometimes it is also customary to explicitly differentiate between linear zero modes (those that preserve the constraints only to linear order) and nonlinear zero modes (those that preserve constrains to higher orders).}
+Sometimes it is also customary to explicitly differentiate between linear zero modes (those that preserve the constraints only to linear order) and nonlinear zero modes (those that preserve constraints to higher orders).}
 to be a perturbation $\bm{u} \in \mathbb{R}^n$ that preserves the constraints to linear order, i.e., $\mathsf{C}\bm{u} = 0$ or $\bm{u} \in \ker \mathsf{C}$.
 If $\mathsf{C}$ is full rank, then there is a well-defined tangent space $T_{\bar{\bm{q}}}\Sigma$ at $\bar{\bm{q}}$ and $\bm{u} \in T_{\bar{\bm{q}}} \Sigma$.
 In such a situation, the number $z$ of zero modes is
@@ -189,14 +187,14 @@ In such a situation, the number $z$ of zero modes is
 which is equal to the dimension of tangent space.
 
 However, as we have remarked, the compatibility matrix $\mathsf{C}$ drops rank at shape-space singularities.
-If the compatibility matrix is not full rank, then this implies that its rows are not fully independent and there are $m$-dimensional nonzero vectors $\sigma \in \mathbb{R}^m$ such that
+If the compatibility matrix is not full rank, then it implies that its rows are not fully independent and there are $m$-dimensional nonzero vectors $\bm{\sigma} \in \mathbb{R}^m$ such that
 %
 \begin{equation}
-  \sigma\trans\mathsf{C}(\bar{\bm{q}}) = \bm{0}\,.\label{eq:selfstress}
+  \bm{\sigma}\trans\mathsf{C}(\bar{\bm{q}}) = 0\,.\label{eq:selfstress}
 \end{equation}
 %
-Any vector $\sigma$ that belongs to the left null space of the compatibility matrix has the physical interpretation of having components equal to the signed magnitude of spring tensions (up to normalization factors) that enforce static equilibrium of the framework.
-For this reason, $\sigma$ is called a self stress.
+Any vector $\bm{\sigma}$ that belongs to the left null space of the compatibility matrix has the physical interpretation of having components equal to the signed magnitude of spring tensions (up to normalization factors) that enforce static equilibrium of the framework.
+For this reason, $\bm{\sigma}$ is called a self stress.
 Forces involved in a state of self stress obey the strong form of Newton's third law and thus cannot possibly result in an unbalanced torque~\cite{goldstein2002}.
 Thus, a framework under self stress is in a state of mechanical equilibrium.
 Note, however, that such an equilibrium may or may not be stable.
@@ -290,13 +288,16 @@ The physical interpretation of this self stress is that the framework will remai
 Also, the constraints in this case are not linearly independent at the singularity---geometrically, we infer this by noticing that the level sets $\Sigma_{1}$ and $\Sigma_{2}$ in Fig.~\ref{fig:tether}(a) have a nontransversal intersection and share a common tangent at the ground state.
 As the number of self stresses $s = 1$, the Maxwell--Calladine theorem tells us that there is a zero mode.
 From $\ker\mathsf{C}(\bar{\bm{q}})$ we see that the zero mode $\bm{u} = (0, 1)$ is the up/down displacement of the particle, which preserves constraints to linear order.%
-\footnote{Of course, the constraints are not preserved at higher orders, and it can be shown that the framework is rigid at second order.  Standard theorems in rigidity theory then guarantee that the framework is rigid to all orders~\cite{connelly2022}.}
+\footnote{Of course, the constraints are not preserved at higher orders, and it can be shown that the framework is rigid at second order.  Well-known results in rigidity theory then guarantee that the framework is rigid to all orders~\cite{connelly2022}.}
 \end{example*}
 
 \section{Elastic energy of a framework}
 \label{sec:energy}
 
-The energy stored in the $i$th bar of the framework is a function $\phi_i(\ell_i)$ of its length $\ell_i$.
+In practice, there is no such thing as a framework with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
+Multihelix bundles used in DNA origami, for instance, have measured stiffnesses in the range of 0.1--1~pN$/$nm~\cite{jung2020}.
+For realistic frameworks, the shape space $\Sigma$ would then form a continuum of ground states (assuming that energy costs arise solely due to the constraints being violated).
+Keeping this in mind, we assume that the energy stored in the $i$th bar of the framework is a function $\phi_i(\ell_i)$ of its length $\ell_i$.
 We additionally assume that this function has a minimum when $\ell_i = \bar{\ell_i}$, the natural length of the bar, for all bars.
 The total energy of the framework is then
 %
@@ -306,7 +307,7 @@ The total energy of the framework is then
 %
 On the shape space $\Sigma$, the bars are at their natural lengths, i.e., for all points $\bar{\bm{q}} \in \Sigma$, we have $\ell_i(\bar{\bm{q}}) = \bar{\ell_i}$.
 The bars are also at their minimum potential energies $\phi_i(\bar{\ell_i})$, which we assume to be zero for all bars without any loss of generality.
-We first look at the lowest-order approximation to the energy, viz., the harmonic approximation.
+We first look at the lowest-order approximation to the energy, namely, the harmonic approximation.
 
 \subsection{Harmonic approximation}
 
@@ -338,8 +339,8 @@ Above, the partial derivatives of $\ell(\bm{q})$ and the derivatives of $\phi(\e
 The repeated indices are summed over as usual.
 Defining the stiffness of the $i$th bar to be $\kappa_{i} = \phi_{i}''(\ell_{i})$ and noting that $\partial_{j}\ell_{i}\,q_{j} = \partial_{j}f_{i}\,q_{j} = \nabla f_{i}\cdot\bm{q}$, the total energy of the framework becomes (after reintroducing the free index $i$)
 %
-\begin{equation}\boxed{%
-  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \tfrac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \tfrac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \tfrac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.}
+\begin{equation}
+  U = \sum_{i=1}^m \phi_i[\ell_i(\bar{\bm{q}} + \bm{q})] \approx \tfrac{1}{2} \sum_{i=1}^m \kappa_i (\nabla f_i\cdot\bm{q})^2 = \tfrac{1}{2}\bm{q}\trans\mathsf{C}\trans\mathsf{K}\mathsf{C}\bm{q} = \tfrac{1}{2}\bm{q}\trans\mathsf{D}\bm{q}.
   \label{eq:regenergy}
 \end{equation}
 %
@@ -370,7 +371,7 @@ Dropping the index $i$ again, we first expand the energy of a bar to $\mathcal{O
 The subspace of zero modes is $\ker\mathsf{C}$ and its orthogonal compliment in $\mathbb{R}^n$ is $(\ker\mathsf{C})^\perp$ and we write $\bm{q} = \bm{u} + \bm{v}$.
 Here $\bm{u} \in \ker\mathsf{C}$ is a zero mode and $\bm{v} \in (\ker\mathsf{C})^{\perp}$ is a fast vibrational mode of the system.
 First let us analyze the contribution of the zero mode $\bm{u}$ to the energy.
-Since $\bm{u}$ is a zero mode, we have $\mathsf{C}\bm{u} = \bm{0}$.
+Since $\bm{u}$ is a zero mode, we have $\mathsf{C}\bm{u} = 0$.
 Now, as $\partial_j f$ is a row of $\mathsf{C}$, this implies $\partial_j f u_j = 0$.
 Using this in Eq.~\eqref{sm:eq:lentomap} we get
 %
@@ -383,9 +384,9 @@ Using this in Eq.~\eqref{sm:eq:lentomap} we get
   \end{aligned}
 \end{equation}
 %
-Setting $\bm{v} = \bm{0}$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathcal{O}(\Abs{\bm{u}}^4)$ term $\tfrac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \tfrac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
+Setting $\bm{v} = 0$ in the series expansion [Eq.~\eqref{sm:eq:energyexp}] and using the above simplifications, it is clear that the only nonvanishing contribution to the energy would come from the $\mathcal{O}(\Abs{\bm{u}}^4)$ term $\tfrac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k \ell\, u_j u_k)^2 = \tfrac{1}{8}{\phi''(\bar{\ell})}(\partial_j \partial_k f\, u_j u_k)^2$.
 
-To understand how a fast mode $\bm{v}$ contributes to the energy, we similarly set $\bm{u} = \bm{0}$ in the energy expansion.
+To understand how a fast mode $\bm{v}$ contributes to the energy, we similarly set $\bm{u} = 0$ in the energy expansion.
 Since $\bm{v}$ belongs to the orthogonal compliment of the subspace of zero modes, by definition, $\partial_j \ell v_j = \partial_j f v_j \ne 0$.
 Hence, we see that the first nonvanishing contribution comes from the $\mathcal{O}(\Abs{\bm{v}}^2)$ term $\tfrac{1}{2}\phi''(\bar{\ell})(\partial_j \ell\, v_j)^2 = \tfrac{1}{2}\phi''(\bar{\ell})(\partial_j f\, v_j)^2$.
 This shows that the energy scales as $\mathcal{O}(\Abs{\bm{u}}^4) \sim \mathcal{O}(\Abs{\bm{v}}^2)$, i.e., zero and fast modes respectively make quartic- and harmonic-order contributions to the energy.
@@ -409,8 +410,8 @@ Then, the energy of the $i$th bar to the lowest order is
 For convenience, we define a column vector $\bm{w}(\bm{u}) \in \mathbb{R}^{m}$ such that its $i$th component $[\bm{w}(\bm{u})]_{i} = \tfrac{1}{2}\bm{u}\trans(\hess f_{i})\bm{u}$.
 With this definition, the total energy to the lowest order in $\bm{u}$ and $\bm{v}$ is
 %
-\begin{equation}\boxed{%
-  U = \sum_{i=1}^m \phi_i \approx \tfrac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].}
+\begin{equation}
+  U = \sum_{i=1}^m \phi_i \approx \tfrac{1}{2} [\mathsf{C}\bm{v} + \bm{w}(\bm{u})]\trans\,\mathsf{K}\,[\mathsf{C}\bm{v} + \bm{w}(\bm{u})].
   \label{eq:energy_singular}
 \end{equation}
 %
@@ -426,7 +427,7 @@ This equation is a generalization of the energy of harmonic spring networks~\cit
                      = \left(\tfrac{1}{2}q_{2}^{2}, \tfrac{1}{2}q_{2}^{2}\right).
   \end{equation}
   %
-  As $\mathsf{C}\bm{q} = (q_{1}, -q_{1})$, and assuming that the bars have a constant stiffness $\kappa$, dusing Eq.~\eqref{eq:energy_singular}, we find the energy%
+  As $\mathsf{C}\bm{q} = (q_{1}, -q_{1})$, and assuming that the bars have a constant stiffness $\kappa$, using Eq.~\eqref{eq:energy_singular}, we find the energy%
   \footnote{The curious reader may wonder if this energy is dimensionally correct---after all $q_{1}$ and $q_{2}$ have the same dimensions.
   The issue here is that we took the bars to have unit lengths, so that numerical factors in $\bm{w}(\bm{u})$ should be assumed to have units of inverse length.}
   %
@@ -434,7 +435,7 @@ This equation is a generalization of the energy of harmonic spring networks~\cit
     U \approx \tfrac{1}{2}\kappa\Abs{\mathsf{C}\bm{v} + \bm{w}(\bm{u})}^{2} = \kappa\left(q_{1}^{2} + \tfrac{1}{4}q_{2}^{4}\right).
   \end{equation}
   %
-  As we see from the energy expression, the zero mode $(0, q_{2})$ contributes to the energy only at the quartic order---physically speaking, one would say that the framework has become more soft due to the presence of the singularity.
+  As we see from the energy expression, the zero mode $(0, q_{2})$ contributes to the energy only at the quartic order---physically speaking, one would thus say that the framework has become more soft due to the presence of the singularity.
 \end{example*}
 
 We now briefly remark on an interesting comparison between Eq.~\eqref{eq:energy_singular} and the nonlinear strain that is considered while analyzing large deflections of a thin elastic plate.

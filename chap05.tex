@@ -46,9 +46,9 @@ The physical assumptions usually made (expressed here in terms of the wave numbe
   \item The wavelength ($\sim k^{-1}$) is much larger that the thickness of the structure.
     If we work in length units such that the thickness is of order unity, we must then have $k \ll 1$.
     For bulk waves with wavelengths much smaller than the thickness (i.e., when $k \gg 1$), the structure should be treated as an infinite elastic medium~\cite{landau1986}.
-  \item The radius of curvature is much larger than the thickness, so that $\abs{m} \ll 1$ (in length units such that thickness is order unity).
+  \item The radius of curvature is much larger than the thickness, so that $\abs{m} \ll 1$ (in length units such that thickness is of order unity).
     This is a geometrical requirement as it is impossible to construct a structure whose local radius of curvature is smaller than its thickness.
-  \item The wavelength is smaller or of the order magnitude as the radius of curvature ($= m^{-1}$), so that $k > m$ is a safe choice (in all length units).
+  \item The wavelength is smaller or of the same order of magnitude as the radius of curvature ($= m^{-1}$), so that $k > m$ is a safe choice (in all length units).
 \end{enumerate}
 
 Because the curvature couples the different displacement components, irrespective of the equations we use, to fully characterize wave propagation on curved structures, we have to consider multicomponent (i.e., vector) waves.
@@ -69,7 +69,7 @@ Indeed, for this reason, in their theoretical analyses of the musical saw, both 
 
 As we discussed in Chapter~\ref{chap04}, the semiclassical/WKB approximation is a widely used technique to obtain asymptotic solutions to wave problems, including those describing the elastodynamics of thin structures~\cite{pierce1970,nielsen2014,sndergaard2016,mohammed2021}.
 We also saw that in wave equations supporting bound-state solutions, the semiclassical approximation allows one to extract the corresponding frequencies through quantization.
-In multicomponent equations, however, subtleties can arise owing to the presence of an extra phase in the quantization rule~\cite{yabana1986,kaufman1987,littlejohn1991,littlejohn1991a}.
+As we discussed previously, subtleties can arise in multicomponent equations owing to the presence of an extra phase in the quantization rule~\cite{yabana1986,kaufman1987,littlejohn1991,littlejohn1991a}.
 Recently, this phase has been shown~\cite{venaille2023} to be responsible for a spectral flow in the rotating shallow-water equations that describe oceanic waves on the Earth's surface, leading to the topological protection of equatorial waves~\cite{delplace2017}.
 
 In this chapter, we use the semiclassical approximation to study the bound-state spectrum of elastic waves in a curved rod and a singly-curved shell with a varying curvature profile.
@@ -88,7 +88,7 @@ To avoid losing the main results of this chapter in a thicket of details, we sum
   \item[(iv)] For both structures, flexural waves start propagating well below the frequency of the first bound state associated with an extensional wave.
     Hence, in very long rods and shells, these bound states coexist with a near-continuum of flexural waves, forming quasi bound states in a continuum~\cite{hsu2016}.
   \item[(v)]
-    Finally, both structures are described by equations for which the extra phase in the modified quantization rule vanish---something that we expect to be generically true for equations of thin-walled structures.
+    Finally, both structures are described by equations for which the extra phase in the modified quantization rule vanish---something that we expect to be generically true for equations of thin-walled structures (Appendix~\ref{app:additional_phase}).
     This simplifies our analysis considerably and results in remarkable agreement between the quantization results and numerical experiments.
 \end{enumerate}
 
@@ -97,97 +97,12 @@ This could help, for instance, in crafting better thin-plate acoustic cloaks~\ci
 Curvature-induced localization of waves could also be used to improve the acoustic black-hole effect in thin-walled structures~\cite{lee2017,pelat2020}, which at the moment relies primarily on wave localization caused by a power-law tapered thickness profile~\cite{krylov2020}.
 Finally, a singly-curved shell serves as a simple, yet effective single-mode waveguide that can steer flexural waves of specific frequencies in the uncurved direction.
 
-%\section{Semiclassical theory of waves}
-%\label{sec:wkb}
+\section{Waves on a curved rod}
+\label{sec:rods}
 
-%In this section we present a quick rundown of the semiclassical approximation as applied to multicomponent waves.
-%For more detailed descriptions, we refer to the book by \citet{tracy2014}.
-%Consider a wave equation of the form
-%%
-%\begin{equation}
-%  \partial_{t}^{2}\Psi(x,t) + \widehat{\mathsf{H}}\Psi(x,t) = 0,
-%\end{equation}
-%%
-%where $\Psi(x,t)$ is an $N$-component wave field described by a one-dimensional coordinate $x$ and time $t$.
-%In elastodynamics, $\Psi$ is usually composed of displacements, e.g., for the rod we have $\Psi = (\zeta, u)$, and for the shell we have $\Psi = (\zeta, u, v)$ [see Figs.~\ref{fig:waves}(a) and~\ref{fig:waves}(b)].
-%Also, $\widehat{\mathsf{H}}$ is taken to be a Hermitian operator in the form of an $N\times N$ matrix, composed solely of spatial derivatives (i.e., powers of $\partial_{x}$) with time-independent coefficients.
-%Assuming that the waves are time harmonic with frequency $\omega$, i.e., $\Psi(x, t) = \psi(x)e^{\pm i\omega t}$, where $\psi(x)$ is the time-independent part of the wave field, Eq.~\eqref{eq:full_wave_eq} can be recast as
-%%
-%\begin{equation}
-%  \widehat{\mathsf{D}}\psi = 0,\quad \text{with}\enspace \widehat{\mathsf{D}} = \widehat{\mathsf{H}} - \omega^{2}\mathsf{I}_{N},
-%\end{equation}
-%%
-%where $\mathsf{I}_{N}$ is the $N\times N$ identity matrix.
-%If the coefficients of the spatial derivatives that appear in $\widehat{\mathsf{D}}$ are constants, then the eigenmodes $\psi$ are plain waves.
-%In what follows we assume that these coefficients are slowly varying, with the variation controlled by a single positive parameter $\epsilon \ll 1$.
-%It is useful to treat $\epsilon$ as an ordering parameter so that we can look for solutions at various orders of $\epsilon$.
-%To this end, we rescale $x \to \epsilon^{-1}x$ so that a derivative $\partial_{x}$ becomes $\epsilon \partial x$.
-%With analogy to quantum mechanics, this allows us to recast the derivatives in $\widehat{\mathsf{D}}$ in terms of the wave number/momentum operator $\hat{k} = -i\epsilon \partial_{x}$, with $\epsilon$ playing the role of Planck's constant.
-%Since we shall be considering $\widehat{\mathsf{D}}$ in the coordinate representation, the position operator $\hat{x} = x$.
-
-%We look for \emph{eikonal} solutions to Eq.~\eqref{eq:ev_problem} of the form $\psi(x) = A(x)e^{iS(x)/\epsilon}$, where the amplitude $A(x)$ is an $N$-component spinor with complex components, and $S(x)$ is a rapidly varying phase, playing the role of an action.
-%In order to solve Eq.~\eqref{eq:ev_problem} at various orders of $\epsilon$, it is convenient to make use of Weyl calculus, which allows one to map differential operators that are functions of $\hat{x}$ and $\hat{k}$ to ordinary functions, called Weyl symbols, defined on an $x$-$k$ phase space, and vice versa~\cite{chaichian2001,cohen2012}.
-%For the purposes of this paper, the following simple rules suffice to convert operators to symbols:
-%%
-%\begin{equation}
-%  f(x) \to f(x),\enspace
-%  g(\hat{k}) \to g(k),\enspace\text{and}\enspace
-%  f(x)g(\hat{k}) \to f(x)g(k) + \frac{i\epsilon}{2}f'(x)g'(k) + \mathcal{O}(\epsilon^{2}).
-%\end{equation}
-%%
-%Above, $f$ and $g$ are functions of $x$ and $\hat{k}$, with the primes denoting derivatives.
-
-%Converting each entry of the matrix operator $\widehat{\mathsf{D}}$ into a Weyl symbol, we get the $N\times N$ dispersion matrix $\mathsf{D}$, which we express in various orders of $\epsilon$ as $\mathsf{D} = \mathsf{D}^{(0)} + \epsilon\mathsf{D}^{(1)} + \mathcal{O}(\epsilon^{2})$.
-%Employing the eikonal ansatz, at $\mathcal{O}(\epsilon^{0})$, we find the matrix equation $\mathsf{D}^{(0)}A = 0$.
-%To satisfy this equation, at least one of the $N$ eigenvalues of $\mathsf{D}^{(0)}$, say $\lambda(x, k;\, \omega)$, must vanish so that $\det \mathsf{D}^{(0)}(x, k; \omega) = 0$.
-%A vanishing eigenvalue $\lambda$ and the associated normalized eigenvector $\tau$ describes different wave types or ``polarizations'' represented by Eq.~\eqref{eq:ev_problem}.
-%By a polarization we mean a linear subspace of the total wave field that is usually of a distinct physical nature, e.g., flexural waves on a curved rod.
-%Semiclassical approximation breaks down near points where more than one eigenvalues of $\mathsf{D}^{(0)}$ simultaneously vanish, precipitating an exchange of energy and mode conversion between waves of different polarizations~\cite{tracy2014}.
-
-%In the absence of mode conversion, the vanishing eigenvalues of $\mathsf{D}^{(0)}$ also serve as the \emph{ray Hamiltonian} of waves of a specific polarization.
-% This leads us to the phase-space representation of waves as rays that satisfy the Hamilton's equations
-%%
-%\begin{equation}
-%  \dot{x} = \partial_{k} \lambda(x, k;\, \omega) = \left\{x, \lambda\right\}
-%  \quad\text{and}\quad
-%  \dot{k} = -\partial_{x} \lambda(x, k;\, \omega) = \left\{k, \lambda\right\},
-%\end{equation}
-%%
-%where the overdot denotes derivatives with respect to a parameter that parameterizes the rays and $\left\{\cdot, \cdot\right\}$ is the $x$-$k$ Poisson bracket.
-%Since the waves we consider propagate in a one-dimensional space, these rays are identical to the level curve defined by $\lambda(x, k; \omega) = 0$.
-%%
-%\begin{figure}
-%  \begin{center}
-%    \includegraphics{localization/caustic.pdf}
-%  \end{center}
-%  \caption{%
-%    (a) In phase space, bound states are represented by rays in the form of closed orbits, which is analogous to that of a bound particle oscillating between two classical turning points ($\pm x^{\star}$ in the cartoon).
-%    Other trajectories represent unbound states.
-%    (b) A bound state represented by a ``peanut''-shaped orbit has six caustics.%
-%  }
-%\end{figure}
-
-%%%
-%%\begin{equation}
-%%\gamma_{\text{G}} = \oint \dd{\sigma}\, \dot{\gamma}_{\text{G}} = i\oint \dd{\sigma}\,\left\langle{\tau_{\alpha}}\middle|\dot{\tau}_{\alpha}\right\rangle =
-%%  i\oint \dd\xi\cdot\left\langle{\tau_{\alpha}}\middle|\nabla_{\xi}\tau_{\alpha}\right\rangle,
-%%\end{equation}
-%%%
-%%where $\xi = (x, k)$ denotes the ``parameters'' that are being varied.
-
-%%In Appendix~\ref{app:additional_phase} we prove that $\gamma_{\text{G}}$ vanishes if the relative phases between the components of the eigenvector $\tau_{\alpha}$ are constants.
-%%The second (non-geometric) phase $\gamma_{\text{NG}}$ need not vanish in such a situation, however.
-%Instead of explicitly accounting for the extra phase $\gamma$ in the quantization rule, we could have diagonalized the wave equation at various orders of $\epsilon$~\cite{littlejohn1991,littlejohn1991a,weigert1993,venaille2023}.
-%During such a procedure, terms proportional to $\dot{\gamma}_{\text{G}}$ and $\dot{\gamma}_{\text{NG}}$ naturally appear in the ray Hamiltonian $\lambda$ as a first-order correction.
-%Despite the elegance of the method, we do not use it in our analysis.
-%This is because, as we discuss in Appendix~\ref{app:additional_phase}, for both the problems we consider, the extra phases vanish.
-
-%\section{Waves on a curved rod}
-%\label{sec:rods}
-
-%As we remarked earlier, several rod theories~\cite{chidamparam1993,walsh2000}, with varying levels of sophistication, have been written down for describing wave propagation on rods---straight or curved.
-%For our purposes, a simple linear model~\cite{kernes2021} of a curved rod would do.
-%This model ignores higher-order effects like torsion, cross-sectional rotation, etc., and can be viewed as the lower-dimensional analogue of the Donnell--Yu shell model~\cite{donnell1933,yu1955} that we shall later use to understand wave propagation on curved shells.
+As we remarked earlier, several rod theories~\cite{chidamparam1993,walsh2000}, with varying levels of sophistication, have been written down for describing wave propagation on rods---straight or curved.
+For our purposes, a simple linear model~\cite{kernes2021} of a curved rod would do.
+This model ignores higher-order effects like torsion, cross-sectional rotation, etc., and can be viewed as the lower-dimensional analogue of the Donnell--Yu shell model~\cite{donnell1933,yu1955} that we shall later use to understand wave propagation on curved shells.
 
 \subsection{Equations of motion and semiclassical approximation}
 \label{sec:rod_equations}
@@ -1220,7 +1135,7 @@ $m_{3}(x) = b\sech(\epsilon x)$.
 For the parameter values $b = 0.1$ and $\epsilon = 0.01$, Fig.~\ref{fig:shell_m3_profile} shows the function $m_{3}(x)$ and the shape of a curve with this curvature profile.
 Clearly, the curve intersects itself at multiple points, and hence $m_{3}(x)$ can only be the curvature profile of a physically unrealizable ``phantom'' shell that allows self intersections.
 Although self intersections can be avoided by choosing a smaller value for $b$ (or a larger value for $\epsilon$), doing so would lead to the formation of very few or barely discernible bound states.
-For this reason, we will continue to work with the choice $b=0.1$ so that the bound states appear more conspicuous, enabling us to better test our conclusions from a semiclassical analysis.
+For this reason, we will continue to work with the choice $b=0.1$ so that the bound states appear more conspicuous. 
 %
 \begin{figure}
   \begin{center}
@@ -1259,7 +1174,7 @@ A more detailed analysis of the phase portraits and bound states of flexural wav
     This, however, does not seem to have a considerable effect on the quantization results, and we recover the frequencies of the observed bound modes accurately [see Fig.~\ref{fig:shell_m3_results}(c)].
   \item Finally, bound states at higher frequencies, such as the one in Fig.~\ref{fig:shell_m3_results}(b), tend to have fewer nodes and appear to be more spatially confined.%
     \footnote{This is in contrast to all the bound states, including those on the curved rod, that we have described so far.}
-    They also have more significant tangential contribution as evident from the color coding of Fig.~\ref{fig:shell_m3_rays}(a).
+    They also have a more significant tangential contribution as evident from the color coding of Fig.~\ref{fig:shell_m3_rays}(a).
 \end{enumerate}
 %
 \begin{figure}
@@ -1479,8 +1394,6 @@ Proceeding by arguments similar to previous ones, we see that the extra phase $\
 \section{Numerical details}
 \label{app:numerical}
 
-% \subsection{Eigenfrequencies and eigenmodes}
-
 To find the eigenmodes numerically, we solve the rod and shell equations, Eqs.~\eqref{eq:rod} and \eqref{eq:shell_wave_eq}, with $x \in \mathcal{X} = [-1000, 1000]$, using Dedalus~\cite{burns2020} with a Chebyshev spectral decomposition and 2048 modes.%
 \footnote{Numerical code is publicly available at \url{https:/github.com/manu-mannattil/glwtes}.}
 Bound states are identified by manual examination of the eigenmode profiles.
@@ -1489,8 +1402,6 @@ At the clamped end of a rod, the geometric boundary conditions are $\zeta(x) = \
 For the shell, at the clamped end, we additionally have $v(x) = 0$ as well.
 At a simply-supported end of a rod, we have the geometric boundary condition $\zeta(x) = u(x) = 0$ and the natural boundary condition $\partial_{x}^{2}\zeta(x) = 0$ (no bending moment)~\cite{fung1965}.
 In case of a shell, at a simply-supported end, we have $\zeta(x) = u(x) = v(x) = 0$ and $\partial_{x}^{2}\zeta(x) - \eta l^{2}\zeta(x) = 0$~\cite{yu1955}.
-
-% \subsection{Numerical quantization}
 
 For finding the quantized frequencies numerically, for a given $n \in \mathbb{N}_{0}$, we start with an approximate guess for the frequency $\omega$ based on the numerical results.
 We then numerically integrate the ray equations starting at one of the classical turning points on the $x$ axis, e.g., the one at $x = -x^{\star}$, until the ray reaches the other turning point at $x = x^{\star}$ [see Fig.~\ref{fig:caustic}].

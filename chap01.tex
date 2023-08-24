@@ -11,9 +11,8 @@ This chapter provides a whirlwind tour of the dissertation, highlighting the key
 \\
 }
 
-Geometrical methods are now a mainstay of all branches of modern theoretical physics;  and vigorous research efforts in the second half of the 20th century lead to the geometrization of the more classical fields of physics such as analytical mechanics~\cite{sudarshan1974,arnold1978,souder2017} and elasticity theory~\cite{marsden1994,audoly2010}.
-% TODO: Important developments include the
-Even more recently, information geometry and the theory of statistical manifolds have been described as promising tools for understanding fundamental issues in thermodynamics, statistical mechanics, and learning theory~\cite{ruppeiner1995}.
+Geometrical methods are now a mainstay of all branches of modern theoretical physics.
+Furthermore, vigorous research efforts in the second half of the 20th century lead to the geometrization of the more classical fields of physics such as analytical mechanics~\cite{sudarshan1974,arnold1978,souder2017} and elasticity theory~\cite{marsden1994,audoly2010}.
 In some sense, the unreasonable effectiveness of geometrical methods in physics (among other mathematical sciences) should come as no surprise---after all, many physical problems are best formulated mathematically in terms of configuration (or parameter) spaces that are not Euclidean.
 
 On a less abstract level, the intrinsic shape and structure of a physical system can also play a major role in dictating its physical properties.
@@ -28,16 +27,22 @@ For this reason, many physical problems, especially those in condensed-matter an
 Furthermore, such problems often require the employment of a range of asymptotic and perturbative methods for their solution.
 Such methods, perhaps fittingly, tend to be far less rigorous in comparison to the elegant logical structure usually found in other fields of mathematics.
 
-In this dissertation we discuss two problems, at two very different length and energy scales, that have a common origin in soft matter physics.  Connecting the two problems is the basic notion that geometry, whether that of the abstract spaces describing a physical system, or its intrinsic shape and structure, plays a crucial role in dictating its properties.  Both these problems, once formulated mathematically, have sufficient complexity that makes writing down exact solutions difficult.  At the same time, both the problems are simple enough that asymptotic methods yield excellent approximate solutions, which means that we do not have to restrict ourselves to analyses of numerical experiments alone.  In the following sections, we briefly summarize the main results of this dissertation, with subsequent chapters providing more detailed descriptions.
+In this dissertation we discuss two problems, at two very different length and energy scales, that have a common origin in soft-matter physics.
+Connecting the two problems is the basic notion that geometry, whether that of the abstract spaces describing a physical system, or its intrinsic shape and structure, plays a crucial role in dictating its properties.
+Both these problems, once formulated mathematically, have sufficient complexity that makes writing down exact solutions difficult.
+At the same time, both the problems are simple enough that asymptotic methods yield excellent approximate solutions, which means that we do not have to restrict ourselves to analyses of numerical experiments alone.
+In the following sections, we briefly summarize the main results of this dissertation, with subsequent chapters providing more detailed descriptions.
 
 \section{Singular frameworks and thermal fluctuations}
 
-In the first part of the dissertation, we study the effect of thermal fluctuations on submicron mechanical frameworks possessing singular configuration spaces~\cite{mannattil2022}.
+In the first part of the dissertation, we study the effect of thermal fluctuations on submicron mechanical frameworks.
+Frameworks of similar nature have received extensive interest in recent years, with considerable attention paid to nanoscale frameworks made out of DNA origami~\cite{dunn2015,matthies2016}.
+The problem is made fundamentally challenging due to the presence of singularities in the configuration spaces of these frameworks, which cause conventional approaches to break down~\cite{mannattil2022}.
 
 \subsection{Configuration spaces}
 
 Central to geometric mechanics is the idea that the configuration of a physical system, however complicated, can be fully described by a single point of a (usually high-dimensional) configuration space.
-To illustrate this in more familiar settings, consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}.
+To illustrate this in more familiar settings, consider, for instance, the simple pendulum in Fig.~\ref{fig:confspaces}(a).
 The pendulum's configuration at any given moment is fully specified by the angle $\theta_{1}$.
 Its configuration space is therefore equivalent to the circle $S^{1}$, which is a smooth manifold.
 To specify the configuration of the double pendulum in Fig.~\ref{fig:confspaces}(b), on the other hand, requires two angles $\theta_{1}$ and $\theta_{2}$, and its configuration space is the torus $S^{1}\times S^{1}$.
@@ -54,8 +59,8 @@ The constraint in the simple pendulum, for instance, is described by the constra
 %
 whereas the constraint map for the double pendulum would be of the form
 %
-% TODO: row spacing in column vector.
 \begin{equation}
+  \def\arraystretch{1}
   f: \mathbb{R}^{4} \to \mathbb{R}^{2},\enspace f(r_{1}, \ldots, r_{4}) =
 \begin{pmatrix}
  r_{1}^{2} + r_{2}^{2} - \ell_{1}^{2}\\
@@ -65,7 +70,7 @@ whereas the constraint map for the double pendulum would be of the form
 %
 As we see from these examples, the constraint map $f$ is a general nonlinear map in the coordinates $\bm{r}$.
 The linear approximation of $f$ is given by the $m\times n$ Jacobian matrix whose $i\!j$th entry is $\partial_{j}f_{i}$.
-With these definitions, the configuration space of a general mechanical system is the zero level set $\Omega = \left\{\bm{r} \in \mathbb{R}^{n} : f(\bm{r}) = \bm{0}\right\}$, which is the set of points where the constraints are satisfied exactly.
+With these definitions, the configuration space of a general mechanical system is the zero level set $\Omega = \left\{\bm{r} \in \mathbb{R}^{n} : f(\bm{r}) = 0\right\}$, which is the set of points where the constraints are satisfied exactly.
 Standard theorems%
 \footnote{These theorems are almost never explicitly invoked in classical mechanics.
 However, they are implicit in the frequently used argument that a mechanical system with $n$ degrees of freedom and $m$ constraints has $(n-m)$ degrees of freedom, with the configuration space $\Omega$ parameterizable by $(n-m)$ generalized coordinates.}
@@ -73,18 +78,14 @@ ensure that $\Omega$ is a smooth $(n-m)$-dimensional manifold if the Jacobian $\
 
 Configuration spaces in both the above examples arose as a result of holonomic constraints imposed on a physical system.
 However, the imposed holonomic constraints need not always be well-behaved.
-To illustrate this point, consider a particle constrained to move on two intersecting cylinders of equal radius with mutually perpendicular axes, as illustrated in Fig. 1(a).
+To illustrate this point, consider a particle constrained to move on two intersecting cylinders of equal radius with mutually perpendicular axes, as illustrated in Fig.~\ref{fig:confspaces}(c).
 If the particle is to obey both constraints simultaneously, it can only move on the cylinders' intersection curve $\Omega$, which forms the configuration space of the particle.
 As we see from Fig.~\ref{fig:confspaces}(c), the curve has two singularities where it self intersects, which prevents the configuration space from being a smooth manifold.
 Mathematically, the constraints in the two-cylinder system, is described by the map $f: \mathbb{R}^{3} \to \mathbb{R}^{2}$, defined by $f(x, y, z) = (x^{2} + z^{2} - 1,\, y^{2} + z^{2} - 1)$.
 At singularities, such as the ones in Fig.~\ref{fig:confspaces}(c), direct computation reveals that the Jacobian $\nabla f$ drops rank.%
 \footnote{Since the Jacobian is an $m\times n$ matrix, it drops rank whenever its rows---each representing a single linearized constraint---cease to become linearly independent.}
 Such singularities, which arise when the constraints imposed on a system cease to be linearly independent, are not mere pathological irregularities, and they have been extensively studied in many fields, e.g., robotics and locomotion.
-
-% why are they studied in robotics?
-% locomotion?
-% topological robotics.
-
+%
 \begin{figure}
   \begin{center}
     \includegraphics{intro/confspaces.pdf}
@@ -95,21 +96,17 @@ Such singularities, which arise when the constraints imposed on a system cease t
   (c) Configuration space of a particle constrained to move on two mutually perpendicular cylinders of equal radii is the cylinders' intersection curve, which is not a smooth manifold.
   }
   \label{fig:confspaces}
-  % TODO: more descriptive label.
 \end{figure}
 
 \subsection{Frameworks}
 
 Soft, few-body systems, composed of a small number of particles or units, interacting via short-ranged forces are commonplace in soft-matter physics.
 A quintessential example of such a system is a colloidal cluster, which is composed of a small number of colloidal particles with sizes typically ranging from 1~nm to 0.1~$\mu$m.
-% TODO: figure of a colloidal cluster and cite papers in the following sentence; plagiarism issues as well.
-Colloidal clusters, have been extensively studied both experimentally and theoretically, and provide fundamental insights into a host of phenomena including the formation of nucleation barriers, crystallization, glass transition, etc.
 Although the particles in a colloidal cluster are held together by subtle effects of electrostatic and van der Waal forces, such details are often irrelevant if our goal is to describe the more macroscopic properties of the cluster.
 To a good approximation, the interactions between the different particles are effectively described using central-force bonds connecting their centers.
 Configurations of the resulting ``bond skeleton'', with each bond at its respective rest length, describe the different ground states of the cluster.
-Such colloidal skeletons are an example of a mechanical framework, which is an assembly of rigid bars connecting freely-rotating joints.
+Such colloidal skeletons are an example of a mechanical framework, which is an assembly of rigid bars that connect point-like joints.
 Frameworks are indeed holonomically-constrained systems, not too different from the examples we have seen so far.
-In case of the colloidal cluster, the configuration space of the associated framework is equivalent to the ground-state manifold of the cluster.
 %
 \begin{figure}
   \begin{center}
@@ -130,11 +127,7 @@ In recent years, nanoscale frameworks made out of multihelix DNA bundles (often 
 As far as more generic descriptions of thermally-driven frameworks are concerned, there has been long-standing interest in the effect of thermal fluctuations on the mechanical properties of ordered and disordered lattices~\cite{zhang2016,woodhouse2018,yan2018}, and the folding of polymerized membranes~\cite{di-francesco2000,nelson2004} and polyhedral nets~\cite{shenoy2012,dodd2018,melo2020}.
 There is, therefore, an arising need to understand how thermal excitations affect the physical properties of these frameworks, but only some attempts have been made so far~\cite{kallus2017,rocklin2018}.
 
-In practice, there is no such thing as a framework with perfect constraints, and it is always possible to violate them by paying some sort of an energy cost.
-Multihelix bundles used in DNA origami, for instance, have measured stiffness in the range of 0.1--1~pN$/$nm~\cite{jung2020}.
-For realistic frameworks, the configuration space $\Omega$ would then form the ground-state manifold (assuming that energy costs arise solely due to the constraints being violated).
-
-\subsection{Free energy landscapes}
+\subsection{Free-energy landscapes}
 
 The effect of thermal fluctuations on a physical system is often represented by its free-energy landscape in terms of a set of collective variables that provide a coarse-grained description of its slowest dynamics.
 In theory~\cite{go1976,echenique2011}, one can obtain the free energy of a framework by integrating out the fast modes that are transverse to its shape space, i.e., the subset of its configuration space once rigid-body motions are removed.
@@ -175,6 +168,20 @@ Although the sonorousness of the common saw has been known at least since the 19
 These authors modeled the saw as a thin elastic shell with a varying curvature profile and showed that the saw's sonority is due to vibrations that get trapped around its inflection point, where the local curvature vanishes.
 As trapped vibrations remain confined to the immediate vicinity of the inflection point, it reduces energy dissipation through the two ends of the saw, resulting in a sustained note.
 In a very recent work, \citet{shankar2022} reported that these vibrations have a topological origin on the basis of jumps in an integer-valued invariant as we move across the inflection point.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{intro/saw.pdf}
+  \end{center}
+  \caption{%
+    An ordinary hand saw, when bent into the shape of the letter $\mathsf{S}$ can be played like a musical instrument using a violin's bow or a mallet.
+    A sustained note is produced on bowing or hitting the saw close to its inflection point, which is called a sweet spot by saw enthusiasts.
+    In most models of thin elastic structures, such as the saw here, the displacement field is broken up into a normal (e.g., $\zeta$) and tangential (e.g., $u$) component, which remain coupled if the structure is curved.
+    Photographs sourced from Ref.~\cite{shankar2022}.
+  }
+  \label{fig:saw}
+\end{figure}
+
 
 Despite the efforts of the above-mentioned authors, several critical questions remain unanswered:
 What kinds of waves on thin structures get trapped?
@@ -199,19 +206,6 @@ An uncurved elastic structure can support three basic wave types: extensional an
 By contrast, if the structure is curved, the normal and tangential components remain coupled.
 In this case, we can only speak of waves that are predominantly flexural or extensional or shear like, based on which component is more dominant in magnitude.
 It this curvature-mediated coupling between the various components that ultimately leads to the formation of bound states in curved structures.
-%
-\begin{figure}
-  \begin{center}
-    \includegraphics{intro/saw.pdf}
-  \end{center}
-  \caption{%
-    An ordinary hand saw, when bent into the shape of the letter $\mathsf{S}$ can be played like a musical instrument using a violin's bow or a mallet.
-    A sustained note is produced on bowing or hitting the saw close to its inflection point, which is called a sweet spot by saw enthusiasts.
-    In most models of thin elastic structures, such as the saw here, the displacement field is broken up into a normal (e.g., $\zeta$) and tangential (e.g., $u$) component, which remain coupled if the structure is curved.
-    Photographs sourced from Ref.~\cite{shankar2022}.
-  }
-  \label{fig:saw}
-\end{figure}
 
 \subsection{Semiclassical approximation}
 
@@ -227,27 +221,21 @@ A representative example from physics is the time-independent Schr\"{o}dinger eq
 %
 where the WKB method is frequently employed to find asymptotic solutions in the limit the (reduced) Planck's constant $\hbar \to 0$.
 At first glance, such a limit is perplexing and makes \emph{no} physical sense as $\hbar$ is a fundamental constant, whose value is fixed by the units we choose to work in.
-In reality, the limit $\hbar \to 0$ represents the situation where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.%
-\footnote{%
-  This can be more clearly seen by nondimensionalizing the time-independent Schr\"{o}dinger equation by introducing an energy scale $U$ and a length scale $L$, after which it can be written as
-$-\epsilon^{2}\partial_{{x}}^{2}\psi(x) + {V}(x)\psi(x) = {E}\psi(x)$,
-where all quantities as well as the parameter $\epsilon = \hbar/\sqrt{2mL^{2}U}$ are now dimensionless.
-As $\sqrt{2mL^{2}U}$ has dimensions of angular momentum, taking the limit $\epsilon \to 0$ is equivalent to saying that typical values of angular momentum are much larger than $\hbar$.}
+In reality, the limit $\hbar \to 0$ represents the situation where the value of $\hbar$ is much smaller compared to the angular momentum scale, which is often the case with macroscopic systems described by classical physics.
 It is in this context that the WKB method gets the alternative moniker of semiclassical approximation.%
-%\footnote{Also known as the quasiclassical method.  In harmonic analysis, the semiclassial approximation is also called semiclassical analysis.  Some others choose to call it the eikonal method and some others call it ray approximation or ray tracing.}
 
 Modern reformulations of the semiclassical method, based on the Weyl symbol calculus, provide unparalleled insights into the connection between classical and quantum mechanics.
-Weyl calculus provides an elegant way to set up a one-to-one association between differential operators (i.e., powers of $\partial_{x}$) defined on Hilbert spaces and ordinary functions defined on a position--momentum phase space.
-The basic premise is that, under the Weyl transform, the momentum operator $\hat{k} = -i\partial_{x}$ gets mapped to the momentum $k$.
+Weyl calculus provides an elegant way to set up a one-to-one association between differential operators (e.g., powers of $\partial_{x}$) defined on Hilbert spaces and ordinary functions defined on a position--momentum phase space.
+For instance, under the Weyl transform, the momentum operator $\hat{k} = -i\partial_{x}$ gets mapped to the momentum $k$.
+Likewise, the Schr\"{o}dinger operator $\widehat{H} = -\partial_{x}^{2}/2m + V(x)$, gets mapped to the classical Hamiltonian of a point particle $H(x, k) = k^{2}/2m + V(x)$.
 (For simplicity, we have suppressed factors of $\hbar$.)
-Thus, after expressing the derivatives of a given differential operator $D(x, \partial_{x})$ in terms of $\hat{k}$ and its powers, the operator can be mapped to an ordinary function---called its Weyl symbol---defined on an $x$-$k$ phase space, i.e.,
+To make use of Weyl calculus, it is customary to express the derivatives of a given differential operator $D(x, \partial_{x})$ in terms of $\hat{k}$ and its powers.
+Then, using an integral transform, the operator can be mapped to an ordinary function---called its Weyl symbol---defined on an $x$-$k$ phase space, i.e.,
 %
-% TODO: use tikz instead of harpoons: https:/tex.stackexchange.com/questions/312491/bumpy-uneven-arrows-in-mathtools-mhchem-etc
 \begin{equation}
-  \widehat{D}\left(x, \partial_{x}\right) = \widehat{D}\left(x, i\hat{k}\right) \quad\text{\small(Hilbert space)} \quad\xrightleftharpoons[\text{Wigner map}]{\text{Weyl transform}}\quad D\left(x, k\right) \quad\text{\small(phase space)}.
+  \widehat{D}\left(x, \partial_{x}\right) = \widehat{D}\left(x, i\hat{k}\right) \quad\text{\small(Hilbert space)} \quad\rightleftharpoons{}\quad D\left(x, k\right) \quad\text{\small(phase space)}.
 \end{equation}
 %
-The Schr\"{o}dinger operator $\widehat{H} = -\partial_{x}^{2}/2m + V(x)$, for instance, gets mapped to the classical Hamiltonian of a point particle $H(x, k) = k^{2}/2m + V(x)$.
 Once the operator is in its symbol form, it can be expanded and approximated just like any other ordinary function, providing a direct path towards obtaining asymptotic solutions to wave equations.
 
 For matrix operators that act on multicomponent wave fields, such as the one in Eq.~\eqref{intro:eq:waveeq}, the corresponding Weyl symbol $\mathsf{D}$ is called the dispersion matrix---an ordinary matrix, whose entries are functions defined on an $x$-$k$ phase space.
@@ -264,7 +252,7 @@ The advantage provided by the semiclassical approximation cannot be overstated: 
 
 \subsection{Bound states in thin elastic structures}
 
-The semiclassical approximation also provides a direct route to extract the bound state frequencies by ``quantizing'' the ray trajectories in the phase space.
+The semiclassical approximation also provides a direct route to extract the bound-state frequencies by ``quantizing'' the ray trajectories in the phase space.
 As bound waves are bounded in the phase space as well, the rays corresponding to these waves appear in the form of closed orbits when visualized [see Fig.~\ref{fig:phasespace}(a)].
 Each bound orbit is associated with a wave of a specific frequency $\omega$.
 The single valuedness of the wave field as we traverse the orbit requires the overall phase to be a half-integral multiple of $2\pi$, which leads to the famous Bohr--Sommerfeld quantization rule.
@@ -303,6 +291,5 @@ For this reason, the results presented here lay the groundwork for the design of
 In Chapter~\ref{chap02} we review basic facts about frameworks, their configuration spaces, and derive asymptotic expressions for their elastic energies.
 Chapter~\ref{chap03} deals with the effect that thermal fluctuations have on these frameworks, and presents a detailed calculation of the free-energy profiles for three example frameworks.
 Chapters~\ref{chap04} and~\ref{chap05} are concerned with the second problem discussed in this dissertation.
-The semiclassical approximation, is reviewed in Chapter \ref{chap04}, with special attention paid to multicomponent wave equations.
-Chapter~\ref{chap05} makes use of the semiclassical approximation to understand the formation of bound states in thin, elastic structures.
-Finally, in Appendix~\ref{app:math}, we collect some helpful mathematical results that are used throughout the dissertation.
+The semiclassical approximation is reviewed in Chapter \ref{chap04}, with special attention paid to multicomponent wave equations.
+Chapter~\ref{chap05} makes use of the semiclassical approximation to understand the formation of bound states in thin elastic structures.

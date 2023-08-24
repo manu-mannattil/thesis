@@ -19,3 +19,7 @@ s|soft few-body|soft, few-body|g
 s|\\mathscr{O}|\\mathcal{O}|g
 
 s|\\kappa\\beta|\\beta\\kappa|g
+
+s|\\ln{|\\log{|g
+
+s|\\frac{\([0-9]\)}{\([0-9]\)}|\\tfrac{\1}{\2}|g

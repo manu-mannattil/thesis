@@ -236,3 +236,95 @@ The only plane tangent to the $yz$ plane is the $yz$ plane itself, which is not 
 One might object that the cone itself ceases to be a manifold at the origin.
 However, one can always ``file off'' the tip of the cone and make it infinitesimally smooth like a physicist would do.
 This would still produce no lowering of the free energy.
+
+\subsubsection*{Straight line without singularities}
+
+Consider a particle constrained to move on the straight line $y = x$ in $\mathbb{R}^{2}$.
+We will consider the configuration space $\Omega = f^{-1}(0)$ of the particle as the zero level set of the following constraint map $f$:
+%
+\begin{equation}
+  f: \mathbb{R}^{2} \to \mathbb{R},
+  \quad\text{defined by}\quad
+  f(x, y) = x^{3} - y^{3}.
+\end{equation}
+%
+As the constraining potential, we choose the function $U(x, y) = \frac{1}{2}\kappa\abs{f}^{2}$ and take the $x$ coordinate as the \ac{cv}.
+With this setup, we get the following marginal density (sans normalization):
+%
+\begin{equation}
+  \mathscr{P}(x) = \int \dd{y}\,e^{-\frac{1}{2}\beta\kappa (x^{3}-y^{3})^{2}}= 2\left(\frac{2}{\beta\kappa}\right)^{1/6}\Gamma\left(\tfrac{7}{6}\right){}_{1}\!F_{1}\left(\tfrac{1}{3};\tfrac{1}{2};-\tfrac{1}{2}\beta x^{6}\right),
+\end{equation}
+%
+where ${}_{1}\!F_{1}$ is the confluent hypergeometric function~\cite{olver2010}.
+Then, the free-energy difference $\Delta\mathscr{A}(x) = \mathscr{A}(x) - \mathscr{A}(0)$ takes the form
+%
+\begin{equation}
+  \Delta\mathscr{A}(x) = -\beta^{-1}\log\left[{}_{1}\!F_{1}\left(\tfrac{1}{3};\tfrac{1}{2};-\tfrac{1}{2}\beta x^{6}\right)\right].
+\end{equation}
+%
+Figure~\ref{fig:line}(a) shows $\Delta\mathscr{A}(x)$ as a function of $x$, from which we can see that the free-energy values around $x = 0$ are lower than the values elsewhere.
+Even though the configuration space $\Omega$ is a straight line---a smooth manifold with no singularities---the free-energy landscape has a flat neighborhood around its minimum at $x = 0$.
+The landscape we see here is a consequence of the softening of the constraining potential $U(x, y)$, which is evidenced by the widening of the energy level sets in Fig.~\ref{fig:line}(b).
+Mathematically, this is a result of a second-order expansion failing to capture an energy landscape dictated by the potential $U(x, y) = \frac{1}{2}\kappa(x^{3}-y^{3})^{2}$, which is a degree six homogeneous polynomial.
+
+It should be emphasized that the constraining potential depends on the way the constraint map $f$ was defined.
+Indeed if had considered $\Omega$ as the zero level set of the constraint map $f(x, y) = x - y$, the marginal density $\mathscr{P}(x)$ would have been independent of $x$ and the free-energy landscape would have been flat.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{fluctuations/line.pdf}
+  \end{center}
+  \caption{(a) Free energy $\Delta\mathscr{A}(x)$ of a particle under a potential $U(x,y) = \frac{1}{2}\kappa(x^{3}-y^{3})^{2}$. (b) Configuration space (black line) and energy level sets.}
+  \label{fig:line}
+\end{figure}
+
+\subsubsection*{Cone-plane intersection}
+
+Consider a particle constrained to move on the intersection curve between the right-circular cone defined by $x^{2} + y^{2} = z^{2}$ and the $yz$ plane (defined by $x = 0$).
+Mathematically, the intersection curve is the zero level set of the following map:
+%
+\begin{equation}
+  f: \mathbb{R}^{3} \to \mathbb{R}^{2},
+  \quad\text{defined by}\quad
+  f(x,y,z) =
+  \begin{pmatrix}
+    \abs{z} - \sqrt{x^{2} + y^{2}}\\
+    x
+  \end{pmatrix}
+\end{equation}
+%
+As we can see from Fig.~\ref{fig:coneplane}, the configuration space $\Omega = f^{-1}(0)$ is nothing but the union of the lines $y = \pm z$, which intersect at the origin and create a singularity.
+If we choose the $y$ coordinate as our \ac{cv} and compute the marginal density $\mathscr{P}(y)$ assuming a constraining potential $U(x, y, z) = \frac{1}{2}\kappa\Abs{f}^{2}$, we find (sans normalization)
+%
+\begin{equation}
+  \mathscr{P}(y) = \int \dd{x}\,\dd{z}\,\exp\left\{-\tfrac{1}{2}\beta\kappa\left[\left(\smash[b]{\abs{z} - \sqrt{\smash[b]{x^{2} + y^{2}}}}\right)^{2} + x^{2}\right]\right\}.
+\end{equation}
+%
+Although the above integral is unwieldy,%
+\footnote{Or at least, I found it hard to integrate it exactly.}
+we can find the following limiting cases after straightforward algebra
+%
+\begin{equation}
+  \mathscr{P}(0) = \frac{3\pi}{\beta\kappa}
+  \quad\text{and}\quad
+  \mathscr{P}(y) \sim \left(\frac{2\pi}{\beta\kappa}\right)\left[1+\erf\left(\sqrt{\tfrac{1}{2}{\beta\kappa y^{2}}}\right)\right],
+  \quad y \gg \sqrt{\smash[b]{\beta\kappa}},
+\end{equation}
+%
+leading to a free-energy difference $\Delta\mathscr{A}(y) = \mathscr{A}(y) - \mathscr{A}(0)$ of the form
+%
+\begin{equation}
+  \Delta\mathscr{A}(y) = -\beta^{-1} \log\left\{\left(\frac{2}{3}\right)\left[1+\erf\left(\sqrt{\tfrac{1}{2}{\beta\kappa y^{2}}}\right)\right]\right\},
+  \quad y \gg \sqrt{\smash[b]{\beta\kappa}}.
+\end{equation}
+%
+Clearly, in this case, the free energy is actually \emph{higher} for the singular value $y = 0$ of the \ac{cv}, leading to a free-energy barrier of $-\beta^{-1}\log(4/3)$ between points with $y < 0$ and $y > 0$.
+This barrier can be explained by considering the energy level sets around $\Omega$.
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{fluctuations/coneplane.pdf}
+  \end{center}
+  \caption{Cone plane free}
+  \label{fig:coneplane}
+\end{figure}

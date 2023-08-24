@@ -4,62 +4,24 @@
 \chapter{Semiclassical physics}
 \label{chap04}
 
-In this Chapter we present a quick rundown of the semiclassical approximation as applied to multicomponent waves.
+\chapterprecishere{%
+In this chapter we present a quick rundown of the semiclassical approximation as applied to multicomponent waves.
+Using a variational approach, we will derive the ray equations and describe the modification necessary to extract the bound-state spectrum of a multicomponent wave equation through quantization.
+The general theory prescribed in this chapter will form a basis for our study of elastic waves in the next chapter.
+\\
+}
+
+The study of propagating waves is important to many disciplines.
+A widely employed asymptotic method to solve wave problem is the WKB/semiclassical approximation, which is sometimes also referred to as the eikonal approximation, geometrical optics, etc.
+Although the WKB approximation is discussed in almost all books on quantum mechanics, there are several subtle issues, especially when multicomponent waves are involved, that need to be addressed.
+Our primary goal in this chapter, therefore, is to review some existing results on the semiclassical approximation as applied to multicomponent wave fields.
+In particular, we will derive expressions for two extra phases that appear in the Bohr--Sommerfeld quantization rule for such wave fields.
 To keep the exposition simple, we will restrict ourselves to wave equations in one variable.
-For more detailed descriptions, we refer to the book by \citet{tracy2014}.
-
-% This chapter is a brief discussion of elastic waves.
-% In particular, we discuss waves propagating on a filament and shell, both with varying curvatures.
-% The equations we derive in this chapter would form the basis of our discussions in the next chapter.
-
-%\section{WKB analysis}
-
-%Consider the differential equation
-%%
-%\begin{equation}
-%  y''(x) + y(x) + \varepsilon \lambda(x) = 0.
-%\end{equation}
-%%
-%Here $\varepsilon$ is a small parameter and suppose we wish to find solutions to this differential equation when $\varepsilon \to 0$.
-%This is a \emph{regular perturbation} problem because the general characteristic features of this differential equation, namely the fact that it is second order with two independent solutions remains preserved on setting $\varepsilon = 0$.
-%Hence we can attempt to find a solution of the form
-%%
-%\begin{equation}
-%  y(x) = y_0(x) + \varepsilon y_{1}(x) + \varepsilon^{2} y_{2}(x) + \cdots
-%\end{equation}
-%%
-%Putting this in the original differential equation, we can solve it at different orders of $\varepsilon$ to find
-%%
-%\begin{equation}
-%  \begin{aligned}
-%    \mathcal{O}(\epsilon^{0}) &: y_{0}''(x) + y_{0}(x) = 0\\
-%    \mathcal{O}(\epsilon^{1}) &: y_{1}''(x) + y_{0}(x) = 0
-%  \end{aligned}
-%\end{equation}
-%%
-
-%The WKB method is a method to find solutions to \emph{singularly perturbed} different equations.
-
-%Trouble might occur for instance when
-
-%1) the highest order derivative is multiplied by $\varepsilon$.
-%2) the problem totally changes characteristics when the parameter $\varepsilon$ is equal to zero.
-%3) the problem is defined on infinite regions.
-%4) singular points are present.
-%5) the equation models physical processes with several time- or length scales.
-
-%1-5 are called singular perturbation problems.
-
-%In many cases we deal with problem containing boundary layers. We can roughly treat these problems by
-%i) letting  we get a good approximation for the outer region.
-%ii) rescale the problem to get an inner approximation.
-%iii) match inner and outer approximations.
-
-%Singular perturbation is matched asymptotic expansion.
+For more detailed descriptions, we refer to the book by \citet{tracy2014} and references therein.
 
 \section{Introduction}
 
-Consider a wave equation of the form
+We begin by considering a general wave equation of the form
 %
 \begin{equation}
   \partial_{t}^{2}\Psi(x,t) + \widehat{\mathsf{H}}\Psi(x,t) = 0,
@@ -67,12 +29,12 @@ Consider a wave equation of the form
 \end{equation}
 %
 where $\Psi(x,t)$ is an $N$-component wave field described by a one-dimensional coordinate $x$ and time $t$.
-In elastodynamics, $\Psi$ is usually composed of displacements, e.g., for the rod we have $\Psi = (\zeta, u)$, and for the shell we have $\Psi = (\zeta, u, v)$ [see Figs.~\ref{fig:waves}(a) and~\ref{fig:waves}(b)].
+As as example, in elastodynamics, $\Psi$ is usually composed of displacements from the neutral, undeformed state of some elastic structure, e.g., a rod or a shell.
 Also, $\widehat{\mathsf{H}}$ is taken to be a Hermitian operator in the form of an $N\times N$ matrix, composed solely of spatial derivatives (i.e., powers of $\partial_{x}$) with time-independent coefficients.
 Assuming that the waves are time harmonic with frequency $\omega$, i.e., $\Psi(x, t) = \psi(x)e^{\pm i\omega t}$, where $\psi(x)$ is the time-independent part of the wave field, Eq.~\eqref{eq:full_wave_eq} can be recast as
 %
 \begin{equation}
-  \widehat{\mathsf{D}}\psi = 0,\quad \text{with}\enspace \widehat{\mathsf{D}} = \widehat{\mathsf{H}} - \omega^{2}\mathsf{I}_{N},
+  \widehat{\mathsf{D}}\psi = 0,\quad \text{with}\quad \widehat{\mathsf{D}} = \widehat{\mathsf{H}} - \omega^{2}\mathsf{I}_{N},
   \label{eq:ev_problem}
 \end{equation}
 %
@@ -87,7 +49,8 @@ Since we shall be considering $\widehat{\mathsf{D}}$ in the coordinate represent
 
 \subsection{Wave action}
 
-An equation like Eq.~\eqref{eq:ev_problem} can be derived from a wave action of the form
+Central to the variational approach we will use in this chapter is the realization that
+a wave equation like Eq.~\eqref{eq:ev_problem} can be derived from a wave action of the form
 %
 \begin{equation}
   \begin{aligned}
@@ -868,4 +831,21 @@ The second (non-geometric) phase $\gamma_{\text{NG}}$ has no such interpretation
   \label{fig:caustic}
 \end{figure}
 
-\the\textwidth
+\section{Weyl symbols}
+
+The Weyl symbol of an operator $\widehat{A}(x, \hat{k})$ is defined by
+%
+\begin{equation}
+  A(x, k) = \int \dd{s}\, e^{-iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\widehat{A}\Ket{x - \tfrac{1}{2}s}.
+  \label{app:eq:weyl_def}
+\end{equation}
+%
+A consequence of the above definition is that if operator $\widehat{A}$ is Hermitian with $\widehat{A}^{\dagger} = \widehat{A}$, then, taking the complex conjugate of Eq.~\eqref{app:eq:weyl_def}, we find
+%
+\begin{equation}
+  A^{*}(x, k) = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x + \tfrac{1}{2}s}\widehat{A}\Ket{x - \tfrac{1}{2}s}^{*}
+  = \int \dd{s}\, e^{+iks/\epsilon} \Bra{x - \tfrac{1}{2}s}\widehat{A}\Ket{x + \tfrac{1}{2}s} = A(x, k),
+  \label{eq:weylsym}
+\end{equation}
+%
+showing that the symbol $A(x, k)$ is a real function of $x$ and $k$.

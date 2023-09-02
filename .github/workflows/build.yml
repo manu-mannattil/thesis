@@ -37,10 +37,9 @@ jobs:
 
           make gitinfo
           make thesis.pdf
-          make thesis-su.pdf
 
           mkdir build
-          mv thesis.pdf thesis-su.pdf build
+          mv thesis.pdf build
 
       # The purpose here is to replace the contents of
       # the target branch with the contents of the build

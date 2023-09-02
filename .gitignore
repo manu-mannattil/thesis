@@ -1,23 +1,10 @@
-notes.txt
-writing.txt
-*.txt
-examples/
-misc/
-cover/
 figuresx/
+misc/
 notes/
 
 thesis.pdf
 thesis-su.pdf
 thesis-print.pdf
-
-cpfigs.sh
-
-!figures/misc
-
-*.jpg
-*.pdf_tex
-*.png
 
 ### TeX ###
 ## Core latex/pdflatex auxiliary files:

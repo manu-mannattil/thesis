@@ -10,13 +10,13 @@ s|\\widehat{\\mathsf{I}}|\\hat{\\mathsf{I}}|g
 
 s|\\subsubsection{|\\subsubsection*{|g
 
-# s|Soft Few-body|Soft, Few-body|g
 # s|Thin elastic|Thin, elastic|g
 # s|Thin Elastic|Thin, Elastic|g
 # s|thin elastic|thin, elastic|g
-# s|Soft few-body|Soft, few-body|g
-# s|Soft Few-body|Soft, Few-body|g
-# s|soft few-body|soft, few-body|g
+s|Soft, Few-body|Soft Few-body|g
+s|Soft, few-body|Soft few-body|g
+s|Soft, Few-body|Soft Few-body|g
+s|soft, few-body|soft few-body|g
 
 # s|Thin, elastic|Thin elastic|g
 # s|Thin, Elastic|Thin Elastic|g
@@ -33,11 +33,14 @@ s|\\frac{i}{\([0-9]\)}|(i/\1)|g
 
 s|\\bm{0}|0|g
 
-s|Free energy landscape|Free-energy landscape|
-s|free energy landscape|free-energy landscape|
+# s|Free energy landscape|Free-energy landscape|
+# s|free energy landscape|free-energy landscape|
+#
+# s|Free energy profile|Free-energy profile|
+# s|free energy profile|free-energy profile|
+#
+# s|Free energy curve|Free-energy curve|
+# s|free energy curve|free-energy curve|
 
-s|Free energy profile|Free-energy profile|
-s|free energy profile|free-energy profile|
-
-s|Free energy curve|Free-energy curve|
-s|free energy curve|free-energy curve|
+s|\\ac{cv}|CV|g
+s|\\ac{dof}|DOF|g

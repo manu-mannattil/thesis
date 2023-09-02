@@ -85,17 +85,46 @@
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\Abs}{\|}{\|} % || ... || version
 
+% Spacing around operators and relations in math mode are
+% governed by specific skip lengths:
+%
+%   \thinmuskip   (spacing between "sin" and "theta" in \sin{\theta}; default = 3mu)
+%   \medmuskip    (spacing around "+" in a + b = c + d; default = 4mu)
+%   \thickmuskip  (spacing around "=" in a = b; default = 5mu)
+%
+% The following command rescales all math skips by a common
+% factor.  This is useful to shrink/stretch equations to fit
+% the textwidth and also to get rid of underfull warnings.
+%
+% Adapted from: https://groups.google.com/g/comp.text.tex/c/-COMVMhkkFo
+%
+\def\mathskips#1{%
+  \thinmuskip\muexpr\thinmuskip*#1%
+  \medmuskip\muexpr\medmuskip*#1%
+  \thickmuskip\muexpr\thickmuskip*#1%
+}
+
 %%% Miscellaneous -------------------------------------------------------------
 
 \def\etal{\emph{et al.}}
 
 \def\blankpage{\newpage\phantom{}\thispagestyle{empty}}
 
+% Make a footnote that uses \star instead of fnsymbol.
+\def\starfootnote#1{%
+  \let\oldthefootnote=\thefootnote%
+  \setcounter{footnote}{0}%
+  \renewcommand{\thefootnote}{$\star$}%
+  \footnote{#1}%
+  \let\thefootnote=\oldthefootnote%
+  \setcounter{footnote}{0}%
+}
+
+%%% Environments --------------------------------------------------------------
+
 \newenvironment{flushright*}
   {\null\hfill\begin{tabular}{l@{}}}
   {\end{tabular}}
-
-%%% Environments --------------------------------------------------------------
 
 % Environment for typing right-indented quotes and command for typing the
 % name of the quotee.
@@ -152,7 +181,7 @@
 
 \RequirePackage{color}
 
-% 10 shades of grey.
+% Five shades of grey.
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{grey}{rgb}{0.5,0.5,0.5}
 \definecolor{gray1}{rgb}{0.2,0.2,0.2}
@@ -231,15 +260,6 @@
     linktocpage=true
   ]{hyperref}
   \urlstyle{same}
-  % \RequirePackage[
-  %   kerning=true,
-  %   spacing=true,
-  %   tracking=true,
-  %   factor=1100,
-  %   stretch=10,
-  %   shrink=10,
-  % ]{microtype}
-  % \microtypecontext{spacing=nonfrench}
   \usepackage{microtype}
   \RequirePackage{graphicx}
 \else
@@ -261,7 +281,7 @@
     \RequirePackage[square,merge,numbers,sort&compress]{natbib}
   \fi
 
-  \bibliographystyle{apsrev4-1}
+  \bibliographystyle{apsrev4-2}
   \def\bibfont{\small}
   \def\prebibhook{%
     \setlength{\bibsep}{0pt plus 0.3ex}%
@@ -341,7 +361,7 @@
 \newtheorem{example}{Example}
 \newtheorem*{example*}{Example}
 
-%%% Whitespace management -----------------------------------------------------
+%%% Whitespace management ----------------------------------------------
 
 \if@fancy
   % From Section 3.5 of memoir's documentation.
@@ -351,6 +371,9 @@
   \predisplaypenalty=10000
   \postdisplaypenalty=1549
   \displaywidowpenalty=1602
+
+  % Discourage pagebreak between lines.
+  \interlinepenalty=1000
 \fi
 
 %%% Memoir customization -----------------------------------------------
@@ -394,7 +417,6 @@
 % chapter/section titles.  Another alternative is
 % just \def\cftdotsep{1234}, which would keep the space, but
 % remove all the dots.
-\def\cftdotsep{1234}
 \def\cftchapterleader{\quad}
 \def\cftsectionleader{\enspace}
 \def\cftsubsectionleader{\enspace}

@@ -5,24 +5,20 @@
 
 \frontmatter
 
-% Cover ----------------------------------------------------------------
-
-% % Don't include cover in draft or deadtree or SU version.
-% \ifcoverpdf
-%   % Cover is p. "cover"
-%   \def\thepage{cover}
-%   \includepdf{cover/cover.pdf}
-%   % Switch to roman numerals after cover page.
-%   \pagenumbering{roman}
-% \fi
-
 % Abstract -------------------------------------------------------------
 
 \chapter*{Abstract}
-% \addcontentsline{toc}{chapter}{Abstract}
 \thispagestyle{empty}
 
-This dissertation is concerned with two problems that lie at the interface of soft-matter physics, geometry, and asymptotic analysis, but otherwise have no bearing on one another.  In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks.  These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft, few-body systems at the submicron scale such as colloidal clusters and DNA origami.  When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where it becomes energetically softer.  Consequently, the framework's free-energy landscape becomes dominated by the neighborhoods of points corresponding to these singularities.  In the second problem, I study the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a uniaxially-curved shell as concrete examples.  Waves propagating on such structures have multiple components owing to the curvature-mediated coupling of the tangential and normal components of the displacement field.  Here, using the semiclassical approximation, I show that these waves form localized, bound states around points where the absolute curvature of the structure has a minimum.  Both these problems exemplify the subtle interplay between the mechanical properties of soft materials and their geometry, which further sets the stage for many interesting consequences.
+This dissertation is concerned with two problems that lie at the interface of soft matter physics, geometry, and asymptotic analysis, but otherwise have no bearing on one another.
+In the first problem, I consider the equilibrium thermal fluctuations of deformable mechanical frameworks.
+These frameworks have served as highly idealized representations of mechanical structures that underlie a plethora of soft few-body systems at the submicron scale such as colloidal clusters and DNA origami.
+When the holonomic constraints in a framework cease to be linearly independent, singularities can appear in its configuration space, where it becomes energetically softer.
+Consequently, the framework's free-energy landscape becomes dominated by the neighborhoods of points corresponding to these singularities.
+In the second problem, I study the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a uniaxially curved shell as concrete examples.
+Waves propagating on such structures have multiple components owing to the curvature-mediated coupling of the tangential and normal components of the displacement field.
+Here, using the semiclassical approximation, I show that these waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
+Both these problems exemplify the subtle interplay between the mechanical properties of soft materials and their geometry, which further sets the stage for many interesting consequences.
 
 \ifdeadtree
   \blankpage
@@ -51,7 +47,7 @@ This dissertation is concerned with two problems that lie at the interface of so
   \ifsustyle
     \relax
   \else
-    \includegraphics[scale=1.25]{misc/sulogo.pdf}\\[1em]
+    \includegraphics{misc/sulogo.pdf}\\[1em]
   \fi
   \widetext{Syracuse University}{Syracuse University}\\[1em]
   August 2023
@@ -77,11 +73,10 @@ This dissertation is concerned with two problems that lie at the interface of so
 
 \newpage\thispagestyle{empty}
 \chapter*{Acknowledgments}
-% \addcontentsline{toc}{chapter}{Acknowledgments}
 
 I thank my adviser Chris Santangelo for taking me on as his Ph.D.~student, for many useful conversations, and for giving me ample independence (among other things).
 I also thank Jen Schwarz, Joey Paulsen, and Will Wylie for serving on my dissertation committee.
-I am also grateful to Chris and Jen for helping me transition to greener pastures in soft-matter physics after an unwise stint ``doing'' high-energy theory.
+I am also grateful to Chris and Jen for helping me transition to greener pastures in soft matter physics after an unwise stint ``doing'' high-energy theory.
 Special thanks are due to my undergraduate adviser Sagar Chakraborty, with whom I did my first serious research work.
 Let me also collectively acknowledge all others (too numerous to list individually, yet too generous to forget) who helped me reach this stage of my academic career.
 Finally, I would like to thank my parents for their compassion and encouragement over the years.
@@ -117,7 +112,6 @@ Finally, I would like to thank my parents for their compassion and encouragement
 % Notation -------------------------------------------------------------
 
 \chapter*{Notation}
-% \addcontentsline{toc}{chapter}{Notation}
 
 \input{notation}
 
@@ -150,11 +144,11 @@ Finally, I would like to thank my parents for their compassion and encouragement
   \bibliography{library}
 % BibLaTeX version only if not in draft mode.
 \else
-  \defbibnote{myprenote}{\hypersetup{allcolors=general}% without this, footnote link will be in nord11.
+  \defbibnote{myprenote}{\hypersetup{allcolors=bs1}% without this, footnote link will be in nord11.
     \emph{Note.---} All references that are publicly available on the Internet have archival versions at the Wayback Machine.\footnote{\url{https:/web.archive.org}}%
     \vspace\baselineskip
   }
-  \hypersetup{linkcolor=backref} % color of back references
+  \hypersetup{linkcolor=nord11} % color of back references
   \def\bibfont{\small}
   \setlength\bibitemsep{0pt}
   \printbibliography[prenote=myprenote]

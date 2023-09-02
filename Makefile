@@ -1,6 +1,6 @@
-.PHONY: clean distclean figures gitinfo
+.PHONY: clean distclean gitinfo thesis-print.pdf
 
-all: gitinfo thesis.pdf thesis-print.pdf thesis-su.pdf
+all: gitinfo thesis.pdf thesis-su.pdf
 
 %.pdf: %.tex
 	latexmk -f $<
@@ -20,9 +20,19 @@ gitinfo:
 		\def\gitCommitterAltDate{%cD} \
 	" HEAD >.git/gitInfo.in
 
+# Embed all fonts.
+thesis-print.pdf:
+	gs 	-dNOPAUSE                     \
+		-dBATCH                       \
+		-sDEVICE=pdfwrite             \
+		-dPDFSETTINGS=/prepress       \
+		-dEmbedAllFonts=true          \
+		-sOutputFile=thesis-print.pdf \
+		-f thesis.pdf
 clean:
 	latexmk -c
-	rm -f *.fls tags
+	rm -f *.fls *.aux tags
 
-distclean:
+distclean: clean
 	latexmk -C
+	rm -f thesis-print.pdf

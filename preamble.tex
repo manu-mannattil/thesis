@@ -14,76 +14,16 @@
   \setlrmarginsandblock{1in}{1in}{*} % left-right margins
   \setulmarginsandblock{1in}{1in}{*} % up-lower margins
   \DoubleSpacing
-  % \OnehalfSpacing
 \else
-  % 9x7
-  % \setstocksize{9in}{7in}
-  % \settrimmedsize{\stockheight}{\stockwidth}{*}
-  % \setulmarginsandblock{1in}{1in}{*}
-  % \setlrmarginsandblock{0.825in}{0.825in}{*}
-  % In both the below cases, we need the block size
-  % to be 8in x 5.35in.
-  \ifdeadtree
-    % 9x7
-    \setstocksize{9in}{7in}
-    \settrimmedsize{\stockheight}{\stockwidth}{*}
-    \setulmarginsandblock{1in}{1in}{*}
-    \setlrmarginsandblock{0.825in}{0.825in}{*}
-  \else
-    % height = 10in, width = 7in
-    \setstocksize{10in}{7in}
-    \settrimmedsize{\stockheight}{\stockwidth}{*}
-    \setulmarginsandblock{1in}{1in}{*} % up-lower margins
-    \setlrmarginsandblock{0.825in}{0.825in}{*} % left-right margins
-  \fi
+  % We need the block size to have a width of 5.35in
+  % (maximum width of a figure used in this thesis).
+  % So, to print on 9in x 7in paper, the left/right margin
+  % should be (7 - 5.35)/2 in = 0.825 in.
+  \setstocksize{9in}{7in}
+  \settrimmedsize{\stockheight}{\stockwidth}{*}
+  \setulmarginsandblock{1in}{1in}{*}
+  \setlrmarginsandblock{0.825in}{0.825in}{*}
 \fi
-
-% \ifdraftdoc
-%   \DoubleSpacing
-% \fi
-
-% Important.  Potato layout otherwise.
-\checkandfixthelayout
-
-% Squeeze whitespace in (numbered) lists.
-\usepackage{enumitem}
-\setlist[itemize]{noitemsep, topsep=2pt, label=(\roman*)}
-\setlist[enumerate]{noitemsep, topsep=2pt, label=(\roman*)}
-
-% Sensible whitespace.
-\setlength{\abovecaptionskip}{1pt plus 2pt}
-\setlength{\belowcaptionskip}{1pt plus 2pt}
-\setlength{\textfloatsep}{16pt plus 4pt minus 4pt}
-\setlength{\skip\footins}{16pt plus 4pt minus 4pt}
-\setlength{\parskip}{0pt}
-
-% Reduce space before/after equations.
-% https:/tex.stackexchange.com/a/47776
-% \g@addto@macro \normalsize {%
-%   \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
-%   \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
-%   \setlength{\belowdisplayskip}{6pt plus 1pt minus 2pt}%
-%   \setlength{\belowdisplayshortskip}{4pt plus 1pt minus 1pt}%
-% }
-
-% amsart.cls spacing.
-\g@addto@macro \normalsize {%
-  \setlength{\abovedisplayskip}{4.2pt plus 4.2pt}%
-  \setlength{\abovedisplayshortskip}{0pt plus 4.2pt}%
-  \setlength{\belowdisplayskip}{4.2pt plus 4.2pt}%
-  \setlength{\belowdisplayshortskip}{2.1pt plus 4.2pt}%
-}
-
-% Hack to almost completely remove orphans.
-% NOTE: this produces unbalanced pages.
-% See Section 3.5 of the memoir docs.
-% \setlength{\topskip}{1.5\topskip}
-% \checkandfixthelayout
-% \sloppybottom
-
-% Caption of figures = 85% of textwidth.
-\changecaptionwidth
-\captionwidth{0.85\textwidth}
 
 % Important.  Potato layout otherwise.
 \checkandfixthelayout
@@ -93,17 +33,12 @@
 \ifdraftdoc
   \usepackage[draft]{emem}
 \else
-  \usepackage{emem}
-  \usepackage{xcolor}
+  % Squeeze whitespace in (numbered) lists.
+  \usepackage{enumitem}
+  \setlist[itemize]{noitemsep, topsep=2pt, label=(\roman*)}
+  \setlist[enumerate]{noitemsep, topsep=2pt, label=(\roman*)}
 
-  % No colors for links in printed version.
-  \ifdeadtree
-    \colorlet{general}{black}
-    \colorlet{backref}{black}
-  \else
-    \colorlet{general}{bs1}
-    \colorlet{backref}{nord11}
-  \fi
+  \usepackage{emem}
 
   \hypersetup{
     pdfauthor={Manu Mannattil},
@@ -111,7 +46,7 @@
     pdfsubject={soft condensed matter, statistical mechanics, asymptotics, geometry, WKB/semiclassical methods},
     pdfkeywords={free energy, frameworks, waves, bound states},
     linktocpage=true,
-    allcolors=general
+    allcolors=bs1,
   }
 
   % Line numbers only in non-draft versions.
@@ -127,9 +62,16 @@
 
 % Other packages -------------------------------------------------------
 
-\usepackage{acronym}
+% \usepackage{lmodern,amssymb,bm,mathrsfs}
+% \def\bfdefault{b}
+% \DeclareMathAlphabet{\mathbf}{\encodingdefault}{\rmdefault}{b}{n}
+% \DeclareMathAlphabet{\mathbfit}{\encodingdefault}{\rmdefault}{b}{it}
+% \DeclareMathAlphabet{\mathbxit}{\encodingdefault}{\rmdefault}{bx}{it}
+
 \usepackage{fourierx} % fonts
-%\usepackage{lmodern,amssymb,mathrsfs,stmaryrd,bm} % fonts
+\usepackage{addlines} % for manual stretching of pages
+
+% \usepackage[pass,showframe]{geometry}
 
 % Set up path for graphicsx.
 \graphicspath{{figures}}
@@ -257,23 +199,11 @@
 \def\crossref#1#2{\href{https:/doi.org/#1}{#2}}
 \def\arxiv#1#2{\href{https:/arxiv.org/abs/#1}{arXiv:#1 [#2]}}
 
-% Make one footnote use \star instead of fnsymbol.
-\def\starfootnote#1{%
-  \let\oldthefootnote=\thefootnote%
-  \setcounter{footnote}{0}%
-  \renewcommand{\thefootnote}{$\star$}%
-  \footnote{#1}%
-  \let\thefootnote=\oldthefootnote%
-  \setcounter{footnote}{0}%
-}
-
 % Math -----------------------------------------------------------------
 
 % Chapter-wise equation numbers.
 \numberwithin{equation}{chapter}
 
-\def\free#1{\ensuremath\mathcal{A}_{\hat{#1}}(#1)}
-\def\mpd#1{\ensuremath\mathcal{P}_{\hat{#1}}(#1)}
 \def\inmat#1{\ensuremath\begin{pmatrix}#1\end{pmatrix}}
 
 % Math definitions.
@@ -288,11 +218,9 @@
 
 % Memoir tweaks --------------------------------------------------------
 
-% XXX: Move as much as possible to emem.sty
-
 % Chapter precis (i.e., abstract for a chapter) tweaks.
-% TODO: How to control spacing after the precis without a \\?
 \setlength{\prechapterprecisshift}{-\baselineskip}
+\def\postchapterprecis{\end{quote}\vskip\baselineskip}
 \def\precisfont{\normalfont\small}
 
 % Header customization.
@@ -312,13 +240,45 @@
 
 \def\appendixname{Appendix}
 
-\setbeforesecskip{-1.333\onelineskip plus -0.2\onelineskip minus -0.2\onelineskip}
-\setaftersecskip{.667\onelineskip plus 0.1\onelineskip}
-\setbeforesubsecskip{-.889\onelineskip plus -0.1\onelineskip minus -0.1\onelineskip}
-\setaftersubsecskip{0.444\onelineskip plus 0.05\onelineskip}
-\setbeforesubsubsecskip{-0.667\onelineskip plus -0.1\onelineskip minus -0.1\onelineskip}
-\setaftersubsubsecskip{0.333\onelineskip plus 0.05\onelineskip}
+\def\smallbreak{\vspace{0.25\baselineskip}}
 
-\def\smallbreak{\phantom{}\\}
+% Whitespace control ---------------------------------------------------
+
+% Whitespace before/after section titles.
+\setbeforesecskip{-1.75ex \@plus -0.5ex \@minus -0.1ex}
+\setaftersecskip{1.15ex \@plus 0.1ex}
+\setbeforesubsecskip{-1.625ex \@plus -0.5ex \@minus -0.1ex}
+\setaftersubsecskip{0.75ex \@plus .1ex}
+\setbeforesubsubsecskip{-1.625ex \@plus -0.5ex \@minus -0.1ex}
+\setaftersubsubsecskip{0.75ex \@plus 0.1ex}
+
+% Sensible whitespace.
+\setlength{\abovecaptionskip}{3pt plus 3pt}
+\setlength{\belowcaptionskip}{3pt plus 3pt}
+\setlength{\textfloatsep}{12pt plus 4pt minus 4pt}
+\setlength{\skip\footins}{10pt plus 4pt minus 4pt}
+\setlength{\footnotesep}{10pt plus 4pt minus 4pt}
+\setlength{\parskip}{0pt}
+
+% Reduce space before/after equations.
+% https:/tex.stackexchange.com/a/47776
+\g@addto@macro \normalsize {%
+  \setlength{\abovedisplayskip}{6pt plus 1pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{0pt minus 2pt}%
+  \setlength{\belowdisplayskip}{6pt plus 1pt minus 2pt}%
+  \setlength{\belowdisplayshortskip}{4pt plus 1pt minus 1pt}%
+}
+
+% amsart.cls spacing.
+% \g@addto@macro \normalsize {%
+%   \setlength{\abovedisplayskip}{4.2pt plus 4.2pt}%
+%   \setlength{\abovedisplayshortskip}{0pt plus 4.2pt}%
+%   \setlength{\belowdisplayskip}{4.2pt plus 4.2pt}%
+%   \setlength{\belowdisplayshortskip}{2.1pt plus 4.2pt}%
+% }
+
+% Caption of figures = 85% of textwidth.
+\changecaptionwidth
+\captionwidth{0.85\textwidth}
 
 \makeatother

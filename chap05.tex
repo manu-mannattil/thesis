@@ -9,9 +9,8 @@
 \label{chap05}
 
 \chapterprecishere{%
-In this final chapter we consider the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a singly-curved shell as concrete examples.
-Making use of the semiclassical/WKB approximation developed in the previous chapter, we show that elastic waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
-\\
+  In this final chapter we consider the localization of elastic waves in thin elastic structures with spatially varying curvature profiles, using a curved rod and a singly curved shell as concrete examples.
+  Making use of the semiclassical/WKB approximation developed in the previous chapter, we show that elastic waves form localized, bound states around points where the absolute curvature of the structure has a minimum.
 }
 
 \section{Introduction}
@@ -28,13 +27,13 @@ Localized waves can also arise in elastodynamic systems described by higher-orde
 In this context, \citet{scott1992} studied the localized vibrations of a musical saw---an ordinary hand saw bent into the shape of the letter \textsf{S} and playable like a musical instrument~\cite{leonard1989,stuckenbruck2016}.
 More recently, \citet{shankar2022} revisited the musical saw using both experiments and theory.
 Forgoing an explicit analytical computation of the mode frequencies, they argued that the bound modes that appear at the inflection point of the saw are topologically protected.
-Localization of elastic waves on variably-curved shells, such as the musical saw, is not entirely surprising as it is known that curvature acts as an effective refractive index for such waves~\cite{norris1994,evans2013}.
+Localization of elastic waves on variably curved shells, such as the musical saw, is not entirely surprising as it is known that curvature acts as an effective refractive index for such waves~\cite{norris1994,evans2013}.
 
-Motivated by the above studies, in this chapter, we investigate further aspects of curvature-controlled localization of waves in thin elastic structures, choosing a singly-curved shell and a curved rod as our examples.
+Motivated by the above studies, in this chapter, we investigate further aspects of curvature-controlled localization of waves in thin elastic structures, choosing a singly curved shell and a curved rod as our examples.
 If the structure is uncurved, there are three basic types of waves that can propagate.
 Extensional waves propagate by stretching and compressing the structure, and involve only the tangential displacements ($u$ and $v$ in Fig.~\ref{fig:waves}).
 Flexural waves, by contrast, propagate by bending the structure and involve only the normal displacement ($\zeta$ in Fig.~\ref{fig:waves}).
-In flat plates, shear waves, which do not compress or expand the plate, and involving only the tangential displacements propagate as well~\cite{landau1986}.
+In flat plates, shear waves, which do not compress or expand the plate, and involve only the tangential displacements propagate as well~\cite{landau1986}.
 
 The situation gets complicated when the structure is curved.
 First, curvature tends to couple the tangential and normal displacements, and therefore, we can only speak of waves that are predominantly flexural or extensional or shear like.
@@ -46,9 +45,9 @@ The physical assumptions usually made (expressed here in terms of the wave numbe
   \item The wavelength ($\sim k^{-1}$) is much larger that the thickness of the structure.
     If we work in length units such that the thickness is of order unity, we must then have $k \ll 1$.
     For bulk waves with wavelengths much smaller than the thickness (i.e., when $k \gg 1$), the structure should be treated as an infinite elastic medium~\cite{landau1986}.
-  \item The radius of curvature is much larger than the thickness, so that $\abs{m} \ll 1$ (in length units such that thickness is of order unity).
+  \item The radius of curvature is much larger than the thickness, so $\abs{m} \ll 1$ (in length units such that thickness is of order unity).
     This is a geometrical requirement as it is impossible to construct a structure whose local radius of curvature is smaller than its thickness.
-  \item The wavelength is smaller or of the same order of magnitude as the radius of curvature ($= m^{-1}$), so that $k > m$ is a safe choice (in all length units).
+  \item The wavelength is smaller or of the same order of magnitude as the radius of curvature ($= m^{-1}$), so $k > m$ is a safe choice (in all length units).
 \end{enumerate}
 
 Because the curvature couples the different displacement components, irrespective of the equations we use, to fully characterize wave propagation on curved structures, we have to consider multicomponent (i.e., vector) waves.
@@ -72,7 +71,7 @@ We also saw that in wave equations supporting bound-state solutions, the semicla
 As we discussed previously, subtleties can arise in multicomponent equations owing to the presence of an extra phase in the quantization rule~\cite{yabana1986,kaufman1987,littlejohn1991,littlejohn1991a}.
 Recently, this phase has been shown~\cite{venaille2023} to be responsible for a spectral flow in the rotating shallow-water equations that describe oceanic waves on the Earth's surface, leading to the topological protection of equatorial waves~\cite{delplace2017}.
 
-In this chapter, we use the semiclassical approximation to study the bound-state spectrum of elastic waves in a curved rod and a singly-curved shell with a varying curvature profile.
+In this chapter, we use the semiclassical approximation to study the bound-state spectrum of elastic waves in a curved rod and a singly curved shell with a varying curvature profile.
 To avoid losing the main results of this chapter in a thicket of details, we summarize them here:
 %
 \begin{enumerate}
@@ -86,23 +85,23 @@ To avoid losing the main results of this chapter in a thicket of details, we sum
     In the frequency spectrum, flexural bound states appear first and have the lowest frequencies.
     They are then followed by shear and extensional bound states, in that order.
   \item[(iv)] For both structures, flexural waves start propagating well below the frequency of the first bound state associated with an extensional wave.
-    Hence, in very long rods and shells, these bound states coexist with a near-continuum of flexural waves, forming quasi bound states in a continuum~\cite{hsu2016}.
+    Hence, in very long rods and shells, these bound states coexist with a near-continuum of flexural waves, forming quasi-bound states in a continuum~\cite{hsu2016}.
   \item[(v)]
-    Finally, both structures are described by equations for which the extra phase in the modified quantization rule vanish---something that we expect to be generically true for equations of thin-walled structures (Appendix~\ref{app:additional_phase}).
+    Finally, both structures are described by equations for which the extra phase in the modified quantization rule vanishes---something that we expect to be generically true for equations of thin-walled structures (Appendix~\ref{app:additional_phase}).
     This simplifies our analysis considerably and results in remarkable agreement between the quantization results and numerical experiments.
 \end{enumerate}
 
 Our findings show that waves can be robustly trapped in thin elastic structures by a simple alteration of their geometry.
 This could help, for instance, in crafting better thin-plate acoustic cloaks~\cite{farhat2009}, and aid the control of noise and vibration in thin structures~\cite{mace1987,hansen2012}.
 Curvature-induced localization of waves could also be used to improve the acoustic black-hole effect in thin-walled structures~\cite{lee2017,pelat2020}, which at the moment relies primarily on wave localization caused by a power-law tapered thickness profile~\cite{krylov2020}.
-Finally, a singly-curved shell serves as a simple, yet effective single-mode waveguide that can steer flexural waves of specific frequencies in the uncurved direction.
+Finally, a singly curved shell serves as a simple, yet effective single-mode waveguide that can steer flexural waves of specific frequencies in the uncurved direction.
 
 \section{Waves on a curved rod}
 \label{sec:rods}
 
-As we remarked earlier, several rod theories~\cite{chidamparam1993,walsh2000}, with varying levels of sophistication, have been written down for describing wave propagation on rods---straight or curved.
+As we remarked earlier, several rod theories~\cite{chidamparam1993,walsh2000}, with varying levels of sophistication, have been written down to describe wave propagation on rods---straight or curved.
 For our purposes, a simple linear model~\cite{kernes2021} of a curved rod would do.
-This model ignores higher-order effects like torsion, cross-sectional rotation, etc., and can be viewed as the lower-dimensional analogue of the Donnell--Yu shell model~\cite{donnell1933,yu1955} that we shall later use to understand wave propagation on curved shells.
+This model ignores higher-order effects like torsion, cross-sectional rotation, etc., and can be viewed as the lower-dimensional analog of the Donnell--Yu shell model~\cite{donnell1933,yu1955} that we shall later use to understand wave propagation on curved shells.
 
 \subsection{Equations of motion and semiclassical approximation}
 \label{sec:rod_equations}
@@ -110,7 +109,7 @@ This model ignores higher-order effects like torsion, cross-sectional rotation, 
 Let the undeformed state of the rod be in the form of a plane curve $\bm{\sigma}: \mathcal{X} \to \mathbb{R}^{2}$, which we take to be parameterized by its arclength $x \in \mathcal{X} \subset \mathbb{R}$.
 As a wave propagates along the rod, it undergoes a deformation $\bm{\sigma} \to \bm{\sigma} + \delta\bm{\sigma}$, where the displacement field $\delta\bm{\sigma}(x,t) = u(x,t)\bm{t}(x) + \zeta(x,t)\bm{n}(x)$.
 Here $\bm{t} = \dd\bm{\sigma}/\dd{x}$ is the unit tangent of the undeformed rod and $\bm{n}$ is its unit normal, obtained by rotating $\bm{t}$ counter-clockwise by $\pi/2$ [see Fig.~\ref{fig:waves}(a)].
-Using $\zeta$ and $u$ as the components of the wave field, and assuming the absence of external forces, the rod equations we are after is derived from the following energy functional~\cite{kernes2021}:
+Using $\zeta$ and $u$ as the components of the wave field, and assuming the absence of external forces, the rod equations we are after are derived from the following energy functional~\cite{kernes2021}:
 %
 \begin{equation}
   \mathscr{U}[\zeta, u] = \int \dd{t}\,\dd{x}\,\tfrac{1}{2}\left\{\rho\left(\dot{u}^{2} + \dot{\zeta}^{2}\right) - E\left[\partial_{x}u - m(x)\zeta\right]^{2} - B\left(\partial_{x}^{2}\zeta\right)^{2}\right\}.
@@ -172,7 +171,6 @@ Although this is a rather simple set of coupled equations involving the curvatur
 To employ the semiclassical approximation for solving Eq.~\eqref{eq:rod}, we assume that the curvature is a slowly varying function of the form $m(\epsilon x)$.
 Here $0 < \epsilon \ll 1$ is a small dimensionless parameter that controls the slowness of the variation.
 Because the length unit $\ell$ we chose for nondimensionalizing the arclength $x$ is proportional to the thickness, physically speaking, here we are assuming that the length scale over which the curvature varies significantly is much larger that the thickness of the rod.
-%(The actual length scale over which the curvature varies significantly is $\epsilon^{-1}\ell$.)
 Next, we do a final change of variables $x \to \epsilon^{-1}x$ in Eq.~\eqref{eq:rod} so that $m(\epsilon x) \to m(x)$ and all spatial derivatives get multiplied by $\epsilon$.
 For the eigenvalue problem with $\widehat{\mathsf{D}} = \widehat{\mathsf{H}} - \omega^{2}\mathsf{I}_{2}$, this gives us
 %
@@ -182,7 +180,7 @@ For the eigenvalue problem with $\widehat{\mathsf{D}} = \widehat{\mathsf{H}} - \
     \epsilon^{4}\partial^{4}_{x} + m^{2}(x) - \omega^{2} & -m(x)\epsilon\partial_{x}\\
     m(x)\epsilon\partial_{x} + \epsilon m'(x) & -\epsilon^{2}\partial^{2}_{x} - \omega^{2}
  \end{pmatrix}
-=
+\enspace=\enspace
  \begin{pmatrix}
    \hat{k}^{4} + m^{2}(x) -\omega^{2} & -i m(x)\hat{k}\\
     im(x)\hat{k} + \epsilon m'(x) & \hat{k}^{2} - \omega^{2}
@@ -200,12 +198,11 @@ $\mathsf{D} = \mathsf{D}^{(0)} + \epsilon\mathsf{D}^{(1)}$, where
     {k}^{4} + m^{2}(x) - \omega^{2} & -i m(x){k}\\
     im(x){k} & {k}^{2} - \omega^{2}
 \end{pmatrix}
-\enspace \text{and} \enspace
+\quad \text{and} \quad
 \mathsf{D}^{(1)} =
-\tfrac{1}{2}
 \begin{pmatrix}
-    0 & m'(x)\\
-    m'(x) & 0
+    0 & \tfrac{1}{2}m'(x)\\
+    \tfrac{1}{2}m'(x) & 0
 \end{pmatrix}.
 \label{eq:rod_D}
 \end{equation}
@@ -251,7 +248,7 @@ In this limit we have $\lambda_{+} \sim k^{2} - \omega^{2}$ and $\lambda_{-} \si
 We next look at the case where both $k$ and $m$ are small,%
 \footnote{%
   We consider this limit to analyze the behavior of the waves close to a classical turning point where $k = 0$.
-  The wave decays beyond a turning point and it never gets a chance to complete a full-wavelength oscillation with $k \ll m$, so that the short wavelength assumption is not violated.
+  The wave decays beyond a turning point and it never gets a chance to complete a full-wavelength oscillation with $k \ll m$, so the short wavelength assumption is not violated.
 }
 but with $k \ll m$.
 To this end, we expand $\lambda_{\pm}$ in powers of $km^{-1}$ to find
@@ -268,7 +265,7 @@ Dispersion relations obtained from setting $\lambda_{\pm} = 0$ above show signif
 For the same reason, we expect both these waves to have both longitudinal and transverse characteristics.
 Despite this, for the sake of simplicity and identification, we shall continue to call waves represented by $\lambda_{+}$ as extensional waves and those represented by $\lambda_{-}$ as flexural waves.
 
-Bending of the rod is associated with normal component $\zeta$ and stretching with tangential component $u$.
+The bending of the rod is associated with normal component $\zeta$ and stretching with tangential component $u$.
 To better understand how the two components contribute to the wave field in the presence of curvature, we define the amplitude ratio
 %
 \begin{equation}
@@ -277,7 +274,7 @@ To better understand how the two components contribute to the wave field in the 
 \end{equation}
 %
 With the above definition, for purely transverse and longitudinal waves $\mathscr{R} = 1$ and $\mathscr{R} = 0$, respectively.
-In the eikonal ansatz, at the lowest order, the wave field $\psi = (\zeta, u)$ is proportional to the eigenvectors $\tau_{\pm}$ of $\mathsf{D}^{(0)}$ so that $\zeta \sim \tau_{\pm,1}$ and $u \sim \tau_{\pm,2}$.
+In the eikonal ansatz, at the lowest order, the wave field $\psi = (\zeta, u)$ is proportional to the eigenvectors $\tau_{\pm}$ of $\mathsf{D}^{(0)}$, so $\zeta \sim \tau_{\pm,1}$ and $u \sim \tau_{\pm,2}$.
 Making use of Eqs.~\eqref{eq:rod_kgm} and \eqref{eq:rod_klm}, to the lowest order in $k$ and $m$, the eigenvectors $\tau_{\pm}$ are
 %
 \begin{equation}
@@ -287,7 +284,7 @@ Making use of Eqs.~\eqref{eq:rod_kgm} and \eqref{eq:rod_klm}, to the lowest orde
   \label{eq:rod_tau}
 \end{equation}
 %
-so that the asymptotic amplitude ratios for the two wave polarizations become $\mathscr{R}_{+} \sim \abs{m}/(\abs{m} + \abs{k})$ and $\mathscr{R}_{-} \sim \abs{k}/(\abs{m} + \abs{k})$.
+so the asymptotic amplitude ratios for the two wave polarizations become $\mathscr{R}_{+} \sim \abs{m}\allowbreak/(\abs{m} + \abs{k})$ and $\mathscr{R}_{-} \sim \abs{k}/(\abs{m} + \abs{k})$.
 For $m = 0$, we know that extensional waves become entirely longitudinal, and as expected the corresponding amplitude ratio $\mathscr{R}_{+} = 0$.
 In same limit, flexural waves become entirely transverse as indicated by $\mathscr{R}_{-} = 1$.
 However, for small values of $k$ with $k \ll m$ we see that $\mathscr{R}_{+} \to 1$ and $\mathscr{R}_{-} \to 0$.
@@ -308,7 +305,7 @@ which we will informally call tanh- and sech-type curvature profiles, respective
 Above, $b$ and $a$ are positive constants such that $a < b$ and the parameter $\epsilon$ controls the slowness of variation of the curvatures.
 A rod with a tanh-type curvature profile $m_{1}(x)$ possesses an inflection point at $x=0$ where the curvature vanishes, and the curvature asymptotes to $\pm b$ as $x\to \pm\infty$ [see Figs.~\ref{fig:rod_bound}(a) and~\ref{fig:rod_bound}(b)].
 On the other hand, a rod with a sech-type curvature profile $m_{2}(x)$ remains concave for all $x$, with the curvature acquiring its minimum value of $a$ at $x = 0$ and asymptoting to $b$ as $x\to\pm\infty$ [see Figs.~\ref{fig:rod_bound}(c) and~\ref{fig:rod_bound}(d)].
-For the purpose of illustrating our results, we take $b = 0.1$ and $a = 0.01$, so that the smallest ratio between the radius of curvature and thickness is $\mathcal{O}(10)$.
+For the purpose of illustrating our results, we take $b = 0.1$ and $a = 0.01$, so the smallest ratio between the radius of curvature and thickness is $\mathcal{O}(10)$.
 Although such a ratio is comparatively smaller than typical experimental values, it would give us a clearer picture of the effects of a varying curvature profile.
 We also set $\epsilon = 0.01$, but as we rescale $x \to \epsilon^{-1}x$, the parameter $\epsilon$ does not always explicitly appear in our discussions.
 Note also that the numerical values of the local wave number $k$ is unaffected by this rescaling.
@@ -341,10 +338,10 @@ For a varying curvature profile, we find the rays for both polarizations by inte
 
 We first discuss how a varying curvature profile affects extensional waves in a rod.
 In Section~\ref{sec:extensional_limit} we present an alternative approach, where we analyze the extensional limit of the rod equations and show that extensional waves form bound states.
-The purpose here, however, is to understand this using a semiclassical perspective, which will serve as a basis for understanding the variably-curved shell.
+The purpose here, however, is to understand this using a semiclassical perspective, which will serve as a basis for understanding the variably curved shell.
 
 As we discussed previously, extensional waves are to be associated with the ray Hamiltonian $\lambda_{+}$.
-Without loss of generality, let $x = 0$ be a point where $m^{2}(x)$ has a local extremum, so that its derivative $[m^{2}(x)]'\big|_{x=0} = 0$ and the origin $(0, 0)$ becomes a fixed point of the Hamilton's equation in Eq.~\eqref{eq:rod_hamiltonian} for $\lambda_{+}$.
+Without loss of generality, let $x = 0$ be a point where $m^{2}(x)$ has a local extremum so that its derivative $[m^{2}(x)]'\big|_{x=0} = 0$ and the origin $(0, 0)$ becomes a fixed point of the Hamilton's equation in Eq.~\eqref{eq:rod_hamiltonian} for $\lambda_{+}$.
 Since Eq.~\eqref{eq:rod_hamiltonian} is a Hamiltonian system, the origin becomes a nonlinear center or a saddle depending on whether the Hamiltonian $\lambda_{+}(x, k)$, viewed as a function of $x$ and $k$, has an extremum or a saddle there~\cite{strogatz1994,jordan2007}.
 For the present problem, we find two situations%
 \footnote{We can also infer this from the sign of the Hessian determinant of $\lambda_{+}$ at $(0, 0)$ given by $\det \nabla\nabla \lambda_{+}\big|_{x=0,k=0} = 2(m^{2})''\big|_{x=0}$, provided that $(m^{2})'' \neq 0$ so that the origin is a nondegenerate fixed point with $\det\nabla\nabla\lambda_{+} \neq 0$.}
@@ -364,6 +361,30 @@ depending on the behavior of $m^{2}(x)$ at $x = 0$.
 %
 As the extrema of $m^{2}(x)$ are identical to the extrema of the absolute curvature $\abs{m(x)}$, we can summarize as follows: points where the absolute curvature has a minimum become nonlinear centers of the ray equations associated with $\lambda_{+}$, and points where the absolute curvature has a maximum become saddles.
 Therefore, we expect extensional waves to get trapped only around points where the absolute curvature has a minimum.
+
+The black curves in Figs.~\ref{fig:rod_bound}(a) and~\ref{fig:rod_bound}(b) show the extensional rays for the two curvature profiles.
+Each ray is a level curve defined by $\lambda_{+}(x, k; \omega) = 0$ for a specific $\omega$.
+Since $\lambda_{+}$ is invariant with respect to reflection about the $x$ and $k$ axes, the ray trajectories also share the same reflection symmetry.
+For both curvature types, there are three fixed points: the origin $(0, 0)$ and $(\pm\infty, 0)$.
+The fixed points at $(\pm\infty, 0)$ are saddles since $m^{2}(x)$ achieves its maximum there.
+Two heteroclinic orbits, shown as black dashed curves, connect the fixed points at $(\pm\infty, 0)$.
+As per our analysis, the origin is always a center as $m^{2}(x)$ achieves a minimum there for both curvature types.
+Close to the origin, the rays appear in form of closed orbits indicating bound states.
+
+Before we present some example results, it is useful to analyze the parity of the bound states.
+If $\psi(x) = [\zeta(x), u(x)]$ is a bound state, then it is easy to check that for an odd curvature profile $m(x)$ with $m(-x) = m(x)$, the eigenmode $\psi(-x) = [\zeta(-x), u(-x)]$ is also a bound state satisfying the rod equations, Eq.~\eqref{eq:rod}, with the boundary conditions $\psi(\pm\infty) = 0$.
+Assuming nondegeneracy in the eigenmodes, we must then have $[\zeta(x), u(x)] = \pm[\zeta(-x), u(-x)]$, which means that for an odd $m(x)$, the components $\zeta(x)$ and $u(x)$ must have the same parity, i.e., they are either both odd or both even.%
+\footnote{%
+  More quantum mechanically, this can be shown by considering the commutation of $\widehat{\mathsf{D}}$ with the operators $\widehat{\mathsf{P}}_{\pm} = \diag(\widehat{\pi}, \pm\widehat{\pi})$, where $\widehat{\pi}$ is the usual parity operator~\cite{cohen-tannoudji2019}.
+  Clearly, $\widehat{\mathsf{P}}_{\pm}\Psi(x) = [\zeta(-x), \pm u(-x)]$, so
+  the eigenstates of $\widehat{\mathsf{P}}_{+}$ always have $\zeta(x)$ and $u(x)$ of the same parity, whereas the eigenstates of $\widehat{\mathsf{P}}_{-}$ always have $\zeta(x)$ and $u(x)$ of different parity.
+  For odd and even $m(x)$, we can show that $\widehat{\mathsf{D}}$ commutes with $\widehat{\mathsf{P}}_{+}$ and $\widehat{\mathsf{P}}_{-}$, respectively.
+  As commuting operators share the same eigenstates (assuming nondegeneracy), this proves the claim made above.%
+}
+For an even $m(x)$, however, we find that bound-state solutions must satisfy $[\zeta(x), u(x)] = \pm[\zeta(-x), -u(-x)]$, showing that the components $\zeta(x)$ and $u(x)$ always have different parity.
+In Figs.~\ref{fig:rod_bound}(c) and~\ref{fig:rod_bound}(d) we show two example bound states obtained by solving the rod equations numerically (see Appendix \ref{app:numerical} for details) and depicting both components of the wave field $\psi$.
+Consistent with our analysis, the example bound state of the tanh-type curvature profile has even $\zeta(x)$ and $u(x)$.
+Likewise, for the example bound state of the sech-type curvature profile, $\zeta(x)$ is odd and $u(x)$ is even.
 %
 \begin{figure}
   \begin{center}
@@ -377,31 +398,6 @@ Therefore, we expect extensional waves to get trapped only around points where t
   \label{fig:rod_bound}
 \end{figure}
 
-The black curves in Figs.~\ref{fig:rod_bound}(a) and~\ref{fig:rod_bound}(b) show the extensional rays for the two curvature profiles.
-Each ray is a level curve defined by $\lambda_{+}(x, k; \omega) = 0$ for a specific $\omega$.
-Since $\lambda_{+}$ is invariant with respect to reflection about the $x$ and $k$ axes, the ray trajectories also share the same reflection symmetry.
-For both curvature types, there are three fixed points: the origin $(0, 0)$ and $(\pm\infty, 0)$.
-The fixed points at $(\pm\infty, 0)$ are saddles since $m^{2}(x)$ achieves its maximum there.
-Two heteroclinic orbits, shown as black dashed curves, connect the fixed points at $(\pm\infty, 0)$.
-% The origin is always a nondegenerate fixed point for a tanh-type curvature profile since $[m_{1}^{2}(x)]''\big|_{x=0} = 2b^{2}$.
-% For the sech-type curvature profile, the origin is a nondegenerate fixed point only when $a$ is nonzero so that $[m_{2}^{2}(x)]''\big|_{x=0} = 2a(b - a) > 0$.
-As per our analysis, the origin is always a center as $m^{2}(x)$ achieves a minimum there for both curvature types.
-Close to the origin, the rays appear in form of closed orbits indicating bound states.
-
-Before we present some example results, it is useful to analyze the parity of the bound states.
-If $\psi(x) = \left[\zeta(x), u(x)\right]$ is a bound state, then it is easy to check that for an odd curvature profile $m(x)$ with $m(-x) = m(x)$, the eigenmode $\psi(-x) = \left[\zeta(-x), u(-x)\right]$ is also a bound state satisfying the rod equations, Eq.~\eqref{eq:rod}, with the boundary conditions $\psi(\pm\infty) = 0$.
-Assuming nondegeneracy in the eigenmodes, we must then have $\left[\zeta(x), u(x)\right] = \pm\left[\zeta(-x), u(-x)\right]$, which means that for an odd $m(x)$, the components $\zeta(x)$ and $u(x)$ must have the same parity, i.e., they are either both odd or both even.%
-\footnote{%
-  More quantum mechanically, this can be shown by considering the commutation of $\widehat{\mathsf{D}}$ with the operators $\widehat{\mathsf{P}}_{\pm} = \diag\left(\widehat{\pi}, \pm\widehat{\pi}\right)$, where $\widehat{\pi}$ is the usual parity operator~\cite{cohen-tannoudji2019}.
-  Clearly, $\widehat{\mathsf{P}}_{\pm}\Psi(x) = \left[\zeta(-x), \pm u(-x)\right]$ so that
-  the eigenstates of $\widehat{\mathsf{P}}_{+}$ always have $\zeta(x)$ and $u(x)$ of the same parity, whereas the eigenstates of $\widehat{\mathsf{P}}_{-}$ always have $\zeta(x)$ and $u(x)$ of different parity.
-  Furthermore, for odd and even $m(x)$, we can show that $\widehat{\mathsf{D}}$ commutes with $\widehat{\mathsf{P}}_{+}$ and $\widehat{\mathsf{P}}_{-}$, respectively.
-  As commuting operators share the same eigenstates (assuming nondegeneracy), this proves the claim made above.%
-}
-For an even $m(x)$, however, we find that bound-state solutions must satisfy $\left[\zeta(x), u(x)\right] = \pm\left[\zeta(-x), -u(-x)\right]$, showing that the components $\zeta(x)$ and $u(x)$ always have different parity.
-In Figs.~\ref{fig:rod_bound}(c) and~\ref{fig:rod_bound}(d) we show two example bound states obtained by solving the rod equations numerically (see Appendix \ref{app:numerical} for details) and depicting both components of the wave field $\psi$.
-Consistent with our analysis, the example bound state of the tanh-type curvature profile has even $\zeta(x)$ and $u(x)$.
-Likewise, for the example bound state of the sech-type curvature profile, $\zeta(x)$ is odd and $u(x)$ is even.
 
 Clearly, the displacement fields of the bound states of both curvature profiles show a significant presence of both normal and tangential components.
 To understand this better, consider again the phase portraits in Fig.~\ref{fig:rod_bound}(a) and \ref{fig:rod_bound}(b), which have been color coded using the amplitude ratio $\mathscr{R}$ defined in Eq.~\eqref{eq:rod_ratio}, and computed%
@@ -464,7 +460,7 @@ A similar expression for $n_\text{max}$ is also derived in Appendix~\ref{sec:ext
 For the values $b = 0.1$ and $\epsilon = 0.01$ we use in our examples, Eq.~\eqref{eq:rod_maxb} predicts a maximum of 10 bound states for a tanh-type rod and 20 bound states for a sech-type rod.
 This prediction is consistent with our numerical experiments with a finite-sized rod, where we find a total of 10 and 18 bound states for the two curvature profiles.
 Despite this, we only expect a small number of extensional bound states in actual experiments with curved rods, where we expect the finiteness of the rod to become more important.
-For one thing, as the arc length $x \to \pm\infty$, self intersection is inevitable for both sech- and tanh-type rods having a nonzero thickness (see Fig.~\ref{fig:rod_profile}).
+For one thing, as the arc length $x \to \pm\infty$, self-intersection is inevitable for both sech- and tanh-type rods having a nonzero thickness (see Fig.~\ref{fig:rod_profile}).
 (Self-intersection effects, however, can be ameliorated if we allow for small motions of the rod perpendicular to the plane containing it.)
 Furthermore, as the turning points of the higher-frequency bound states are far apart, they do not always appear to be spatially localized, even though they decay exponentially as $x \to \pm\infty$.
 %
@@ -529,7 +525,7 @@ We now look for bound-state solutions of Eqs.~\eqref{eq:rod_ext1} and \eqref{eq:
 Let us additionally assume that the longitudinal component $u(x) = \partial_{x}\phi(x)$, where $\phi(x)$ is an unknown differentiable function satisfying%
 \footnote{Assuming $\phi(\pm\infty) = 0$ does not result in any loss in generality.
 Without this assumption, on integrating Eq.~\eqref{eq:rod_ext2} we see that $\phi(\pm\infty) = C$ (constant).
-We then obtain Eq.~\eqref{eq:schrodinger} in terms of $\widetilde{\phi}(x) = \phi(x) - C$ with $\zeta = m\widetilde{\phi}$, so that we can work in terms of $\widetilde{\phi}$ alone, which is equivalent to setting $C = 0$.}
+We then obtain Eq.~\eqref{eq:schrodinger} in terms of $\widetilde{\phi}(x) = \phi(x) - C$ with $\zeta = m\widetilde{\phi}$ so that we can work in terms of $\widetilde{\phi}$ alone, which is equivalent to setting $C = 0$.}
 $\phi(\pm\infty) = 0$.
 Equation~\eqref{eq:rod_ext2} then becomes a total derivative, which on integration yields
 %
@@ -574,7 +570,7 @@ Figure~\ref{fig:poschl} presents a comparison of the bound states described by E
 The agreement is remarkable given the fact that the numerical results were obtained by solving the full wave equations, Eq.~\eqref{eq:rod}, without employing any additional approximations.
 From Eq.~\eqref{eq:poschl_params} we also see that maximum number of bound states is $n_{\text{max}} \approx \nu = b/\epsilon + \mathcal{O}(b^{2}/\epsilon^{2})$, which agrees with the semiclassical prediction in Eq.~\eqref{eq:rod_maxb}.
 
-\sloppy We are currently unaware of an exact solution of Eq.~\eqref{eq:schrodinger} for the potential $m^{2}_{2}(x)\allowbreak = \left[b - (b - a)\sech(\epsilon x)\right]^{2}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
+We are currently unaware of an exact solution of Eq.~\eqref{eq:schrodinger} for the potential $m^{2}_{2}(x)\allowbreak =\allowbreak [b - (b - a)\sech(\epsilon x)]^{2}$ corresponding to a sech-type curvature profile, even though exact solutions for similar potentials exist~\cite{lemieux1969,nieto1978,ishkhanyan2018}.
 However, we can crudely approximate $m^{2}_{2}(x)$ as a deformed P\"{o}schl--Teller potential of the form
 %
 \begin{equation}
@@ -609,7 +605,7 @@ To find the extensional bound states, we focus on $\lambda_{+}$, the ray Hamilto
 Instead of using $\lambda_{+}$ from Eq.~\eqref{eq:rod_ham}, which involves a radical expression, we use the approximate version $\lambda_{+} \approx k^{2} - m^{2} - \omega^{2}$ [see Eqs.~\eqref{eq:rod_kgm} and \eqref{eq:rod_klm}].
 Next, we promote $k \to \hat{k} = -i\partial_{x}$, which ``quantizes'' the ray Hamiltonian $\lambda_{+}$ and we obtain Eq.~\eqref{eq:schrodinger} for an unknown wave function $\phi(x)$.
 The full wave field can be recovered from $\phi(x)$ using $(\zeta, u) \sim \hat{\tau}_{+}\phi(x)$, where $\hat{\tau}_{+}$ is a two-component operator obtained by promoting $k \to \hat{k}$ in the symbol form of the polarization vector $\tau_{+}$.
-From Eq.~\eqref{eq:rod_tau}, we see that $\tau_{+} \approx [m(x),\, ik]$ so that $\hat{\tau}_{+} \approx [m(x),\, \partial_{x}]$.
+From Eq.~\eqref{eq:rod_tau}, we see that $\tau_{+} \approx [m(x),\, ik]$, so $\hat{\tau}_{+} \approx [m(x),\, \partial_{x}]$.
 We then find $\zeta(x) \sim m(x)\phi(x)$ and $u(x) \sim \partial_{x}\phi(x)$, consistent with our analysis.
 
 \section{Higher-order rod equations}
@@ -716,7 +712,8 @@ For an arbitrarily parameterized midsurface, it is easiest to extract the equati
 We consider the middle surface of the shell to be a generalized cylinder~\cite{pressley2010} obtained by translating a plane curve $\bm{\sigma}: \mathcal{X} \to \mathbb{R}^{3}$, parameterized by $x \in \mathcal{X} \subset \mathbb{R}$, perpendicular to the plane containing it.
 Thus, the shell is defined by $\bm{\Sigma}: \mathcal{X}\times\mathcal{Y} \to \mathbb{R}^{3}$, $\bm{\Sigma}(x, y) = \bm{\sigma}(x) + y{\bm{e}}_{y}$, where $\bm{e}_{y} = \partial_{y}\bm{\Sigma}$ is a constant unit vector perpendicular to the plane containing $\bm{\sigma}(x)$.
 Also, $y \in \mathcal{Y}$ is the coordinate along $\bm{e}_{y}$.
-For simplicity, and to make comparisons with the rod equations easier, we assume that $x$ is the arclength so that $\bm{e}_{x} = \partial_{x}\bm{\Sigma} = \bm{t}$ is the unit tangent along the curve $\bm{\sigma}$.
+For simplicity, and to make comparisons with the rod equations easier, we assume that $x$ is the arclength.
+So, $\bm{e}_{x} = \partial_{x}\bm{\Sigma} = \bm{t}$ is the unit tangent along the curve $\bm{\sigma}$.
 Furthermore, we orient $\bm{e}_{y}$ such that surface normal $\bm{e}_{x}\times\bm{e}_{y}$ coincides with the normal $\bm{n}$ to $\bm{\sigma}$.
 Then, the only nonvanishing principal curvature of the shell is equal to the curve's signed curvature $m(x)$.
 Propagating waves displace the shell from $\bm{\Sigma} \to \bm{\Sigma} + \delta\bm{\Sigma}$.
@@ -732,7 +729,7 @@ Assuming no external forces, the dynamic Donnell--Yu equations are
 \end{subequations}
 %
 Here $\Delta$ is the two-dimensional Laplacian, $\eta$ is the Poisson's ratio, and $\varrho$ is the density per unit area.
-Also, the extensional stiffness $\widetilde{E} = Yh/(1-\eta^{2})$ and bending stiffness $\widetilde{B} = Yh^{3}/\left[12(1-\eta^{2})\right]$, with $Y$ being the Young's modulus and $h$ being the thickness of the shell.
+Also, the extensional stiffness $\widetilde{E} = Yh/(1-\eta^{2})$ and bending stiffness $\widetilde{B} = Yh^{3}/[12(1-\eta^{2})]$, with $Y$ being the Young's modulus and $h$ being the thickness of the shell.
 On setting the length units to $\sqrt{\widetilde{B}/\widetilde{E}}$ and time units to $\sqrt{\smash[b]{\widetilde{B}\varrho}}/\widetilde{E}$, we arrive at the nondimensional form of these equations, which in matrix form reads
 %
 \begin{equation}
@@ -779,7 +776,7 @@ Finally, we find the dispersion matrix $\mathsf{D}^{(0)}$ as
   (k^{2} + l^{2})^{2} + m^{2}(x) - \omega^{2} & -i k m(x) & -i\eta l m(x)\\
   ik m(x) & k^{2} + \tfrac{1}{2}(1-\eta)l^{2} - \omega^{2} & \tfrac{1}{2}(1+\eta)kl\\
   i\eta l m(x) & \tfrac{1}{2}(1 + \eta)kl & \tfrac{1}{2}(1-\eta)k^{2} + l^{2} - \omega^{2}
-\end{pmatrix},\\
+\end{pmatrix},
 \end{equation}
 and find its first-order correction $\mathsf{D}^{(1)}$ to be
 \begin{equation}
@@ -807,7 +804,7 @@ of $\mathsf{D}^{(0)}$, which is
   \label{eq:shell_det}
 \end{equation}
 %
-Before we continue, it is insightful to examine the dispersion relations for plain waves propagating on singly-curved shells of constant curvature.
+Before we continue, it is insightful to examine the dispersion relations for plain waves propagating on singly curved shells of constant curvature.
 
 \subsection{Shells of constant curvature}
 
@@ -831,6 +828,7 @@ Because $l$ is nonzero, there is now a gap in the dispersion curves and a corres
 %
 \begin{figure}
   \begin{center}
+    \vspace{2\baselineskip}
     \includegraphics{localization/shell_disp.pdf}
   \end{center}
   \caption{%
@@ -844,6 +842,7 @@ Because $l$ is nonzero, there is now a gap in the dispersion curves and a corres
 \end{figure}
 
 \subsubsection*{Exact dispersion relations}
+
 
 For nonzero but constant curvature, plain waves continue to propagate on the shell, which now becomes part of a thin cylinder.
 For simplicity, we shall continue to call these waves as being flexural, extensional, or shear in nature.
@@ -958,7 +957,7 @@ Despite such a possibility, we did not observe any discernible effects of mode c
     \includegraphics{localization/shell_gap.pdf}
   \end{center}
   \caption{%
-    Cut-on frequencies for a singly-curved shell as a function of the curvature $m$ for (a) flexural, (b) shear, and (c) extensional waves.
+    Cut-on frequencies for a singly curved shell as a function of the curvature $m$ for (a) flexural, (b) shear, and (c) extensional waves.
     The blue dashed curves represent the cut-on frequency predicted by Eq.~\eqref{eq:shell_disp_approx}, which holds only when $m$ is small.
     The solid curves represent the actual cut-on frequency obtained by finding $\omega$ from Eq.~\eqref{eq:shell_det} using the general cubic formula, and taking the limit $k \to 0$ numerically.
     The transverse wave number $l = 0.1$ and Poisson's ratio $\eta = 0.3$ in all plots.
@@ -968,7 +967,7 @@ Despite such a possibility, we did not observe any discernible effects of mode c
 
 \subsection{Shells with varying curvature}
 
-We shall now consider singly-curved shells with varying curvature profiles.
+We shall now consider singly curved shells with varying curvature profiles.
 Given the complexity of the general dispersion relations and the myriad of subtleties, we shall, however, perform a less exhaustive analysis compared to what we did for the rod.
 We shall only look at a limited number of examples, and to simplify matters, we set the transverse wave number $l = 0.1$ and Poisson's ratio $\eta = 0.3$ (corresponding to that of steel) throughout.
 As for the rod, we will consider both tanh-type and sech-type curvature profiles, but we assume that the largest absolute curvature $b > m_{\ddag}$.
@@ -1017,7 +1016,7 @@ We discuss flexural waves first.
 \label{sec:shell_flexural}
 
 Our intuitive expectation of flexural bound states is confirmed by the actual ray trajectories for flexural waves showcased in Figs.~\ref{fig:shell_rays}(a) and~\ref{fig:shell_rays}(d).
-For frequencies slightly above the cut-on frequency at $x = 0$, the rays appear in the form of closed, vertically-elongated orbits that remain confined to a region where the curvature is very small.
+For frequencies slightly above the cut-on frequency at $x = 0$, the rays appear in the form of closed, vertically elongated orbits that remain confined to a region where the curvature is very small.
 At larger frequencies, the rays begin to enter regions of higher curvature, and orbits change from being elliptical to highly eccentric, ``peanut''-shaped curves.
 For these orbits, we have a total of six caustics where $\dot{x} = 0$.
 [Compare Figs.~\ref{fig:shell_rays}(a) and~\ref{fig:shell_rays}(d) with Fig.~\ref{fig:caustic}(b).]
@@ -1052,6 +1051,7 @@ They, however, remain confined to a region of similar extent as the four caustic
 
 \subsubsection*{Shear waves}
 
+
 From the phase portraits in Fig.~\ref{fig:shell_rays}(b) and~\ref{fig:shell_rays}(e), we see that shear waves also form bound rays confined between two classical turning points.
 As the frequency of the orbits increase, the turning points move to $x = \pm \infty$, where the absolute curvature for both curvature types is $b$.
 Thus, the largest frequency for which we observe shear bound states is the shear-wave cut-on frequency for a cylindrical shell of curvature equal to $b$, obtained by setting $m = b$ in the second root of Eq.~\eqref{eq:shell_cuton}.
@@ -1059,7 +1059,7 @@ Beyond this frequency, shear waves form unbound states.
 The rays of shear bound states are elongated along the $x$ direction as the spectral gap in the local dispersion curve does not begin increasing until $m(x) > m_{\ddag}$.
 For the same reason, shear waves do not get localized if $b < m_{\ddag}$.
 It is then natural to wonder if the localization of shear waves seen in the phase portraits is an artifact of having chosen a relatively large value of $b = 0.1$.
-But from Eq.~\eqref{eq:shell_mdag} we see that $m_{\ddag}$ can be made arbitrarily small by adjusting the value of transverse wave number $l$, so that even for small $b$ we would expect shear bound states.
+But from Eq.~\eqref{eq:shell_mdag} we see that $m_{\ddag}$ can be made arbitrarily small by adjusting the value of transverse wave number $l$, so even for small $b$ we would expect shear bound states.
 
 Example profiles of two shear bound states are shown in Figs.~\ref{fig:shell_modes_tanh}(c) and~\ref{fig:shell_modes_tanh}(d).
 The first one has a frequency that is only slightly above the shear-wave cut-on frequency and hence its local wave number $k$ is small.
@@ -1067,6 +1067,7 @@ Therefore, its (local) wave vector is predominantly in the $y$ direction [see Fi
 Furthermore, as expected from the transverse nature of shear waves, the dominant tangential component is $u$, which is the displacement along $x$.
 The second shear bound state shown in Fig.~\ref{fig:shell_modes_tanh}(f) has a higher frequency, causing it to spread to regions of higher curvature, where curvature effects become more prominent.
 This can also be inferred from the color coding of Figs.~\ref{fig:shell_rays}(b) and~\ref{fig:shell_rays}(e), which shows that shear bound states develop a significant normal component at higher frequencies.
+
 
 \subsubsection*{Extensional waves}
 
@@ -1078,6 +1079,18 @@ Hence, the largest frequency for which we observe extensional bound states must 
 Example profiles of two extensional bound states are shown in Figs.~\ref{fig:shell_modes_tanh}(e) and~\ref{fig:shell_modes_tanh}(f).
 Low-frequency extensional bound states, such as the one in Fig.~\ref{fig:shell_modes_tanh}(e), are expected to displace the shell predominantly in the $y$ direction as seen from the comparatively large values of the tangential component $v$.
 The bound state in Fig.~\ref{fig:shell_modes_tanh}(f) has a slightly higher frequency, causing it to spread to regions of higher curvature, where it develops a significant normal component, which we also infer from the color coding of Figs.~\ref{fig:shell_rays}(c) and~\ref{fig:shell_rays}(f).
+%
+\begin{figure}
+  \begin{center}
+    \includegraphics{localization/shell_wkb.pdf}
+  \end{center}
+  \caption{
+    Bound-state frequencies of a curved shell obtained from numerics compared to that obtained through quantization for (a)
+    tanh-type curvature profile $m_{1}(x)$ and (b) sech-type curvature profile $m_{2}(x)$.
+    For both plots, the gray guide line in the background represents $\omega$ (quantized) = $\omega$ (numerical).
+  }
+  \label{fig:shell_wkb}
+\end{figure}
 
 \subsubsection*{Bound states and quantization}
 
@@ -1093,20 +1106,6 @@ We use the same quantization procedure as for the rod to determine the bound-sta
 Furthermore, the extra phases $\gamma_{\text{G}}$ and $\gamma_{\text{NG}}$ in the quantization condition in Eq.~\eqref{eq:quantization} vanish for the shell equations as well (Appendix~\ref{app:additional_phase}).
 The Keller--Maslov index continues to be $\alpha = 2$ for all orbits---including the peanut-shaped orbits with six caustics---as they can be smoothly deformed into a circle centered around the origin~\cite{percival1977}.
 From Fig.~\ref{fig:shell_wkb}, we see that the bound-state frequencies obtained through quantization agree rather well with the numerical values for both curvature profiles.
-% Also, from Fig.~\ref{fig:shell_rays} we see that the sech-type orbits generally enclose a larger area compared to the tanh-type orbits.
-% Hence, it is not surprising that a sech-type shell possesses more bound states for all three wave polarizations.
-%
-\begin{figure}
-  \begin{center}
-    \includegraphics{localization/shell_wkb.pdf}
-  \end{center}
-  \caption{
-    Bound-state frequencies of a curved shell obtained from numerics compared to that obtained through quantization for (a)
-    tanh-type curvature profile $m_{1}(x)$ and (b) sech-type curvature profile $m_{2}(x)$.
-    For both plots, the gray guide line in the background represents $\omega$ (quantized) = $\omega$ (numerical).
-  }
-  \label{fig:shell_wkb}
-\end{figure}
 
 Although waves of all three types form bound states, from our preceding analyses and Fig.~\ref{fig:shell_wkb}, we see that flexural bound states appear first, followed by shear and extensional bound states.
 Thus, in very long shells, shear waves form bound states that lie in a quasi-continuum of flexural waves spread across the shell.
@@ -1115,17 +1114,6 @@ Similar to the curved rod, the bound states of the curved shell are also of defi
 More specifically, when $m(x)$ is even, the components $\zeta(x)$ and $v(x)$ have the same parity, with $u(x)$ having the opposite parity.
 For odd $m(x)$, however, $\zeta(x)$ and $u(x)$ have the same parity, with $v(x)$ having the opposite parity, as can be seen from the example bound states in Fig.~\ref{fig:shell_modes_tanh}.
 
-% Parity analysis
-% ---------------
-%
-% Let also remark that the bound states of all three wave polarizations are also of definite parity when the curvature $m(x)$ is odd or even.
-% From Eq.~\eqref{eq:shell_wave_eq}, we can verify that for an odd $m(x)$, if $\psi(x) = \left[\zeta(x), u(x), v(x)\right]$ is an eigenmode, then $\psi(x) = \left[\zeta(-x), u(-x), -v(-x)\right]$ is an eigenmode as well.
-% Assuming nondegeneracy, this implies that the real and complex components of $\zeta(x)$ and $u(x)$ have the same parity, i.e., they are both odd or both even.
-% The components of $v(x)$, however, would have the opposite parity.
-% For the odd tanh-type curvature profile, we see this in Figs.~\ref{fig:shell_modes_tanh}(a)--(c), where $\zeta(x)$ and $u(x)$ are even, and $\Im\left[v(x)\right]$ is odd.
-% Similarly, in Figs.~\ref{fig:shell_modes_tanh}(d)--(f), we observe that $v(x)$ is even, and $\zeta(x)$ and $u(x)$ are odd.
-% A similar analysis reveals that for an even $m(x)$, the components of $\zeta(x)$ and $v(x)$ have the same parity, with the components of $u(x)$ having the opposite parity.
-
 \section{Shells with sharp bends}
 
 Flexural bound states have also been predicted to exist in curved shells around points of maximal curvature~\cite{mohammed2021}.
@@ -1133,9 +1121,9 @@ To illustrate this, we consider the curvature profile%
 \footnote{The authors of Refs.~\cite{sondergaard2002,mohammed2021} use a much more complicated curvature profile in their analysis.  However, for our purposes, $m_{3}(x)$ has the basic features of the profiles that these authors consider.}
 $m_{3}(x) = b\sech(\epsilon x)$.
 For the parameter values $b = 0.1$ and $\epsilon = 0.01$, Fig.~\ref{fig:shell_m3_profile} shows the function $m_{3}(x)$ and the shape of a curve with this curvature profile.
-Clearly, the curve intersects itself at multiple points, and hence $m_{3}(x)$ can only be the curvature profile of a physically unrealizable ``phantom'' shell that allows self intersections.
-Although self intersections can be avoided by choosing a smaller value for $b$ (or a larger value for $\epsilon$), doing so would lead to the formation of very few or barely discernible bound states.
-For this reason, we will continue to work with the choice $b=0.1$ so that the bound states appear more conspicuous. 
+Clearly, the curve intersects itself at multiple points, and hence $m_{3}(x)$ can only be the curvature profile of a physically unrealizable ``phantom'' shell that allows self-intersections.
+Although self-intersections can be avoided by choosing a smaller value for $b$ (or a larger value for $\epsilon$), doing so would lead to the formation of very few or barely discernible bound states.
+For this reason, we will continue to work with the choice $b=0.1$ so that the bound states appear more conspicuous.
 %
 \begin{figure}
   \begin{center}
@@ -1143,7 +1131,7 @@ For this reason, we will continue to work with the choice $b=0.1$ so that the bo
   \end{center}
   \caption{%
     (a) Curvature profile $m_{3}(x) = b\sech{\epsilon x}$ and (b) a curve with this curvature profile in Cartesian space with coordinates $X$ and $Z$.
-    As the curve has multiple self intersections, only a physically unrealistic ``phantom'' shell can have this curvature profile.
+    As the curve has multiple self-intersections, only a physically unrealistic ``phantom'' shell can have this curvature profile.
     The parameters $b = 0.1$ and $\epsilon = 0.01$.
   }
   \label{fig:shell_m3_profile}
@@ -1156,11 +1144,23 @@ In the phase portrait of Fig.~\ref{fig:shell_m3_rays}(a), we see that in additio
 The saddle points arise because of the double-well minimum in the flexural dispersion curves where $\dd{\omega}/\dd{k} = 0$.
 A more detailed analysis of the phase portraits and bound states of flexural waves reveals the following:
 %
+\begin{figure}
+  \begin{center}
+    \includegraphics{localization/shell_rays_altsech.pdf}
+  \end{center}
+  \caption{%
+    Rays trajectories for a curved shell with the curvature profile $m_{3}(x)$ showing (a) flexural waves, (b) shear waves, and (c) extensional waves.
+    Only flexural waves form bound states.
+    The phase portraits are color coded with the ratio $\mathscr{R}_{s}$ defined in Eq.~\eqref{eq:shell_ratio}.
+  }
+  \label{fig:shell_m3_rays}
+\end{figure}
+%
 \begin{enumerate}
   \item
     The existence of bound states around regions of high curvature cannot simply be explained by considering the gap and/or cut-on frequency in the dispersion curves---after all, as we move away from regions of high curvature to regions of low curvature, this gap decreases.
     In reality, these bound states arise due to the double-well nature of the flexural dispersion curves at nonzero curvature.
-    Indeed, if $l = 0$ or $b \lesssim l^{2}/\sqrt{\smash[b]{1-\eta^{2}}}$, the dispersion curves fails to have a double-well nature and bound states do not exist.%
+    Indeed, if $l = 0$ or $b \lesssim l^{2}/\sqrt{\smash[b]{1-\eta^{2}}}$, the dispersion curves fail to have a double-well nature and bound states do not exist.%
     \footnote{This should be contrasted with flexural bound states around points of minimal curvature, which continue to exist even for $b \lesssim l^{2}/\sqrt{\smash[b]{1-\eta^{2}}}$; see the discussion on p.~\pageref{sec:shell_flexural}.}
   \item Smaller orbits in the phase portraits represent bound states of \emph{higher} frequency.
     Hence, higher-frequency bound states are represented by a smaller quantum number $n$.
@@ -1179,22 +1179,6 @@ A more detailed analysis of the phase portraits and bound states of flexural wav
 %
 \begin{figure}
   \begin{center}
-    \includegraphics{localization/shell_rays_altsech.pdf}
-  \end{center}
-  \caption{%
-    Rays trajectories for a curved shell with the curvature profile $m_{3}(x)$ showing (a) flexural waves, (b) shear waves, and (c) extensional waves.
-    Only flexural waves form bound states.
-    The phase portraits are color coded with the ratio $\mathscr{R}_{s}$ defined in Eq.~\eqref{eq:shell_ratio}.
-  }
-  \label{fig:shell_m3_rays}
-\end{figure}
-
-In summary, flexural bound states in a shell can also develop around points of maximal curvature.
-Let us again remark, however, that for the parameter choices $b = 0.1$ and $\epsilon = 0.01$, the curvature profile $m_{3}(x)$ is a physical unrealizable one.
-On the other hand, numerical experiments with more realistic shells (with small $b$ and/or large $\epsilon$) revealed very few or practically nonexistent bound states---something that we expect to happen in real experiments as well.
-
-\begin{figure}
-  \begin{center}
     \includegraphics{localization/shell_altsech_results.pdf}
   \end{center}
   \caption{%
@@ -1204,6 +1188,10 @@ On the other hand, numerical experiments with more realistic shells (with small 
   }
   \label{fig:shell_m3_results}
 \end{figure}
+
+In summary, flexural bound states in a shell can also develop around points of maximal curvature.
+Let us again remark, however, that for the parameter choices $b = 0.1$ and $\epsilon = 0.01$, the curvature profile $m_{3}(x)$ is a physical unrealizable one.
+On the other hand, numerical experiments with more realistic shells (with small $b$ and/or large $\epsilon$) revealed very few or practically nonexistent bound states---something that we expect to happen in real experiments as well.
 
 \section{Concluding remarks}
 \label{sec:conclusion}
@@ -1264,13 +1252,14 @@ Putting Eq.~\eqref{eq:tau} in Eq.~\eqref{eq:extra_phases}, we see that the rate 
   \end{aligned}
 \end{equation}
 %
-In the last step above, we have made use of the fact that $\Abs{\tau} = 1$ always so that $\left\{\Abs{\tau}^{2}, \lambda\right\}$ vanishes.
+In the last step above, we have made use of the fact that $\Abs{\tau} = 1$ always, so $\{\Abs{\tau}^{2}, \lambda\}$ vanishes.
 Clearly, if the phases $\varphi_{j}(x, k)$ are constants, then $\dot{\gamma}_{\text{G}}$ vanishes.
 More generally, $\dot{\gamma}_{\text{G}}$ would vanish if all $(x, k)$ dependence in the phases $\varphi_{j}$ can be removed by an overall rephasing of $\tau$ (as such a rephasing does not affect the normalization of $\tau$).
 In other words, only the relative phases between the components of $\tau$ contribute to $\dot{\gamma}_{\text{G}}$.
-From here on we assume that the phases $\varphi_{j}$ are constants so that all Poisson brackets involving $\varphi_{j}$ can be set to zero.
+From here on we assume that the phases $\varphi_{j}$ are constants, so all Poisson brackets involving $\varphi_{j}$ can be set to zero.
 In that case $\dot{\gamma}_{\text{G}} = 0$ everywhere on the phase space, and the accumulated phase $\gamma_{\text{G}}$ as we move along an orbit can be taken to be zero.
 
+\squeezepage[1]
 But what about the second (non-geometric) phase $\gamma_{\text{NG}}$?
 From Eq.~\eqref{eq:extra_phases} we see that the rate of change of $\gamma_{\text{NG}}$ is given by
 %
@@ -1286,6 +1275,7 @@ In the last step above, we have used Eq.~\eqref{eq:tau} to simplify the first te
 We have also made use of the Hermiticity of $\mathsf{D}^{(0)}$ to express the first term in terms of the off-diagonal entries of $\mathsf{D}^{(0)}$.
 From Eq.~\eqref{eq:gamma_NG} we see that even when the phases $\varphi_{j}$ are constants, $\gamma_{\text{NG}}$ could be nonzero.
 However, in the following subsection we show that for wave equations of thin elastic structures with certain invariant properties, in addition to a vanishing $\gamma_{\text{G}}$, the phase $\gamma_{\text{NG}}$ vanishes as well.
+
 
 \subsection{Wave equations of thin elastic structures}
 
@@ -1379,14 +1369,14 @@ Direct inspection reveals that for $\mathsf{D}^{(0)}$ defined in Eq.~\eqref{eq:g
 \end{equation}
 %
 where $\tau_{1}$, $\tau_{2}$, and $\tau_{3}$ are \emph{real} functions defined on the phase space.
-Clearly, the relative phases $\varphi_{12}$ and $\varphi_{13}$ between the components of $\tau$ are either $\pm \pi/2$ or $0$ (when $\tau_{1}$ or $\tau_{2}$ vanishes).
+Clearly, the relative phases $\varphi_{12}$ and $\varphi_{13}$ between the components of $\tau$ are either $\pm \pi/2$ or $0$ (when $\tau_{1}$ or $\tau_{2}$ vanishes).\pagebreak[3]
 Likewise, the relative phase $\varphi_{23}$ is either $0$ or $\pi$.
 Because the relative phases are constants, from our discussion in the previous subsection, it then follows that the geometric phase $\gamma_{\text{G}} = 0$.
 When the matrix $\mathsf{D}^{(1)}$ is of the form in Eq.~\eqref{eq:gen_disp_matrix}, using the polarization vector $\tau$ in Eq.~\eqref{eq:tau3}, a straightforward computation shows that second term in the expression for $\dot{\gamma}_{\text{NG}}$, Eq.~\eqref{eq:gamma_NG}, vanishes.
 Next, we note that $\mathsf{D}_{12}^{(0)}e^{-i\varphi_{12}} = \pm A^{(0)}$, $\mathsf{D}_{13}^{(0)}e^{-i\varphi_{13}} = \pm B^{(0)}$, and $\mathsf{D}_{23}^{(0)}e^{-i\varphi_{23}} = \pm C^{(0)}$, are all real.
 From Eq.~\eqref{eq:gamma_NG} it then follows that $\dot{\gamma}_{\text{NG}}$ vanishes, and we can take $\gamma_{\text{NG}}$ to be zero as well.
 
-The dispersion matrices for the thin shell we considered in Eq.~\eqref{eq:shell_disp_matrices} is of the form in Eq.~\eqref{eq:gen_disp_matrix}, and hence the phase $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$ is zero for the shell.
+The dispersion matrices for the thin shell we considered in Eq.~\eqref{eq:shell_disp_matrices} are of the form in Eq.~\eqref{eq:gen_disp_matrix}, and hence the phase $\gamma = \gamma_{\text{G}} + \gamma_{\text{NG}}$ is zero for the shell.
 It can be verified that the dispersion matrices for many higher-order shell theories~\cite{doyle2021} would also be of this form.
 For the curved rod, the dispersion matrices in Eq.~\eqref{eq:rod_D} are identical to the shell dispersion matrices once we delete the third row and column, and set $l=0$.
 Proceeding by arguments similar to previous ones, we see that the extra phase $\gamma$ vanishes for the rod as well.
@@ -1400,19 +1390,19 @@ Bound states are identified by manual examination of the eigenmode profiles.
 To test the robustness of the bound states, we independently use clamped, simply supported, and mixed clamped--simply supported boundary conditions for both the rod and the shell.
 At the clamped end of a rod, the geometric boundary conditions are $\zeta(x) = \partial_{x}\zeta(x) = u(x) = 0$~\cite{kernes2021}.
 For the shell, at the clamped end, we additionally have $v(x) = 0$ as well.
-At a simply-supported end of a rod, we have the geometric boundary condition $\zeta(x) = u(x) = 0$ and the natural boundary condition $\partial_{x}^{2}\zeta(x) = 0$ (no bending moment)~\cite{fung1965}.
-In case of a shell, at a simply-supported end, we have $\zeta(x) = u(x) = v(x) = 0$ and $\partial_{x}^{2}\zeta(x) - \eta l^{2}\zeta(x) = 0$~\cite{yu1955}.
+At a simply supported end of a rod, we have the geometric boundary condition $\zeta(x) = u(x) = 0$ and the natural boundary condition $\partial_{x}^{2}\zeta(x) = 0$ (no bending moment)~\cite{fung1965}.
+In case of a shell, at a simply supported end, we have $\zeta(x) = u(x) = v(x) = 0$ and $\partial_{x}^{2}\zeta(x) - \eta l^{2}\zeta(x) = 0$~\cite{yu1955}.
 
 For finding the quantized frequencies numerically, for a given $n \in \mathbb{N}_{0}$, we start with an approximate guess for the frequency $\omega$ based on the numerical results.
-We then numerically integrate the ray equations starting at one of the classical turning points on the $x$ axis, e.g., the one at $x = -x^{\star}$, until the ray reaches the other turning point at $x = x^{\star}$ [see Fig.~\ref{fig:caustic}].
+We then numerically integrate the ray equations starting at one of the classical turning points on the $x$ axis, e.g., the one at $x = -x^{\star}$, until the ray reaches the other turning point at $x = x^{\star}$ (see Fig.~\ref{fig:caustic}).
 Next, we compute
 %
 \begin{equation}
   n(\omega) = (\pi\epsilon)^{-1} \int_{-x^{\star}}^{x^{\star}} \dd{x}\,k(x) - \tfrac{1}{2}
 \end{equation}
 %
-using points $\left[x, k(x)\right]$ from the ray trajectory, with the integral evaluated by quadrature.
-For a general $\omega$, the estimated $n(\omega)$ will not be integer valued.
+using points $[x, k(x)]$ from the ray trajectory, with the integral evaluated by quadrature.
+For a general $\omega$, the estimated $n(\omega)$ will not be integer-valued.
 Quantized frequencies $\omega$ can be obtained by solving $n(\omega) = n$ using a numerical root finder.
 Alternatively, we could minimize the absolute ``error'' $\abs{n - n(\omega)}$ using random values of $\omega$ spread around the initial guess, and take the quantized frequency to be $\argmin_{\omega}\,\abs{n - n(\omega)}$.
 For the results reported in this chapter, this error is less than $10^{-10}$.
